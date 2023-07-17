@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react"
 import React from "react"
 import { useIo } from "../hooks/useIo"
 import { useSnackbar } from "burgos-snackbar"
+import { useNavigate } from "react-router-dom"
 
 interface UserContextValue {
     user: User | null
@@ -20,6 +21,7 @@ export default UserContext
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const io = useIo()
+    const navigate = useNavigate()
 
     const { snackbar } = useSnackbar()
 
@@ -30,6 +32,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         setUser(data)
         snackbar({ severity: "success", text: "login sucesso" })
         setLoginLoading(false)
+        navigate("/")
     })
 
     io.on("login:error", () => {
