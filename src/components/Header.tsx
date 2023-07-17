@@ -3,11 +3,13 @@ import MenuIcon from "@mui/icons-material/Menu"
 import NotificationsIcon from "@mui/icons-material/Notifications"
 import { useHeader } from "../hooks/useHeader"
 import { useMenuDrawer } from "../hooks/useMenuDrawer"
+import { useNotifications } from "../hooks/useNotifications"
 
 interface HeaderProps {}
 
 export const Header: React.FC<HeaderProps> = ({}) => {
     const header = useHeader()
+    const notifications = useNotifications()
     const menuDrawer = useMenuDrawer()
 
     const iconStyle: SxProps = {
@@ -21,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
                 <MenuIcon sx={iconStyle} />
             </IconButton>
             <p>{header.title}</p>
-            <IconButton color="primary">
+            <IconButton color="primary" onClick={notifications.toggle}>
                 <NotificationsIcon sx={iconStyle} />
             </IconButton>
         </Box>
