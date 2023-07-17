@@ -3,4 +3,5 @@ declare interface User {
     document: string
     email: string
     name: string
+    password: string
 }

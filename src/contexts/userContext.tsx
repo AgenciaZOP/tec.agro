@@ -40,6 +40,15 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         setLoginLoading(false)
     })
 
+    io.on("signup:success", () => {
+        navigate("/login")
+        snackbar({severity: "success", text: "usuário criado com sucesso"})
+    })
+
+    io.on("signup:error", () => {
+        snackbar({severity: "error", text: "erro ao criar usuário"})
+    })
+
     useEffect(() => {
         console.log({ user })
     }, [user])

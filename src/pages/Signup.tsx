@@ -2,6 +2,7 @@ import { Box, Button } from "@mui/material"
 import { TextField } from "../components/TextField"
 import { useNavigate } from "react-router-dom"
 import { Form, Formik } from "formik"
+import { useSignup } from "../hooks/useSignup"
 
 interface SignupProps {}
 
@@ -14,9 +15,10 @@ interface Inputs {
 
 export const Signup: React.FC<SignupProps> = ({}) => {
     const navigate = useNavigate()
+    const signup = useSignup()
 
     const handleSubmit = (values: Inputs) => {
-        console.log(values);
+        signup({...values, id: 0})
       };
 
     return (
