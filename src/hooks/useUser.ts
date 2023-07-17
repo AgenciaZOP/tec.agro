@@ -15,8 +15,8 @@ export const useUser = () => {
 
     const logout = () => {
         io.emit("user:logout")
-        setUser(null)
         navigate("/login")
+        setUser(null)
     }
 
     return { user, login, loginLoading, setLoginLoading, logout }
