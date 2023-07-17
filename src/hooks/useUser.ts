@@ -7,7 +7,7 @@ export const useUser = () => {
     const io = useIo()
     const navigate = useNavigate()
 
-    const { user, setUser, loginLoading, setLoginLoading } = useContext(UserContext)
+    const { user, setUser, loginLoading, setLoginLoading, signupLoading, setSignupLoading } = useContext(UserContext)
 
     const login = (data: LoginData) => {
         io.emit("user:login", data)
@@ -19,5 +19,5 @@ export const useUser = () => {
         setUser(null)
     }
 
-    return { user, login, loginLoading, setLoginLoading, logout }
+    return { user, login, loginLoading, setLoginLoading, signupLoading, setSignupLoading, logout }
 }
