@@ -10,5 +10,5 @@ export const useUser = () => {
         io.emit("login:try", data)
     }
 
-    return { login, loginLoading, setLoginLoading }
+    return { user, login, loginLoading, setLoginLoading }
 }

@@ -1,22 +1,20 @@
 import "./App.css"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Login } from "./pages/Login"
+import { BrowserRouter } from "react-router-dom"
 import { useMuiTheme } from "./hooks/useMuiTheme"
 import { ThemeProvider } from "@mui/material"
 import { Providers } from "./components/Providers"
+import { Routes } from "./Routes"
 
 function App() {
     const theme = useMuiTheme()
 
     return (
         <ThemeProvider theme={theme}>
-            <Providers>
-                <BrowserRouter>
-                    <Routes>
-                        <Route index element={<Login />} />
-                    </Routes>
-                </BrowserRouter>
-            </Providers>
+            <BrowserRouter>
+                <Providers>
+                    <Routes />
+                </Providers>
+            </BrowserRouter>
         </ThemeProvider>
     )
 }
