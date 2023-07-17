@@ -1,6 +1,7 @@
 import { ConfirmDialog, ConfirmDialogProvider } from "burgos-confirm"
 import { Snackbar, SnackbarProvider } from "burgos-snackbar"
 import { IoProvider } from "../contexts/ioContext"
+import { UserProvider } from "../contexts/userContext"
 
 interface ProvidersProps {
     children: React.ReactNode
@@ -11,9 +12,11 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
         <SnackbarProvider>
             <ConfirmDialogProvider>
                 <IoProvider>
-                    <Snackbar />
-                    <ConfirmDialog />
-                    {children}
+                    <UserProvider>
+                        <Snackbar />
+                        <ConfirmDialog />
+                        {children}
+                    </UserProvider>
                 </IoProvider>
             </ConfirmDialogProvider>
         </SnackbarProvider>

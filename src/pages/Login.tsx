@@ -4,6 +4,7 @@ import { Form, Formik } from "formik"
 import { useState } from "react"
 import { useSnackbar } from "burgos-snackbar"
 import { useIo } from "../hooks/useIo"
+import { useUser } from "../hooks/useUser"
 
 interface LoginProps {}
 
@@ -16,17 +17,17 @@ export const Login: React.FC<LoginProps> = ({}) => {
     const io = useIo()
 
     const { snackbar } = useSnackbar()
-
-    const [loading, setLoading] = useState(false)
+    const { login, loginLoading, setLoginLoading } = useUser()
 
     const onSubmit = (values: Inputs) => {
-        if (loading) return
+        if (loginLoading) return
         if (io.disconnected) {
             snackbar({ severity: "error", text: "Não foi possível fazer login pois não há conexão com o servidor" })
             return
         }
 
-        setLoading(true)
+        setLoginLoading(true)
+        login(values)
     }
 
     return (
@@ -34,10 +35,10 @@ export const Login: React.FC<LoginProps> = ({}) => {
             <Formik initialValues={{ login: "", password: "" }} onSubmit={onSubmit}>
                 {({ values, handleChange }) => (
                     <Form>
-                        <TextField label="usuário ou e-mail" name="login" value={values.login} onChange={handleChange} />
+                        <TextField label="cpf ou e-mail" name="login" value={values.login} onChange={handleChange} />
                         <TextField label="senha" name="password" value={values.password} onChange={handleChange} type="password" autoComplete="off" />
                         <Button variant="contained" type="submit">
-                            {loading ? <CircularProgress size="1.5rem" color="secondary" /> : "login"}
+                            {loginLoading ? <CircularProgress size="1.5rem" color="secondary" /> : "login"}
                         </Button>
                     </Form>
                 )}
