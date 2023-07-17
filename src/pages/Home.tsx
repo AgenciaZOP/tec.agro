@@ -27,7 +27,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
             <Header />
             <Routes>
                 <Route index element={<Safras />} />
-                <Route path="chats" element={<Chats />} />
+                <Route path="chats/*" element={<Chats channel="buyer" />} />
                 <Route path="search" element={<Search />} />
             </Routes>
             <BottomNavigation />
