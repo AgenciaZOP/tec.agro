@@ -5,6 +5,7 @@ import { useState } from "react"
 import { useSnackbar } from "burgos-snackbar"
 import { useIo } from "../hooks/useIo"
 import { useUser } from "../hooks/useUser"
+import { useNavigate } from "react-router"
 
 interface LoginProps {}
 
@@ -15,6 +16,7 @@ interface Inputs {
 
 export const Login: React.FC<LoginProps> = ({}) => {
     const io = useIo()
+    const navigate = useNavigate()
 
     const { snackbar } = useSnackbar()
     const { login, loginLoading, setLoginLoading } = useUser()
@@ -43,6 +45,9 @@ export const Login: React.FC<LoginProps> = ({}) => {
                     </Form>
                 )}
             </Formik>
+                <Button variant="contained" onClick={() => navigate("/signup")}>
+                    Cadastro
+                </Button>
         </Box>
     )
 }
