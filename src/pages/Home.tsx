@@ -15,7 +15,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
 
     useEffect(() => {
         if (!user) navigate("/login")
-        setTitle("Teste")
+        setTitle("Safras")
     }, [])
 
     return (
