@@ -3,6 +3,7 @@ import { TextField } from "../components/TextField"
 import { Form, Formik } from "formik"
 import { useState } from "react"
 import { useSnackbar } from "burgos-snackbar"
+import { useIo } from "../hooks/useIo"
 
 interface LoginProps {}
 
@@ -12,16 +13,20 @@ interface Inputs {
 }
 
 export const Login: React.FC<LoginProps> = ({}) => {
+    const io = useIo()
+
     const { snackbar } = useSnackbar()
 
     const [loading, setLoading] = useState(false)
 
     const onSubmit = (values: Inputs) => {
         if (loading) return
+        if (io.disconnected) {
+            snackbar({ severity: "error", text: "Não foi possível fazer login pois não há conexão com o servidor" })
+            return
+        }
 
         setLoading(true)
-        snackbar({ severity: "info", text: JSON.stringify(values) })
-        setTimeout(() => setLoading(false), 2000)
     }
 
     return (
