@@ -9,6 +9,7 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
     return (
         <ReactRoutes>
             <Route index element={<Home />} />
+            <Route path="/*" element={<Home />} />
             <Route path="/home/*" element={<Home />} />
             <Route path="/producer/*" element={<Home />} />
             <Route path="/agent/*" element={<Home />} />
