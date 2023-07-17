@@ -6,8 +6,10 @@ import { Form, Formik } from "formik"
 interface SignupProps {}
 
 interface Inputs {
-    login: string
+    email: string
+    document: string
     password: string
+    name: string
 }
 
 export const Signup: React.FC<SignupProps> = ({}) => {
@@ -19,10 +21,13 @@ export const Signup: React.FC<SignupProps> = ({}) => {
 
     return (
         <Box sx={{ width: "100%", flexDirection: "column", justifyContent: "center", padding: "20vw", gap: "5vw" }}>
-            <Formik initialValues={{ login: "", password: "" }} onSubmit={handleSubmit}>
+            <p>Preencha os campos abaixo para fazer o cadastro:</p>
+            <Formik initialValues={{ email: "", document: "", password: "", name: "" }} onSubmit={handleSubmit}>
                 {({ values, handleChange }) => (
                     <Form>
-                        <TextField label="cpf ou e-mail" name="login" value={values.login} onChange={handleChange} />
+                        <TextField label="nome" name="name" value={values.name} onChange={handleChange} />
+                        <TextField label="e-mail" name="email" value={values.email} onChange={handleChange} />
+                        <TextField label="documento" name="document" value={values.document} onChange={handleChange} />
                         <TextField label="senha" name="password" value={values.password} onChange={handleChange} type="password" autoComplete="off" />
                         <Button variant="contained" type="submit">
                             Enviar
