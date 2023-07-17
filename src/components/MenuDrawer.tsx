@@ -45,7 +45,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
 
             <UserCard user={user!} />
 
-            <Box sx={{ flexDirection: "column" }}>
+            <Box sx={{ flexDirection: "column", padding: "5vw 0" }}>
                 {menus.map((menu) => (
                     <MenuItem key={menu.location} onClick={() => navigate(menu.location)} sx={{ fontSize: "5vw" }}>
                         {menu.title}
