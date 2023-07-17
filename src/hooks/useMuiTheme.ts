@@ -4,8 +4,8 @@ import colors from "../colors"
 export const useMuiTheme = () => {
     const THEME = createTheme({
         typography: {
-            //  "fontFamily": ["Poppins"].join(','),
-            //  "fontSize": 14,
+            fontFamily: ["Montserrat"].join(","),
+            // fontSize: 14,
             //  "fontWeightLight": 300,
             //  "fontWeightRegular": 400,
             //  "fontWeightMedium": 500
