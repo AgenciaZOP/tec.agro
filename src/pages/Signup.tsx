@@ -1,8 +1,9 @@
-import { Box, Button } from "@mui/material"
+import { Box, Button, CircularProgress } from "@mui/material"
 import { TextField } from "../components/TextField"
 import { useNavigate } from "react-router-dom"
 import { Form, Formik } from "formik"
 import { useSignup } from "../hooks/useSignup"
+import { useUser } from "../hooks/useUser"
 
 interface SignupProps {}
 
@@ -17,9 +18,12 @@ export const Signup: React.FC<SignupProps> = ({}) => {
     const navigate = useNavigate()
     const signup = useSignup()
 
+    const { signupLoading, setSignupLoading } = useUser()
+
     const handleSubmit = (values: Inputs) => {
+        setSignupLoading(true)
         signup({...values, id: 0})
-      };
+      }
 
     return (
         <Box sx={{ width: "100%", flexDirection: "column", justifyContent: "center", padding: "20vw", gap: "5vw" }}>
@@ -32,7 +36,7 @@ export const Signup: React.FC<SignupProps> = ({}) => {
                         <TextField label="documento" name="document" value={values.document} onChange={handleChange} />
                         <TextField label="senha" name="password" value={values.password} onChange={handleChange} type="password" autoComplete="off" />
                         <Button variant="contained" type="submit">
-                            Enviar
+                            {signupLoading ? <CircularProgress size="1.5rem" color="secondary" /> : "Enviar"}
                         </Button>
                     </Form>
                 )}
