@@ -45,9 +45,9 @@ export const Login: React.FC<LoginProps> = ({}) => {
                     </Form>
                 )}
             </Formik>
-                <Button variant="contained" onClick={() => navigate("/signup")}>
-                    Cadastro
-                </Button>
+            <Button variant="outlined" onClick={() => navigate("/signup")}>
+                Cadastre-se
+            </Button>
         </Box>
     )
 }
