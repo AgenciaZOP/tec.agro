@@ -10,7 +10,7 @@ interface CropCardProps {
 export const CropCard: React.FC<CropCardProps> = ({ crop, variant = "default" }) => {
     return variant == "default" ? (
         <Paper elevation={0} sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "3vw" }}>
-            <Avatar sx={{ width: "15vw", height: "15vw" }} />
+            <Avatar src={crop.image} sx={{ width: "15vw", height: "15vw" }} />
             <Box sx={{ flexDirection: "column", width: "65vw", gap: "1vw" }}>
                 <Box sx={{ justifyContent: "space-between", alignItems: "center" }}>
                     <Box sx={{ flexDirection: "column" }}>
@@ -30,7 +30,7 @@ export const CropCard: React.FC<CropCardProps> = ({ crop, variant = "default" })
         </Paper>
     ) : (
         <Paper elevation={0} sx={{ flexDirection: "column", background: "transparent", gap: "1vw" }}>
-            <Avatar variant="rounded" sx={{ width: "20vw", height: "20vw" }} />
+            <Avatar src={crop.image} variant="rounded" sx={{ width: "20vw", height: "20vw" }} />
             <p style={{ fontSize: "3.2vw", fontWeight: "bold" }}>{crop.name}</p>
             <CurrencyText value={crop.price} style={{ fontSize: "2.8vw" }} />
         </Paper>

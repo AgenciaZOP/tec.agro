@@ -4,6 +4,8 @@ declare interface Crop {
     description: string
     weight: number
     price: number
+    image: string
+    gallery: string
 
     producer: User
     mediated?: MediatedCrop
