@@ -7,7 +7,7 @@ import { CropCard } from "../../components/CropCard"
 interface NearYouListProps {}
 
 export const NearYouList: React.FC<NearYouListProps> = ({}) => {
-    const { crops } = useCrops()
+    const crops = useCrops().crops.slice(0, 5)
 
     return (
         <Box sx={{ flexDirection: "column", gap: "5vw" }}>
