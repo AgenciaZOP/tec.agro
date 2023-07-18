@@ -2,6 +2,8 @@ import GrassIcon from "@mui/icons-material/Grass"
 import ChatIcon from "@mui/icons-material/Chat"
 import GridViewIcon from "@mui/icons-material/GridView"
 import SearchIcon from "@mui/icons-material/Search"
+import StorefrontIcon from "@mui/icons-material/Storefront"
+import LocalShippingIcon from "@mui/icons-material/LocalShipping"
 
 export const useNavigationList = () => {
     const list: NavigationMenu[] = [
@@ -20,13 +22,13 @@ export const useNavigationList = () => {
                     id: 2,
                     title: "Lojas & Serviços",
                     location: "/chats",
-                    icon: <ChatIcon />,
+                    icon: <StorefrontIcon />,
                 },
                 {
                     id: 3,
                     title: "Transportadoras",
                     location: "/chats",
-                    icon: <ChatIcon />,
+                    icon: <LocalShippingIcon />,
                 },
                 {
                     id: 4,
