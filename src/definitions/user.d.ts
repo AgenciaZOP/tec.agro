@@ -10,6 +10,9 @@ declare interface User {
     business: boolean
     shipping: boolean
     sold: number
+    bought: number
+    rating: number
+    date: string
 
     crops: Crop[]
     meediatedCrops: MediatedCrop[]
