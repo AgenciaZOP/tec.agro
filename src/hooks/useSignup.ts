@@ -3,7 +3,7 @@ import { useIo } from "./useIo"
 export const useSignup = () => {
     const io = useIo()
 
-    const signup = (data:User) => {
+    const signup = (data: { email: string; document: string; password: string; name: string }) => {
         io.emit("user:signup", data)
     }
 

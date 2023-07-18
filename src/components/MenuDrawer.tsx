@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Box, Drawer, IconButton, MenuItem, SxProps } from "@mui/material"
 import { useMenuDrawer } from "../hooks/useMenuDrawer"
 import { useUser } from "../hooks/useUser"
@@ -57,20 +57,12 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
             >
                 <Info title="Vendas" name={user?.sold} />
                 <Info title="Compras" name={user?.bought} />
-                <Info
-                    title="Nota"
-                    name={user?.rating ? user?.rating : ""}
-                    icon={<StarSharpIcon sx={{ width: "3.2vw" }} />}
-                />
+                <Info title="Nota" name={user?.rating ? user?.rating : ""} icon={<StarSharpIcon sx={{ width: "3.2vw" }} />} />
                 <Info title="Meses" name={new Date(user?.date || 0).getMonth() + 1} />
             </Box>
             <Box sx={{ flexDirection: "column", paddingTop: "5vw" }}>
                 {menus.map((menu) => (
-                    <MenuItem
-                        key={menu.location}
-                        onClick={() => navigate(menu.location)}
-                        sx={{ fontSize: "5vw", alignItems: "center" }}
-                    >
+                    <MenuItem key={menu.location} onClick={() => navigate(menu.location)} sx={{ fontSize: "5vw", alignItems: "center" }}>
                         {menu.title}
                     </MenuItem>
                 ))}

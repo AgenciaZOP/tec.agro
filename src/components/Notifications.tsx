@@ -11,10 +11,7 @@ interface NotificationsProps {}
 export const Notifications: React.FC<NotificationsProps> = ({}) => {
     const { open, setOpen } = useNotifications()
 
-    const [quantity, setQuantity] = useState(30)
-    const [name, setName] = useState("Omar Donin")
-    const [time, settime] = useState(4)
-    const [imageProfile, setimageProfile] = useState(profile)
+    const [quantity] = useState(30)
 
     const handleClose = () => {
         setOpen(false)
@@ -37,7 +34,7 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "5vw" }}>
                     <p style={{ fontSize: "3.7vw", fontWeight: "bolder" }}>Hoje</p>
                     <MessageNotification
-                        name={name}
+                        name={"teste"}
                         color="#FF4747"
                         avatarIcon={<Avatar src={profile} sx={{ width: "13vw", height: "13vw", borderRadius: "50%" }} />}
                     />
@@ -45,11 +42,11 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "5vw" }}>
                     <p style={{ fontSize: "3.7vw", fontWeight: "bolder" }}>Esta Semana</p>
                     <MessageNotification
-                        name={name}
+                        name={"teste"}
                         avatarIcon={<Avatar src={profile2} sx={{ width: "13vw", height: "13vw", borderRadius: "50%" }} />}
                     />
                     <MessageNotification
-                        name={name}
+                        name={"teste"}
                         avatarIcon={<Avatar src={""} sx={{ width: "13vw", height: "13vw", borderRadius: "50%" }} />}
                     />
                 </Box>
