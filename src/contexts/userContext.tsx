@@ -9,6 +9,8 @@ interface UserContextValue {
     setUser: (value: User | null) => void
     loginLoading: boolean
     setLoginLoading: (value: boolean) => void
+    signupLoading: boolean
+    setSignupLoading: (value: boolean) => void
 }
 
 interface UserProviderProps {
@@ -27,22 +29,39 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
     const [user, setUser] = useState<User | null>(null)
     const [loginLoading, setLoginLoading] = useState(false)
+    const [signupLoading, setSignupLoading] = useState(false)
 
-    io.on("login:success", (data: User) => {
-        setUser(data)
-        snackbar({ severity: "success", text: "login sucesso" })
-        setLoginLoading(false)
-        navigate("/")
-    })
-
-    io.on("login:error", () => {
-        snackbar({ severity: "error", text: "login error" })
-        setLoginLoading(false)
-    })
+    
 
     useEffect(() => {
         console.log({ user })
     }, [user])
 
-    return <UserContext.Provider value={{ user, setUser, loginLoading, setLoginLoading }}>{children}</UserContext.Provider>
+    useEffect(() => {
+        io.on("login:success", (data: User) => {
+            setUser(data)
+            snackbar({ severity: "success", text: "login sucesso" })
+            setLoginLoading(false)
+            navigate("/home")
+        })
+    
+        io.on("login:error", () => {
+            snackbar({ severity: "error", text: "login error" })
+            setLoginLoading(false)
+        })
+    
+        io.on("signup:success", () => {
+            navigate("/login")
+            snackbar({severity: "success", text: "usuário criado com sucesso"})
+            setSignupLoading(false)
+        })
+        
+        io.on("signup:error", () => {
+            snackbar({severity: "error", text: "erro ao criar usuário"})
+            setSignupLoading(false)
+        })
+        
+    }, [])
+
+    return <UserContext.Provider value={{ user, setUser, loginLoading, setLoginLoading, signupLoading, setSignupLoading }}>{children}</UserContext.Provider>
 }

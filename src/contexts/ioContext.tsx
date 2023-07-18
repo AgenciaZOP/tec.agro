@@ -15,7 +15,7 @@ const IoContext = createContext<IoContextValue>({} as IoContextValue)
 
 export default IoContext
 
-const io = ioSocket("ws://192.168.15.3:4104")
+const io = ioSocket("ws://localhost:4104")
 // const io = ioSocket("wss://app.agenciaboz.com.br:4104")
 
 export const IoProvider: React.FC<IoProviderProps> = ({ children }) => {

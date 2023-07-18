@@ -7,6 +7,8 @@ import { MenuDrawerProvider } from "../contexts/menuDrawerContext"
 import { MenuDrawer } from "./MenuDrawer"
 import { NotificationsProvider } from "../contexts/notificationsContext"
 import { Notifications } from "./Notifications"
+import { CropsProvider } from "../contexts/cropsContext"
+import { ChatsProvider } from "../contexts/chatsContext"
 
 interface ProvidersProps {
     children: React.ReactNode
@@ -18,17 +20,21 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
             <ConfirmDialogProvider>
                 <IoProvider>
                     <UserProvider>
-                        <HeaderProvider>
-                            <MenuDrawerProvider>
-                                <NotificationsProvider>
-                                    <Snackbar />
-                                    <ConfirmDialog />
-                                    <MenuDrawer />
-                                    <Notifications />
-                                    {children}
-                                </NotificationsProvider>
-                            </MenuDrawerProvider>
-                        </HeaderProvider>
+                        <CropsProvider>
+                            <ChatsProvider>
+                                <HeaderProvider>
+                                    <MenuDrawerProvider>
+                                        <NotificationsProvider>
+                                            <Snackbar />
+                                            <ConfirmDialog />
+                                            <MenuDrawer />
+                                            <Notifications />
+                                            {children}
+                                        </NotificationsProvider>
+                                    </MenuDrawerProvider>
+                                </HeaderProvider>
+                            </ChatsProvider>
+                        </CropsProvider>
                     </UserProvider>
                 </IoProvider>
             </ConfirmDialogProvider>
