@@ -6,7 +6,7 @@ import { Category } from "../../components/Category"
 interface CategoriesListProps {}
 
 export const CategoriesList: React.FC<CategoriesListProps> = ({}) => {
-    const { categories, loading } = useCategories()
+    const { categories } = useCategories()
 
     return (
         <Box sx={{ gap: "2vw", width: "100vw", overflowX: "auto", paddingRight: "10vw" }}>

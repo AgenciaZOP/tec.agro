@@ -1,8 +1,7 @@
 import { Avatar, Box, IconButton, Paper } from "@mui/material"
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useHeader } from "../hooks/useHeader"
 import { Header } from "../components/Header"
-import { BottomNavigation } from "../components/BottomNavigation"
 import profile2 from "../assets/person.jpg"
 import { Info } from "../components/Info"
 import { Tag } from "../components/Tag"
@@ -16,7 +15,6 @@ interface ProfileProps {
 
 export const Profile: React.FC<ProfileProps> = ({ user }) => {
     const header = useHeader()
-    const [city, setcity] = useState("Jaboatão dos Guararapes, Pernambuco")
 
     useEffect(() => {
         header.setTitle("Perfil")
@@ -44,7 +42,7 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                         <p style={{ fontSize: "6vw" }}>{user?.name}</p>
                         <Box sx={{ alignItems: "center", gap: "1vw" }}>
                             <FmdGoodOutlinedIcon sx={{ width: "4vw" }} />
-                            <p style={{ fontSize: "2.56vw" }}>{city}</p>
+                            <p style={{ fontSize: "2.56vw" }}>{"Jaboatão dos Guararapes, Pernambuco"}</p>
                         </Box>
                         <Box sx={{ flexDirection: "row", gap: "1vw" }}>
                             <Tag name="Produtor" color="#D2FFB6" style={"2vw"} />

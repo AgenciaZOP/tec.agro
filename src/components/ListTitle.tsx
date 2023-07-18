@@ -6,7 +6,7 @@ interface ListTitleProps {
     nextLocation: string
 }
 
-export const ListTitle: React.FC<ListTitleProps> = ({ title, nextLocation }) => {
+export const ListTitle: React.FC<ListTitleProps> = ({ title }) => {
     return (
         <Paper elevation={0} sx={{ justifyContent: "space-between", background: "transparent" }}>
             <p>{title}</p>

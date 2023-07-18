@@ -1,4 +1,4 @@
-import { Box, IconButton, Paper, SxProps } from "@mui/material"
+import { IconButton, Paper, SxProps } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import NotificationsIcon from "@mui/icons-material/Notifications"
 import { useHeader } from "../hooks/useHeader"
