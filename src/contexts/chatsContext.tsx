@@ -25,6 +25,10 @@ export const ChatsProvider: React.FC<ChatsProviderProps> = ({ children }) => {
             console.log(chat)
             setChats([...chats, chat])
         })
+        
+        io.on("chat:list", (chats: Chat[]) => {
+            setChats(chats)
+        })
     }, [])
 
     return <ChatsContext.Provider value={{ chats, setChats }}>{children}</ChatsContext.Provider>
