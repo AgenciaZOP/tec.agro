@@ -9,6 +9,7 @@ import { UserCard } from "./UserCard"
 import { useNavigate } from "react-router-dom"
 import StarSharpIcon from "@mui/icons-material/StarSharp"
 import { Info } from "./Info"
+import { backdropStyle } from "../style/backdrop"
 
 interface MenuDrawerProps {}
 
@@ -31,7 +32,13 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
     }
 
     return (
-        <Drawer anchor={"left"} open={open} onClose={handleClose} PaperProps={{ sx: { width: "80vw" } }}>
+        <Drawer
+            anchor={"left"}
+            open={open}
+            onClose={handleClose}
+            PaperProps={{ sx: { width: "80vw" } }}
+            ModalProps={{ BackdropProps: { sx: backdropStyle } }}
+        >
             <Box sx={{ justifyContent: "space-between", width: "100%", padding: "5vw" }}>
                 <IconButton color="primary" sx={iconButtonStyle} onClick={handleClose}>
                     <KeyboardBackspaceIcon sx={iconStyle} />

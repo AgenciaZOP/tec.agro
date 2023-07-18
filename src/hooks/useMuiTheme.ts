@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material"
-import colors from "../colors"
+import colors from "../style/colors"
 
 export const useMuiTheme = () => {
     const THEME = createTheme({

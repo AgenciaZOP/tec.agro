@@ -1,6 +1,6 @@
 import React from "react"
 import CurrencyFormat from "react-currency-format"
-import colors from "../colors"
+import colors from "../style/colors"
 
 interface CurrencyTextProps {
     value: number | string

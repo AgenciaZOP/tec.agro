@@ -5,6 +5,7 @@ import CloseSharpIcon from "@mui/icons-material/CloseSharp"
 import profile from "../assets/notification.jpeg"
 import profile2 from "../assets/person.jpg"
 import { MessageNotification } from "./MessageNotification"
+import { backdropStyle } from "../style/backdrop"
 
 interface NotificationsProps {}
 
@@ -18,7 +19,13 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
     }
 
     return (
-        <Drawer anchor={"right"} open={open} onClose={handleClose} PaperProps={{ sx: { width: "80vw" } }}>
+        <Drawer
+            anchor={"right"}
+            open={open}
+            onClose={handleClose}
+            PaperProps={{ sx: { width: "80vw" } }}
+            ModalProps={{ BackdropProps: { sx: backdropStyle } }}
+        >
             <Box sx={{ padding: "8vw", display: "flex", flexDirection: "column", gap: "5vw" }}>
                 <Box sx={{ alignItems: "flex-start", justifyContent: "space-between" }}>
                     <Box sx={{ display: "flex", flexDirection: "column" }}>

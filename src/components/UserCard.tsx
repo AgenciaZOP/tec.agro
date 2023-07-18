@@ -1,6 +1,6 @@
 import React from "react"
 import { Avatar, Box } from "@mui/material"
-import colors from "../colors"
+import colors from "../style/colors"
 import profile2 from "../assets/person.jpg"
 import { Tag } from "./Tag"
 import { useNavigate } from "react-router-dom"
