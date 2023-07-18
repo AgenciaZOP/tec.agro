@@ -7,7 +7,7 @@ interface CategoryProps {
 
 export const Category: React.FC<CategoryProps> = ({ category }) => {
     return (
-        <Paper variant="outlined" sx={{ borderRadius: "50vw", flexShrink: 0, padding: "2vw 5vw", borderColor: "primary.main" }}>
+        <Paper variant="outlined" sx={{ borderRadius: "50vw", flexShrink: 0, padding: "1vw 2vw", borderColor: "primary.main", fontSize: "3.5vw" }}>
             {category.name}
         </Paper>
     )
