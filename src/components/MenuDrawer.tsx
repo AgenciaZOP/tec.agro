@@ -62,7 +62,14 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
             </Box>
             <Box sx={{ flexDirection: "column", paddingTop: "5vw" }}>
                 {menus.map((menu) => (
-                    <MenuItem key={menu.location} onClick={() => navigate(menu.location)} sx={{ fontSize: "5vw", alignItems: "center" }}>
+                    <MenuItem
+                        key={menu.location}
+                        onClick={() => {
+                            handleClose()
+                            navigate(menu.location)
+                        }}
+                        sx={{ fontSize: "5vw", alignItems: "center" }}
+                    >
                         {menu.title}
                     </MenuItem>
                 ))}
