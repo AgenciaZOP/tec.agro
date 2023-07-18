@@ -13,7 +13,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
     const menuDrawer = useMenuDrawer()
 
     const iconStyle: SxProps = {
-        width: "10vw",
+        width: "8vw",
         height: "auto",
     }
 
