@@ -20,7 +20,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
     }, [])
 
     return (
-        <Box sx={{ flexDirection: "column", width: "100%" }}>
+        <Box sx={{ flexDirection: "column", width: "100%", padding: "10vh 0" }}>
             <Header />
             <Routes>
                 <Route index element={<Crops />} />

@@ -27,7 +27,10 @@ export const Header: React.FC<HeaderProps> = ({}) => {
                 padding: "5vw",
                 fontSize: "5vw",
                 fontWeight: "bold",
+                background: "transparent",
                 borderRadius: 0,
+                position: "fixed",
+                top: 0,
             }}
         >
             <IconButton color="primary" onClick={menuDrawer.toggle}>

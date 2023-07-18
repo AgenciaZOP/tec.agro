@@ -9,7 +9,7 @@ interface ChatsProps {
 }
 
 export const Chats: React.FC<ChatsProps> = ({ channel }) => {
-    const chats = useChats().chats
+    const chats = useChats().getChannel(channel)
 
     const [currentChat, setCurrentChat] = useState<Chat>()
 
