@@ -1,4 +1,4 @@
-import { Box, IconButton, SxProps } from "@mui/material"
+import { Box, IconButton, Paper, SxProps } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import NotificationsIcon from "@mui/icons-material/Notifications"
 import { useHeader } from "../hooks/useHeader"
@@ -18,7 +18,18 @@ export const Header: React.FC<HeaderProps> = ({}) => {
     }
 
     return (
-        <Box sx={{ justifyContent: "space-between", width: "100%", alignItems: "center", padding: "5vw", fontSize: "5vw", fontWeight: "bold" }}>
+        <Paper
+            elevation={0}
+            sx={{
+                justifyContent: "space-between",
+                width: "100%",
+                alignItems: "center",
+                padding: "5vw",
+                fontSize: "5vw",
+                fontWeight: "bold",
+                borderRadius: 0,
+            }}
+        >
             <IconButton color="primary" onClick={menuDrawer.toggle}>
                 <MenuIcon sx={iconStyle} />
             </IconButton>
@@ -26,6 +37,6 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             <IconButton color="primary" onClick={notifications.toggle}>
                 <NotificationsIcon sx={iconStyle} />
             </IconButton>
-        </Box>
+        </Paper>
     )
 }
