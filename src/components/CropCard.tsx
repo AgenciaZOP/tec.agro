@@ -9,19 +9,22 @@ interface CropCardProps {
 
 export const CropCard: React.FC<CropCardProps> = ({ crop, variant = "default" }) => {
     return variant == "default" ? (
-        <Paper elevation={0} sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "5vw" }}>
+        <Paper elevation={0} sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "3vw" }}>
             <Avatar sx={{ width: "15vw", height: "15vw" }} />
-            <Box sx={{ flexDirection: "column", width: "100%" }}>
+            <Box sx={{ flexDirection: "column", width: "65vw", gap: "1vw" }}>
                 <Box sx={{ justifyContent: "space-between", alignItems: "center" }}>
                     <Box sx={{ flexDirection: "column" }}>
-                        <p>{crop.name}</p>
-                        <p>{crop.weight} toneladas</p>
+                        <p style={{ fontSize: "4vw" }}>{crop.name}</p>
+                        <p style={{ fontSize: "3vw" }}>{crop.weight} toneladas</p>
                     </Box>
-                    <CurrencyText value={crop.price} />
+                    <CurrencyText value={crop.price} style={{ fontSize: "4vw" }} />
                 </Box>
 
-                <Box>
-                    <p>Produtor: {crop.producer.name}</p>
+                <Box sx={{ fontSize: "2.6vw", justifyContent: "space-between" }}>
+                    <p>Produtor: {crop.producer.rating}</p>
+                    <p>Vendas: {crop.producer.sold}</p>
+                    <p>Compras: {crop.producer.bought}</p>
+                    <p>{new Date(crop.producer.date).getMonth() + 1} meses</p>
                 </Box>
             </Box>
         </Paper>
