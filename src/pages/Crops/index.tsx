@@ -4,6 +4,7 @@ import { useCrops } from "../../hooks/useCrops"
 import { CropCard } from "../../components/CropCard"
 import { useHeader } from "../../hooks/useHeader"
 import { CategoriesList } from "./CategoriesList"
+import { Banners } from "./Banners"
 
 interface CropsProps {}
 
@@ -18,6 +19,7 @@ export const Crops: React.FC<CropsProps> = ({}) => {
     return (
         <Box sx={{ flexDirection: "column", padding: "5vw", gap: "5vw", width: "100vw", overflowX: "hidden" }}>
             <CategoriesList />
+            <Banners />
 
             <Box sx={{ flexDirection: "column" }}>
                 {crops.crops.map((crop) => (
