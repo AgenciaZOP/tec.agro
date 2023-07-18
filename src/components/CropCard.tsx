@@ -3,10 +3,11 @@ import { Avatar, Box, Paper } from "@mui/material"
 
 interface CropCardProps {
     crop: Crop
+    variant?: "default" | "square"
 }
 
-export const CropCard: React.FC<CropCardProps> = ({ crop }) => {
-    return (
+export const CropCard: React.FC<CropCardProps> = ({ crop, variant = "default" }) => {
+    return variant == "default" ? (
         <Paper elevation={0} sx={{ alignItems: "center", background: "white", padding: "5vw", borderRadius: "5vw", gap: "5vw" }}>
             <Avatar sx={{ width: "15vw", height: "15vw" }} />
             <Box sx={{ flexDirection: "column", width: "100%" }}>
@@ -22,6 +23,12 @@ export const CropCard: React.FC<CropCardProps> = ({ crop }) => {
                     <p>Produtor: {crop.producer.name}</p>
                 </Box>
             </Box>
+        </Paper>
+    ) : (
+        <Paper elevation={0} sx={{ flexDirection: "column", background: "transparent", gap: "1vw" }}>
+            <Avatar variant="rounded" sx={{ width: "20vw", height: "20vw" }} />
+            <p style={{ fontSize: "3.2vw", fontWeight: "bold" }}>{crop.name}</p>
+            <p style={{ fontSize: "3vw" }}>{crop.price}</p>
         </Paper>
     )
 }
