@@ -20,7 +20,7 @@ export const useChats = () => {
     }
 
     const getChannel = (channel: string) => {
-        const chats = chatsContext.chats.filter((chat) => channel == channel)
+        const chats = chatsContext.chats.filter((chat) => chat.channel == channel)
         return chats
     }
 

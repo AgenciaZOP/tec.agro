@@ -22,7 +22,7 @@ export const Signup: React.FC<SignupProps> = ({}) => {
 
     const handleSubmit = (values: Inputs) => {
         setSignupLoading(true)
-        signup({...values, id: 0})
+        signup(values)
       }
 
     return (

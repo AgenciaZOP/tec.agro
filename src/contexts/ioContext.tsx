@@ -1,5 +1,5 @@
 import { useSnackbar } from "burgos-snackbar"
-import { createContext, useState } from "react"
+import { createContext } from "react"
 import React from "react"
 import { Socket, io as ioSocket } from "socket.io-client"
 

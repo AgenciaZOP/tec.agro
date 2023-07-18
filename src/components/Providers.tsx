@@ -9,6 +9,7 @@ import { NotificationsProvider } from "../contexts/notificationsContext"
 import { Notifications } from "./Notifications"
 import { CropsProvider } from "../contexts/cropsContext"
 import { ChatsProvider } from "../contexts/chatsContext"
+import { CategoriesProvider } from "../contexts/categoriesContext"
 
 interface ProvidersProps {
     children: React.ReactNode
@@ -21,19 +22,21 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
                 <IoProvider>
                     <UserProvider>
                         <CropsProvider>
-                            <ChatsProvider>
-                                <HeaderProvider>
-                                    <MenuDrawerProvider>
-                                        <NotificationsProvider>
-                                            <Snackbar />
-                                            <ConfirmDialog />
-                                            <MenuDrawer />
-                                            <Notifications />
-                                            {children}
-                                        </NotificationsProvider>
-                                    </MenuDrawerProvider>
-                                </HeaderProvider>
-                            </ChatsProvider>
+                            <CategoriesProvider>
+                                <ChatsProvider>
+                                    <HeaderProvider>
+                                        <MenuDrawerProvider>
+                                            <NotificationsProvider>
+                                                <Snackbar />
+                                                <ConfirmDialog />
+                                                <MenuDrawer />
+                                                <Notifications />
+                                                {children}
+                                            </NotificationsProvider>
+                                        </MenuDrawerProvider>
+                                    </HeaderProvider>
+                                </ChatsProvider>
+                            </CategoriesProvider>
                         </CropsProvider>
                     </UserProvider>
                 </IoProvider>
