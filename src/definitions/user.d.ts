@@ -1,6 +1,7 @@
 declare interface User {
     id: number
     document: string
+    username: string
     email: string
     name: string
     password: string

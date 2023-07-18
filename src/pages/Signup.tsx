@@ -12,6 +12,7 @@ interface Inputs {
     document: string
     password: string
     name: string
+    username: string
 }
 
 export const Signup: React.FC<SignupProps> = ({}) => {
@@ -28,10 +29,11 @@ export const Signup: React.FC<SignupProps> = ({}) => {
     return (
         <Box sx={{ width: "100%", flexDirection: "column", justifyContent: "center", padding: "20vw", gap: "5vw" }}>
             <p>Preencha os campos abaixo para fazer o cadastro:</p>
-            <Formik initialValues={{ email: "", document: "", password: "", name: "" }} onSubmit={handleSubmit}>
+            <Formik initialValues={{ username: "", email: "", document: "", password: "", name: "" }} onSubmit={handleSubmit}>
                 {({ values, handleChange }) => (
                     <Form>
                         <TextField label="nome" name="name" value={values.name} onChange={handleChange} />
+                        <TextField label="nome de usuário" name="username" value={values.username} onChange={handleChange} />
                         <TextField label="e-mail" name="email" value={values.email} onChange={handleChange} />
                         <TextField label="documento" name="document" value={values.document} onChange={handleChange} />
                         <TextField label="senha" name="password" value={values.password} onChange={handleChange} type="password" autoComplete="off" />
@@ -41,9 +43,9 @@ export const Signup: React.FC<SignupProps> = ({}) => {
                     </Form>
                 )}
             </Formik>
-                <Button variant="contained" onClick={() => navigate("/login")}>
-                    Voltar
-                </Button>
+            <Button variant="contained" onClick={() => navigate("/login")}>
+                Voltar
+            </Button>
         </Box>
     )
 }
