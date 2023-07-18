@@ -79,3 +79,7 @@ div {
 img {
     object-fit: contain;
 }
+
+::-webkit-scrollbar {
+    display: none;
+  }
