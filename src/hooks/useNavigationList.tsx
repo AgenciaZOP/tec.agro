@@ -12,21 +12,27 @@ export const useNavigationList = () => {
             navigation: [
                 {
                     id: 1,
-                    title: "Painel",
+                    title: "Safras",
                     location: "/",
-                    icon: <GridViewIcon />,
+                    icon: <GrassIcon />,
                 },
                 {
                     id: 2,
-                    title: "Conversas",
+                    title: "Lojas & Serviços",
                     location: "/chats",
                     icon: <ChatIcon />,
                 },
                 {
                     id: 3,
-                    title: "Buscar",
-                    location: "/search",
-                    icon: <SearchIcon />,
+                    title: "Transportadoras",
+                    location: "/chats",
+                    icon: <ChatIcon />,
+                },
+                {
+                    id: 4,
+                    title: "Conversas",
+                    location: "/chats",
+                    icon: <ChatIcon />,
                 },
             ],
         },
