@@ -31,7 +31,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
     }
 
     return (
-        <Drawer anchor={"left"} open={open} onClose={handleClose} PaperProps={{ sx: { width: "80vw", padding: "2vw" } }}>
+        <Drawer anchor={"left"} open={open} onClose={handleClose} PaperProps={{ sx: { width: "80vw" } }}>
             <Box sx={{ justifyContent: "space-between", width: "100%", padding: "5vw" }}>
                 <IconButton color="primary" sx={iconButtonStyle} onClick={handleClose}>
                     <KeyboardBackspaceIcon sx={iconStyle} />
@@ -64,7 +64,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
                 />
                 <Info title="Meses" name={new Date(user?.date || 0).getMonth() + 1} />
             </Box>
-            <Box sx={{ flexDirection: "column", padding: "5vw 0" }}>
+            <Box sx={{ flexDirection: "column", paddingTop: "5vw" }}>
                 {menus.map((menu) => (
                     <MenuItem
                         key={menu.location}
