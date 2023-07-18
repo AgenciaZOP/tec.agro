@@ -7,28 +7,26 @@ import { CropCard } from "../../components/CropCard"
 interface CropsListProps {}
 
 export const CropsList: React.FC<CropsListProps> = ({}) => {
-    const { crops } = useCrops()
+    const crops = useCrops().crops.slice(0, 4)
 
     return (
-        <Box sx={{ flexDirection: "column", gap: "5vw" }}>
+        <Box sx={{ flexDirection: "column", gap: "2vw" }}>
             <ListTitle title="Safras" nextLocation="/" />
-            <Box sx={{ flexDirection: "column", gap: "2vw", overflowY: "auto", height: "60vw" }}>
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} />
-                ))}
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} />
-                ))}
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} />
-                ))}
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} />
-                ))}
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} />
-                ))}
-            </Box>
+            {crops.map((crop) => (
+                <CropCard key={crop.id} crop={crop} />
+            ))}
+            {crops.map((crop) => (
+                <CropCard key={crop.id} crop={crop} />
+            ))}
+            {crops.map((crop) => (
+                <CropCard key={crop.id} crop={crop} />
+            ))}
+            {crops.map((crop) => (
+                <CropCard key={crop.id} crop={crop} />
+            ))}
+            {crops.map((crop) => (
+                <CropCard key={crop.id} crop={crop} />
+            ))}
         </Box>
     )
 }
