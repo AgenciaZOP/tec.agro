@@ -1,16 +1,14 @@
 import React, { useEffect } from "react"
 import { Box } from "@mui/material"
-import { useCrops } from "../../hooks/useCrops"
-import { CropCard } from "../../components/CropCard"
 import { useHeader } from "../../hooks/useHeader"
 import { CategoriesList } from "./CategoriesList"
 import { Banners } from "./Banners"
 import { NearYouList } from "./NearYouList"
+import { CropsList } from "./CropsList"
 
 interface CropsProps {}
 
 export const Crops: React.FC<CropsProps> = ({}) => {
-    const crops = useCrops()
     const { setTitle } = useHeader()
 
     useEffect(() => {
@@ -18,16 +16,22 @@ export const Crops: React.FC<CropsProps> = ({}) => {
     }, [])
 
     return (
-        <Box sx={{ flexDirection: "column", padding: "5vw", gap: "5vw", width: "100vw", overflowX: "hidden" }}>
+        <Box
+            sx={{
+                flexDirection: "column",
+                padding: "5vw",
+                paddingBottom: 0,
+                gap: "5vw",
+                width: "100vw",
+                height: "100%",
+                overflowX: "hidden",
+                justifyContent: "space-between",
+            }}
+        >
             <CategoriesList />
             <Banners />
             <NearYouList />
-
-            <Box sx={{ flexDirection: "column" }}>
-                {crops.crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} />
-                ))}
-            </Box>
+            <CropsList />
         </Box>
     )
 }
