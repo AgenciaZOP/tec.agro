@@ -16,18 +16,6 @@ export const NearYouList: React.FC<NearYouListProps> = ({}) => {
                 {crops.map((crop) => (
                     <CropCard key={crop.id} crop={crop} variant="square" />
                 ))}
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} variant="square" />
-                ))}
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} variant="square" />
-                ))}
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} variant="square" />
-                ))}
-                {crops.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} variant="square" />
-                ))}
             </Box>
         </Box>
     )
