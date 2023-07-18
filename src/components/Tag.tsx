@@ -4,13 +4,14 @@ import { Box } from "@mui/material"
 interface TagProps {
     name: string
     color: string
+    style?: string
 }
 
-export const Tag: React.FC<TagProps> = ({ name, color }) => {
+export const Tag: React.FC<TagProps> = ({ name, color, style }) => {
     return (
         <Box
             sx={{
-                fontSize: "2.8vw",
+                fontSize: `${style}`,
                 width: "max-content",
                 backgroundColor: `${color}`,
                 borderRadius: "7vw",
