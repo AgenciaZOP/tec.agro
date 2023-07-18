@@ -31,10 +31,10 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({}) => {
                 return (
                     <BottomNavigationAction
                         key={item.id}
-                        label={item.title}
+                        label={<p style={{ fontSize: "2.6vw" }}>{item.title}</p>}
                         icon={<Icon />}
                         value={item.id}
-                        sx={currentLocation.id == item.id ? { background: "white", borderRadius: "6vw" } : null}
+                        sx={{ background: currentLocation.id == item.id ? "white" : "", borderRadius: "6vw", gap: "1vw" }}
                     />
                 )
             })}
