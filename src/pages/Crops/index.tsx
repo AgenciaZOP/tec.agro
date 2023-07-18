@@ -1,12 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box } from "@mui/material"
 import { useCrops } from "../../hooks/useCrops"
 import { CropCard } from "../../components/CropCard"
+import { useHeader } from "../../hooks/useHeader"
 
-interface SafrasProps {}
+interface CropsProps {}
 
-export const Safras: React.FC<SafrasProps> = ({}) => {
+export const Crops: React.FC<CropsProps> = ({}) => {
     const crops = useCrops()
+    const { setTitle } = useHeader()
+
+    useEffect(() => {
+        setTitle("Safras")
+    }, [])
 
     return (
         <Box sx={{ flexDirection: "column", padding: "5vw" }}>
