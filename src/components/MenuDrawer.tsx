@@ -55,11 +55,14 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
                     justifyContent: "space-between",
                 }}
             >
-                <Info title="Vendas" name={String(user?.sold)} />
-                <Info title="Compras" name={String(user?.bought)} />
-
-                <Info title="Nota" name={String(user?.rating)} icon={<StarSharpIcon sx={{ width: "3.2vw" }} />} />
-                <Info title="Meses" name={String(new Date(user?.date || 0).getMonth() + 1)} />
+                <Info title="Vendas" name={user?.sold} />
+                <Info title="Compras" name={user?.bought} />
+                <Info
+                    title="Nota"
+                    name={user?.rating ? user?.rating : ""}
+                    icon={<StarSharpIcon sx={{ width: "3.2vw" }} />}
+                />
+                <Info title="Meses" name={new Date(user?.date || 0).getMonth() + 1} />
             </Box>
             <Box sx={{ flexDirection: "column", padding: "5vw 0" }}>
                 {menus.map((menu) => (

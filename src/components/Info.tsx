@@ -2,7 +2,7 @@ import React from "react"
 import { Box } from "@mui/material"
 
 interface InfoProps {
-    name: string
+    name: number | undefined | string
     title: string
     icon?: React.ReactElement
 }
