@@ -8,6 +8,7 @@ import QuestionMarkIcon from "@mui/icons-material/QuestionMark"
 import { UserCard } from "./UserCard"
 import { useNavigate } from "react-router-dom"
 import StarSharpIcon from "@mui/icons-material/StarSharp"
+import { Info } from "./Info"
 
 interface MenuDrawerProps {}
 
@@ -24,11 +25,6 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
     }
 
     const iconButtonStyle: SxProps = { border: "0.5vw solid black", borderRadius: "100%" }
-
-    const [sale, setsale] = useState(26)
-    const [buy, setbuy] = useState(53)
-    const [note, setnote] = useState(4.2)
-    const [month, setmonth] = useState(5)
 
     const handleClose = () => {
         setOpen(false)
@@ -59,25 +55,14 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
                     justifyContent: "space-between",
                 }}
             >
-                <Box sx={{ flexDirection: "column", alignItems: "center" }}>
-                    <p style={{ fontWeight: "500", fontSize: "6vw" }}>{sale}</p>
-                    <p style={{ fontSize: "2.2vw" }}>Vendas</p>
-                </Box>
-                <Box sx={{ flexDirection: "column", alignItems: "center" }}>
-                    <p style={{ fontWeight: "500", fontSize: "6vw" }}>{buy}</p>
-                    <p style={{ fontSize: "2.2vw" }}>Compras</p>
-                </Box>
-                <Box sx={{ flexDirection: "column", alignItems: "center" }}>
-                    <Box sx={{ alignItems: "center" }}>
-                        <p style={{ fontWeight: "500", fontSize: "6vw" }}>{note.toLocaleString("pt-BR")}</p>
-                        <StarSharpIcon sx={{ width: "3.2vw" }} />
-                    </Box>
-                    <p style={{ fontSize: "2.2vw" }}>Nota</p>
-                </Box>
-                <Box sx={{ flexDirection: "column", alignItems: "center" }}>
-                    <p style={{ fontWeight: "500", fontSize: "6vw" }}>{month}</p>
-                    <p style={{ fontSize: "2.2vw" }}>Meses</p>
-                </Box>
+                <Info title="Vendas" name={user?.sold} />
+                <Info title="Compras" name={user?.bought} />
+                <Info
+                    title="Nota"
+                    name={user?.rating ? user?.rating : ""}
+                    icon={<StarSharpIcon sx={{ width: "3.2vw" }} />}
+                />
+                <Info title="Meses" name={new Date(user?.date || 0).getMonth() + 1} />
             </Box>
             <Box sx={{ flexDirection: "column", padding: "5vw 0" }}>
                 {menus.map((menu) => (

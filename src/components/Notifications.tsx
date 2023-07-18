@@ -40,8 +40,7 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
                             <Box sx={{ backgroundColor: "#FF4747", width: "1.3vw", height: "1.3vw", borderRadius: "50%" }}>
                                 {" "}
                             </Box>
-                            <Avatar sx={{ width: "13vw", height: "13vw", borderRadius: "50%" }} />
-                            {/* <img src={imageProfile} alt="" style={{ width: "13vw", height: "13vw", borderRadius: "50%" }} /> */}
+                            <Avatar src={profile} sx={{ width: "13vw", height: "13vw", borderRadius: "50%" }} />
                         </Box>
                         <Box sx={{ display: "flex", flexDirection: "column" }}>
                             <p style={{ fontSize: "3.4vw" }}>
@@ -56,7 +55,7 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
 
                     <Box sx={{ display: "flex", flexDirection: "row", gap: "4vw" }}>
                         <Box sx={{ alignItems: "center", gap: " 2vw", paddingLeft: "3.8vw" }}>
-                            <img src={profile2} alt="" style={{ width: "13vw", height: "13vw", borderRadius: "50%" }} />
+                            <Avatar src={profile2} sx={{ width: "13vw", height: "13vw", borderRadius: "50%" }} />
                         </Box>
                         <Box sx={{ display: "flex", flexDirection: "column" }}>
                             <p style={{ fontSize: "3.4vw" }}>
