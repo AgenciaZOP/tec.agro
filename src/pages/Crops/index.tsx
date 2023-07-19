@@ -9,10 +9,11 @@ import { CropsList } from "./CropsList"
 interface CropsProps {}
 
 export const Crops: React.FC<CropsProps> = ({}) => {
-    const { setTitle } = useHeader()
+    const header = useHeader()
 
     useEffect(() => {
-        setTitle("Safras")
+        header.setTitle("Safras")
+        header.updateSection("/home")
     }, [])
 
     return (

@@ -28,7 +28,9 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
 
     useEffect(() => {
         if (!user) navigate("/login")
+
         header.setTitle("Perfil")
+        header.updateSection("/profile")
         console.log("opa")
     }, [])
 
@@ -96,14 +98,7 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                         </Box>
                     </Box>
                     <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw" }}>
-                        <Transactions
-                            title={title}
-                            price={price}
-                            weight={weight}
-                            company={company}
-                            date={date}
-                            haveSeller={true}
-                        />
+                        <Transactions title={title} price={price} weight={weight} company={company} date={date} haveSeller={true} />
                         <Transactions
                             title={"Safra de café"}
                             price={"45.287,23"}
@@ -132,9 +127,7 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                     <Paper elevation={3} sx={{ borderRadius: "3vw", flexDirection: "column", height: "max-content" }}>
                         <Comment
                             user={"Hellen Katsi"}
-                            comment={
-                                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."
-                            }
+                            comment={"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."}
                             qtdStars={5}
                             date={"5 de Fevereiro"}
                         />{" "}
@@ -155,7 +148,7 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                     </Paper>
                 </Box>
             </Box>
-            {/* <BottomNavigation /> */}
+            <BottomNavigation />
         </Box>
     )
 }

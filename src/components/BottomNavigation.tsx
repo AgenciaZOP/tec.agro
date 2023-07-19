@@ -11,10 +11,16 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({}) => {
     const { currentSection } = useHeader()
     // const menu = navigationList.filter((item) => item.id == currentSection.id)[0]
 
+    const [firstRender, setFirstRender] = useState(true)
+    
     const [currentLocation, setCurrentLocation] = useState(currentSection.navigation![0])
 
     useEffect(() => {
-        navigate(`${currentSection.location}${currentLocation.location}`)
+        if (!firstRender) {
+            navigate(`${currentSection.location}${currentLocation.location}`)
+        } else {
+            setFirstRender(false)
+        }
     }, [currentLocation])
 
     return (

@@ -63,6 +63,38 @@ export const useNavigationList = () => {
             title: "Configurações",
             location: "/settings",
         },
+        {
+            id: 7,
+            title: "Perfil",
+            hidden: true,
+            location: "/profile",
+            navigation: [
+                {
+                    id: 1,
+                    title: "Perfil",
+                    location: "/",
+                    icon: <GrassIcon />,
+                },
+                {
+                    id: 2,
+                    title: "Seja um Corretor",
+                    location: "/",
+                    icon: <StorefrontIcon />,
+                },
+                {
+                    id: 3,
+                    title: "Meu Negócio",
+                    location: "/",
+                    icon: <LocalShippingIcon />,
+                },
+                {
+                    id: 4,
+                    title: "Minha Transportadora",
+                    location: "/",
+                    icon: <ChatIcon />,
+                },
+            ],
+        },
     ]
 
     return list

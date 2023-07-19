@@ -9,4 +9,6 @@ declare interface NavigationMenu {
         location: string
         icon: React.ReactNode
     }[]
+
+    hidden?: boolean
 }
