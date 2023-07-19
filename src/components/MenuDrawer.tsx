@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom"
 import StarSharpIcon from "@mui/icons-material/StarSharp"
 import { Info } from "./Info"
 import { backdropStyle } from "../style/backdrop"
+import { useDate } from "../hooks/useDate"
 
 interface MenuDrawerProps {}
 
@@ -17,6 +18,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
     const menus = useNavigationList()
     const navigate = useNavigate()
 
+    const { getDifference } = useDate()
     const { open, setOpen } = useMenuDrawer()
     const { user, logout } = useUser()
 
@@ -65,7 +67,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
                 <Info title="Vendas" name={user?.sold} />
                 <Info title="Compras" name={user?.bought} />
                 <Info title="Nota" name={user?.rating ? user?.rating : ""} icon={<StarSharpIcon sx={{ width: "3.2vw" }} />} />
-                <Info title="Meses" name={new Date(user?.date || 0).getMonth() + 1} />
+                <Info title="Meses" name={getDifference(new Date(user?.date || 0))} />
             </Box>
             <Box sx={{ flexDirection: "column", paddingTop: "5vw" }}>
                 {menus

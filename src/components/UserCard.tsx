@@ -5,6 +5,7 @@ import profile2 from "../assets/person.jpg"
 import { Tag } from "./Tag"
 import { useNavigate } from "react-router-dom"
 import { useMenuDrawer } from "../hooks/useMenuDrawer"
+
 interface UserCardProps {
     user?: User
 }
