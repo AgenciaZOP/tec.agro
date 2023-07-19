@@ -12,6 +12,7 @@ import { Transactions } from "../components/Transactions"
 import { BottomNavigation } from "../components/BottomNavigation"
 import { Comment } from "../components/Comment"
 import { useNavigate } from "react-router-dom"
+import { UserStats } from "../components/UserStats"
 
 interface ProfileProps {
     user: User | null
@@ -76,12 +77,7 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                             {user?.business && <Tag name={"Loja"} variant="ads" style={"2vw"} />}
                         </Box>
                     </Box>
-                    <Box sx={{ gap: "5vw" }}>
-                        <Info name={user?.sold} title="Vendas" />
-                        <Info name={user?.bought} title="Compras" />
-                        <Info name={user?.rating} title="Nota" icon={<StarSharpIcon sx={{ width: "3.2vw" }} />} />
-                        <Info name={new Date(user?.date || 0).getMonth() + 1} title="Meses" />
-                    </Box>
+                    <UserStats user={user!} sx={{ gap: "5vw" }} />
                 </Box>
                 <Box
                     sx={{

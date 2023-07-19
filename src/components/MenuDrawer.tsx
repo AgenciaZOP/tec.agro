@@ -7,10 +7,9 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace"
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark"
 import { UserCard } from "./UserCard"
 import { useNavigate } from "react-router-dom"
-import StarSharpIcon from "@mui/icons-material/StarSharp"
-import { Info } from "./Info"
 import { backdropStyle } from "../style/backdrop"
 import { useDate } from "../hooks/useDate"
+import { UserStats } from "./UserStats"
 
 interface MenuDrawerProps {}
 
@@ -18,7 +17,6 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
     const menus = useNavigationList()
     const navigate = useNavigate()
 
-    const { getDifference } = useDate()
     const { open, setOpen } = useMenuDrawer()
     const { user, logout } = useUser()
 
@@ -55,20 +53,8 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
             </Box>
 
             <UserCard user={user!} />
-            <Box
-                sx={{
-                    border: `1px solid gray`,
-                    borderRadius: "2vw",
-                    margin: "0 4vw",
-                    padding: "4vw",
-                    justifyContent: "space-between",
-                }}
-            >
-                <Info title="Vendas" name={user?.sold} />
-                <Info title="Compras" name={user?.bought} />
-                <Info title="Nota" name={user?.rating ? user?.rating : ""} icon={<StarSharpIcon sx={{ width: "3.2vw" }} />} />
-                <Info title="Meses" name={getDifference(new Date(user?.date || 0))} />
-            </Box>
+            <UserStats user={user!} sx={{ border: `1px solid gray`, padding: "4vw" }} />
+
             <Box sx={{ flexDirection: "column", paddingTop: "5vw" }}>
                 {menus
                     .filter((item) => !item.hidden)
