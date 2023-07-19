@@ -1,5 +1,5 @@
 import { Avatar, Box, IconButton, Paper } from "@mui/material"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useHeader } from "../hooks/useHeader"
 import { Header } from "../components/Header"
 import profile2 from "../assets/person.jpg"
@@ -8,6 +8,9 @@ import { Tag } from "../components/Tag"
 import StarSharpIcon from "@mui/icons-material/StarSharp"
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
+import { Transactions } from "../components/Transactions"
+import { BottomNavigation } from "../components/BottomNavigation"
+import { Comment } from "../components/Comment"
 
 interface ProfileProps {
     user: User | null
@@ -15,6 +18,11 @@ interface ProfileProps {
 
 export const Profile: React.FC<ProfileProps> = ({ user }) => {
     const header = useHeader()
+    const [title, settitle] = useState("Safra de Soja 2022/23 ")
+    const [company, setCompany] = useState("Transportadora")
+    const [price, setPrice] = useState("125.000,02")
+    const [weight, setWeight] = useState(9.1)
+    const [date, setDate] = useState("19/05/2023")
 
     useEffect(() => {
         header.setTitle("Perfil")
@@ -22,9 +30,9 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
     }, [])
 
     return (
-        <Box sx={{ flexDirection: "column", width: "100%" }}>
+        <Box sx={{ flexDirection: "column", width: "100%", padding: "12vh 0 10vh 0" }}>
             <Header />
-            <Box sx={{ width: "100%", padding: "6vw", gap: "3vw", flexDirection: "column", alignItems: "center" }}>
+            <Box sx={{ width: "100%", gap: "2vw", flexDirection: "column", alignItems: "center" }}>
                 <Box
                     sx={{
                         backgroundColor: "white",
@@ -62,10 +70,9 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                     sx={{
                         width: "92%",
                         flexDirection: "column",
-                        gap: "2vw",
                     }}
                 >
-                    <Box sx={{ gap: "1vw", alignItems: "center", justifyContent: "space-between" }}>
+                    <Box sx={{ alignItems: "center", justifyContent: "space-between" }}>
                         <p style={{ fontSize: "3.5vw" }}>Transações Recentes</p>
                         <Box sx={{ alignItems: "center", gap: "0vw" }} onClick={() => {}}>
                             <p style={{ fontSize: "2.8vw" }}>Ver todas</p>
@@ -74,32 +81,45 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                             </IconButton>
                         </Box>
                     </Box>
-                    <Paper
-                        elevation={3}
-                        sx={{
-                            backgroundColor: "white",
-                            width: "100%",
-                            height: "max-content",
-                            borderRadius: "2vw",
-                            alignItems: "center",
-                            padding: "5vw",
-                        }}
-                    >
-                        <Box sx={{ display: "flex", gap: "4vw", alignItems: "flex-end", justifyContent: "space-between" }}>
-                            <Box sx={{ flexDirection: "column" }}>
-                                <p style={{ fontSize: "2.6vw" }}>
-                                    Safra de Soja 2022/23 | <span style={{ fontSize: "2.2vw" }}>9,15 toneladas</span>
-                                </p>
-                                <p style={{ fontSize: "2.2vw" }}>[Transportadora]</p>
-                            </Box>
-                            <Box sx={{ flexDirection: "column" }}>
-                                <p style={{ fontSize: "2.6vw" }}>R$ 134.024,02</p>
-                                <p style={{ fontSize: "2.2vw" }}>[18/07/2023]</p>
-                            </Box>
+                    <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw" }}>
+                        <Transactions title={title} price={price} weight={weight} company={company} date={date} />
+                        <Transactions
+                            title={"Safra de Café "}
+                            price={"80.000,32"}
+                            weight={7.5}
+                            company={company}
+                            date={date}
+                        />
+                    </Box>
+                </Box>
+                <Box
+                    sx={{
+                        width: "92%",
+                        flexDirection: "column",
+                    }}
+                >
+                    <Box sx={{ alignItems: "center", justifyContent: "space-between" }}>
+                        <p style={{ fontSize: "3.5vw" }}>Comentários de Perfil</p>
+                        <Box sx={{ alignItems: "center", gap: "0vw" }} onClick={() => {}}>
+                            <p style={{ fontSize: "2.8vw" }}>Ver todas</p>
+                            <IconButton sx={{ width: "2vw" }}>
+                                <ArrowForwardIosIcon sx={{ width: "2vw" }} />
+                            </IconButton>
                         </Box>
+                    </Box>
+                    <Paper elevation={3} sx={{ borderRadius: "3vw" }}>
+                        <Comment
+                            user={"Hellen Katsi"}
+                            comment={
+                                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                            }
+                            stars={4}
+                            date={"19 de Julho"}
+                        />{" "}
                     </Paper>
                 </Box>
             </Box>
+            {/* <BottomNavigation /> */}
         </Box>
     )
 }
