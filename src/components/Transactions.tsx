@@ -11,10 +11,11 @@ interface TransactionsProps {
     company: string
     price: string
     date: string
+    haveSeller: boolean
     avatar?: React.ReactElement
 }
 
-export const Transactions: React.FC<TransactionsProps> = ({ title, weight, company, price, date, avatar }) => {
+export const Transactions: React.FC<TransactionsProps> = ({ title, weight, company, price, date, haveSeller, avatar }) => {
     return (
         <Paper
             elevation={3}
@@ -46,9 +47,25 @@ export const Transactions: React.FC<TransactionsProps> = ({ title, weight, compa
                         <p style={{ fontSize: "2.3vw", textAlign: "right" }}>{date}</p>
                     </Box>
                 </Box>
-                <Box sx={{ justifyContent: "space-between", gap: "2vw", width: "100%" }}>
+                <Box sx={{ justifyContent: "space-between", gap: "0vw", width: "100%" }}>
                     <AvatarCard name={"Talam Ekstrom"} typeAgent={"Produtor"} avatar={<Avatar src={profile2} />} />
-                    <AvatarCard name={"Talam Ekstrom"} typeAgent={"Corretor"} avatar={<Avatar src={profile3} />} />
+                    {haveSeller ? (
+                        <AvatarCard name={"Talam Ekstrom"} typeAgent={"Corretor"} avatar={<Avatar src={profile3} />} />
+                    ) : (
+                        <Box
+                            sx={{
+                                display: "flex",
+                                width: "33%",
+                                gap: "3vw",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
+                        >
+                            <hr style={{ transform: "rotate(90deg)", height: "3.5vw" }} />
+                            <span style={{ fontSize: "2.2vw" }}>Independente</span>
+                            <hr style={{ transform: "rotate(90deg)", height: "3.5vw" }} />
+                        </Box>
+                    )}
                     <AvatarCard name={"Talam Ekstrom"} typeAgent={"Comprador"} avatar={<Avatar src={profile} />} />
                 </Box>
             </Box>
