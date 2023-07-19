@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from "react"
 import { BottomNavigationAction, BottomNavigation as MuiBottomNav } from "@mui/material"
 import { useHeader } from "../hooks/useHeader"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
-interface BottomNavigationProps {}
+interface BottomNavigationProps {
+    external?: boolean
+}
 
-export const BottomNavigation: React.FC<BottomNavigationProps> = ({}) => {
+export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external }) => {
     const navigate = useNavigate()
+    const pathname = useLocation().pathname
 
     const { currentSection } = useHeader()
-    // const menu = navigationList.filter((item) => item.id == currentSection.id)[0]
 
     const [firstRender, setFirstRender] = useState(true)
-    
-    const [currentLocation, setCurrentLocation] = useState(currentSection.navigation![0])
+    const [currentLocation, setCurrentLocation] = useState<
+        | {
+              id: number
+              title: string
+              location: string
+              icon: React.ReactNode
+          }
+        | undefined
+    >(external ? undefined : currentSection.navigation![0])
 
     useEffect(() => {
-        if (!firstRender) {
+        if (!firstRender && currentLocation) {
             navigate(`${currentSection.location}${currentLocation.location}`)
         } else {
             setFirstRender(false)
@@ -26,7 +35,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({}) => {
     return (
         <MuiBottomNav
             showLabels
-            value={currentLocation.id}
+            value={currentLocation?.id || 0}
             onChange={(_, newValue) => setCurrentLocation(currentSection.navigation!.filter((item) => item.id == newValue)[0])}
             sx={{
                 marginTop: "auto",
@@ -39,15 +48,17 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({}) => {
                 width: "100%",
             }}
         >
+            <BottomNavigationAction value={0} sx={{ display: "none" }} />
             {currentSection.navigation?.map((item) => {
                 const Icon = () => item.icon
+
                 return (
                     <BottomNavigationAction
                         key={item.id}
                         label={<p style={{ fontSize: "2.6vw" }}>{item.title}</p>}
                         icon={<Icon />}
                         value={item.id}
-                        sx={{ background: currentLocation.id == item.id ? "white" : "", borderRadius: "6vw", gap: "1vw" }}
+                        sx={{ background: currentLocation?.id == item.id ? "white" : "", borderRadius: "6vw", gap: "1vw" }}
                     />
                 )
             })}

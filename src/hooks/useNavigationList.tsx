@@ -15,7 +15,7 @@ export const useNavigationList = () => {
                 {
                     id: 1,
                     title: "Safras",
-                    location: "/",
+                    location: "",
                     icon: <GrassIcon />,
                 },
                 {
