@@ -24,8 +24,13 @@ export const CropsProvider: React.FC<CropsProviderProps> = ({ children }) => {
     const [crops, setCrops] = useState<Crop[]>([])
     const [loading, setLoading] = useState(true)
 
-    io.on("crops:list", (data: Crop[]) => {
+    io.on("crop:list", (data: Crop[]) => {
         setCrops(data)
+    })
+
+    io.on("crop:new", (crop: Crop) => {
+        console.log({ crop })
+        setCrops([...crops, crop])
     })
 
     return <CropsContext.Provider value={{ crops, setCrops, loading, setLoading }}>{children}</CropsContext.Provider>

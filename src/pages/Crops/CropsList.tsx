@@ -7,7 +7,8 @@ import { CropCard } from "../../components/CropCard"
 interface CropsListProps {}
 
 export const CropsList: React.FC<CropsListProps> = ({}) => {
-    const crops = useCrops().crops.slice(0, 5)
+    const crops = useCrops().crops.sort((a, b) => b.sold - a.sold)
+    // .slice(0, 5)
 
     return (
         <Box sx={{ flexDirection: "column", gap: "2vw" }}>
