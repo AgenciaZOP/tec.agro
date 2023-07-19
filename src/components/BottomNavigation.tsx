@@ -22,7 +22,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({}) => {
             showLabels
             value={currentLocation.id}
             onChange={(_, newValue) => setCurrentLocation(currentSection.navigation!.filter((item) => item.id == newValue)[0])}
-            sx={{ marginTop: "auto", background: "transparent", padding: "3vw", height: "10vh", position: "fixed", bottom: 0 }}
+            sx={{ marginTop: "auto", background: "transparent", padding: "3vw 0", height: "10vh", position: "fixed", bottom: 0 }}
         >
             {currentSection.navigation?.map((item) => {
                 const Icon = () => item.icon
@@ -32,7 +32,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({}) => {
                         label={<p style={{ fontSize: "2.6vw" }}>{item.title}</p>}
                         icon={<Icon />}
                         value={item.id}
-                        sx={{ background: currentLocation.id == item.id ? "white" : "", borderRadius: "6vw", gap: "1vw" }}
+                        sx={{ background: currentLocation.id == item.id ? "white" : "", borderRadius: "6vw", gap: "1vw", padding: "0" }}
                     />
                 )
             })}
