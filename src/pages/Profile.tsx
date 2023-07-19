@@ -11,6 +11,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import { Transactions } from "../components/Transactions"
 import { BottomNavigation } from "../components/BottomNavigation"
 import { Comment } from "../components/Comment"
+import { useNavigate } from "react-router-dom"
 
 interface ProfileProps {
     user: User | null
@@ -18,6 +19,7 @@ interface ProfileProps {
 
 export const Profile: React.FC<ProfileProps> = ({ user }) => {
     const header = useHeader()
+    const navigate = useNavigate()
     const [title, settitle] = useState("Safra de Soja 2022/23 ")
     const [company, setCompany] = useState("Transportadora")
     const [price, setPrice] = useState("125.000,02")
@@ -25,6 +27,7 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
     const [date, setDate] = useState("19/05/2023")
 
     useEffect(() => {
+        if (!user) navigate("/login")
         header.setTitle("Perfil")
         console.log("opa")
     }, [])
@@ -32,7 +35,17 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
     return (
         <Box sx={{ flexDirection: "column", width: "100%", height: "100%", padding: "12vh 0vw 10vh 0vw" }}>
             <Header />
-            <Box sx={{ width: "100%", gap: "2vw", flexDirection: "column", alignItems: "center" }}>
+            <Box
+                sx={{
+                    width: "100%",
+                    height: "100%",
+                    paddingBottom: "5vw",
+                    overflowY: "auto",
+                    gap: "1vw",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
                 <Box
                     sx={{
                         backgroundColor: "white",
@@ -41,13 +54,14 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                         borderRadius: "2vw",
                         flexDirection: "Column",
                         alignItems: "center",
-                        padding: "5vw",
-                        gap: "4vw",
+                        padding: "3.2vw",
+                        gap: "1vw",
                     }}
                 >
-                    <Avatar src={profile2} sx={{ width: "25vw", height: "25vw", borderRadius: "50%" }} />
+                    <p style={{ textAlign: "right", fontSize: "2.5vw", textDecoration: "underline" }}>Editar</p>
+                    <Avatar src={profile2} sx={{ width: "22vw", height: "22vw", borderRadius: "50%" }} />
                     <Box sx={{ flexDirection: "column", alignItems: "center", gap: "1.2vw" }}>
-                        <p style={{ fontSize: "6vw" }}>{user?.name}</p>
+                        <p style={{ fontSize: "5.5vw" }}>{user?.name}</p>
                         <Box sx={{ alignItems: "center", gap: "1vw" }}>
                             <FmdGoodOutlinedIcon sx={{ width: "4vw" }} />
                             <p style={{ fontSize: "2.56vw" }}>{"Jaboatão dos Guararapes, Pernambuco"}</p>
@@ -91,11 +105,11 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                             haveSeller={true}
                         />
                         <Transactions
-                            title={title}
-                            price={price}
-                            weight={weight}
+                            title={"Safra de café"}
+                            price={"45.287,23"}
+                            weight={5.8}
                             company={company}
-                            date={date}
+                            date={"27/03/2023"}
                             haveSeller={false}
                         />
                     </Box>
