@@ -30,7 +30,7 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
     }, [])
 
     return (
-        <Box sx={{ flexDirection: "column", width: "100%", height: "100%", padding: "12vh 0vw 10vh 0vw", overflow: "auto" }}>
+        <Box sx={{ flexDirection: "column", width: "100%", height: "100%", padding: "12vh 0vw 10vh 0vw" }}>
             <Header />
             <Box sx={{ width: "100%", gap: "2vw", flexDirection: "column", alignItems: "center" }}>
                 <Box
@@ -82,8 +82,22 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                         </Box>
                     </Box>
                     <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw" }}>
-                        <Transactions title={title} price={price} weight={weight} company={company} date={date} />
-                        <Transactions title={title} price={price} weight={weight} company={company} date={date} />
+                        <Transactions
+                            title={title}
+                            price={price}
+                            weight={weight}
+                            company={company}
+                            date={date}
+                            haveSeller={true}
+                        />
+                        <Transactions
+                            title={title}
+                            price={price}
+                            weight={weight}
+                            company={company}
+                            date={date}
+                            haveSeller={false}
+                        />
                     </Box>
                 </Box>
                 <Box
@@ -101,22 +115,28 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                             </IconButton>
                         </Box>
                     </Box>
-                    <Paper elevation={3} sx={{ borderRadius: "3vw", flexDirection: "column" }}>
+                    <Paper elevation={3} sx={{ borderRadius: "3vw", flexDirection: "column", height: "max-content" }}>
                         <Comment
                             user={"Hellen Katsi"}
                             comment={
-                                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."
                             }
-                            stars={4}
-                            date={"19 de Julho"}
+                            qtdStars={5}
+                            date={"5 de Fevereiro"}
                         />{" "}
                         <Comment
-                            user={"Hellen Katsi"}
+                            user={"Joelson Souza"}
                             comment={
-                                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
                             }
-                            stars={4}
-                            date={"19 de Julho"}
+                            qtdStars={2}
+                            date={"19 de Maio"}
+                        />{" "}
+                        <Comment
+                            user={"Abram Culhane"}
+                            comment={"Latin words, combined with a handful of model sentence structures."}
+                            qtdStars={3}
+                            date={"28 de Julho"}
                         />{" "}
                     </Paper>
                 </Box>
