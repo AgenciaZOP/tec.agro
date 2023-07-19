@@ -36,7 +36,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
             anchor={"left"}
             open={open}
             onClose={handleClose}
-            PaperProps={{ sx: { width: "80vw" } }}
+            PaperProps={{ sx: { width: "80vw", overflowX: "hidden" } }}
             ModalProps={{ BackdropProps: { sx: backdropStyle } }}
         >
             <Box sx={{ justifyContent: "space-between", width: "100%", padding: "5vw" }}>
@@ -68,18 +68,20 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
                 <Info title="Meses" name={new Date(user?.date || 0).getMonth() + 1} />
             </Box>
             <Box sx={{ flexDirection: "column", paddingTop: "5vw" }}>
-                {menus.map((menu) => (
-                    <MenuItem
-                        key={menu.location}
-                        onClick={() => {
-                            handleClose()
-                            navigate(menu.location)
-                        }}
-                        sx={{ fontSize: "5vw", alignItems: "center" }}
-                    >
-                        {menu.title}
-                    </MenuItem>
-                ))}
+                {menus
+                    .filter((item) => !item.hidden)
+                    .map((menu) => (
+                        <MenuItem
+                            key={menu.location}
+                            onClick={() => {
+                                handleClose()
+                                navigate(menu.location)
+                            }}
+                            sx={{ fontSize: "5vw", alignItems: "center" }}
+                        >
+                            {menu.title}
+                        </MenuItem>
+                    ))}
             </Box>
             <MenuItem
                 sx={{ marginTop: "auto", fontSize: "5vw" }}
