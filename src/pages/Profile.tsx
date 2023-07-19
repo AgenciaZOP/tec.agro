@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react"
 import { useHeader } from "../hooks/useHeader"
 import { Header } from "../components/Header"
 import profile2 from "../assets/person.jpg"
-import { Info } from "../components/Info"
 import { Tag } from "../components/Tag"
-import StarSharpIcon from "@mui/icons-material/StarSharp"
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined"
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"
 import { Transactions } from "../components/Transactions"
@@ -13,14 +11,16 @@ import { BottomNavigation } from "../components/BottomNavigation"
 import { Comment } from "../components/Comment"
 import { useNavigate } from "react-router-dom"
 import { UserStats } from "../components/UserStats"
+import { useUser } from "../hooks/useUser"
 
-interface ProfileProps {
-    user: User | null
-}
+interface ProfileProps {}
 
-export const Profile: React.FC<ProfileProps> = ({ user }) => {
+export const Profile: React.FC<ProfileProps> = ({}) => {
     const header = useHeader()
     const navigate = useNavigate()
+
+    const { user } = useUser()
+
     const [title, settitle] = useState("Safra de Soja 2022/23 ")
     const [company, setCompany] = useState("Transportadora")
     const [price, setPrice] = useState("125.000,02")

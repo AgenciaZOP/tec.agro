@@ -8,7 +8,6 @@ import QuestionMarkIcon from "@mui/icons-material/QuestionMark"
 import { UserCard } from "./UserCard"
 import { useNavigate } from "react-router-dom"
 import { backdropStyle } from "../style/backdrop"
-import { useDate } from "../hooks/useDate"
 import { UserStats } from "./UserStats"
 
 interface MenuDrawerProps {}
