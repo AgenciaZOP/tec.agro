@@ -69,10 +69,11 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
                             <p style={{ fontSize: "2.56vw" }}>{"Jaboatão dos Guararapes, Pernambuco"}</p>
                         </Box>
                         <Box sx={{ flexDirection: "row", gap: "1vw" }}>
-                            <Tag name="Produtor" color="#D2FFB6" style={"2vw"} />
-                            <Tag name="Corretor" color="#E2EAFF" style={"2vw"} />
-                            <Tag name="Transportador" color="#FFFDC7" style={"2vw"} />
-                            <Tag name="Loja" color="#F0C7FF" style={"2vw"} />
+                            {user?.adm && <Tag name={"ADM"} variant="adm" style={"2vw"} />}
+                            {user?.producer && <Tag name={"Produtor"} variant="producer" style={"2vw"} />}
+                            {user?.agent && <Tag name={"Corretor"} variant="agent" style={"2vw"} />}
+                            {user?.shipping && <Tag name={"Transportadora"} variant="shipping" style={"2vw"} />}
+                            {user?.business && <Tag name={"Loja"} variant="ads" style={"2vw"} />}
                         </Box>
                     </Box>
                     <Box sx={{ gap: "5vw" }}>

@@ -3,17 +3,25 @@ import { Box } from "@mui/material"
 
 interface TagProps {
     name: string
-    color: string
     style?: string
+    variant: "producer" | "agent" | "shipping" | "ads" | "adm"
 }
 
-export const Tag: React.FC<TagProps> = ({ name, color, style }) => {
+export const Tag: React.FC<TagProps> = ({ name, style, variant }) => {
+    const colors = {
+        producer: "#D2FFB6",
+        agent: "#E2EAFF",
+        shipping: "#FFFDC7",
+        ads: "#F0C7FF",
+        adm: "#FC5F5C",
+    }
+
     return (
         <Box
             sx={{
                 fontSize: `${style}`,
                 width: "max-content",
-                backgroundColor: `${color}`,
+                backgroundColor: `${colors[variant]}`,
                 borderRadius: "7vw",
                 padding: "1vw 2vw 1vw 2vw",
             }}

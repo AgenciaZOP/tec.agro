@@ -6,6 +6,7 @@ declare interface User {
     name: string
     password: string
 
+    adm: boolean
     producer: boolean
     agent: boolean
     business: boolean

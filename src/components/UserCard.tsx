@@ -28,7 +28,13 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
                     <p style={{ fontWeight: "600", fontSize: "4vw" }}>{user.name}</p>
                     <p style={{ textDecoration: "underline", fontSize: "2.5vw", color: `${colors.primary}` }}> Editar</p>
                 </Box>
-                <Tag name={"Produtor"} color="#D2FFB6" style={"2.8vw"} />
+                <Box sx={{ gap: "1vw", flexWrap: "wrap", width: "60vw" }}>
+                    {user.adm && <Tag name={"ADM"} variant="adm" style={"2.8vw"} />}
+                    {user.producer && <Tag name={"Produtor"} variant="producer" style={"2.8vw"} />}
+                    {user.agent && <Tag name={"Corretor"} variant="agent" style={"2.8vw"} />}
+                    {user.shipping && <Tag name={"Transportadora"} variant="shipping" style={"2.8vw"} />}
+                    {user.business && <Tag name={"Loja"} variant="ads" style={"2.8vw"} />}
+                </Box>
             </Box>
         </Box>
     ) : (
