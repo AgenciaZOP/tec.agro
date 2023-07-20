@@ -9,7 +9,6 @@ declare interface User {
     adm: boolean
     producer: boolean
     agent: boolean
-    business: boolean
     shipping: boolean
     sold: number
     bought: number
@@ -20,4 +19,6 @@ declare interface User {
     meediatedCrops: MediatedCrop[]
     chats: Chat[]
     messages: Message[]
+
+    business?: Business
 }
