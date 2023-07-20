@@ -11,6 +11,9 @@ export const useChats = () => {
     const newChat = (destination: User) => {
         console.log(destination)
 
+        if (destination.id == user?.id)
+            return
+
         const chat: NewChatBag = {
             channel: "buyer",
             message: "teste",
