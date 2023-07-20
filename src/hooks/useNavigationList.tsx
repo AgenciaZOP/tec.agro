@@ -3,7 +3,10 @@ import ChatIcon from "@mui/icons-material/Chat"
 // import GridViewIcon from "@mui/icons-material/GridView"
 // import SearchIcon from "@mui/icons-material/Search"
 import StorefrontIcon from "@mui/icons-material/Storefront"
+import MultipleStopIcon from "@mui/icons-material/MultipleStop"
+import BarChartIcon from "@mui/icons-material/BarChart"
 import LocalShippingIcon from "@mui/icons-material/LocalShipping"
+import AppsIcon from "@mui/icons-material/Apps"
 
 export const useNavigationList = () => {
     const list: NavigationMenu[] = [
@@ -73,25 +76,25 @@ export const useNavigationList = () => {
                     id: 1,
                     title: "Perfil",
                     location: "/",
-                    icon: <GrassIcon />,
+                    icon: <AppsIcon />,
                 },
                 {
                     id: 2,
                     title: "Seja um Corretor",
                     location: "/",
-                    icon: <StorefrontIcon />,
+                    icon: <MultipleStopIcon />,
                 },
                 {
                     id: 3,
                     title: "Meu Negócio",
                     location: "/",
-                    icon: <LocalShippingIcon />,
+                    icon: <BarChartIcon />,
                 },
                 {
                     id: 4,
                     title: "Minha Transportadora",
                     location: "/",
-                    icon: <ChatIcon />,
+                    icon: <LocalShippingIcon />,
                 },
             ],
         },

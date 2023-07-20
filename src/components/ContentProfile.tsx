@@ -8,17 +8,29 @@ import { Tag } from "./Tag"
 import EditIcon from "@mui/icons-material/Edit"
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined"
 import profile2 from "../assets/person.jpg"
+import { EditProfile } from "./EditProfile"
 
 interface ContentProfileProps {
     user: User | null
 }
 
 export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
+    const [editing, setEditing] = useState(false)
+
     const [title, settitle] = useState("Safra de Soja 2022/23 ")
     const [company, setCompany] = useState("Transportadora")
     const [price, setPrice] = useState("125.000,02")
     const [weight, setWeight] = useState(9.1)
     const [date, setDate] = useState("19/05/2023")
+
+    const handleEditing = () => {
+        if (editing) {
+            setEditing(false)
+        } else {
+            setEditing(true)
+        }
+    }
+
     return (
         <Box
             sx={{
@@ -26,7 +38,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
                 height: "100%",
                 paddingBottom: "5vw",
                 overflowY: "auto",
-                gap: "4vw",
+                gap: "3vw",
                 flexDirection: "column",
                 alignItems: "center",
             }}
@@ -39,29 +51,53 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
                     borderRadius: "2vw",
                     flexDirection: "Column",
                     alignItems: "center",
-                    padding: "3.2vw",
-                    gap: "1vw",
+                    padding: "2vw",
+                    paddingBottom: "5vw",
+                    gap: "2vw",
                 }}
             >
-                <Box sx={{ alignItems: "center", width: "100%", justifyContent: "end" }} onClick={() => {}}>
-                    <p style={{ textAlign: "right", fontSize: "3vw", textDecoration: "underline" }}>Editar</p>
+                <Box
+                    sx={{
+                        alignItems: "center",
+                        width: "max-content",
+                        justifyContent: "center",
+                        padding: "1vw 3vw",
+                        borderRadius: "5vw",
+                        backgroundColor: editing ? "#8FFFA1" : "white",
+                        gap: "0.5vw",
+                        alignSelf: "self-end",
+                        position: editing ? "fixed" : "",
+                    }}
+                >
+                    <p
+                        style={{ textAlign: "right", fontSize: "2.7vw", textDecoration: "underline" }}
+                        onClick={handleEditing}
+                    >
+                        {editing ? "Editando" : "Editar"}
+                    </p>
                     <EditIcon sx={{ width: "3vw" }} />
                 </Box>
-                <Avatar src={profile2} sx={{ width: "22vw", height: "22vw", borderRadius: "50%" }} />
-                <Box sx={{ flexDirection: "column", alignItems: "center", gap: "1.2vw" }}>
-                    <p style={{ fontSize: "5.5vw" }}>{user?.name}</p>
-                    <Box sx={{ alignItems: "center", gap: "1vw" }}>
-                        <FmdGoodOutlinedIcon sx={{ width: "4vw" }} />
-                        <p style={{ fontSize: "2.56vw" }}>{"Jaboatão dos Guararapes, Pernambuco"}</p>
+                {!editing ? (
+                    <Box sx={{ flexDirection: "column", alignItems: "center" }}>
+                        <Avatar src={profile2} sx={{ width: "22vw", height: "22vw", borderRadius: "50%" }} />
+                        <p style={{ fontSize: "5.5vw" }}>{user?.name}</p>
+                        <Box sx={{ alignItems: "center", gap: "1vw" }}>
+                            <FmdGoodOutlinedIcon sx={{ width: "4vw" }} />
+                            <p style={{ fontSize: "2.56vw" }}>{"Jaboatão dos Guararapes, Pernambuco"}</p>
+                        </Box>
                     </Box>
-                    <Box sx={{ flexDirection: "row", gap: "1vw" }}>
-                        {user?.adm && <Tag name={"ADM"} variant="adm" style={"2vw"} />}
-                        {user?.producer && <Tag name={"Produtor"} variant="producer" style={"2vw"} />}
-                        {user?.agent && <Tag name={"Corretor"} variant="agent" style={"2vw"} />}
-                        {user?.shipping && <Tag name={"Transportadora"} variant="shipping" style={"2vw"} />}
-                        {user?.business && <Tag name={"Loja"} variant="ads" style={"2vw"} />}
-                    </Box>
+                ) : (
+                    <EditProfile user={user} />
+                )}
+
+                <Box sx={{ flexDirection: "row", gap: "1vw" }}>
+                    {user?.adm && <Tag name={"ADM"} variant="adm" style={"2vw"} />}
+                    {user?.producer && <Tag name={"Produtor"} variant="producer" style={"2vw"} />}
+                    {user?.agent && <Tag name={"Corretor"} variant="agent" style={"2vw"} />}
+                    {user?.shipping && <Tag name={"Transportadora"} variant="shipping" style={"2vw"} />}
+                    {user?.business && <Tag name={"Loja"} variant="ads" style={"2vw"} />}
                 </Box>
+
                 <UserStats user={user!} sx={{ gap: "5vw" }} />
             </Box>
             <Box
