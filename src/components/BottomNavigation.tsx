@@ -63,7 +63,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external }) 
                             borderRadius: "6vw",
                             gap: "1vw",
                             padding: "0 1vw",
-                            width: "fit-content",
+                            minWidth: "0!important",
                         }}
                     />
                 )
