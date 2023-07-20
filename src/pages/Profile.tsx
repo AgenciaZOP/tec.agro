@@ -3,21 +3,16 @@ import React, { useEffect, useState } from "react"
 import { useHeader } from "../hooks/useHeader"
 import { Header } from "../components/Header"
 import { BottomNavigation } from "../components/BottomNavigation"
-import { useNavigate } from "react-router-dom"
-import { useUser } from "../hooks/useUser"
 import { ContentProfile } from "../components/ContentProfile"
 
-interface ProfileProps {}
+interface ProfileProps {
+    user: User
+}
 
-export const Profile: React.FC<ProfileProps> = ({}) => {
+export const Profile: React.FC<ProfileProps> = ({ user }) => {
     const header = useHeader()
-    const navigate = useNavigate()
-
-    const { user } = useUser()
 
     useEffect(() => {
-        if (!user) navigate("/login")
-
         header.setTitle("Perfil")
         header.updateSection("/profile")
     }, [])
