@@ -15,11 +15,11 @@ export const ChatCard: React.FC<ChatCardProps> = ({ chat, onClick }) => {
                 <Box sx={{ flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
                     <Box sx={{ justifyContent: "space-between", alignItems: "center" }}>
                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                            <p style={{ fontSize: "4vw", fontWeight: "700" }}>Nome</p>
+                            <p style={{ fontSize: "4vw", fontWeight: "700" }}>Nome Completo</p>
                             <p style={{ fontSize: "3vw", fontWeight: "600" }}>Função</p>
                         </Box>
                     </Box>
-                    <Box sx={{ fontSize: "2.6vw", justifyContent: "space-between" }}>
+                    <Box sx={{ fontSize: "3vw", justifyContent: "space-between" }}>
                         <p>7 h atrás</p>
                     </Box>
                 </Box>

@@ -20,8 +20,7 @@ export const Crops: React.FC<CropsProps> = ({}) => {
         <Box
             sx={{
                 flexDirection: "column",
-                padding: "5vw",
-                paddingBottom: 0,
+                padding: "0 5vw",
                 gap: "5vw",
                 width: "100vw",
                 height: "100%",
