@@ -87,7 +87,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
                         </Box>
                     </Box>
                 ) : (
-                    <EditProfile user={user} />
+                    <EditProfile user={user} editing={editing} />
                 )}
 
                 <Box sx={{ flexDirection: "row", gap: "1vw" }}>
