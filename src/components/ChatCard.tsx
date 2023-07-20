@@ -19,7 +19,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ chat, onClick }) => {
                             <p style={{ fontSize: "3vw", fontWeight: "600" }}>Função</p>
                         </Box>
                     </Box>
-                    <Box sx={{ fontSize: "2.6vw", justifyContent: "space-between" }}>
+                    <Box sx={{ fontSize: "3vw", justifyContent: "space-between" }}>
                         <p>7 h atrás</p>
                     </Box>
                 </Box>
