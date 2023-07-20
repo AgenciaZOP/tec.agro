@@ -23,11 +23,24 @@ export const SearchInput: React.FC<SearchInputProps> = ({ placeholder, onChange 
             InputProps={{
                 startAdornment: <SearchIcon />,
                 endAdornment: (
-                    <Button variant="contained" color="secondary" sx={{ borderRadius: "10vw", textTransform: "capitalize", padding: " 0 2vw" }}>
+                    <Button variant="contained" color="secondary"
+                    sx={{
+                        borderRadius: "10vw",
+                        textTransform: "capitalize",
+                        padding: " 0 2vw"
+                    }}>
                         Filtrar
                     </Button>
                 ),
-                sx: { gap: "2vw", borderRadius: "10vw", backgroundColor: "#EAEAEA", alignSelf: "center", height: "12vw", width: "90vw", padding: "0 2vw" },
+                sx: {
+                    gap: "2vw",
+                    borderRadius: "10vw",
+                    backgroundColor: "#EAEAEA",
+                    alignSelf: "center",
+                    height: "12vw",
+                    width: "90vw",
+                    padding: "0 2vw"
+                },
             }}
         />
     )
