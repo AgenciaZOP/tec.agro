@@ -9,6 +9,7 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping"
 import AppsIcon from "@mui/icons-material/Apps"
 
 export const useNavigationList = () => {
+    const iconStyle = {}
     const list: NavigationMenu[] = [
         {
             id: 1,
@@ -19,25 +20,25 @@ export const useNavigationList = () => {
                     id: 1,
                     title: "Safras",
                     location: "",
-                    icon: <GrassIcon />,
+                    icon: <GrassIcon sx={iconStyle} />,
                 },
                 {
                     id: 2,
                     title: "Lojas & Serviços",
                     location: "/chats",
-                    icon: <StorefrontIcon />,
+                    icon: <StorefrontIcon sx={iconStyle} />,
                 },
                 {
                     id: 3,
                     title: "Transportadoras",
                     location: "/chats",
-                    icon: <LocalShippingIcon />,
+                    icon: <LocalShippingIcon sx={iconStyle} />,
                 },
                 {
                     id: 4,
                     title: "Conversas",
                     location: "/chats",
-                    icon: <ChatIcon />,
+                    icon: <ChatIcon sx={iconStyle} />,
                 },
             ],
         },
@@ -76,25 +77,25 @@ export const useNavigationList = () => {
                     id: 1,
                     title: "Perfil",
                     location: "/",
-                    icon: <AppsIcon />,
+                    icon: <GrassIcon sx={iconStyle} />,
                 },
                 {
                     id: 2,
                     title: "Seja um Corretor",
                     location: "/",
-                    icon: <MultipleStopIcon />,
+                    icon: <StorefrontIcon sx={iconStyle} />,
                 },
                 {
                     id: 3,
                     title: "Meu Negócio",
                     location: "/",
-                    icon: <BarChartIcon />,
+                    icon: <LocalShippingIcon sx={iconStyle} />,
                 },
                 {
                     id: 4,
                     title: "Minha Transportadora",
                     location: "/",
-                    icon: <LocalShippingIcon />,
+                    icon: <ChatIcon sx={iconStyle} />,
                 },
             ],
         },
