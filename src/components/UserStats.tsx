@@ -18,6 +18,7 @@ export const UserStats: React.FC<UserStatsProps> = ({ user, sx }) => {
         justifyContent: "space-between",
         ...sx,
     }
+
     return user ? (
         <Box sx={_sx}>
             <Info title="Vendas" name={user.sold} />
