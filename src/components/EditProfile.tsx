@@ -38,7 +38,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
             }}
         >
             <Avatar src={profile2} sx={{ width: "22vw", height: "22vw", borderRadius: "50%" }} />
-            <TextField sx={{ ...inputStyle }} label="Nome" name="name" value={user?.name} />
+            <TextField sx={inputStyle} label="Nome" name="name" value={user?.name} />
             <Box sx={styleBox}>
                 <TextField sx={inputStyle} label="CPF" name="cpf" variant="standard" value={"02157889245"} />
                 <TextField sx={inputStyle} label="RG" name="rg" variant="standard" value={"2115445448"} />
