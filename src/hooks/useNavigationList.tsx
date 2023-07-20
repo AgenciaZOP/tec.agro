@@ -6,7 +6,7 @@ import StorefrontIcon from "@mui/icons-material/Storefront"
 import LocalShippingIcon from "@mui/icons-material/LocalShipping"
 
 export const useNavigationList = () => {
-    const iconStyle = {}
+    const iconStyle = { width: "6vw", height: "6vw" }
     const list: NavigationMenu[] = [
         {
             id: 1,
