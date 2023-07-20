@@ -15,7 +15,7 @@ export const MessageNotification: React.FC<MessageNotificationProps> = ({ avatar
                 <Box sx={{ backgroundColor: `${color}`, width: "1.3vw", height: "1.3vw", borderRadius: "50%" }}> </Box>
                 <Avatar />
             </Box>
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Box sx={{ display: "flex", flexDirection: "column", width: "75%", whiteSpace: "pre-wrap" }}>
                 <p style={{ fontSize: "3.4vw" }}>
                     <span style={{ fontWeight: "bold" }}>{name}</span> lhe enviou uma mensagem
                 </p>
