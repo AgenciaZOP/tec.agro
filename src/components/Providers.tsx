@@ -10,6 +10,7 @@ import { Notifications } from "./Notifications"
 import { CropsProvider } from "../contexts/cropsContext"
 import { ChatsProvider } from "../contexts/chatsContext"
 import { CategoriesProvider } from "../contexts/categoriesContext"
+import { BusinessesProvider } from "../contexts/businessesContext"
 
 interface ProvidersProps {
     children: React.ReactNode
@@ -22,21 +23,23 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
                 <IoProvider>
                     <UserProvider>
                         <CropsProvider>
-                            <CategoriesProvider>
-                                <ChatsProvider>
-                                    <HeaderProvider>
-                                        <MenuDrawerProvider>
-                                            <NotificationsProvider>
-                                                <Snackbar />
-                                                <ConfirmDialog />
-                                                <MenuDrawer />
-                                                <Notifications />
-                                                {children}
-                                            </NotificationsProvider>
-                                        </MenuDrawerProvider>
-                                    </HeaderProvider>
-                                </ChatsProvider>
-                            </CategoriesProvider>
+                            <BusinessesProvider>
+                                <CategoriesProvider>
+                                    <ChatsProvider>
+                                        <HeaderProvider>
+                                            <MenuDrawerProvider>
+                                                <NotificationsProvider>
+                                                    <Snackbar />
+                                                    <ConfirmDialog />
+                                                    <MenuDrawer />
+                                                    <Notifications />
+                                                    {children}
+                                                </NotificationsProvider>
+                                            </MenuDrawerProvider>
+                                        </HeaderProvider>
+                                    </ChatsProvider>
+                                </CategoriesProvider>
+                            </BusinessesProvider>
                         </CropsProvider>
                     </UserProvider>
                 </IoProvider>

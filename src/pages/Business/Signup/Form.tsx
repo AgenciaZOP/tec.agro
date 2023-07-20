@@ -1,13 +1,19 @@
 import React, { useState } from "react"
-import { Box, Button, Paper, SxProps, TextField } from "@mui/material"
+import { Box, Button, CircularProgress, Paper, SxProps, TextField } from "@mui/material"
 import { Formik, Form as Formu } from "formik"
 import { Avatar } from "@files-ui/react"
+import { useBusinesses } from "../../../hooks/useBusinesses"
+import { useSnackbar } from "burgos-snackbar"
 
 interface FormProps {
     user: User
 }
 
 export const Form: React.FC<FormProps> = ({ user }) => {
+    const businesses = useBusinesses()
+
+    const { snackbar } = useSnackbar()
+
     const [image, setImage] = useState<File>()
 
     const initialValues: Business = {
@@ -36,7 +42,13 @@ export const Form: React.FC<FormProps> = ({ user }) => {
     }
 
     const handleSubmit = (values: Business) => {
-        console.log(values)
+        if (businesses.loading) return
+
+        if (image) {
+            businesses.new({ ...values, file: image })
+        } else {
+            snackbar({ severity: "error", text: "Envie uma imagem" })
+        }
     }
 
     return (
@@ -47,10 +59,10 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                         <Paper sx={paperStyle}>
                             <p style={{ fontSize: "5vw" }}>Informações Básicas</p>
                             <Box sx={{ flexDirection: "column", gap: "3vw" }}>
-                                <TextField label="Nome" name="name" value={values.name} onChange={handleChange} />
-                                <TextField label="E-mail" name="email" value={values.email} onChange={handleChange} />
-                                <TextField label="CPF / CNPJ" name="document" value={values.document} onChange={handleChange} />
-                                <TextField label="Telefone" name="phone" value={values.phone} onChange={handleChange} />
+                                <TextField label="Nome" name="name" value={values.name} onChange={handleChange} required />
+                                <TextField label="E-mail" name="email" value={values.email} onChange={handleChange} required />
+                                <TextField label="CPF / CNPJ" name="document" value={values.document} onChange={handleChange} required />
+                                <TextField label="Telefone" name="phone" value={values.phone} onChange={handleChange} required />
                             </Box>
                         </Paper>
 
@@ -72,7 +84,7 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                         </Paper>
 
                         <Button variant="contained" type="submit">
-                            Confirmar
+                            {businesses.loading ? <CircularProgress color="secondary" size="1.5rem" /> : "Confirmar"}
                         </Button>
                     </Formu>
                 )}
