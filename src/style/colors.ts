@@ -1,7 +1,7 @@
 const colors = {
     background: "white",
-    primary: "#000",
-    secondary: "#fff",
+    primary: "#000000",
+    secondary: "#ffffff",
 }
 
 export default colors

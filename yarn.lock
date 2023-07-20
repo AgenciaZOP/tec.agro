@@ -56,6 +56,11 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     to-fast-properties "^2.0.0"
 
+"@dynamicss/dynamicss@^2.2.8":
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/@dynamicss/dynamicss/-/dynamicss-2.2.8.tgz#e28c3209ed44fa768ea1ba609d0825b402ca72f7"
+  integrity sha512-e6hrGUydr8f+c9E/9fHFSG5LoSLdq/MdZXXfbzEDWIVuzKF2hcdxZE7nHNqUNF2htw1mZ17Pyoshu3A6kFEeFA==
+
 "@emotion/babel-plugin@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.11.0.tgz#c2d872b6a7767a9d176d007f5b31f7d504bb5d6c"
@@ -305,6 +310,19 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.44.0.tgz#961a5903c74139390478bdc808bcde3fc45ab7af"
   integrity sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==
 
+"@files-ui/core@latest":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@files-ui/core/-/core-1.0.4.tgz#57298e03a3318f331a857cff152527c1fb9ce083"
+  integrity sha512-CaSyHSwjeWEkctfALoK4MwAxq3Zr7+Ozyk5AMoB3s1UBIVgh2618wvNuUIHSVhWFKeB28bOoYxCzM2PEXO4QgA==
+
+"@files-ui/react@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@files-ui/react/-/react-1.0.8.tgz#433c4f6e5479c4ff7508d63a874d4a21138dca6c"
+  integrity sha512-yveLiDziZ0WOf1rqRwnQGH6NErvNjkkOURtnK4YyiD2jgTMYlUNhghegciqzHjHd1P5UiD86W+++QYDvtS/rnQ==
+  dependencies:
+    "@dynamicss/dynamicss" "^2.2.8"
+    "@files-ui/core" latest
+
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.10.tgz#5a3ffe32cc9306365fb3fd572596cd602d5e12d2"
@@ -518,6 +536,13 @@
     "@swc/core-win32-arm64-msvc" "1.3.69"
     "@swc/core-win32-ia32-msvc" "1.3.69"
     "@swc/core-win32-x64-msvc" "1.3.69"
+
+"@types/@files-ui/react":
+  version "1.0.8"
+  resolved "https://codeload.github.com/files-ui/react/tar.gz/3d221fe44382c03b2e0339a703db72111c414a69"
+  dependencies:
+    "@dynamicss/dynamicss" "^2.2.8"
+    "@files-ui/core" latest
 
 "@types/json-schema@^7.0.9":
   version "7.0.12"
@@ -760,10 +785,10 @@ burgos-confirm@^1.2.2:
   resolved "https://registry.yarnpkg.com/burgos-confirm/-/burgos-confirm-1.2.2.tgz#8e0cf488223a8096ca105d5390fa1e8d6adb44c3"
   integrity sha512-YfTRPlngORSYJu+DLSVCYkCSm7ckNgvF6Pzpyu6fUxHS6n4uUR8wXQlJnPqU8kmZgOSe4VDDqZaEyGEXciRb5w==
 
-burgos-masks@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/burgos-masks/-/burgos-masks-1.0.3.tgz#df01813314bfdecc70f37df7153a01d49a8af301"
-  integrity sha512-Jsq0T4s1LuMYKfiMGBtsbwXVywYCTtnxdyr17uH7PRgftYISl6KDKPTLIyO1PSkRF4xAnShLT3O/5LpL9sJcEA==
+burgos-masks@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/burgos-masks/-/burgos-masks-1.0.4.tgz#4bebd925f555648d213c341e7d54a727fecb2c72"
+  integrity sha512-LX//ZP4B7Olc0kFI8v+LB9Fd0jCL6Z1emZMQHAHZcZNK5BHmXp8rD4m2+G3+Bj6YBtHiP6cp+7MTc/osKut2iA==
   dependencies:
     text-mask-addons "^3.8.0"
 
