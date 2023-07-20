@@ -18,12 +18,14 @@ export const UserStats: React.FC<UserStatsProps> = ({ user, sx }) => {
         justifyContent: "space-between",
         ...sx,
     }
-    return (
+    return user ? (
         <Box sx={_sx}>
             <Info title="Vendas" name={user.sold} />
             <Info title="Compras" name={user.bought} />
             <Info title="Nota" name={user.rating ? user?.rating : ""} icon={<StarSharpIcon sx={{ width: "3.2vw" }} />} />
             <Info title="Meses" name={getDifference(new Date(user.date || 0))} />
         </Box>
+    ) : (
+        <></>
     )
 }
