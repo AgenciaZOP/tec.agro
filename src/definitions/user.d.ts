@@ -6,6 +6,16 @@ declare interface User {
     name: string
     password: string
 
+    birth?: string
+    rg?: string
+    phone?: string
+    cep?: string
+    address?: string
+    city?: string
+    district?: string
+    number?: string
+    image: string
+
     adm: boolean
     producer: boolean
     agent: boolean

@@ -4,13 +4,14 @@ import { useHeader } from "../hooks/useHeader"
 import { Header } from "../components/Header"
 import { BottomNavigation } from "../components/BottomNavigation"
 import { ContentProfile } from "../components/ContentProfile"
+import { useLocation } from "react-router-dom"
 
 interface ProfileProps {
     user: User
 }
-
 export const Profile: React.FC<ProfileProps> = ({ user }) => {
     const header = useHeader()
+    const location = useLocation()
 
     useEffect(() => {
         header.setTitle("Perfil")
@@ -20,9 +21,9 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
     return (
         <Box sx={{ flexDirection: "column", width: "100%", height: "100%", padding: "12vh 0vw 10vh 0vw" }}>
             <Header />
-            <ContentProfile user={user} />
-
+            <ContentProfile user={user} editingMode={!!location.state?.editing} />
             <BottomNavigation />
         </Box>
     )
 }
+  

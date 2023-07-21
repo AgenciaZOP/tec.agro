@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { ListTitle } from "./ListTitle"
 import { Transactions } from "./Transactions"
 import { UserStats } from "./UserStats"
@@ -7,15 +7,16 @@ import { Comment } from "./Comment"
 import { Tag } from "./Tag"
 import EditIcon from "@mui/icons-material/Edit"
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined"
-import profile2 from "../assets/person.jpg"
+import profile2 from "../assets/person2.jpg"
 import { EditProfile } from "./EditProfile"
 
 interface ContentProfileProps {
     user: User | null
+    editingMode: boolean
 }
 
-export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
-    const [editing, setEditing] = useState(false)
+export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMode }) => {
+    const [isEditing, setEditing] = useState(editingMode)
 
     const [title, settitle] = useState("Safra de Soja 2022/23 ")
     const [company, setCompany] = useState("Transportadora")
@@ -24,12 +25,16 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
     const [date, setDate] = useState("19/05/2023")
 
     const handleEditing = () => {
-        if (editing) {
+        if (isEditing) {
             setEditing(false)
         } else {
             setEditing(true)
         }
     }
+
+    useEffect(() => {
+        console.log(isEditing)
+    }, [isEditing])
 
     return (
         <Box
@@ -63,21 +68,26 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
                         justifyContent: "center",
                         padding: "1vw 3vw",
                         borderRadius: "5vw",
-                        backgroundColor: editing ? "#8FFFA1" : "white",
+                        backgroundColor: isEditing ? "#8FFFA1" : "white",
                         gap: "0.5vw",
                         alignSelf: "self-end",
-                        position: editing ? "fixed" : "",
+                        position: isEditing ? "fixed" : "",
                     }}
                 >
                     <p
-                        style={{ textAlign: "right", fontSize: "2.7vw", textDecoration: "underline" }}
+                        style={{
+                            textAlign: "right",
+                            fontSize: "2.7vw",
+                            textDecoration: "underline",
+                            color: "black",
+                        }}
                         onClick={handleEditing}
                     >
-                        {editing ? "Editando" : "Editar"}
+                        {isEditing ? "Editando" : "Editar"}
                     </p>
                     <EditIcon sx={{ width: "3vw" }} />
                 </Box>
-                {!editing ? (
+                {!isEditing ? (
                     <Box sx={{ flexDirection: "column", alignItems: "center" }}>
                         <Avatar src={profile2} sx={{ width: "22vw", height: "22vw", borderRadius: "50%" }} />
                         <p style={{ fontSize: "5.5vw" }}>{user?.name}</p>
@@ -87,7 +97,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
                         </Box>
                     </Box>
                 ) : (
-                    <EditProfile user={user} editing={editing} />
+                    <EditProfile user={user} />
                 )}
 
                 <Box sx={{ flexDirection: "row", gap: "1vw" }}>
@@ -142,20 +152,6 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user }) => {
                         qtdStars={5}
                         date={"5 de Fevereiro"}
                     />{" "}
-                    {/* <Comment
-                            user={"Joelson Souza"}
-                            comment={
-                                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-                            }
-                            qtdStars={2}
-                            date={"19 de Maio"}
-                        />{" "}
-                        <Comment
-                            user={"Abram Culhane"}
-                            comment={"Latin words, combined with a handful of model sentence structures."}
-                            qtdStars={3}
-                            date={"28 de Julho"}
-                        />{" "} */}
                 </Paper>
             </Box>
         </Box>

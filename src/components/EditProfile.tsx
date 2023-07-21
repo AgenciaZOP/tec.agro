@@ -1,28 +1,36 @@
-import { Box, Avatar, IconButton, Button } from "@mui/material"
-import profile2 from "../assets/person.jpg"
+import { Box, IconButton, Button, CircularProgress } from "@mui/material"
+import profile2 from "../assets/person2.jpg"
 import { TextField } from "./TextField"
 import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
 import { Form, Formik } from "formik"
+import colors from "../style/colors"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { ContentProfile } from "./ContentProfile"
+import { Avatar } from "@files-ui/react"
+import { useBusinesses } from "../hooks/useBusinesses"
+import { useSnackbar } from "burgos-snackbar"
 
 interface EditProfileProps {
     user: User | null
-    editing: boolean
 }
 
 interface FormValues {
     name: string | undefined
     email: string | undefined
-    cpf: string
+    cpf: string | undefined
     birth: string
     phone: string
     rg: string
     address: string
     cep: string
+    image: string
 }
-export const EditProfile: React.FC<EditProfileProps> = ({ user, editing }) => {
-    const [save, setSave] = useState(false)
+export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
+    const businesses = useBusinesses()
+    const { snackbar } = useSnackbar()
 
+    const [image, setImage] = useState<File>()
     const styleBox = {
         flexDirection: "column",
         width: "100%",
@@ -46,18 +54,26 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, editing }) => {
     const initialValues = {
         name: user?.name,
         email: user?.email,
-        cpf: "07903209590",
+        cpf: user?.document,
         birth: "",
         phone: "41992752905",
         rg: "2139187814",
         address: "Av. 7 de Setembro",
         cep: "80230085",
+        image: "",
     }
 
-    const checkChange = (values: FormValues) => {}
     const handleSubmit = (values: FormValues) => {
-        console.log(values)
+        if (businesses.loading) return
+
+        if (image) {
+            // businesses.new({ ...values, file: image })
+        } else {
+            snackbar({ severity: "error", text: "Envie uma imagem" })
+        }
     }
+
+    const renderContentProfile = () => <ContentProfile user={user} editingMode={false} />
 
     return (
         <Box
@@ -69,10 +85,23 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, editing }) => {
                 paddingTop: "10.5vw",
             }}
         >
-            <Avatar src={profile2} sx={{ width: "22vw", height: "22vw", borderRadius: "50%" }} />
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                 {({ values, handleChange }) => (
                     <Form>
+                        <Avatar
+                            src={image}
+                            onChange={(file) => setImage(file)}
+                            smartImgFit={"orientation"}
+                            changeLabel="Clique para trocar a imagem"
+                            emptyLabel="Clique para enviar uma imagem"
+                            // style={{ width: "100%", height: "30vw" }}
+                            style={{
+                                width: "22vw",
+                                height: "22vw",
+                                borderRadius: "20vw",
+                                fontSize: "2.5vw",
+                            }}
+                        />
                         <TextField sx={inputStyle} label="Nome" name="name" value={values.name} onChange={handleChange} />
                         <Box sx={styleBox}>
                             <TextField
@@ -157,15 +186,39 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, editing }) => {
                                     style={{ width: "12vw" }}
                                     alt="Documento"
                                 />
+                                <IconButton sx={{ display: "flex", justifyContent: "end" }} onClick={() => {}}>
+                                    <ArrowCircleUpSharpIcon color="primary" />
+                                </IconButton>
                             </Box>
                         </Box>
-                        <Button type="submit">Salvar</Button>
+                        <Box sx={{ display: "flex", flexDirection: "row", gap: "3vw" }}>
+                            <Button
+                                sx={{
+                                    backgroundColor: `gray`,
+                                    color: "white",
+                                    width: "max-content",
+                                    fontSize: "2.8vw",
+                                }}
+                                type="button"
+                                onClick={renderContentProfile}
+                            >
+                                Cancelar
+                            </Button>
+                            <Button
+                                sx={{
+                                    backgroundColor: `${colors.primary}`,
+                                    color: "white",
+                                    width: "max-content",
+                                    fontSize: "2.8vw",
+                                }}
+                                type="submit"
+                            >
+                                {businesses.loading ? <CircularProgress color="secondary" size="1.5rem" /> : "Salvar"}
+                            </Button>
+                        </Box>
                     </Form>
                 )}
             </Formik>
-            <IconButton sx={{ display: "flex", justifyContent: "end" }} onClick={() => {}}>
-                <ArrowCircleUpSharpIcon color="primary" />
-            </IconButton>
         </Box>
     )
 }
