@@ -29,6 +29,7 @@ export const Form: React.FC<FormProps> = ({ user }) => {
 
         image: "",
 
+        active: false,
         service: false,
         store: false,
     }
