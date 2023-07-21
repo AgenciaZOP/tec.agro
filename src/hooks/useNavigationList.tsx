@@ -25,13 +25,13 @@ export const useNavigationList = () => {
                 {
                     id: 2,
                     title: "Lojas & Serviços",
-                    location: "/chats",
+                    location: "/business",
                     icon: <StorefrontIcon sx={iconStyle} />,
                 },
                 {
                     id: 3,
                     title: "Transportadoras",
-                    location: "/chats",
+                    location: "/shipping",
                     icon: <LocalShippingIcon sx={iconStyle} />,
                 },
                 {

@@ -6,18 +6,18 @@ import { Banners } from "./Banners"
 import { NearYouList } from "./NearYouList"
 import { CropsList } from "./CropsList"
 
-interface CropsProps {}
+interface ShippingProps {}
 
-export const Crops: React.FC<CropsProps> = ({}) => {
+export const Shipping: React.FC<ShippingProps> = ({}) => {
     const header = useHeader()
+
     const images = [
-        "https://imagens-cdn.canalrural.com.br/wp-content/uploads/safra-do-ibge-2023-erdenrson-araujo-trilux-cna.jpg",
-        "https://www.portaldoagronegocio.com.br/img/cache/cover//storage/images/notices/607452f8cbeeb.jpg",
+        "https://gringo.com.vc/wp-content/uploads/2021/11/licenciamento-de-caminhao-1024x683.jpeg",
+        "https://mobilidade.estadao.com.br/wp-content/uploads/2022/10/Foto-1-Volvo.jpg",
     ]
 
     useEffect(() => {
-        header.setTitle("Safras")
-        header.updateSection("/home")
+        header.setTitle("Transportadoras")
     }, [])
 
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Box, Button, CircularProgress, Paper, SxProps, TextField } from "@mui/material"
+import { Box, Button, Checkbox, CircularProgress, FormControlLabel, Paper, SxProps, TextField } from "@mui/material"
 import { Formik, Form as Formu } from "formik"
 import { Avatar } from "@files-ui/react"
 import { useBusinesses } from "../../../hooks/useBusinesses"
@@ -29,6 +29,7 @@ export const Form: React.FC<FormProps> = ({ user }) => {
 
         image: "",
 
+        active: false,
         service: false,
         store: false,
     }
@@ -37,18 +38,24 @@ export const Form: React.FC<FormProps> = ({ user }) => {
         flexDirection: "column",
         width: "100%",
         padding: "5vw",
-        gap: "5vw",
+        gap: "3vw",
         borderRadius: "5vw",
     }
 
     const handleSubmit = (values: Business) => {
         if (businesses.loading) return
 
-        if (image) {
-            businesses.new({ ...values, file: image })
-        } else {
-            snackbar({ severity: "error", text: "Envie uma imagem" })
+        if (!values.store && !values.service) {
+            snackbar({ severity: "error", text: "Selecione pelo menos uma das opções acima" })
+            return
         }
+
+        if (!image) {
+            snackbar({ severity: "error", text: "Envie uma imagem" })
+            return
+        }
+
+        businesses.new({ ...values, file: image })
     }
 
     return (
@@ -59,10 +66,24 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                         <Paper sx={paperStyle}>
                             <p style={{ fontSize: "5vw" }}>Informações Básicas</p>
                             <Box sx={{ flexDirection: "column", gap: "3vw" }}>
-                                <TextField label="Nome" name="name" value={values.name} onChange={handleChange} required />
-                                <TextField label="E-mail" name="email" value={values.email} onChange={handleChange} required />
-                                <TextField label="CPF / CNPJ" name="document" value={values.document} onChange={handleChange} required />
-                                <TextField label="Telefone" name="phone" value={values.phone} onChange={handleChange} required />
+                                <TextField variant="standard" label="Nome" name="name" value={values.name} onChange={handleChange} required />
+                                <TextField variant="standard" label="E-mail" name="email" value={values.email} onChange={handleChange} required />
+                                <TextField
+                                    variant="standard"
+                                    label="CPF / CNPJ"
+                                    name="document"
+                                    value={values.document}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <TextField variant="standard" label="Telefone" name="phone" value={values.phone} onChange={handleChange} required />
+                                <Box sx={{ justifyContent: "space-between" }}>
+                                    <FormControlLabel label="Loja" control={<Checkbox onChange={handleChange} name="store" value={values.store} />} />
+                                    <FormControlLabel
+                                        label="Serviço"
+                                        control={<Checkbox onChange={handleChange} name="service" value={values.service} />}
+                                    />
+                                </Box>
                             </Box>
                         </Paper>
 

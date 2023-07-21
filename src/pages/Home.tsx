@@ -5,6 +5,8 @@ import { BottomNavigation } from "../components/BottomNavigation"
 import { Crops } from "./Crops"
 import { Chats } from "./Chats"
 import { Search } from "./Search"
+import { Business } from "./Crops/Business"
+import { Shipping } from "./Crops/Shipping"
 
 interface HomeProps {
     user: User
@@ -16,6 +18,8 @@ export const Home: React.FC<HomeProps> = ({ user }) => {
             <Header />
             <Routes>
                 <Route index element={<Crops />} />
+                <Route path="business" element={<Business />} />
+                <Route path="shipping" element={<Shipping />} />
                 <Route path="chats/*" element={<Chats channel="buyer" />} />
                 <Route path="search" element={<Search user={user} />} />
             </Routes>
