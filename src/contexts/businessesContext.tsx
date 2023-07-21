@@ -32,7 +32,6 @@ export const BusinessesProvider: React.FC<BusinessesProviderProps> = ({ children
     io.on("business:new", (business: Business) => {
         console.log({ business })
         setBusinesses([...businesses, business])
-        setLoading(false)
     })
 
     useEffect(() => {

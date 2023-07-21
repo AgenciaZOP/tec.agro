@@ -38,6 +38,10 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     }, [user])
 
     useEffect(() => {
+        io.on("user:update", (data: User) => {
+            setUser(data)
+        })
+
         io.on("login:success", (data: User) => {
             setUser(data)
             snackbar({ severity: "success", text: "login sucesso" })
