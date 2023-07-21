@@ -31,7 +31,7 @@ export const useNavigationList = () => {
                 {
                     id: 3,
                     title: "Transportadoras",
-                    location: "/chats",
+                    location: "/shipping",
                     icon: <LocalShippingIcon sx={iconStyle} />,
                 },
                 {
