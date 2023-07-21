@@ -25,7 +25,7 @@ export const useNavigationList = () => {
                 {
                     id: 2,
                     title: "Lojas & Serviços",
-                    location: "/chats",
+                    location: "/business",
                     icon: <StorefrontIcon sx={iconStyle} />,
                 },
                 {
