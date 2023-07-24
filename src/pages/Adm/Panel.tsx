@@ -15,7 +15,7 @@ export const Panel: React.FC<PanelProps> = ({}) => {
         header.setTitle("Administrador")
     }, [])
     return (
-        <Box sx={{ flexDirection: "column", width: "100%", overflowY: "auto", padding: "10vh 5vw", gap: "5vw" }}>
+        <Box sx={{ flexDirection: "column", width: "100%", overflowY: "auto", padding: "10vh 5vw", gap: "5vw", overflowX: "hidden" }}>
             <SearchInput placeholder="teste" onChange={handleSearch} />
             <Box sx={{ gap: "3vw", width: "100vw", overflowX: "auto", paddingRight: "10vw" }}>
                 <ReviewBox variant="producer" />
