@@ -15,6 +15,7 @@ declare interface User {
     district?: string
     number?: string
     image: string
+    uf?: string
 
     adm: boolean
     producer: boolean

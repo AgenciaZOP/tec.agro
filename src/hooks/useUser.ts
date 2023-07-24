@@ -19,5 +19,21 @@ export const useUser = () => {
         setUser(null)
     }
 
-    return { user, login, loginLoading, setLoginLoading, signupLoading, setSignupLoading, logout }
+    const update = (data: {
+        name: string | undefined
+        email: string | undefined
+        cpf: string | undefined
+        birth: string
+        phone: string
+        rg: string
+        address: string
+        cep: string
+        number: string
+        image: string
+        uf: string
+    }) => {
+        io.emit("user:update", data)
+    }
+
+    return { user, login, loginLoading, setLoginLoading, signupLoading, setSignupLoading, logout, update }
 }

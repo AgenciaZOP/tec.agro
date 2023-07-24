@@ -6,7 +6,6 @@ import { Form, Formik } from "formik"
 import colors from "../style/colors"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { ContentProfile } from "./ContentProfile"
 import { Avatar } from "@files-ui/react"
 import { useBusinesses } from "../hooks/useBusinesses"
 import { useSnackbar } from "burgos-snackbar"
@@ -25,10 +24,15 @@ interface FormValues {
     address: string
     cep: string
     image: string
+    number: string
+    city: string
+    district: string
+    uf: string
 }
 export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
     const businesses = useBusinesses()
     const { snackbar } = useSnackbar()
+    const [loading, setloading] = useState()
 
     const [image, setImage] = useState<File>()
     const styleBox = {
@@ -48,32 +52,29 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
             fontSize: "3.5vw",
         },
         "& .MuiInputLabel-root": {
-            fontSize: "3.5vw",
+            fontSize: "3.0vw",
         },
     }
     const initialValues = {
         name: user?.name,
         email: user?.email,
         cpf: user?.document,
-        birth: "",
-        phone: "41992752905",
-        rg: "2139187814",
-        address: "Av. 7 de Setembro",
-        cep: "80230085",
-        image: "",
+        birth: new Date(user?.birth || 0).toLocaleDateString("pt-br") || "",
+        phone: user?.phone || "",
+        rg: user?.rg || "",
+        address: user?.address || "",
+        cep: user?.cep || "",
+        image: user?.image || "",
+        number: user?.number || "",
+        city: user?.city || "",
+        district: user?.district || "",
+        uf: user?.uf || "",
     }
 
     const handleSubmit = (values: FormValues) => {
-        if (businesses.loading) return
-
-        if (image) {
-            // businesses.new({ ...values, file: image })
-        } else {
-            snackbar({ severity: "error", text: "Envie uma imagem" })
-        }
+        //if (user.loading) return
+        console.log(values)
     }
-
-    const renderContentProfile = () => <ContentProfile user={user} editingMode={false} />
 
     return (
         <Box
@@ -102,24 +103,55 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                 fontSize: "2.5vw",
                             }}
                         />
-                        <TextField sx={inputStyle} label="Nome" name="name" value={values.name} onChange={handleChange} />
+                        <TextField
+                            sx={{
+                                "& .MuiInputBase-input": {
+                                    textAlign: "center",
+                                    fontSize: "4vw",
+                                },
+                            }}
+                            label="Nome"
+                            name="name"
+                            value={values.name}
+                            onChange={handleChange}
+                        />
                         <Box sx={styleBox}>
-                            <TextField
-                                onChange={handleChange}
-                                sx={inputStyle}
-                                label="CPF"
-                                name="cpf"
-                                variant="standard"
-                                value={values.cpf}
-                            />
-                            <TextField
-                                onChange={handleChange}
-                                sx={inputStyle}
-                                label="RG"
-                                name="rg"
-                                variant="standard"
-                                value={values.rg}
-                            />
+                            <Box sx={{ width: "100% ", gap: "3vw" }}>
+                                {/* <MaskedInput
+                                    mask={useCpfMask}
+                                    guide={false}
+                                    name="cpf"
+                                    value={values.cpf}
+                                    onChange={handleChange}
+                                    render={(ref, props) => (
+                                        <TextField
+                                            label="CPF"
+                                            inputRef={ref}
+                                            {...props}
+                                            InputProps={{ readOnly: !user!.adm, sx: { ...inputStyle, width: "48%" } }}
+                                            variant="standard"
+                                            disabled
+                                        />
+                                    )}
+                                /> */}
+
+                                <TextField
+                                    onChange={handleChange}
+                                    sx={{ ...inputStyle, width: "48%" }}
+                                    label="CPF"
+                                    name="cpf"
+                                    variant="standard"
+                                    value={values.cpf}
+                                />
+                                <TextField
+                                    onChange={handleChange}
+                                    sx={{ ...inputStyle, width: "48%" }}
+                                    label="RG"
+                                    name="rg"
+                                    variant="standard"
+                                    value={values.rg}
+                                />
+                            </Box>
                             <TextField
                                 onChange={handleChange}
                                 sx={inputStyle}
@@ -127,24 +159,54 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                 name="email"
                                 variant="standard"
                                 value={values.email}
+                                disabled
                             />
-                            <TextField
-                                onChange={handleChange}
-                                sx={inputStyle}
-                                label="Data de Nascimento"
-                                name="birth"
-                                variant="standard"
-                                value={values.birth}
-                            />
+                            <Box sx={{ width: "100% ", gap: "3vw" }}>
+                                <TextField
+                                    onChange={handleChange}
+                                    sx={{ ...inputStyle, width: "48%" }}
+                                    label="Data de Nascimento"
+                                    name="birth"
+                                    variant="standard"
+                                    value={values.birth}
+                                />
+                                <TextField
+                                    onChange={handleChange}
+                                    sx={{ ...inputStyle, width: "48%" }}
+                                    label="Telefone"
+                                    name="phone"
+                                    variant="standard"
+                                    value={values.phone}
+                                />
+                            </Box>
                         </Box>
                         <Box sx={styleBox}>
+                            <Box sx={{ width: "100% ", gap: "3vw" }}>
+                                <TextField
+                                    onChange={handleChange}
+                                    sx={{ ...inputStyle, width: "48%" }}
+                                    label="CEP"
+                                    name="cep"
+                                    variant="standard"
+                                    value={values.cep}
+                                />
+                                <TextField
+                                    onChange={handleChange}
+                                    sx={{ ...inputStyle, width: "48%" }}
+                                    label="UF"
+                                    name="uf"
+                                    variant="standard"
+                                    value={values.uf}
+                                />
+                            </Box>
+
                             <TextField
                                 onChange={handleChange}
                                 sx={inputStyle}
-                                label="CEP"
-                                name="cep"
+                                label="Cidade"
+                                name="city"
                                 variant="standard"
-                                value={values.cep}
+                                value={values.city}
                             />
                             <TextField
                                 onChange={handleChange}
@@ -154,14 +216,24 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                 variant="standard"
                                 value={values.address}
                             />
-                            <TextField
-                                onChange={handleChange}
-                                sx={inputStyle}
-                                label="Telefone"
-                                name="phone"
-                                variant="standard"
-                                value={values.phone}
-                            />
+                            <Box sx={{ width: "100% ", gap: "3vw" }}>
+                                <TextField
+                                    onChange={handleChange}
+                                    sx={{ ...inputStyle, width: "70%" }}
+                                    label="Bairro"
+                                    name="district"
+                                    variant="standard"
+                                    value={values.district}
+                                />
+                                <TextField
+                                    onChange={handleChange}
+                                    sx={{ ...inputStyle, width: "28%" }}
+                                    label="Nº"
+                                    name="number"
+                                    variant="standard"
+                                    value={values.number}
+                                />
+                            </Box>
                         </Box>
                         <Box sx={styleBox}>
                             <p style={{ fontSize: "3vw" }}>Documentação Enviada</p>
@@ -192,7 +264,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                             </Box>
                         </Box>
                         <Box sx={{ display: "flex", flexDirection: "row", gap: "3vw" }}>
-                            <Button
+                            {/* <Button
                                 sx={{
                                     backgroundColor: `gray`,
                                     color: "white",
@@ -203,7 +275,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                 onClick={renderContentProfile}
                             >
                                 Cancelar
-                            </Button>
+                            </Button> */}
                             <Button
                                 sx={{
                                     backgroundColor: `${colors.primary}`,
@@ -213,7 +285,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                 }}
                                 type="submit"
                             >
-                                {businesses.loading ? <CircularProgress color="secondary" size="1.5rem" /> : "Salvar"}
+                                Salvar
                             </Button>
                         </Box>
                     </Form>
