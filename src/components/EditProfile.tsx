@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 import { Avatar } from "@files-ui/react"
 import { useBusinesses } from "../hooks/useBusinesses"
 import { useSnackbar } from "burgos-snackbar"
-import { IMaskInput } from "react-imask"
+import MaskedInput from "../components/MaskedInput"
 
 interface EditProfileProps {
     user: User | null
@@ -127,7 +127,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                     variant="standard"
                                     value={values.cpf}
                                     InputProps={{
-                                        inputComponent: IMaskInput,
+                                        inputComponent: MaskedInput,
                                         inputProps: { mask: "000.000.000-00" },
                                     }}
                                 />
@@ -158,7 +158,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                     variant="standard"
                                     value={values.birth}
                                     InputProps={{
-                                        inputComponent: IMaskInput,
+                                        inputComponent: MaskedInput,
                                         inputProps: { mask: "00/00/0000" },
                                     }}
                                 />
@@ -170,7 +170,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                     variant="standard"
                                     value={values.phone}
                                     InputProps={{
-                                        inputComponent: IMaskInput,
+                                        inputComponent: MaskedInput,
                                         inputProps: { mask: "(00) 0 0000-0000" },
                                     }}
                                 />
@@ -186,7 +186,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                     variant="standard"
                                     value={values.cep}
                                     InputProps={{
-                                        inputComponent: IMaskInput,
+                                        inputComponent: MaskedInput,
                                         inputProps: { mask: "00.000-000" },
                                     }}
                                 />

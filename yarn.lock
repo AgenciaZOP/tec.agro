@@ -793,6 +793,11 @@ burgos-confirm@^1.2.2:
   resolved "https://registry.yarnpkg.com/burgos-confirm/-/burgos-confirm-1.2.2.tgz#8e0cf488223a8096ca105d5390fa1e8d6adb44c3"
   integrity sha512-YfTRPlngORSYJu+DLSVCYkCSm7ckNgvF6Pzpyu6fUxHS6n4uUR8wXQlJnPqU8kmZgOSe4VDDqZaEyGEXciRb5w==
 
+burgos-estadosbrasil@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/burgos-estadosbrasil/-/burgos-estadosbrasil-1.0.1.tgz#01d49a146d6e8b7c9b48415e20f1b3967dd910f8"
+  integrity sha512-dLv8ArM26k9rWP3vktkDrNu3k5AgWBc7m4ZJ9ZLmMV99/x+7oZEmQt7+0BZShxllRpNmNgzD68ZGTxmldyPMAQ==
+
 burgos-masks@^1.0.45:
   version "1.0.45"
   resolved "https://registry.yarnpkg.com/burgos-masks/-/burgos-masks-1.0.45.tgz#a3136007ee50de98d72f8dc50b3f4929298dc305"

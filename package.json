@@ -17,6 +17,7 @@
     "@mui/material": "^5.14.0",
     "burgos-array": "^1.0.2",
     "burgos-confirm": "^1.2.2",
+    "burgos-estadosbrasil": "^1.0.1",
     "burgos-masks": "^1.0.45",
     "burgos-snackbar": "^2.1.0",
     "formik": "^2.4.2",
