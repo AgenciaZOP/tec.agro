@@ -6,6 +6,7 @@ import { Profile } from "./pages/Profile"
 import { Search } from "./pages/Search"
 import { useUser } from "./hooks/useUser"
 import { Business } from "./pages/Business"
+import { Agent } from "./pages/Agent"
 
 interface RoutesProps {}
 
@@ -18,7 +19,7 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
             <Route path="/*" element={<Home user={user} />} />
             <Route path="/home/*" element={<Home user={user} />} />
             <Route path="/producer/*" element={<Home user={user} />} />
-            <Route path="/agent/*" element={<Home user={user} />} />
+            <Route path="/agent/*" element={<Agent user={user} />} />
             <Route path="/business/*" element={<Business user={user} />} />
             <Route path="/shipping/*" element={<Home user={user} />} />
             <Route path="settings" element={<Home user={user} />} />

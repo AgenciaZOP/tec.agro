@@ -7,6 +7,7 @@ import { Chats } from "./Chats"
 import { Search } from "./Search"
 import { Business } from "./Crops/Business"
 import { Shipping } from "./Crops/Shipping"
+//import { Agent } from "./Crops/Agent"
 
 interface HomeProps {
     user: User
@@ -18,6 +19,7 @@ export const Home: React.FC<HomeProps> = ({ user }) => {
             <Header />
             <Routes>
                 <Route index element={<Crops />} />
+                {/* <Route path="agent" element={<Agent />} /> */}
                 <Route path="business" element={<Business />} />
                 <Route path="shipping" element={<Shipping />} />
                 <Route path="chats/*" element={<Chats channel="buyer" />} />
