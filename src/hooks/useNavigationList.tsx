@@ -1,18 +1,63 @@
 import GrassIcon from "@mui/icons-material/Grass"
 import ChatIcon from "@mui/icons-material/Chat"
-// import GridViewIcon from "@mui/icons-material/GridView"
+import GridViewIcon from "@mui/icons-material/GridView"
 // import SearchIcon from "@mui/icons-material/Search"
 import StorefrontIcon from "@mui/icons-material/Storefront"
 import MultipleStopIcon from "@mui/icons-material/MultipleStop"
 import BarChartIcon from "@mui/icons-material/BarChart"
 import LocalShippingIcon from "@mui/icons-material/LocalShipping"
 import AppsIcon from "@mui/icons-material/Apps"
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz"
+import LeaderboardIcon from "@mui/icons-material/Leaderboard"
+import MilitaryTechIcon from "@mui/icons-material/MilitaryTech"
+
+import { useUser } from "./useUser"
 
 export const useNavigationList = () => {
+    const { user } = useUser()
+
     const iconStyle = {}
     const list: NavigationMenu[] = [
         {
             id: 1,
+            title: "Administrador",
+            hidden: user?.adm == false,
+            location: "/adm",
+            navigation: [
+                {
+                    id: 1,
+                    title: "Painel",
+                    location: "",
+                    icon: <GridViewIcon sx={iconStyle} />,
+                },
+                {
+                    id: 2,
+                    title: "Chamados",
+                    location: "/business",
+                    icon: <ChatIcon sx={iconStyle} />,
+                },
+                {
+                    id: 3,
+                    title: "Transações",
+                    location: "/business",
+                    icon: <SwapHorizIcon sx={iconStyle} />,
+                },
+                {
+                    id: 4,
+                    title: "Estatatísticas",
+                    location: "/shipping",
+                    icon: <LeaderboardIcon sx={iconStyle} />,
+                },
+                {
+                    id: 5,
+                    title: "Análises",
+                    location: "/chats",
+                    icon: <MilitaryTechIcon sx={iconStyle} />,
+                },
+            ],
+        },
+        {
+            id: 2,
             title: "Lojas & Serviços",
             location: "/home",
             navigation: [
@@ -43,32 +88,32 @@ export const useNavigationList = () => {
             ],
         },
         {
-            id: 2,
+            id: 3,
             title: "Minhas Safras",
             location: "/producer",
         },
         {
-            id: 3,
+            id: 4,
             title: "Seja um Corretor",
             location: "/agent",
         },
         {
-            id: 4,
+            id: 5,
             title: "Meu Negócio",
             location: "/business",
         },
         {
-            id: 5,
+            id: 6,
             title: "Minha Transportadora",
             location: "/shipping",
         },
         {
-            id: 6,
+            id: 7,
             title: "Configurações",
             location: "/settings",
         },
         {
-            id: 7,
+            id: 8,
             title: "Perfil",
             hidden: true,
             location: "/profile",

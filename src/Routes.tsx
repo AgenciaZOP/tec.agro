@@ -7,6 +7,7 @@ import { Search } from "./pages/Search"
 import { useUser } from "./hooks/useUser"
 import { Business } from "./pages/Business"
 import { Agent } from "./pages/Agent"
+import { Adm } from "./pages/Adm"
 
 interface RoutesProps {}
 
@@ -15,9 +16,10 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
 
     return user ? (
         <ReactRoutes>
-            <Route index element={<Home user={user} />} />
-            <Route path="/*" element={<Home user={user} />} />
+            <Route index element={user.adm ? <Adm user={user} /> : <Home user={user} />} />
+            <Route path="/*" element={user.adm ? <Adm user={user} /> : <Home user={user} />} />
             <Route path="/home/*" element={<Home user={user} />} />
+            <Route path="/adm/*" element={<Adm user={user} />} />
             <Route path="/producer/*" element={<Home user={user} />} />
             <Route path="/agent/*" element={<Agent user={user} />} />
             <Route path="/business/*" element={<Business user={user} />} />

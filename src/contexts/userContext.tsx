@@ -46,7 +46,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             setUser(data)
             snackbar({ severity: "success", text: "login sucesso" })
             setLoginLoading(false)
-            navigate("/home")
+            navigate("/")
         })
     
         io.on("login:error", () => {
