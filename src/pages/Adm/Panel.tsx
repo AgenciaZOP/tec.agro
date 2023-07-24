@@ -3,6 +3,7 @@ import { Box } from "@mui/material"
 import { useHeader } from "../../hooks/useHeader"
 import { SearchInput } from "../../components/SearchInput"
 import { ReviewBox } from "./ReviewBox"
+import { ListTitle } from "../../components/ListTitle"
 
 interface PanelProps {}
 
@@ -23,6 +24,10 @@ export const Panel: React.FC<PanelProps> = ({}) => {
                 <ReviewBox variant="business" />
                 <ReviewBox variant="shipping" />
             </Box>
+
+            <ListTitle location="" title="Transações Recentes" />
+
+            <ListTitle location="" title="Estatísticas" />
         </Box>
     )
 }
