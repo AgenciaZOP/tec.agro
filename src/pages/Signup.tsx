@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom"
 import { Form, Formik } from "formik"
 import { useSignup } from "../hooks/useSignup"
 import { useUser } from "../hooks/useUser"
-import { IMaskInput } from "react-imask"
 import { useDocumentMask } from "../hooks/useDocumentMask"
+import MaskedInput from "../components/MaskedInput"
 
 interface SignupProps {}
 
@@ -44,7 +44,7 @@ export const Signup: React.FC<SignupProps> = ({}) => {
                             onChange={handleChange}
                             value={values.document}
                             InputProps={{
-                                inputComponent: IMaskInput,
+                                inputComponent: MaskedInput,
                                 inputProps: {
                                     mask: documentMask(values.document),
                                 },
