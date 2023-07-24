@@ -1,14 +1,4 @@
-declare interface Business {
-    id: number
-    active: boolean
-    name: string
-    document: string
-    phone: string
-    email: string
-    image: string
-    date: string
+declare interface Business extends Subaccount {
     store: boolean
     service: boolean
-    userId: number
-    user: User
 }

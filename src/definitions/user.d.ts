@@ -18,9 +18,6 @@ declare interface User {
     uf?: string
 
     adm: boolean
-    producer: boolean
-    agent: boolean
-    shipping: boolean
     sold: number
     bought: number
     rating: number
@@ -31,5 +28,8 @@ declare interface User {
     chats: Chat[]
     messages: Message[]
 
+    producer?: Producer
     business?: Business
+    agent?: Agent
+    shipping?: Shipping
 }
