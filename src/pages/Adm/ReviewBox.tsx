@@ -40,7 +40,7 @@ export const ReviewBox: React.FC<ReviewBoxProps> = ({ variant }) => {
         >
             <Box sx={{ flexDirection: "column" }}>
                 <p style={{ fontSize: "6vw" }}>{total}</p>
-                <p style={{ fontWeight: "bold" }}>{title[variant]}</p>
+                <p style={{ fontWeight: "bold", fontSize: "3.5vw" }}>{title[variant]}</p>
             </Box>
             <p style={{ fontSize: "3.5vw" }}>
                 <span style={{ fontWeight: "bold" }}>{pending}</span> {title[variant]} aguardando análise {">"}
