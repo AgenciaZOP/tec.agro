@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"
 import { Avatar } from "@files-ui/react"
 import { useBusinesses } from "../hooks/useBusinesses"
 import { useSnackbar } from "burgos-snackbar"
+import { IMaskInput } from "react-imask"
 
 interface EditProfileProps {
     user: User | null
@@ -103,6 +104,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                 fontSize: "2.5vw",
                             }}
                         />
+                        <p style={{ fontSize: "3.1vw", color: "gray" }}>@{user?.username}</p>
                         <TextField
                             sx={{
                                 "& .MuiInputBase-input": {
@@ -117,24 +119,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                         />
                         <Box sx={styleBox}>
                             <Box sx={{ width: "100% ", gap: "3vw" }}>
-                                {/* <MaskedInput
-                                    mask={useCpfMask}
-                                    guide={false}
-                                    name="cpf"
-                                    value={values.cpf}
-                                    onChange={handleChange}
-                                    render={(ref, props) => (
-                                        <TextField
-                                            label="CPF"
-                                            inputRef={ref}
-                                            {...props}
-                                            InputProps={{ readOnly: !user!.adm, sx: { ...inputStyle, width: "48%" } }}
-                                            variant="standard"
-                                            disabled
-                                        />
-                                    )}
-                                /> */}
-
                                 <TextField
                                     onChange={handleChange}
                                     sx={{ ...inputStyle, width: "48%" }}
@@ -142,6 +126,10 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                     name="cpf"
                                     variant="standard"
                                     value={values.cpf}
+                                    InputProps={{
+                                        inputComponent: IMaskInput,
+                                        inputProps: { mask: "000.000.000-00" },
+                                    }}
                                 />
                                 <TextField
                                     onChange={handleChange}
@@ -169,6 +157,10 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                     name="birth"
                                     variant="standard"
                                     value={values.birth}
+                                    InputProps={{
+                                        inputComponent: IMaskInput,
+                                        inputProps: { mask: "00/00/0000" },
+                                    }}
                                 />
                                 <TextField
                                     onChange={handleChange}
@@ -177,6 +169,10 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                     name="phone"
                                     variant="standard"
                                     value={values.phone}
+                                    InputProps={{
+                                        inputComponent: IMaskInput,
+                                        inputProps: { mask: "(00) 0 0000-0000" },
+                                    }}
                                 />
                             </Box>
                         </Box>
@@ -189,6 +185,10 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                     name="cep"
                                     variant="standard"
                                     value={values.cep}
+                                    InputProps={{
+                                        inputComponent: IMaskInput,
+                                        inputProps: { mask: "00.000-000" },
+                                    }}
                                 />
                                 <TextField
                                     onChange={handleChange}
