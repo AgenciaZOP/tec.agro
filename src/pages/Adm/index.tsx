@@ -4,6 +4,7 @@ import { Header } from "../../components/Header"
 import { BottomNavigation } from "../../components/BottomNavigation"
 import { Route, Routes } from "react-router-dom"
 import { Panel } from "./Panel"
+import { Reviews } from "./Reviews"
 
 interface AdmProps {
     user: User
@@ -16,6 +17,7 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
             <Box sx={{ width: "100%" }}>
                 <Routes>
                     <Route index element={<Panel />} />
+                    <Route path="reviews" element={<Reviews />} />
                 </Routes>
             </Box>
             <BottomNavigation />

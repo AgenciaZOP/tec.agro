@@ -51,7 +51,7 @@ export const useNavigationList = () => {
                 {
                     id: 5,
                     title: "Análises",
-                    location: "/chats",
+                    location: "/reviews",
                     icon: <MilitaryTechIcon sx={iconStyle} />,
                 },
             ],

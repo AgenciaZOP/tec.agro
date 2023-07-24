@@ -9,4 +9,5 @@ declare interface Subaccount {
     date: string
     userId: number
     user: User
+    type?: string
 }
