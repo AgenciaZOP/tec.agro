@@ -4,11 +4,13 @@ import { SearchInput } from "../../components/SearchInput"
 import { useHeader } from "../../hooks/useHeader"
 import { useBusinesses } from "../../hooks/useBusinesses"
 import { ReviewCard } from "./ReviewCard"
+import { useNavigate } from "react-router-dom"
 
 interface ReviewsProps {}
 
 export const Reviews: React.FC<ReviewsProps> = ({}) => {
     const header = useHeader()
+    const navigate = useNavigate()
     const { businesses } = useBusinesses()
 
     // adicionar as outras subaccounts e ordenar por data?
@@ -30,7 +32,7 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
 
             <Box sx={{ flexDirection: "column", gap: "3vw", width: "100%" }}>
                 {list.map((business) => (
-                    <ReviewCard key={business.id} subaccount={business} />
+                    <ReviewCard key={business.id} subaccount={business} onClick={() => navigate('/adm/review', {state: {profile: business}})} />
                 ))}
             </Box>
         </Box>

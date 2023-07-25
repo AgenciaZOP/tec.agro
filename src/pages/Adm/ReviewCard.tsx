@@ -5,13 +5,14 @@ import ReplyIcon from "@mui/icons-material/Reply"
 
 interface ReviewCardProps {
     subaccount: Subaccount
+    onClick: () => void
 }
 
-export const ReviewCard: React.FC<ReviewCardProps> = ({ subaccount }) => {
+export const ReviewCard: React.FC<ReviewCardProps> = ({ subaccount, onClick }) => {
     const { getHours } = useDate()
 
     return (
-        <Box sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "3vw", width: "100%" }}>
+        <Box onClick={() => onClick()} sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "3vw", width: "100%" }}>
             <Avatar src={subaccount.image} sx={{ width: "15vw", height: "15vw" }} />
             <Box sx={{ flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
                 <p style={{ fontSize: "4vw", fontWeight: "bold" }}>{subaccount.name}</p>
