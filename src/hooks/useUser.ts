@@ -40,6 +40,7 @@ export const useUser = () => {
         number: string
         image: string
         uf: string
+        file?: File
     }) => {
         io.emit("user:update", data)
     }

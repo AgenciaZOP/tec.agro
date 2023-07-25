@@ -18,5 +18,7 @@ export const useDate = () => {
         return Math.floor(hours)
     }
 
-    return { getDifference, getHours }
+    const timestampImage = (url: string) => `${url}?time=${new Date().getTime()}`
+
+    return { getDifference, getHours, timestampImage }
 }

@@ -39,6 +39,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
     const { update, updateLoading, setUpdateLoading } = useUser()
 
     const [image, setImage] = useState<File>()
+
     const styleBox = {
         flexDirection: "column",
         width: "100%",
@@ -82,8 +83,11 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
             phone: unmask(values.phone),
             cep: unmask(values.cep),
             id: user!.id,
+            file: image,
         }
+
         update(data)
+
         setUpdateLoading(true)
         setTimeout(() => {
             updateEditing(false)
@@ -113,7 +117,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
                 {({ values, handleChange }) => (
                     <Form>
                         <Avatar
-                            src={image}
+                            src={image || user?.image}
                             onChange={(file) => setImage(file)}
                             smartImgFit={"orientation"}
                             changeLabel="Clique para trocar a imagem"
@@ -224,14 +228,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
                                 />
                             </Box>
 
-                            <TextField
-                                onChange={handleChange}
-                                sx={inputStyle}
-                                label="Cidade"
-                                name="city"
-                                variant="standard"
-                                value={values.city}
-                            />
+                            <TextField onChange={handleChange} sx={inputStyle} label="Cidade" name="city" variant="standard" value={values.city} />
                             <TextField
                                 onChange={handleChange}
                                 sx={inputStyle}

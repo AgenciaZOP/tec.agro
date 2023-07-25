@@ -36,19 +36,23 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
     useEffect(() => {
         console.log({ user })
+
+        if (user) {
+            io.on("user:update", (data: User) => {
+                if (user.id == data.id) {
+                    setUser({ ...data, image: `${data.image}?time=${new Date().getTime()}` })
+                }
+                setUpdateLoading(false)
+                navigate("/profile")
+            })
+        }
+
+        return () => {
+            io.off("user:update")
+        }
     }, [user])
 
     useEffect(() => {
-        io.on("user:update", (data: User) => {
-            console.log({ updated: data })
-            if (user?.id == data.id) {
-                console.log("000")
-                setUser(data)
-            }
-            setUpdateLoading(false)
-            navigate("/profile")
-        })
-
         io.on("login:success", (data: User) => {
             setUser(data)
             snackbar({ severity: "success", text: "login sucesso" })
@@ -71,6 +75,13 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             snackbar({ severity: "error", text: "erro ao criar usuário" })
             setSignupLoading(false)
         })
+
+        return () => {
+            io.off("login:success")
+            io.off("login:error")
+            io.off("signup:success")
+            io.off("signup:error")
+        }
     }, [])
 
     return (
