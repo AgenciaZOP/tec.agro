@@ -6,16 +6,16 @@ import { Header } from "../../components/Header"
 import { Form } from "./Signup/Form"
 import { Verification } from "./Signup/Verification"
 
-interface AgentProps {
+interface ShippingProps {
     user: User
 }
 
-export const Agent: React.FC<AgentProps> = ({ user }) => {
+export const Shipping: React.FC<ShippingProps> = ({ user }) => {
     return (
         <Box sx={{ paddingTop: "5vh" }}>
             <Header />
-            {user.agent ? (
-                user.agent.active ? (
+            {user.shipping ? (
+                user.shipping.active ? (
                     <></>
                 ) : (
                     <Verification />

@@ -23,12 +23,14 @@ export const Signup: React.FC<SignupProps> = ({ user }) => {
                 width: "100%",
                 padding: "10vw",
                 textAlign: "center",
-                borderRadius: "5vw",
+                borderRadius: "2vw",
                 marginBottom: "10vw",
             }}
         >
             <p style={{ fontSize: "6vw" }}>Você ainda não tem uma loja ou serviço cadastrado</p>
-            <p style={{ fontSize: "5cw" }}>Complete seu cadastro e envie para análise para desbloquear outras funcionalidades</p>
+            <p style={{ fontSize: "4vw" }}>
+                Complete seu cadastro e envie para análise para desbloquear outras funcionalidades
+            </p>
             <Button variant="contained" onClick={() => navigate("/business/form")}>
                 Começar cadastro
             </Button>

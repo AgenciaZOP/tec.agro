@@ -12,31 +12,29 @@ import {
 } from "@mui/material"
 import { Formik, Form as Formu } from "formik"
 import { Avatar } from "@files-ui/react"
-import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline"
+import { useProducers } from "../../../hooks/useProducers"
 import { useSnackbar } from "burgos-snackbar"
-import { useAgents } from "../../../hooks/useAgents"
+import { inputStyle, paperStyle, styleBox } from "./../../styles"
 import MaskedInput from "../../../components/MaskedInput"
 import { useDocumentMask } from "../../../hooks/useDocumentMask"
-import { inputStyle, paperStyle, styleBox } from "./../../styles"
-
 interface FormProps {
     user: User
 }
 
 export const Form: React.FC<FormProps> = ({ user }) => {
-    const agents = useAgents()
+    const producers = useProducers()
 
     const { snackbar } = useSnackbar()
     const documentMask = useDocumentMask()
-
     const [image, setImage] = useState<File>()
 
-    const initialValues: Agent = {
+    const initialValues: Producer = {
+        date: "",
         id: 0,
         userId: user.id,
         user: user,
-        date: "",
+
         name: "",
         email: "",
         document: "",
@@ -47,15 +45,15 @@ export const Form: React.FC<FormProps> = ({ user }) => {
         active: false,
     }
 
-    const handleSubmit = (values: Agent) => {
-        if (agents.loading) return
+    const handleSubmit = (values: Producer) => {
+        if (producers.loading) return
 
         if (!image) {
             snackbar({ severity: "error", text: "Envie uma imagem" })
             return
         }
 
-        agents.new({ ...values, file: image })
+        producers.new({ ...values, file: image })
     }
 
     return (
@@ -73,11 +71,11 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                 {({ values, handleChange }) => (
                     <Formu>
                         <Paper sx={paperStyle}>
-                            <Box sx={styleBox}>
-                                <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                                    <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Informações Básicas</p>
-                                    <hr />
-                                </Box>
+                            <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                                <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Informações Básicas</p>
+                                <hr />
+                            </Box>
+                            <Box sx={{ flexDirection: "column", gap: "3vw" }}>
                                 <TextField
                                     variant="standard"
                                     label="Nome"
@@ -89,42 +87,33 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                                 />
                                 <TextField
                                     variant="standard"
-                                    label="CPF"
+                                    label="E-mail"
+                                    name="email"
+                                    value={values.email}
+                                    sx={inputStyle}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <TextField
+                                    variant="standard"
+                                    label="CPF / CNPJ"
                                     name="document"
                                     value={values.document}
                                     onChange={handleChange}
                                     sx={inputStyle}
                                     InputProps={{
                                         inputComponent: MaskedInput,
-                                        inputProps: { mask: "000.000.000-00" },
+                                        inputProps: { mask: documentMask(values.document) },
                                     }}
                                     required
-                                />
-                                <TextField
-                                    variant="standard"
-                                    label="E-mail"
-                                    name="email"
-                                    value={values.email}
-                                    onChange={handleChange}
-                                    sx={inputStyle}
-                                    required
-                                />
-
-                                <TextField
-                                    variant="standard"
-                                    label="Data de Nascimento"
-                                    name="birth"
-                                    value={values.date}
-                                    onChange={handleChange}
-                                    sx={inputStyle}
                                 />
                                 <TextField
                                     variant="standard"
                                     label="Telefone"
                                     name="phone"
                                     value={values.phone}
-                                    onChange={handleChange}
                                     sx={inputStyle}
+                                    onChange={handleChange}
                                     InputProps={{
                                         inputComponent: MaskedInput,
                                         inputProps: { mask: "(00) 0 0000-0000" },
@@ -135,29 +124,25 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                         </Paper>
 
                         <Paper sx={paperStyle}>
-                            <Box sx={{ ...styleBox, gap: "4vw" }}>
-                                <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                                    <p style={{ fontSize: "3.5vw", fontWeight: "600", textAlign: "center" }}>
-                                        Foto do perfil
-                                    </p>
-                                    <hr />
-                                </Box>
-                                <Avatar
-                                    src={image}
-                                    onChange={(file) => setImage(file)}
-                                    smartImgFit={"orientation"}
-                                    changeLabel="Clique para trocar a imagem"
-                                    emptyLabel="Clique para enviar uma imagem"
-                                    // style={{ width: "100%", height: "30vw" }}
-                                    style={{
-                                        width: "25vw",
-                                        height: "25vw",
-                                        borderRadius: "20vw",
-                                        fontSize: "2.5vw",
-                                        alignSelf: "center",
-                                    }}
-                                />
+                            <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                                <p style={{ fontSize: "3.5vw", fontWeight: "600", textAlign: "center" }}>Foto do perfil</p>
+                                <hr />
                             </Box>
+                            <Avatar
+                                src={image}
+                                onChange={(file) => setImage(file)}
+                                smartImgFit={"orientation"}
+                                changeLabel="Clique para trocar a imagem"
+                                emptyLabel="Clique para enviar uma imagem"
+                                // style={{ width: "100%", height: "30vw" }}
+                                style={{
+                                    width: "25vw",
+                                    height: "25vw",
+                                    borderRadius: "20vw",
+                                    fontSize: "2.5vw",
+                                    alignSelf: "center",
+                                }}
+                            />
                         </Paper>
                         <Paper sx={paperStyle}>
                             <Box sx={{ ...styleBox, gap: "4vw", justifyContent: "end" }}>
@@ -190,7 +175,7 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                         </Paper>
 
                         <Button variant="contained" type="submit">
-                            {agents.loading ? <CircularProgress color="secondary" size="1.5rem" /> : "Confirmar"}
+                            {producers.loading ? <CircularProgress color="secondary" size="1.5rem" /> : "Confirmar"}
                         </Button>
                     </Formu>
                 )}
