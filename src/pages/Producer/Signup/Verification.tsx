@@ -8,8 +8,9 @@ export const Verification: React.FC<VerificationProps> = ({}) => {
     const header = useHeader()
 
     useEffect(() => {
-        header.setTitle("Meu Negócio")
+        header.setTitle("Minhas Safras")
     }, [])
+
     return (
         <Box sx={{ padding: "10vw", width: "100vw" }}>
             <Paper

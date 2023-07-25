@@ -12,7 +12,7 @@ export const Signup: React.FC<SignupProps> = ({ user }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        header.setTitle("Seja um corretor")
+        header.setTitle("Minhas Safras")
     }, [])
 
     return (
@@ -27,11 +27,11 @@ export const Signup: React.FC<SignupProps> = ({ user }) => {
                 marginBottom: "10vw",
             }}
         >
-            <p style={{ fontSize: "6vw" }}>Você ainda não é cadastrado como corretor</p>
+            <p style={{ fontSize: "6vw" }}>Você ainda não é cadastrado como Produtor</p>
             <p style={{ fontSize: "4vw" }}>
                 Complete seu cadastro e envie para análise para desbloquear outras funcionalidades
             </p>
-            <Button variant="contained" onClick={() => navigate("/agent/form")}>
+            <Button variant="contained" onClick={() => navigate("/producer/form")}>
                 Começar cadastro
             </Button>
         </Paper>

@@ -10,6 +10,7 @@ import { Avatar } from "@files-ui/react"
 import { useBusinesses } from "../hooks/useBusinesses"
 import { useSnackbar } from "burgos-snackbar"
 import MaskedInput from "../components/MaskedInput"
+import { useUser } from "../hooks/useUser"
 
 interface EditProfileProps {
     user: User | null
@@ -19,21 +20,20 @@ interface FormValues {
     name: string | undefined
     email: string | undefined
     cpf: string | undefined
-    birth: string
-    phone: string
-    rg: string
+    birth: string | undefined
+    phone: string | undefined
+    rg: string | undefined
     address: string
-    cep: string
-    image: string
-    number: string
-    city: string
-    district: string
-    uf: string
+    cep: string | undefined
+    image: string | undefined
+    number: string | undefined
+    city: string | undefined
+    district: string | undefined
+    uf: string | undefined
 }
 export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
-    const businesses = useBusinesses()
+    const update = useUser()
     const { snackbar } = useSnackbar()
-    const [loading, setloading] = useState()
 
     const [image, setImage] = useState<File>()
     const styleBox = {
@@ -73,7 +73,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
     }
 
     const handleSubmit = (values: FormValues) => {
-        //if (user.loading) return
         console.log(values)
     }
 
