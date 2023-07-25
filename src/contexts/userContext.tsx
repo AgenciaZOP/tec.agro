@@ -11,6 +11,8 @@ interface UserContextValue {
     setLoginLoading: (value: boolean) => void
     signupLoading: boolean
     setSignupLoading: (value: boolean) => void
+    updateLoading: boolean
+    setUpdateLoading: (value: boolean) => void
 }
 
 interface UserProviderProps {
@@ -30,8 +32,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null)
     const [loginLoading, setLoginLoading] = useState(false)
     const [signupLoading, setSignupLoading] = useState(false)
-
-    
+    const [updateLoading, setUpdateLoading] = useState(false)
 
     useEffect(() => {
         console.log({ user })
@@ -39,7 +40,13 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
     useEffect(() => {
         io.on("user:update", (data: User) => {
-            setUser(data)
+            console.log({ updated: data })
+            if (user?.id == data.id) {
+                console.log("000")
+                setUser(data)
+            }
+            setUpdateLoading(false)
+            navigate("/profile")
         })
 
         io.on("login:success", (data: User) => {
@@ -48,24 +55,38 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             setLoginLoading(false)
             navigate("/")
         })
-    
+
         io.on("login:error", () => {
             snackbar({ severity: "error", text: "login error" })
             setLoginLoading(false)
         })
-    
+
         io.on("signup:success", () => {
             navigate("/login")
-            snackbar({severity: "success", text: "usuário criado com sucesso"})
+            snackbar({ severity: "success", text: "usuário criado com sucesso" })
             setSignupLoading(false)
         })
-        
+
         io.on("signup:error", () => {
-            snackbar({severity: "error", text: "erro ao criar usuário"})
+            snackbar({ severity: "error", text: "erro ao criar usuário" })
             setSignupLoading(false)
         })
-        
     }, [])
 
-    return <UserContext.Provider value={{ user, setUser, loginLoading, setLoginLoading, signupLoading, setSignupLoading }}>{children}</UserContext.Provider>
+    return (
+        <UserContext.Provider
+            value={{
+                user,
+                setUser,
+                loginLoading,
+                setLoginLoading,
+                signupLoading,
+                setSignupLoading,
+                updateLoading,
+                setUpdateLoading,
+            }}
+        >
+            {children}
+        </UserContext.Provider>
+    )
 }

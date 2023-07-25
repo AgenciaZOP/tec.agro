@@ -28,5 +28,10 @@ export const UsersProvider: React.FC<UsersProviderProps> = ({ children }) => {
         setUsers(data)
     })
 
+    io.on("user:update", (data: User) => {
+        setUsers([...users.filter((item) => item.id != data.id), data])
+    })
+
+
     return <UsersContext.Provider value={{ users, setUsers, loading, setLoading }}>{children}</UsersContext.Provider>
 }

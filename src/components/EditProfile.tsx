@@ -11,29 +11,32 @@ import { useBusinesses } from "../hooks/useBusinesses"
 import { useSnackbar } from "burgos-snackbar"
 import MaskedInput from "../components/MaskedInput"
 import { useUser } from "../hooks/useUser"
+import { useDataHandler } from "../hooks/useDataHandler"
 
 interface EditProfileProps {
     user: User | null
+    updateEditing: (isEditing: boolean) => void
 }
 
 interface FormValues {
-    name: string | undefined
-    email: string | undefined
-    cpf: string | undefined
-    birth: string | undefined
-    phone: string | undefined
-    rg: string | undefined
+    name: string
+    email: string
+    cpf: string
+    birth: string
+    phone: string
+    rg: string
     address: string
-    cep: string | undefined
-    image: string | undefined
-    number: string | undefined
-    city: string | undefined
-    district: string | undefined
-    uf: string | undefined
+    cep: string
+    image: string
+    number: string
+    city: string
+    district: string
+    uf: string
 }
-export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
-    const update = useUser()
+export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing }) => {
+    const { unmask } = useDataHandler()
     const { snackbar } = useSnackbar()
+    const { update, updateLoading, setUpdateLoading } = useUser()
 
     const [image, setImage] = useState<File>()
     const styleBox = {
@@ -57,9 +60,9 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
         },
     }
     const initialValues = {
-        name: user?.name,
-        email: user?.email,
-        cpf: user?.document,
+        name: user?.name || "",
+        email: user?.email || "",
+        cpf: user?.document || "",
         birth: new Date(user?.birth || 0).toLocaleDateString("pt-br") || "",
         phone: user?.phone || "",
         rg: user?.rg || "",
@@ -73,7 +76,27 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
     }
 
     const handleSubmit = (values: FormValues) => {
+        const data = {
+            ...values,
+            cpf: unmask(values.cpf),
+            phone: unmask(values.phone),
+            cep: unmask(values.cep),
+            id: user!.id,
+        }
+        update(data)
+        setUpdateLoading(true)
+        setTimeout(() => {
+            updateEditing(false)
+        }, 700)
         console.log(values)
+
+        if (data) {
+            snackbar({ severity: "success", text: "Dados alterados com sucesso!" })
+            return
+        } else {
+            snackbar({ severity: "error", text: "Algo deu errado!" })
+            return
+        }
     }
 
     return (
@@ -129,6 +152,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                         inputComponent: MaskedInput,
                                         inputProps: { mask: "000.000.000-00" },
                                     }}
+                                    disabled
                                 />
                                 <TextField
                                     onChange={handleChange}
@@ -160,6 +184,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                         inputComponent: MaskedInput,
                                         inputProps: { mask: "00/00/0000" },
                                     }}
+                                    disabled
                                 />
                                 <TextField
                                     onChange={handleChange}
@@ -262,31 +287,10 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                                 </IconButton>
                             </Box>
                         </Box>
-                        <Box sx={{ display: "flex", flexDirection: "row", gap: "3vw" }}>
-                            {/* <Button
-                                sx={{
-                                    backgroundColor: `gray`,
-                                    color: "white",
-                                    width: "max-content",
-                                    fontSize: "2.8vw",
-                                }}
-                                type="button"
-                                onClick={renderContentProfile}
-                            >
-                                Cancelar
-                            </Button> */}
-                            <Button
-                                sx={{
-                                    backgroundColor: `${colors.primary}`,
-                                    color: "white",
-                                    width: "max-content",
-                                    fontSize: "2.8vw",
-                                }}
-                                type="submit"
-                            >
-                                Salvar
-                            </Button>
-                        </Box>
+
+                        <Button variant="contained" type="submit">
+                            {updateLoading ? <CircularProgress size="1.5rem" color="secondary" /> : "Salvar"}
+                        </Button>
                     </Form>
                 )}
             </Formik>

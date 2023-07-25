@@ -24,6 +24,10 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
     const [weight, setWeight] = useState(9.1)
     const [date, setDate] = useState("19/05/2023")
 
+    const updateEditing = (value: boolean) => {
+        setEditing(value)
+    }
+
     const handleEditing = () => {
         if (isEditing) {
             setEditing(false)
@@ -98,7 +102,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                         </Box>
                     </Box>
                 ) : (
-                    <EditProfile user={user} />
+                    <EditProfile user={user} updateEditing={updateEditing} />
                 )}
 
                 <Box sx={{ flexDirection: "row", gap: "1vw" }}>

@@ -7,7 +7,16 @@ export const useUser = () => {
     const io = useIo()
     const navigate = useNavigate()
 
-    const { user, setUser, loginLoading, setLoginLoading, signupLoading, setSignupLoading } = useContext(UserContext)
+    const {
+        user,
+        setUser,
+        loginLoading,
+        setLoginLoading,
+        signupLoading,
+        setSignupLoading,
+        updateLoading,
+        setUpdateLoading,
+    } = useContext(UserContext)
 
     const login = (data: LoginData) => {
         io.emit("user:login", data)
@@ -20,9 +29,9 @@ export const useUser = () => {
     }
 
     const update = (data: {
-        name: string | undefined
-        email: string | undefined
-        cpf: string | undefined
+        name: string
+        email: string
+        cpf: string
         birth: string
         phone: string
         rg: string
@@ -35,5 +44,16 @@ export const useUser = () => {
         io.emit("user:update", data)
     }
 
-    return { user, login, loginLoading, setLoginLoading, signupLoading, setSignupLoading, logout, update }
+    return {
+        user,
+        login,
+        loginLoading,
+        setLoginLoading,
+        signupLoading,
+        setSignupLoading,
+        logout,
+        update,
+        updateLoading,
+        setUpdateLoading,
+    }
 }
