@@ -13,7 +13,7 @@ export const inputStyle: SxProps = {
 export const paperStyle: SxProps = {
     flexDirection: "column",
     width: "100%",
-    padding: "6vw",
+    padding: "4vw",
     gap: "3vw",
     borderRadius: "2vw",
 }
