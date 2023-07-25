@@ -24,7 +24,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
     return user ? (
         <Box sx={{ alignItems: "center", padding: "5vw", gap: "3vw" }}>
             <Avatar
-                src={profile2}
+                src={user.image}
                 sx={{ width: "16vw", height: "16vw" }}
                 onClick={() => {
                     navigate("/profile")
@@ -34,10 +34,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
             <Box sx={{ gap: "1.6vw", flexDirection: "column" }}>
                 <Box sx={{ alignItems: "center", gap: "3vw" }}>
                     <p style={{ fontWeight: "600", fontSize: "4vw" }}>{user.name}</p>
-                    <p
-                        style={{ textDecoration: "underline", fontSize: "2.5vw", color: `${colors.primary}` }}
-                        onClick={handleNavigation}
-                    >
+                    <p style={{ textDecoration: "underline", fontSize: "2.5vw", color: `${colors.primary}` }} onClick={handleNavigation}>
                         {" "}
                         Editar
                     </p>
