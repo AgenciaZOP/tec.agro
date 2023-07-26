@@ -134,19 +134,19 @@ export const useNavigationList = () => {
             {
                 id: 2,
                 title: "Seja um Corretor",
-                location: "/",
+                location: "/agent",
                 icon: <MultipleStopIcon />,
             },
             {
                 id: 3,
                 title: "Meu Negócio",
-                location: "/",
+                location: "/business",
                 icon: <BarChartIcon />,
             },
             {
                 id: 4,
                 title: "Minha Transportadora",
-                location: "/",
+                location: "/shipping",
                 icon: <LocalShippingIcon />,
             },
         ],
