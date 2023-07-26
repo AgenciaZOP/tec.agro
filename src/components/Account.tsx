@@ -48,7 +48,7 @@ export const Account: React.FC<AccountProps> = ({ business }) => {
                     <Avatar src={business.image} alt="" style={{ width: "100%", height: "100%", borderRadius: "2vw" }} />
                 </Box>
                 <p style={{ color: `${colors.primary}`, paddingTop: "4vw" }}>{business.name}agshg </p>
-                <Stats title="Chamada" value="126" sx={_sx} />
+                <Stats title="Chamada" business={business} sx={_sx} />
             </Box>
         </Paper>
     )
