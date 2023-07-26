@@ -38,12 +38,18 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         console.log({ user })
 
         if (user) {
+
             io.on("user:update", (data: User) => {
                 if (user.id == data.id) {
                     setUser({ ...data, image: `${data.image}?time=${new Date().getTime()}` })
                 }
                 setUpdateLoading(false)
                 navigate("/profile")
+            })
+
+            io.on("connect", () => {
+                console.log("reconnected, syncing user")
+                io.emit("client:sync", user)
             })
         }
 
