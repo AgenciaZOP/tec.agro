@@ -1,24 +1,19 @@
 import { Box, IconButton, Button, CircularProgress } from "@mui/material"
-import profile2 from "../assets/person2.jpg"
 import { TextField } from "./TextField"
 import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
-import { Form, Formik } from "formik"
-import colors from "../style/colors"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Form, Formik, FormikProps } from "formik"
+import { useEffect, useState } from "react"
 import { Avatar } from "@files-ui/react"
-import { useBusinesses } from "../hooks/useBusinesses"
-import { useSnackbar } from "burgos-snackbar"
 import MaskedInput from "../components/MaskedInput"
 import { useUser } from "../hooks/useUser"
-import { useDataHandler } from "../hooks/useDataHandler"
 
 interface EditProfileProps {
     user: User | null
     handleSubmit: (values: UpdateUserValues, file?: File) => void
+    formRef: React.Ref<FormikProps<UpdateUserValues>>
 }
 
-export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit }) => {
+export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, formRef }) => {
     const { updateLoading } = useUser()
 
     const [image, setImage] = useState<File>()
@@ -43,6 +38,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit }) 
             fontSize: "3.0vw",
         },
     }
+
     const initialValues: UpdateUserValues = {
         name: user?.name || "",
         email: user?.email || "",
@@ -69,7 +65,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit }) 
                 paddingTop: "10.5vw",
             }}
         >
-            <Formik initialValues={initialValues} onSubmit={(values) => handleSubmit(values, image)}>
+            <Formik initialValues={initialValues} onSubmit={(values) => handleSubmit(values, image)} innerRef={formRef}>
                 {({ values, handleChange }) => (
                     <Form>
                         <Avatar
@@ -241,7 +237,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit }) 
                             </Box>
                         </Box>
 
-                        <Button variant="contained" type="submit">
+                        <Button variant="contained" type="submit" sx={{ display: "none" }}>
                             {updateLoading ? <CircularProgress size="1.5rem" color="secondary" /> : "Salvar"}
                         </Button>
                     </Form>
