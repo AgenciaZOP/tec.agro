@@ -11,4 +11,5 @@ declare interface Subaccount {
     user: User
     type?: string
     rating: number
+    ratings: number
 }

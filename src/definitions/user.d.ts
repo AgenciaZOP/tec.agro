@@ -21,6 +21,7 @@ declare interface User {
     sold: number
     bought: number
     rating: number
+    ratings: number
     date: string
 
     crops: Crop[]
