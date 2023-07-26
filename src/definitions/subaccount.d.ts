@@ -10,4 +10,6 @@ declare interface Subaccount {
     userId: number
     user: User
     type?: string
+    rating: number
+    ratings: number
 }

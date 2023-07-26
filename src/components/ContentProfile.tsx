@@ -100,7 +100,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                         <Box sx={{ alignItems: "center", gap: "1vw" }}>
                             <FmdGoodOutlinedIcon sx={{ width: "4vw" }} />
                             <p style={{ fontSize: "2.56vw" }}>
-                                {user?.city},{user?.uf}
+                                {user?.city}, {user?.uf}
                             </p>
                         </Box>
                     </Box>
