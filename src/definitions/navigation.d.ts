@@ -12,3 +12,5 @@ declare interface NavigationMenu {
 
     hidden?: boolean
 }
+
+declare type MenusList = "admin" | "home" | "agent" | "business" | "producer" | "settings" | "profile" | "shipping"

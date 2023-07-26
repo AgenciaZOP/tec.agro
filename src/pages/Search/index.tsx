@@ -3,7 +3,6 @@ import { Box } from "@mui/material"
 import { Route, Routes } from "react-router-dom"
 import { Header } from "../../components/Header"
 import { Crops } from "./Crops"
-import { BottomNavigation } from "../../components/BottomNavigation"
 
 interface SearchProps {
     user: User
@@ -16,7 +15,6 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
             <Routes>
                 <Route path="crops" element={<Crops />} />
             </Routes>
-            <BottomNavigation external />
         </Box>
     )
 }

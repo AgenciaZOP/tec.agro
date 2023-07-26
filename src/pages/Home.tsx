@@ -7,14 +7,15 @@ import { Chats } from "./Chats"
 import { Search } from "./Search"
 import { Business } from "./Crops/Business"
 import { Shipping } from "./Crops/Shipping"
-
-
+import { useNavigationList } from "../hooks/useNavigationList"
 
 interface HomeProps {
     user: User
 }
 
 export const Home: React.FC<HomeProps> = ({ user }) => {
+    const bottomMenu = useNavigationList()
+
     return (
         <Box sx={{ flexDirection: "column", width: "100%", padding: "10vh 0" }}>
             <Header />
@@ -25,7 +26,7 @@ export const Home: React.FC<HomeProps> = ({ user }) => {
                 <Route path="chats/*" element={<Chats channel="buyer" />} />
                 <Route path="search" element={<Search user={user} />} />
             </Routes>
-            <BottomNavigation />
+            <BottomNavigation section={bottomMenu.home} />
         </Box>
     )
 }

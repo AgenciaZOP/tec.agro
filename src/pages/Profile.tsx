@@ -5,6 +5,7 @@ import { Header } from "../components/Header"
 import { BottomNavigation } from "../components/BottomNavigation"
 import { ContentProfile } from "../components/ContentProfile"
 import { useLocation } from "react-router-dom"
+import { useNavigationList } from "../hooks/useNavigationList"
 
 interface ProfileProps {
     user: User
@@ -12,17 +13,17 @@ interface ProfileProps {
 export const Profile: React.FC<ProfileProps> = ({ user }) => {
     const header = useHeader()
     const location = useLocation()
+    const bottomMenu = useNavigationList()
 
     useEffect(() => {
         header.setTitle("Perfil")
-        header.updateSection("/profile")
     }, [])
 
     return (
         <Box sx={{ flexDirection: "column", width: "100%", height: "100%", padding: "12vh 0vw 10vh 0vw" }}>
             <Header />
             <ContentProfile user={user} editingMode={!!location.state?.editing} />
-            <BottomNavigation />
+            <BottomNavigation section={bottomMenu.profile} />
         </Box>
     )
 }

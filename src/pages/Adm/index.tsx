@@ -6,12 +6,15 @@ import { Route, Routes } from "react-router-dom"
 import { Panel } from "./Panel"
 import { Reviews } from "./Reviews"
 import { ReviewProfile } from "./ReviewProfile"
+import { useNavigationList } from "../../hooks/useNavigationList"
 
 interface AdmProps {
     user: User
 }
 
 export const Adm: React.FC<AdmProps> = ({ user }) => {
+    const bottomMenu = useNavigationList()
+
     return (
         <Box sx={{ flexDirection: "column", width: "100%" }}>
             <Header />
@@ -22,7 +25,7 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
                     <Route path="review" element={<ReviewProfile />} />
                 </Routes>
             </Box>
-            <BottomNavigation />
+            <BottomNavigation section={bottomMenu.admin} />
         </Box>
     )
 }

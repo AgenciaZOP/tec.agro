@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { BottomNavigationAction, BottomNavigation as MuiBottomNav } from "@mui/material"
-import { useHeader } from "../hooks/useHeader"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 interface BottomNavigationProps {
     external?: boolean
+    section: NavigationMenu
 }
 
-export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external }) => {
+export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external, section }) => {
     const navigate = useNavigate()
-    const pathname = useLocation().pathname
 
-    const { currentSection } = useHeader()
-
-    const [firstRender, setFirstRender] = useState(true)
     const [currentLocation, setCurrentLocation] = useState<
         | {
               id: number
@@ -22,21 +18,19 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external }) 
               icon: React.ReactNode
           }
         | undefined
-    >(external ? undefined : currentSection.navigation![0])
+    >(external ? undefined : section.navigation![0])
 
-    useEffect(() => {
-        if (!firstRender && currentLocation) {
-            navigate(`${currentSection.location}${currentLocation.location}`)
-        } else {
-            setFirstRender(false)
-        }
-    }, [currentLocation])
+    const handleChange = (value: number) => {
+        const location = section.navigation!.filter((item) => item.id == value)[0]
+        setCurrentLocation(location)
+        navigate(`${section.location}${location.location}`)
+    }
 
     return (
         <MuiBottomNav
             showLabels
             value={currentLocation?.id || 0}
-            onChange={(_, newValue) => setCurrentLocation(currentSection.navigation!.filter((item) => item.id == newValue)[0])}
+            onChange={(_, newValue) => handleChange(newValue)}
             sx={{
                 marginTop: "auto",
                 background: "transparent",
@@ -49,7 +43,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external }) 
             }}
         >
             <BottomNavigationAction value={0} sx={{ display: "none" }} />
-            {currentSection.navigation?.map((item) => {
+            {section.navigation?.map((item) => {
                 const Icon = () => item.icon
 
                 return (
