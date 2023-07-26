@@ -13,7 +13,7 @@ import { UserStats } from "./UserStats"
 interface MenuDrawerProps {}
 
 export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
-    const menus = useNavigationList()
+    const menus = Object.entries(useNavigationList()).map(([key, value]) => value)
     const navigate = useNavigate()
 
     const { open, setOpen } = useMenuDrawer()

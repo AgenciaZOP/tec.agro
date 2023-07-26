@@ -3,11 +3,14 @@ import { Box } from "@mui/material"
 import { SearchInput } from "../../components/SearchInput"
 import { useCrops } from "../../hooks/useCrops"
 import { CropCard } from "../../components/CropCard"
+import { BottomNavigation } from "../../components/BottomNavigation"
+import { useNavigationList } from "../../hooks/useNavigationList"
 
 interface CropsProps {}
 
 export const Crops: React.FC<CropsProps> = ({}) => {
     const crops = useCrops()
+    const bottomMenu = useNavigationList()
 
     const [list, setList] = useState(crops.crops)
 
@@ -17,13 +20,16 @@ export const Crops: React.FC<CropsProps> = ({}) => {
     }
 
     return (
-        <Box sx={{ flexDirection: "column", width: "100%", padding: "0 5vw", gap: "5vw", height: "100%", overflow: "hidden" }}>
-            <SearchInput placeholder={"safras"} onChange={handleChange} />
-            <Box sx={{ flexDirection: "column", gap: "2vw", height: "100%", overflowY: "auto", paddingBottom: "10vh" }}>
-                {list.map((crop) => (
-                    <CropCard key={crop.id} crop={crop} />
-                ))}
+        <>
+            <Box sx={{ flexDirection: "column", width: "100%", padding: "0 5vw", gap: "5vw", height: "100%", overflow: "hidden" }}>
+                <SearchInput placeholder={"safras"} onChange={handleChange} />
+                <Box sx={{ flexDirection: "column", gap: "2vw", height: "100%", overflowY: "auto", paddingBottom: "10vh" }}>
+                    {list.map((crop) => (
+                        <CropCard key={crop.id} crop={crop} />
+                    ))}
+                </Box>
             </Box>
-        </Box>
+            <BottomNavigation external section={bottomMenu.home} />
+        </>
     )
 }

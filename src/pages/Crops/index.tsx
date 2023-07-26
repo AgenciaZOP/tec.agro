@@ -17,7 +17,6 @@ export const Crops: React.FC<CropsProps> = ({}) => {
 
     useEffect(() => {
         header.setTitle("Safras")
-        header.updateSection("/home")
     }, [])
 
     return (
