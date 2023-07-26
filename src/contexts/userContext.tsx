@@ -47,6 +47,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
                     navigate("/profile")
                     setUpdateLoading(false)
                     setEditing(false)
+                    snackbar({ severity: "success", text: "Dados alterados com sucesso!" })
                 }
             })
 
@@ -84,6 +85,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             snackbar({ severity: "error", text: "erro ao criar usuário" })
             setSignupLoading(false)
         })
+
+        io.on("user:update:error", () => snackbar({ severity: "error", text: "Algo deu errado!" }))
 
         return () => {
             io.off("login:success")

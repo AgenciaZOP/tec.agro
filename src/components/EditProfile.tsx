@@ -86,14 +86,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
         }
 
         update(data)
-
-        if (data) {
-            snackbar({ severity: "success", text: "Dados alterados com sucesso!" })
-            return
-        } else {
-            snackbar({ severity: "error", text: "Algo deu errado!" })
-            return
-        }
     }
 
     return (
