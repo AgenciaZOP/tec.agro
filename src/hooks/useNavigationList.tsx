@@ -93,24 +93,104 @@ export const useNavigationList = () => {
         id: 3,
         title: "Minhas Safras",
         location: "/producer",
+        navigation: [
+            {
+                id: 1,
+                title: "Painel",
+                location: "",
+                icon: <GridViewIcon sx={iconStyle} />,
+            },
+            {
+                id: 2,
+                title: "Conversas",
+                location: "/chats",
+                icon: <ChatIcon sx={iconStyle} />,
+            },
+            {
+                id: 3,
+                title: "Transações",
+                location: "/profile",
+                icon: <SwapHorizIcon sx={iconStyle} />,
+            },
+        ],
     }
 
     const agent: NavigationMenu = {
         id: 4,
         title: "Seja um Corretor",
         location: "/agent",
+        navigation: [
+            {
+                id: 1,
+                title: "Painel",
+                location: "",
+                icon: <GridViewIcon sx={iconStyle} />,
+            },
+            {
+                id: 2,
+                title: "Conversas",
+                location: "/chats",
+                icon: <ChatIcon sx={iconStyle} />,
+            },
+            {
+                id: 3,
+                title: "Solicitações",
+                location: "/requests",
+                icon: <StorefrontIcon sx={iconStyle} />,
+            },
+        ],
     }
 
     const business: NavigationMenu = {
         id: 5,
         title: "Meu Negócio",
         location: "/business",
+        navigation: [
+            {
+                id: 1,
+                title: "Painel",
+                location: "",
+                icon: <GridViewIcon sx={iconStyle} />,
+            },
+            {
+                id: 2,
+                title: "Conversas",
+                location: "/chats",
+                icon: <ChatIcon sx={iconStyle} />,
+            },
+            {
+                id: 3,
+                title: "Meu Negócio",
+                location: "/profile",
+                icon: <StorefrontIcon sx={iconStyle} />,
+            },
+        ],
     }
 
     const shipping: NavigationMenu = {
         id: 6,
         title: "Minha Transportadora",
         location: "/shipping",
+        navigation: [
+            {
+                id: 1,
+                title: "Painel",
+                location: "",
+                icon: <GridViewIcon sx={iconStyle} />,
+            },
+            {
+                id: 2,
+                title: "Conversas",
+                location: "/chats",
+                icon: <ChatIcon sx={iconStyle} />,
+            },
+            {
+                id: 3,
+                title: "Transações",
+                location: "/profile",
+                icon: <SwapHorizIcon sx={iconStyle} />,
+            },
+        ],
     }
 
     const settings: NavigationMenu = {
