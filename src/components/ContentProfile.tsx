@@ -99,7 +99,9 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                         <p style={{ fontSize: "5.5vw" }}>{user?.name}</p>
                         <Box sx={{ alignItems: "center", gap: "1vw" }}>
                             <FmdGoodOutlinedIcon sx={{ width: "4vw" }} />
-                            <p style={{ fontSize: "2.56vw" }}>{"Jaboatão dos Guararapes, Pernambuco"}</p>
+                            <p style={{ fontSize: "2.56vw" }}>
+                                {user?.city},{user?.uf}
+                            </p>
                         </Box>
                     </Box>
                 ) : (
@@ -124,8 +126,22 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
             >
                 <ListTitle title="Transações Recentes" location="transactions" />
                 <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw" }}>
-                    <Transactions title={title} price={price} weight={weight} company={company} date={date} haveSeller={true} />
-                    <Transactions title={"Safra de café"} price={"45.287,23"} weight={5.8} company={company} date={"27/03/2023"} haveSeller={false} />
+                    <Transactions
+                        title={title}
+                        price={price}
+                        weight={weight}
+                        company={company}
+                        date={date}
+                        haveSeller={true}
+                    />
+                    <Transactions
+                        title={"Safra de café"}
+                        price={"45.287,23"}
+                        weight={5.8}
+                        company={company}
+                        date={"27/03/2023"}
+                        haveSeller={false}
+                    />
                 </Box>
             </Box>
             <Box
@@ -138,7 +154,9 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                 <Paper elevation={3} sx={{ borderRadius: "3vw", flexDirection: "column", height: "max-content" }}>
                     <Comment
                         user={"Hellen Katsi"}
-                        comment={"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."}
+                        comment={
+                            "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."
+                        }
                         qtdStars={5}
                         date={"5 de Fevereiro"}
                     />{" "}
