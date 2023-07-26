@@ -44,7 +44,8 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
                     {user.producer && <Tag name={"Produtor"} variant="producer" style={"2.8vw"} />}
                     {user.agent && <Tag name={"Corretor"} variant="agent" style={"2.8vw"} />}
                     {user.shipping && <Tag name={"Transportadora"} variant="shipping" style={"2.8vw"} />}
-                    {user.business && <Tag name={"Loja"} variant="ads" style={"2.8vw"} />}
+                    {user.business?.store && <Tag name={"Loja"} variant="store" style={"2.8vw"} />}
+                    {user.business?.service && <Tag name={"Serviço"} variant="service" style={"2.8vw"} />}
                 </Box>
             </Box>
         </Box>

@@ -9,7 +9,10 @@ declare interface Subaccount {
     date: string
     userId: number
     user: User
-    type?: string
     rating: number
     ratings: number
+
+    type?: string
 }
+
+declare type SubaccountType = "agent" | "business" | "producer" | "shipping" | "store" | "service" | "adm"

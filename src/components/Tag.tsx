@@ -4,7 +4,7 @@ import { Box } from "@mui/material"
 interface TagProps {
     name: string
     style?: string
-    variant: "producer" | "agent" | "shipping" | "ads" | "adm"
+    variant: SubaccountType
 }
 
 export const Tag: React.FC<TagProps> = ({ name, style, variant }) => {
@@ -12,7 +12,9 @@ export const Tag: React.FC<TagProps> = ({ name, style, variant }) => {
         producer: "#D2FFB6",
         agent: "#E2EAFF",
         shipping: "#FFFDC7",
-        ads: "#F0C7FF",
+        business: "#F0C7FF",
+        store: "#F0C7FF",
+        service: "#C7FFF5",
         adm: "#FC5F5C",
     }
 
