@@ -15,7 +15,6 @@ import { useDataHandler } from "../hooks/useDataHandler"
 
 interface EditProfileProps {
     user: User | null
-    updateEditing: (isEditing: boolean) => void
 }
 
 interface FormValues {
@@ -33,10 +32,10 @@ interface FormValues {
     district: string
     uf: string
 }
-export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing }) => {
+export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
     const { unmask } = useDataHandler()
     const { snackbar } = useSnackbar()
-    const { update, updateLoading, setUpdateLoading } = useUser()
+    const { update, updateLoading } = useUser()
 
     const [image, setImage] = useState<File>()
 
@@ -87,12 +86,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
         }
 
         update(data)
-
-        setUpdateLoading(true)
-        setTimeout(() => {
-            updateEditing(false)
-        }, 700)
-        console.log(values)
 
         if (data) {
             snackbar({ severity: "success", text: "Dados alterados com sucesso!" })

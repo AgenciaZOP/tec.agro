@@ -13,6 +13,8 @@ interface UserContextValue {
     setSignupLoading: (value: boolean) => void
     updateLoading: boolean
     setUpdateLoading: (value: boolean) => void
+    isEditing: boolean
+    setEditing: (value: boolean) => void
 }
 
 interface UserProviderProps {
@@ -33,18 +35,19 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [loginLoading, setLoginLoading] = useState(false)
     const [signupLoading, setSignupLoading] = useState(false)
     const [updateLoading, setUpdateLoading] = useState(false)
+    const [isEditing, setEditing] = useState(false)
 
     useEffect(() => {
         console.log({ user })
 
         if (user) {
-
             io.on("user:update", (data: User) => {
                 if (user.id == data.id) {
                     setUser({ ...data, image: `${data.image}?time=${new Date().getTime()}` })
+                    navigate("/profile")
+                    setUpdateLoading(false)
+                    setEditing(false)
                 }
-                setUpdateLoading(false)
-                navigate("/profile")
             })
 
             io.on("connect", () => {
@@ -101,6 +104,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
                 setSignupLoading,
                 updateLoading,
                 setUpdateLoading,
+                isEditing,
+                setEditing,
             }}
         >
             {children}

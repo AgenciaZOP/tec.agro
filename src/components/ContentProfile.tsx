@@ -7,8 +7,8 @@ import { Comment } from "./Comment"
 import { Tag } from "./Tag"
 import EditIcon from "@mui/icons-material/Edit"
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined"
-import profile2 from "../assets/person2.jpg"
 import { EditProfile } from "./EditProfile"
+import { useUser } from "../hooks/useUser"
 
 interface ContentProfileProps {
     user: User | null
@@ -16,8 +16,7 @@ interface ContentProfileProps {
 }
 
 export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMode }) => {
-
-    const [isEditing, setEditing] = useState(editingMode)
+    const { isEditing, setEditing } = useUser()
 
     const [title, settitle] = useState("Safra de Soja 2022/23 ")
     const [company, setCompany] = useState("Transportadora")
@@ -25,21 +24,17 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
     const [weight, setWeight] = useState(9.1)
     const [date, setDate] = useState("19/05/2023")
 
-    const updateEditing = (value: boolean) => {
-        setEditing(value)
-    }
-
     const handleEditing = () => {
-        if (isEditing) {
-            setEditing(false)
-        } else {
-            setEditing(true)
-        }
+        setEditing(!isEditing)
     }
 
     useEffect(() => {
         console.log(isEditing)
     }, [isEditing])
+
+    useEffect(() => {
+        setEditing(editingMode)
+    }, [])
 
     return (
         <Box
@@ -105,7 +100,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                         </Box>
                     </Box>
                 ) : (
-                    <EditProfile user={user} updateEditing={updateEditing} />
+                    <EditProfile user={user} />
                 )}
 
                 <Box sx={{ flexDirection: "row", gap: "1vw" }}>
@@ -126,22 +121,8 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
             >
                 <ListTitle title="Transações Recentes" location="transactions" />
                 <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw" }}>
-                    <Transactions
-                        title={title}
-                        price={price}
-                        weight={weight}
-                        company={company}
-                        date={date}
-                        haveSeller={true}
-                    />
-                    <Transactions
-                        title={"Safra de café"}
-                        price={"45.287,23"}
-                        weight={5.8}
-                        company={company}
-                        date={"27/03/2023"}
-                        haveSeller={false}
-                    />
+                    <Transactions title={title} price={price} weight={weight} company={company} date={date} haveSeller={true} />
+                    <Transactions title={"Safra de café"} price={"45.287,23"} weight={5.8} company={company} date={"27/03/2023"} haveSeller={false} />
                 </Box>
             </Box>
             <Box
@@ -154,9 +135,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                 <Paper elevation={3} sx={{ borderRadius: "3vw", flexDirection: "column", height: "max-content" }}>
                     <Comment
                         user={"Hellen Katsi"}
-                        comment={
-                            "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."
-                        }
+                        comment={"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."}
                         qtdStars={5}
                         date={"5 de Fevereiro"}
                     />{" "}
