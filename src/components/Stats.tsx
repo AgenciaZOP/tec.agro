@@ -18,7 +18,7 @@ export const Stats: React.FC<StatsProps> = ({ user, sx, title, business }) => {
     const _sx: SxProps = {
         borderRadius: "2vw",
         margin: "0 4vw",
-        justifyContent: "space-between",
+
         ...sx,
     }
 
