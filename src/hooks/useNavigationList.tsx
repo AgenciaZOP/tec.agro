@@ -101,6 +101,26 @@ export const useNavigationList = () => {
             id: 5,
             title: "Meu Negócio",
             location: "/business",
+            navigation: [
+                {
+                    id: 1,
+                    title: "Painel",
+                    location: "/",
+                    icon: <GridViewIcon />,
+                },
+                {
+                    id: 2,
+                    title: "Conversas",
+                    location: "/",
+                    icon: <ChatIcon />,
+                },
+                {
+                    id: 3,
+                    title: "Meu Negócio",
+                    location: "/account",
+                    icon: <StorefrontIcon />,
+                },
+            ],
         },
         {
             id: 6,
@@ -122,7 +142,7 @@ export const useNavigationList = () => {
                     id: 1,
                     title: "Perfil",
                     location: "/",
-                    icon: <AppsIcon />,
+                    icon: <GridViewIcon />,
                 },
                 {
                     id: 2,
