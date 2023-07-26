@@ -1,5 +1,5 @@
-import { Avatar, Box, IconButton, Paper } from "@mui/material"
-import React, { useEffect, useState } from "react"
+import { Box } from "@mui/material"
+import React, { useEffect } from "react"
 import { useHeader } from "../hooks/useHeader"
 import { Header } from "../components/Header"
 import { BottomNavigation } from "../components/BottomNavigation"
@@ -33,4 +33,3 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
         </Box>
     )
 }
-  
