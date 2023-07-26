@@ -20,20 +20,7 @@ export const useUser = () => {
         setUser(null)
     }
 
-    const update = (data: {
-        name: string
-        email: string
-        cpf: string
-        birth: string
-        phone: string
-        rg: string
-        address: string
-        cep: string
-        number: string
-        image: string
-        uf: string
-        file?: File
-    }) => {
+    const update = (data: UpdateUserValues) => {
         setUpdateLoading(true)
         io.emit("user:update", data)
     }

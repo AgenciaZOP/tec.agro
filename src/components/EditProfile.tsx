@@ -15,27 +15,11 @@ import { useDataHandler } from "../hooks/useDataHandler"
 
 interface EditProfileProps {
     user: User | null
+    handleSubmit: (values: UpdateUserValues, file?: File) => void
 }
 
-interface FormValues {
-    name: string
-    email: string
-    cpf: string
-    birth: string
-    phone: string
-    rg: string
-    address: string
-    cep: string
-    image: string
-    number: string
-    city: string
-    district: string
-    uf: string
-}
-export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
-    const { unmask } = useDataHandler()
-    const { snackbar } = useSnackbar()
-    const { update, updateLoading } = useUser()
+export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit }) => {
+    const { updateLoading } = useUser()
 
     const [image, setImage] = useState<File>()
 
@@ -59,7 +43,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
             fontSize: "3.0vw",
         },
     }
-    const initialValues = {
+    const initialValues: UpdateUserValues = {
         name: user?.name || "",
         email: user?.email || "",
         cpf: user?.document || "",
@@ -75,19 +59,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
         uf: user?.uf || "",
     }
 
-    const handleSubmit = (values: FormValues) => {
-        const data = {
-            ...values,
-            cpf: unmask(values.cpf),
-            phone: unmask(values.phone),
-            cep: unmask(values.cep),
-            id: user!.id,
-            file: image,
-        }
-
-        update(data)
-    }
-
     return (
         <Box
             sx={{
@@ -98,7 +69,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user }) => {
                 paddingTop: "10.5vw",
             }}
         >
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+            <Formik initialValues={initialValues} onSubmit={(values) => handleSubmit(values, image)}>
                 {({ values, handleChange }) => (
                     <Form>
                         <Avatar

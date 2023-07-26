@@ -9,6 +9,7 @@ import EditIcon from "@mui/icons-material/Edit"
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined"
 import { EditProfile } from "./EditProfile"
 import { useUser } from "../hooks/useUser"
+import { useDataHandler } from "../hooks/useDataHandler"
 
 interface ContentProfileProps {
     user: User | null
@@ -17,6 +18,8 @@ interface ContentProfileProps {
 
 export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMode }) => {
     const { isEditing, setEditing } = useUser()
+    const { unmask } = useDataHandler()
+    const { update } = useUser()
 
     const [title, settitle] = useState("Safra de Soja 2022/23 ")
     const [company, setCompany] = useState("Transportadora")
@@ -26,6 +29,19 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
 
     const handleEditing = () => {
         setEditing(!isEditing)
+    }
+
+    const handleUpdateSubmit = (values: UpdateUserValues, file?: File) => {
+        const data = {
+            ...values,
+            cpf: unmask(values.cpf),
+            phone: unmask(values.phone),
+            cep: unmask(values.cep),
+            id: user!.id,
+            file: file,
+        }
+
+        update(data)
     }
 
     useEffect(() => {
@@ -100,7 +116,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                         </Box>
                     </Box>
                 ) : (
-                    <EditProfile user={user} />
+                    <EditProfile user={user} handleSubmit={handleUpdateSubmit} />
                 )}
 
                 <Box sx={{ flexDirection: "row", gap: "1vw" }}>
