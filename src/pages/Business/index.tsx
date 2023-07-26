@@ -12,6 +12,7 @@ import { Stats } from "../../components/Stats"
 import { Avatar } from "@files-ui/react"
 import { InfoDetails } from "../../components/InfoDetails"
 import { MyBusiness } from "../../components/MyBusiness"
+import { useNavigationList } from "../../hooks/useNavigationList"
 //import { Carousel } from "react-responsive-carousel"
 
 interface BusinessProps {
@@ -20,9 +21,8 @@ interface BusinessProps {
 
 export const Business: React.FC<BusinessProps> = ({ user }) => {
     const header = useHeader()
-    const _sx: SxProps = {
-        gap: "10vw",
-    }
+    const bottomMenu = useNavigationList()
+
     useEffect(() => {
         header.setTitle("Meu Negócio")
     }, [])
@@ -33,7 +33,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                 user.business.active ? (
                     <>
                         <MyBusiness business={user.business} />
-                        <BottomNavigation />
+                        <BottomNavigation section={bottomMenu.business} />
                     </>
                 ) : (
                     <Verification />
