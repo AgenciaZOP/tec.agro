@@ -5,6 +5,7 @@ import { Banners } from "./Banners"
 import { NearYouList } from "./NearYouList"
 import { CropsList } from "./CropsList"
 import { useHeader } from "../../hooks/useHeader"
+import { BusinessList } from "./BusinessList"
 
 interface BusinessProps {}
 
@@ -35,7 +36,7 @@ export const Business: React.FC<BusinessProps> = ({}) => {
             <CategoriesList />
             <Banners images={images} />
             <NearYouList />
-            <CropsList />
+            <BusinessList />
         </Box>
     )
 }

@@ -93,12 +93,52 @@ export const useNavigationList = () => {
         id: 3,
         title: "Minhas Safras",
         location: "/producer",
+        navigation: [
+            {
+                id: 1,
+                title: "Painel",
+                location: "",
+                icon: <GridViewIcon sx={iconStyle} />,
+            },
+            {
+                id: 2,
+                title: "Conversas",
+                location: "/chats",
+                icon: <ChatIcon sx={iconStyle} />,
+            },
+            {
+                id: 3,
+                title: "Transações",
+                location: "/profile",
+                icon: <SwapHorizIcon sx={iconStyle} />,
+            },
+        ],
     }
 
     const agent: NavigationMenu = {
         id: 4,
         title: "Seja um Corretor",
         location: "/agent",
+        navigation: [
+            {
+                id: 1,
+                title: "Painel",
+                location: "",
+                icon: <GridViewIcon sx={iconStyle} />,
+            },
+            {
+                id: 2,
+                title: "Conversas",
+                location: "/chats",
+                icon: <ChatIcon sx={iconStyle} />,
+            },
+            {
+                id: 3,
+                title: "Solicitações",
+                location: "/requests",
+                icon: <StorefrontIcon sx={iconStyle} />,
+            },
+        ],
     }
 
     const business: NavigationMenu = {
@@ -115,13 +155,13 @@ export const useNavigationList = () => {
             {
                 id: 2,
                 title: "Conversas",
-                location: "/business",
+                location: "/chats",
                 icon: <ChatIcon sx={iconStyle} />,
             },
             {
                 id: 3,
                 title: "Meu Negócio",
-                location: "/account",
+                location: "/profile",
                 icon: <StorefrontIcon sx={iconStyle} />,
             },
         ],
@@ -131,6 +171,26 @@ export const useNavigationList = () => {
         id: 6,
         title: "Minha Transportadora",
         location: "/shipping",
+        navigation: [
+            {
+                id: 1,
+                title: "Painel",
+                location: "",
+                icon: <GridViewIcon sx={iconStyle} />,
+            },
+            {
+                id: 2,
+                title: "Conversas",
+                location: "/chats",
+                icon: <ChatIcon sx={iconStyle} />,
+            },
+            {
+                id: 3,
+                title: "Transações",
+                location: "/profile",
+                icon: <SwapHorizIcon sx={iconStyle} />,
+            },
+        ],
     }
 
     const settings: NavigationMenu = {
@@ -154,19 +214,19 @@ export const useNavigationList = () => {
             {
                 id: 2,
                 title: "Seja um Corretor",
-                location: "/",
+                location: "/agent",
                 icon: <MultipleStopIcon />,
             },
             {
                 id: 3,
                 title: "Meu Negócio",
-                location: "/",
+                location: "/business",
                 icon: <BarChartIcon />,
             },
             {
                 id: 4,
                 title: "Minha Transportadora",
-                location: "/",
+                location: "/shipping",
                 icon: <LocalShippingIcon />,
             },
         ],

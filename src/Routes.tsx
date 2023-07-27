@@ -27,7 +27,7 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
             <Route path="/business/*" element={<Business user={user} />} />
             <Route path="/shipping/*" element={<Shipping user={user} />} />
             <Route path="settings" element={<Home user={user} />} />
-            <Route path="profile" element={<Profile user={user} />} />
+            <Route path="profile/*" element={<Profile user={user} />} />
             <Route path="search/*" element={<Search user={user} />} />
         </ReactRoutes>
     ) : (

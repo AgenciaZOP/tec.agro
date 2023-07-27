@@ -1,47 +1,45 @@
 import { Box, IconButton, Button, CircularProgress } from "@mui/material"
-import profile2 from "../assets/person2.jpg"
 import { TextField } from "./TextField"
 import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
-import { Form, Formik } from "formik"
-import colors from "../style/colors"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Form, Formik, FormikProps } from "formik"
+import { useEffect, useState } from "react"
 import { Avatar } from "@files-ui/react"
-import { useBusinesses } from "../hooks/useBusinesses"
-import { useSnackbar } from "burgos-snackbar"
 import MaskedInput from "../components/MaskedInput"
 import { useUser } from "../hooks/useUser"
-import { useDataHandler } from "../hooks/useDataHandler"
-import { styleBox, inputStyle } from "./style"
 
 interface EditProfileProps {
     user: User | null
-    updateEditing: (isEditing: boolean) => void
+    handleSubmit: (values: UpdateUserValues, file?: File) => void
+    formRef: React.Ref<FormikProps<UpdateUserValues>>
 }
 
-interface FormValues {
-    name: string
-    email: string
-    cpf: string
-    birth: string
-    phone: string
-    rg: string
-    address: string
-    cep: string
-    image: string
-    number: string
-    city: string
-    district: string
-    uf: string
-}
-export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing }) => {
-    const { unmask } = useDataHandler()
-    const { snackbar } = useSnackbar()
-    const { update, updateLoading, setUpdateLoading } = useUser()
+export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, formRef }) => {
+    const { updateLoading } = useUser()
 
     const [image, setImage] = useState<File>()
 
-    const initialValues = {
+    const styleBox = {
+        flexDirection: "column",
+        width: "100%",
+        padding: "5.5vw",
+        paddingTop: "3vw",
+        // paddingBottom: "0",
+        border: "1px solid gray",
+        borderRadius: "2vw",
+        gap: "2vw",
+    }
+
+    const inputStyle = {
+        "& .MuiInputBase-input": {
+            padding: "0 1vw",
+            fontSize: "3.5vw",
+        },
+        "& .MuiInputLabel-root": {
+            fontSize: "3.0vw",
+        },
+    }
+
+    const initialValues: UpdateUserValues = {
         name: user?.name || "",
         email: user?.email || "",
         cpf: user?.document || "",
@@ -57,33 +55,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
         uf: user?.uf || "",
     }
 
-    const handleSubmit = (values: FormValues) => {
-        const data = {
-            ...values,
-            cpf: unmask(values.cpf),
-            phone: unmask(values.phone),
-            cep: unmask(values.cep),
-            id: user!.id,
-            file: image,
-        }
-
-        update(data)
-
-        setUpdateLoading(true)
-        setTimeout(() => {
-            updateEditing(false)
-        }, 700)
-        console.log(values)
-
-        if (data) {
-            snackbar({ severity: "success", text: "Dados alterados com sucesso!" })
-            return
-        } else {
-            snackbar({ severity: "error", text: "Algo deu errado!" })
-            return
-        }
-    }
-
     return (
         <Box
             sx={{
@@ -94,7 +65,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
                 paddingTop: "10.5vw",
             }}
         >
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+            <Formik initialValues={initialValues} onSubmit={(values) => handleSubmit(values, image)} innerRef={formRef}>
                 {({ values, handleChange }) => (
                     <Form>
                         <Avatar
@@ -273,7 +244,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
                             </Box>
                         </Box>
 
-                        <Button variant="contained" type="submit">
+                        <Button variant="contained" type="submit" sx={{ display: "none" }}>
                             {updateLoading ? <CircularProgress size="1.5rem" color="secondary" /> : "Salvar"}
                         </Button>
                     </Form>

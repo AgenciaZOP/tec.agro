@@ -13,6 +13,8 @@ interface UserContextValue {
     setSignupLoading: (value: boolean) => void
     updateLoading: boolean
     setUpdateLoading: (value: boolean) => void
+    isEditing: boolean
+    setEditing: (value: boolean) => void
 }
 
 interface UserProviderProps {
@@ -33,6 +35,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [loginLoading, setLoginLoading] = useState(false)
     const [signupLoading, setSignupLoading] = useState(false)
     const [updateLoading, setUpdateLoading] = useState(false)
+    const [isEditing, setEditing] = useState(false)
 
     useEffect(() => {
         console.log({ user })
@@ -41,9 +44,16 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             io.on("user:update", (data: User) => {
                 if (user.id == data.id) {
                     setUser({ ...data, image: `${data.image}?time=${new Date().getTime()}` })
+                    navigate("/profile")
+                    setUpdateLoading(false)
+                    setEditing(false)
+                    snackbar({ severity: "success", text: "Dados alterados com sucesso!" })
                 }
-                setUpdateLoading(false)
-                navigate("/profile")
+            })
+
+            io.on("connect", () => {
+                console.log("reconnected, syncing user")
+                io.emit("client:sync", user)
             })
         }
 
@@ -55,7 +65,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     useEffect(() => {
         io.on("login:success", (data: User) => {
             setUser(data)
-            snackbar({ severity: "success", text: "login sucesso" })
+            // snackbar({ severity: "success", text: "login sucesso" })
             setLoginLoading(false)
             navigate("/")
         })
@@ -76,6 +86,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             setSignupLoading(false)
         })
 
+        io.on("user:update:error", () => snackbar({ severity: "error", text: "Algo deu errado!" }))
+
         return () => {
             io.off("login:success")
             io.off("login:error")
@@ -95,6 +107,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
                 setSignupLoading,
                 updateLoading,
                 setUpdateLoading,
+                isEditing,
+                setEditing,
             }}
         >
             {children}

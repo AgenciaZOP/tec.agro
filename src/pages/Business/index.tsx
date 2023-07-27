@@ -22,9 +22,8 @@ interface BusinessProps {
 export const Business: React.FC<BusinessProps> = ({ user }) => {
     const bottomMenu = useNavigationList()
     const header = useHeader()
-    const _sx: SxProps = {
-        gap: "10vw",
-    }
+    const bottomMenu = useNavigationList()
+
     useEffect(() => {
         header.setTitle("Meu Negócio")
     }, [])

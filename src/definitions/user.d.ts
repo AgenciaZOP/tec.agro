@@ -34,3 +34,19 @@ declare interface User {
     agent?: Agent
     shipping?: Shipping
 }
+
+interface UpdateUserValues {
+    name: string
+    email: string
+    cpf: string
+    birth: string
+    phone: string
+    rg: string
+    address: string
+    cep: string
+    image: string
+    number: string
+    city: string
+    district: string
+    uf: string
+}
