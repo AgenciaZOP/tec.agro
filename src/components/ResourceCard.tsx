@@ -2,6 +2,7 @@ import React from "react"
 import { Avatar, Box, Paper } from "@mui/material"
 import { CurrencyText } from "./CurrencyText"
 import { Tag } from "./Tag"
+import { useDate } from "../hooks/useDate"
 
 interface ResourceCardProps {
     variant?: "default" | "square"
@@ -10,6 +11,8 @@ interface ResourceCardProps {
 }
 
 export const ResourceCard: React.FC<ResourceCardProps> = ({ variant = "default", type, resource }) => {
+    const { getDifference } = useDate()
+
     const title = {
         producer: "Produtor",
         agent: "Corretor",
@@ -39,7 +42,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ variant = "default",
                     <p>{resource.rating}</p>
                     <p>Vendas: {resource.user.sold}</p>
                     <p>Compras: {resource.user.bought}</p>
-                    <p>{new Date(resource.date).getMonth() + 1} meses</p>
+                    <p>{getDifference(new Date(resource.date))} meses</p>
                 </Box>
             </Box>
         </Paper>
