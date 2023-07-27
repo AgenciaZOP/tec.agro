@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react"
 import { Box, Paper, SxProps, Avatar } from "@mui/material"
 import { Stats } from "./Stats"
 import colors from "../style/colors"
-import { Edit } from "./Edit"
+import { EditAccount } from "./EditAccount"
 import EditIcon from "@mui/icons-material/Edit"
 
 interface AccountProps {
-    business: Business
+    object: Business | Shipping
     editingMode: boolean
 }
 
-export const Account: React.FC<AccountProps> = ({ business, editingMode }) => {
+export const Account: React.FC<AccountProps> = ({ object, editingMode }) => {
     const [isEditing, setEditing] = useState(editingMode)
 
     const _sx: SxProps = {
         gap: "13vw",
-        paddingTop: "4vw",
+        paddingTop: "2vw",
     }
 
     const handleEditing = () => {
@@ -63,8 +63,7 @@ export const Account: React.FC<AccountProps> = ({ business, editingMode }) => {
                 >
                     <p
                         style={{
-                            fontSize: "2.7vw",
-
+                            fontSize: "2.5vw",
                             textDecoration: "underline",
                             color: "black",
                         }}
@@ -76,16 +75,16 @@ export const Account: React.FC<AccountProps> = ({ business, editingMode }) => {
                     {isEditing && <EditIcon sx={{ width: "3vw" }} />}
                 </Box>
                 {!isEditing ? (
-                    <Box sx={{ flexDirection: "column", width: "100%", height: "max-content" }}>
-                        <Avatar src={business.image} variant="rounded" style={{ width: "100%", height: "38vw" }} />
+                    <Box sx={{ flexDirection: "column", width: "100%", height: "max-content", gap: "2vw" }}>
+                        <Avatar src={object.image} variant="rounded" style={{ width: "100%", height: "38vw" }} />
                         <p style={{ color: `${colors.primary}`, paddingTop: "1.5vw", textAlign: "center" }}>
-                            {business.name}{" "}
+                            {object.name}{" "}
                         </p>
                     </Box>
                 ) : (
-                    <Edit object={business} />
+                    <EditAccount object={object} />
                 )}
-                <Stats title="Chamada" business={business} sx={_sx} />
+                <Stats title="Chamada" object={object} sx={_sx} />
             </Box>
         </Paper>
     )

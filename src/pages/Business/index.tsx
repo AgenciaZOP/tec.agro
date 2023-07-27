@@ -13,6 +13,7 @@ import { Avatar } from "@files-ui/react"
 import { InfoDetails } from "../../components/InfoDetails"
 import { MyBusiness } from "../../components/MyBusiness"
 import { useNavigationList } from "../../hooks/useNavigationList"
+import { Panel } from "./Panel"
 //import { Carousel } from "react-responsive-carousel"
 
 interface BusinessProps {
@@ -32,7 +33,11 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
             {user.business ? (
                 user.business.active ? (
                     <>
-                        <MyBusiness business={user.business} />
+                        <Routes>
+                            <Route index element={<Panel business={user.business} />} />
+                            <Route path="/profile" element={<MyBusiness business={user.business} />} />
+                        </Routes>
+
                         <BottomNavigation section={bottomMenu.business} />
                     </>
                 ) : (

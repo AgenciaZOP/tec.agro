@@ -4,14 +4,14 @@ import colors from "../style/colors"
 import { Formik, Form } from "formik"
 import { Avatar } from "@files-ui/react"
 
-interface EditProps {
+interface EditAccountProps {
     object: Business | Shipping
 }
 interface FormValues {
     image: string
     name: string
 }
-export const Edit: React.FC<EditProps> = ({ object }) => {
+export const EditAccount: React.FC<EditAccountProps> = ({ object }) => {
     const [image, setImage] = useState<File>()
     const handleSubmit = (values: FormValues) => {
         console.log(values)

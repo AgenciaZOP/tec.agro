@@ -22,8 +22,8 @@ export const MyBusiness: React.FC<MyBusinessProps> = ({ business }) => {
                 paddingBottom: "5vw",
             }}
         >
-            <Account business={business} editingMode={!!location.state?.editing} />
-            <InfoDetails />
+            <Account object={business} editingMode={!!location.state?.editing} />
+            <InfoDetails object={business} editingMode={!!location.state?.editing} />
         </Box>
     )
 }

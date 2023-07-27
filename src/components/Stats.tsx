@@ -8,10 +8,10 @@ interface StatsProps {
     user?: Shipping | Business
     sx?: SxProps
     title: string
-    business: Business
+    object: Business | Shipping
 }
 
-export const Stats: React.FC<StatsProps> = ({ user, sx, title, business }) => {
+export const Stats: React.FC<StatsProps> = ({ user, sx, title, object }) => {
     const { getDifference } = useDate()
     const [rating, setrating] = useState(4.1)
 
@@ -27,10 +27,10 @@ export const Stats: React.FC<StatsProps> = ({ user, sx, title, business }) => {
             <Info title={title} name={"126"} />
             <Info
                 title="Nota"
-                name={business.rating.toLocaleString("pt-br")}
+                name={object.rating.toLocaleString("pt-br")}
                 icon={<StarSharpIcon sx={{ width: "3.2vw" }} />}
             />
-            <Info title="Meses" name={getDifference(new Date(business.date || 0))} />
+            <Info title="Meses" name={getDifference(new Date(object.date || 0))} />
         </Box>
     )
 }

@@ -45,6 +45,8 @@ export const Form: React.FC<FormProps> = ({ user }) => {
         active: false,
         service: false,
         store: false,
+        rating: 0,
+        ratings: 0,
     }
 
     const handleSubmit = (values: Business) => {
