@@ -94,7 +94,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                 </Box>
                 {!isEditing ? (
                     <Box sx={{ flexDirection: "column", alignItems: "center", gap: "1vw" }}>
-                        <Avatar src={user?.image} sx={{ width: "22vw", height: "22vw", borderRadius: "50%" }} />
+                        <Avatar src={user?.image} sx={{ width: "25vw", height: "25vw", borderRadius: "50%" }} />
                         <p style={{ fontSize: "2.7vw", color: "gray" }}>@{user?.username}</p>
                         <p style={{ fontSize: "5.5vw" }}>{user?.name}</p>
                         <Box sx={{ alignItems: "center", gap: "1vw" }}>

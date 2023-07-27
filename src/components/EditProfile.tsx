@@ -12,6 +12,7 @@ import { useSnackbar } from "burgos-snackbar"
 import MaskedInput from "../components/MaskedInput"
 import { useUser } from "../hooks/useUser"
 import { useDataHandler } from "../hooks/useDataHandler"
+import { styleBox, inputStyle } from "./style"
 
 interface EditProfileProps {
     user: User | null
@@ -40,26 +41,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
 
     const [image, setImage] = useState<File>()
 
-    const styleBox = {
-        flexDirection: "column",
-        width: "100%",
-        padding: "5.5vw",
-        paddingTop: "3vw",
-        // paddingBottom: "0",
-        border: "1px solid gray",
-        borderRadius: "2vw",
-        gap: "2vw",
-    }
-
-    const inputStyle = {
-        "& .MuiInputBase-input": {
-            padding: "0 1vw",
-            fontSize: "3.5vw",
-        },
-        "& .MuiInputLabel-root": {
-            fontSize: "3.0vw",
-        },
-    }
     const initialValues = {
         name: user?.name || "",
         email: user?.email || "",
@@ -228,7 +209,14 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, updateEditing })
                                 />
                             </Box>
 
-                            <TextField onChange={handleChange} sx={inputStyle} label="Cidade" name="city" variant="standard" value={values.city} />
+                            <TextField
+                                onChange={handleChange}
+                                sx={inputStyle}
+                                label="Cidade"
+                                name="city"
+                                variant="standard"
+                                value={values.city}
+                            />
                             <TextField
                                 onChange={handleChange}
                                 sx={inputStyle}

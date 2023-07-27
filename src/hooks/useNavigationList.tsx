@@ -105,6 +105,26 @@ export const useNavigationList = () => {
         id: 5,
         title: "Meu Negócio",
         location: "/business",
+        navigation: [
+            {
+                id: 1,
+                title: "Painel",
+                location: "",
+                icon: <GridViewIcon sx={iconStyle} />,
+            },
+            {
+                id: 2,
+                title: "Conversas",
+                location: "/business",
+                icon: <ChatIcon sx={iconStyle} />,
+            },
+            {
+                id: 3,
+                title: "Meu Negócio",
+                location: "/account",
+                icon: <StorefrontIcon sx={iconStyle} />,
+            },
+        ],
     }
 
     const shipping: NavigationMenu = {
