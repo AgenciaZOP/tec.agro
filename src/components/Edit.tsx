@@ -1,28 +1,28 @@
 import React, { useState } from "react"
-import { Box, Button, TextField } from "@mui/material"
+import { Box, Button, TextField, CircularProgress } from "@mui/material"
 import colors from "../style/colors"
 import { Formik, Form } from "formik"
 import { Avatar } from "@files-ui/react"
 
 interface EditProps {
-    business: Business
+    object: Business | Shipping
 }
 interface FormValues {
     image: string
     name: string
 }
-export const Edit: React.FC<EditProps> = ({ business }) => {
+export const Edit: React.FC<EditProps> = ({ object }) => {
     const [image, setImage] = useState<File>()
-    const handleSubmit = () => {}
+    const handleSubmit = (values: FormValues) => {
+        console.log(values)
+    }
     return (
-        <Box
-            sx={{ flexDirection: "column", gap: "2vw", paddingTop: 0, width: "100%", height: "100%", alignItems: "center" }}
-        >
-            <Formik initialValues={{ name: business?.name || "", image: business?.image || "" }} onSubmit={handleSubmit}>
+        <Box sx={{ flexDirection: "column", width: "100%", height: "max-content", gap: "4vw" }}>
+            <Formik initialValues={{ name: object?.name || "", image: object?.image || "" }} onSubmit={handleSubmit}>
                 {({ values, handleChange }) => (
                     <Form>
                         <Avatar
-                            src={image || business?.image}
+                            src={image || object?.image}
                             onChange={(file) => setImage(file)}
                             smartImgFit={"orientation"}
                             changeLabel="Clique para trocar a imagem"
@@ -30,18 +30,23 @@ export const Edit: React.FC<EditProps> = ({ business }) => {
                             // style={{ width: "100%", height: "30vw" }}
                             style={{
                                 width: "100%",
-                                height: "15%",
+                                height: "45vw",
                                 fontSize: "2.5vw",
                             }}
                         />
                         <TextField
+                            sx={{
+                                "& .MuiInputBase-input": {
+                                    textAlign: "center",
+                                    fontSize: "4vw",
+                                },
+                            }}
                             label="Nome Fantasia"
                             name="name"
                             variant="standard"
-                            onChange={handleChange}
                             value={values.name}
+                            onChange={handleChange}
                         />
-                        <Button type="submit">Salvar</Button>
                     </Form>
                 )}
             </Formik>
