@@ -14,6 +14,8 @@ import { InfoDetails } from "../../components/InfoDetails"
 import { MyBusiness } from "../../components/MyBusiness"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
+import { NewCategory } from "./Panel/NewCategory"
+import { Category } from "../Search/Category"
 //import { Carousel } from "react-responsive-carousel"
 
 interface BusinessProps {
@@ -23,6 +25,12 @@ interface BusinessProps {
 export const Business: React.FC<BusinessProps> = ({ user }) => {
     const bottomMenu = useNavigationList()
     const header = useHeader()
+
+    const product: Product = {
+        name: "Fertilizante",
+        type: "Produto",
+        image: "",
+    }
 
     useEffect(() => {
         header.setTitle("Meu Negócio")
@@ -34,7 +42,9 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                 user.business.active ? (
                     <>
                         <Routes>
-                            <Route index element={<Panel business={user.business} />} />
+                            <Route index element={<Panel business={user.business} product={product} />} />
+                            <Route path="/newCategory" element={<NewCategory product={product} />} />
+
                             <Route path="/profile" element={<MyBusiness business={user.business} />} />
                         </Routes>
 
