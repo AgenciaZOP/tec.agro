@@ -9,8 +9,8 @@ interface CropsContextValue {
     loading: boolean
     setLoading: (value: boolean) => void
 
-    categories: Category[]
-    setCategories: (value: Category[]) => void
+    categories: CropCategory[]
+    setCategories: (value: CropCategory[]) => void
 }
 
 interface CropsProviderProps {
@@ -25,7 +25,7 @@ export const CropsProvider: React.FC<CropsProviderProps> = ({ children }) => {
     const io = useIo()
 
     const [crops, setCrops] = useState<Crop[]>([])
-    const [categories, setCategories] = useState<Category[]>([])
+    const [categories, setCategories] = useState<CropCategory[]>([])
 
     const [loading, setLoading] = useState(true)
 
@@ -45,7 +45,7 @@ export const CropsProvider: React.FC<CropsProviderProps> = ({ children }) => {
             setCrops(data)
         })
 
-        io.on("crop:category:list", (data: Category[]) => {
+        io.on("crop:category:list", (data: CropCategory[]) => {
             console.log(data)
             setCategories(data)
         })
