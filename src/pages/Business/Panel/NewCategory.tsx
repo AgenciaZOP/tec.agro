@@ -7,17 +7,20 @@ import { Formik, Form } from "formik"
 import { CardCategory } from "./CardCategory"
 import { ListTitle } from "../../../components/ListTitle"
 import { useNavigate } from "react-router-dom"
+import { useUser } from "../../../hooks/useUser"
 
 interface NewCategoryProps {
     product: Product
+    user: User
 }
 interface FormValues {
     name: String
 }
 export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
     const navigate = useNavigate()
+    const user = useUser()
 
-    const category: Category = { name: "Veículos", id: 1, crops: [] }
+    const category: Category = { name: "Veículos", id: 1 }
 
     const handleSubmit = (values: FormValues) => {}
 

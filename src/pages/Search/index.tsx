@@ -14,7 +14,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
     const category: Category = {
         name: "Veículos",
         id: 1,
-        crops: [],
+        //crops: ,
     }
 
     return (
@@ -25,11 +25,11 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                 <Route path="category" element={<Category category={category} />} />
                 <Route
                     path="categories"
-                    element={<ListCategories title="Categorias em Análise" type={false} category={category} />}
+                    element={<ListCategories title="Categorias em Análise" type={false} category={category} user={user} />}
                 />
                 <Route
                     path="approved"
-                    element={<ListCategories title="Categorias Aprovadas" type={true} category={category} />}
+                    element={<ListCategories title="Categorias Aprovadas" type={true} category={category} user={user}/>}
                 />
             </Routes>
         </Box>

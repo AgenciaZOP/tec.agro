@@ -8,9 +8,10 @@ interface ListCategoriesProps {
     title: string
     type: boolean
     category: Category
+    user: User
 }
 
-export const ListCategories: React.FC<ListCategoriesProps> = ({ title, type, category }) => {
+export const ListCategories: React.FC<ListCategoriesProps> = ({ title, type, category, user }) => {
     const bottomMenu = useNavigationList()
 
     return (

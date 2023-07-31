@@ -1,5 +1,9 @@
 import React, { useState } from "react"
-import { Box, Avatar } from "@mui/material"
+import { Box, Avatar, IconButton } from "@mui/material"
+import DoneIcon from "@mui/icons-material/Done"
+import CloseIcon from "@mui/icons-material/Close"
+import Tooltip from "@mui/material/Tooltip"
+import { useUser } from "../../../hooks/useUser"
 
 interface CardCategoryProps {
     category: Category
@@ -8,6 +12,7 @@ interface CardCategoryProps {
 }
 
 export const CardCategory: React.FC<CardCategoryProps> = ({ category, activeCategory, reprovedCategory }) => {
+    const user = useUser()
     return (
         <Box
             sx={{
@@ -17,6 +22,7 @@ export const CardCategory: React.FC<CardCategoryProps> = ({ category, activeCate
                 padding: "2vw 4vw",
                 width: "100%",
                 justifyContent: "space-between",
+                backgroundColor: "white",
             }}
         >
             <Box sx={{ width: "100%", gap: "2vw", justifyContent: "space-between", alignItems: "center" }}>
@@ -37,19 +43,34 @@ export const CardCategory: React.FC<CardCategoryProps> = ({ category, activeCate
                     ></Avatar>
                     <p style={{ fontSize: "3.8vw" }}>{category.name}</p>
                 </Box>
-                <p
-                    style={{
-                        height: "max-content",
-                        fontSize: "2.5vw",
-                        color: "black",
-                        padding: "1vw",
-                        borderRadius: "1.8vw",
-                        backgroundColor: !activeCategory ? "#E2EAFF" : "#F0C7FF",
-                    }}
-                    onClick={() => {}}
-                >
-                    {!activeCategory ? "Em análise" : "Aprovado"}
-                </p>
+                {!user.user?.adm ? (
+                    <p
+                        style={{
+                            height: "max-content",
+                            fontSize: "2.5vw",
+                            color: "black",
+                            padding: "1vw",
+                            borderRadius: "1.8vw",
+                            backgroundColor: !activeCategory ? "#E2EAFF" : "#F0C7FF",
+                        }}
+                        onClick={() => {}}
+                    >
+                        {!activeCategory ? "Em análise" : "Aprovado"}
+                    </p>
+                ) : (
+                    <Box sx={{}}>
+                        <Tooltip title="Aceitar" placement="top" onClick={() => {}}>
+                            <IconButton size="small">
+                                <DoneIcon color="primary" fontSize="small" />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Recusar">
+                            <IconButton size="small" onClick={() => {}}>
+                                <CloseIcon color="primary" fontSize="small" />
+                            </IconButton>
+                        </Tooltip>
+                    </Box>
+                )}
             </Box>
         </Box>
     )
