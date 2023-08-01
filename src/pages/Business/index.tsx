@@ -16,6 +16,7 @@ import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
 import { NewCategory } from "./Panel/NewCategory"
 import { Category } from "../Search/Category"
+import { NewService } from "./Panel/NewService"
 //import { Carousel } from "react-responsive-carousel"
 
 interface BusinessProps {
@@ -44,8 +45,8 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                         <Routes>
                             <Route index element={<Panel business={user.business} product={product} />} />
                             <Route path="/newCategory" element={<NewCategory product={product} />} />
-
                             <Route path="/account" element={<MyBusiness business={user.business} />} />
+                            <Route path="/new" element={<NewService/>} />
                         </Routes>
 
                         <BottomNavigation section={bottomMenu.business} />

@@ -36,7 +36,7 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
             >
                 Adicionar Categoria
             </Button>
-            <Box sx={{height:"100%", overflow:"auto", flexDirection:"column", gap:"2vw", paddingBottom:"14vh"}}>
+            <Box sx={{ height: "100%", overflow: "auto", flexDirection: "column", gap: "3vw", paddingBottom: "14vh" }}>
                 <ModalCategory title="#1" product={product} />
                 <ModalCategory title="#2" product={product} />
             </Box>
@@ -52,7 +52,9 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                     bottom: "11vh",
                     right: "5vw",
                 }}
-                onClick={() => {}}
+                onClick={() => {
+                    navigate("/business/new")
+                }}
             >
                 <AddIcon color="secondary" />
                 Novo produto ou serviço

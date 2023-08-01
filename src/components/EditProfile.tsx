@@ -217,6 +217,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                         </Box>
                         <Box sx={styleBox}>
                             <p style={{ fontSize: "3vw" }}>Documentação Enviada</p>
+
                             <Box sx={{ gap: "1vw", width: "100%" }}>
                                 <img
                                     src="https://contratocerto.com.br/wp-content/uploads/2020/07/Contrato-de-coaching-pdf.jpg"

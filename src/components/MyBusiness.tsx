@@ -16,7 +16,6 @@ export const MyBusiness: React.FC<MyBusinessProps> = ({ business }) => {
                 width: "100%",
                 gap: "3vw",
                 flexDirection: "column",
-
                 overflow: "auto",
                 padding: "0 8vw",
                 paddingBottom: "5vw",
