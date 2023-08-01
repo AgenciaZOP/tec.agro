@@ -29,12 +29,13 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                paddingBottom: "5vw",
-                overflow: "auto",
+                paddingBottom: "8vh",
+                
             }}
         >
             <SearchInput placeholder={"produtos"} onChange={() => {}} />
-            <Box sx={{ flexDirection: "column", gap: "3vw", overflowY: "auto" }}>
+            <Box sx={{ flexDirection: "column", gap: "3vw", height: "100%",paddingBottom: "3vh",
+                overflow: "auto",}}>
                 <Paper
                     elevation={2}
                     sx={{

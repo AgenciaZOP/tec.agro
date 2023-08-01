@@ -20,9 +20,8 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                 width: "100%",
                 gap: "3vw",
                 flexDirection: "column",
-                overflow: "auto",
                 padding: "0 5vw",
-                paddingBottom: "5vw",
+                paddingBottom: "5vh",
             }}
         >
             <SearchInput placeholder="Buscar Produto, Serviço ou Categoria" onChange={() => {}} />
@@ -37,8 +36,10 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
             >
                 Adicionar Categoria
             </Button>
-            <ModalCategory title="#1" product={product} />
-            <ModalCategory title="#2" product={product} />
+            <Box sx={{height:"100%", overflow:"auto", flexDirection:"column", gap:"2vw", paddingBottom:"14vh"}}>
+                <ModalCategory title="#1" product={product} />
+                <ModalCategory title="#2" product={product} />
+            </Box>
             <Button
                 variant="contained"
                 type="submit"

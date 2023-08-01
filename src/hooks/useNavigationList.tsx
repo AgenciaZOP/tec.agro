@@ -161,7 +161,7 @@ export const useNavigationList = () => {
             {
                 id: 3,
                 title: "Meu Negócio",
-                location: "/profile",
+                location: "/account",
                 icon: <StorefrontIcon sx={iconStyle} />,
             },
         ],

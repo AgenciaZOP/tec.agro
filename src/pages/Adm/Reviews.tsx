@@ -44,42 +44,42 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
             <SearchInput placeholder="análises" onChange={handleSearch} />
 
             {/* <ListTitle title="Categorias em análise" location="categories" /> */}
-            <Box sx={{ width: "100%" }}>
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    textColor="primary"
-                    indicatorColor="primary"
-                    aria-label="secondary tabs example"
-                    sx={{ width: "100%" }}
-                >
-                    <Tab sx={{ width: "50%", fontSize: "3.2vw" }} value={1} label="Empresas e Serviços" />
-                    <Tab sx={{ width: "50%", fontSize: "3.2vw" }} value={2} label="Categorias" />
-                </Tabs>
+            
+                <Box sx={{ width: "100%" }}>
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        textColor="primary"
+                        indicatorColor="primary"
+                        aria-label="secondary tabs example"
+                        sx={{ width: "100%" }}
+                    >
+                        <Tab sx={{ width: "50%", fontSize: "3.2vw" }} value={1} label="Negócios e Serviços" />
+                        <Tab sx={{ width: "50%", fontSize: "3.2vw" }} value={2} label="Categorias" />
+                    </Tabs>
             </Box>
-
-            {value === 1 && (
-                <Box sx={{ flexDirection: "column", gap: "3vw", width: "100%" }}>
-                    {list.map((business) => (
-                        <ReviewCard
-                            key={business.id}
-                            subaccount={business}
-                            onClick={() => navigate("/adm/review", { state: { profile: business } })}
-                        />
-                    ))}
-                </Box>
-            )}
-            {value === 2 && (
-                <Box sx={{ flexDirection: "column", gap: "2vw" }}>
-                    <CardCategory activeCategory={false} category={category}></CardCategory>
-                    <CardCategory activeCategory={false} category={category}></CardCategory>
-                    <CardCategory activeCategory={false} category={category}></CardCategory>
-                    <CardCategory activeCategory={false} category={category}></CardCategory>
-                    <CardCategory activeCategory={false} category={category}></CardCategory>
-                    <CardCategory activeCategory={false} category={category}></CardCategory>
-                    <CardCategory activeCategory={false} category={category}></CardCategory>
-                </Box>
-            )}
+            <Box sx={{width:"100%", flexDirection: "column",height:"100%", paddingBottom:"6vh", overflow:"auto"}}>
+                {value === 1 && (
+                    <Box sx={{ flexDirection: "column", gap: "3vw", width: "100%" }}>
+                        {list.map((business) => (
+                            <ReviewCard
+                                key={business.id}
+                                subaccount={business}
+                                onClick={() => navigate("/adm/review", { state: { profile: business } })}
+                            />
+                        ))}
+                    </Box>
+                )}
+                {value === 2 && (
+                    <Box sx={{ flexDirection: "column", gap: "2vw" }}>
+                        {list.map((business) => (
+                            <CardCategory key={business.id} activeCategory={false} category={category}/>
+                        ))}
+                        
+                        
+                    </Box>
+                )}
+            </Box>
         </Box>
     )
 }

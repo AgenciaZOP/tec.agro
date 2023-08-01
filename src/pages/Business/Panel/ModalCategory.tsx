@@ -14,10 +14,10 @@ export const ModalCategory: React.FC<ModalCategoryProps> = ({ title, product }) 
             elevation={3}
             sx={{
                 flexDirection: "column",
-                padding: "3vw 5vw",
-                paddingBottom: "5vw",
-                height: "52%",
-                gap: "2vw",
+                padding: "3vw 3vw",
+                
+                height: "50%",
+                gap: "1vw",
                 borderRadius: "2vw",
                 overflow: "hidden",
             }}
@@ -33,11 +33,7 @@ export const ModalCategory: React.FC<ModalCategoryProps> = ({ title, product }) 
                 product={product}
                 image="https://vittia.com.br/wp-content/uploads/2021/11/sacaria_vitoria.jpg"
             />
-            <CardProduct
-                local={true}
-                product={product}
-                image="https://vittia.com.br/wp-content/uploads/2021/11/sacaria_vitoria.jpg"
-            />
+            
         </Paper>
     )
 }

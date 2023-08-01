@@ -41,7 +41,10 @@ export const CardCategory: React.FC<CardCategoryProps> = ({ category, activeCate
                             "https://www.deere.com.br/assets/images/region-3/products/tractors/medium/r3g002376_NK-trator-6m.png"
                         }
                     ></Avatar>
-                    <p style={{ fontSize: "3.8vw" }}>{category.name}</p>
+                    <Box sx= {{flexDirection:"column", gap:"1vw"}}>
+                        <p style={{ fontSize: "3.8vw", fontWeight:"600" }}>{category.name}</p>
+                        {user.user?.adm && (<p style={{ fontSize: "2.5vw" }}>{user.user?.name}</p>)}
+                    </Box>
                 </Box>
                 {!user.user?.adm ? (
                     <p

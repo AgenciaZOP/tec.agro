@@ -45,7 +45,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                             <Route index element={<Panel business={user.business} product={product} />} />
                             <Route path="/newCategory" element={<NewCategory product={product} />} />
 
-                            <Route path="/profile" element={<MyBusiness business={user.business} />} />
+                            <Route path="/account" element={<MyBusiness business={user.business} />} />
                         </Routes>
 
                         <BottomNavigation section={bottomMenu.business} />
