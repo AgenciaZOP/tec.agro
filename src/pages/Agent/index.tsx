@@ -5,14 +5,18 @@ import { Route, Routes } from "react-router"
 import { Header } from "../../components/Header"
 import { Form } from "./Signup/Form"
 import { Verification } from "./Signup/Verification"
+import { Panel } from "./Panel"
+import { BottomNavigation } from "../../components/BottomNavigation"
+import { useNavigationList } from "../../hooks/useNavigationList"
 
 interface AgentProps {
     user: User
 }
 
 export const Agent: React.FC<AgentProps> = ({ user }) => {
+    const bottomMenu = useNavigationList()
     return (
-        <Box sx={{ paddingTop: "5vh" }}>
+        <Box sx={{ width: "100%", padding: "8vh 0vw 10vh 0vw" }}>
             <Header />
             {user.agent ? (
                 user.agent.active ? (
@@ -21,11 +25,14 @@ export const Agent: React.FC<AgentProps> = ({ user }) => {
                     <Verification />
                 )
             ) : (
-                <Box sx={{ padding: "10vw 10vw 0", width: "100vw" }}>
+                <Box sx={{ padding: "10vw 2vw 0", width: "100vw" }}>
                     <Routes>
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />
+                        <Route path="panel" element={<Panel user={user}></Panel>} />
+                        {/* <Route path="requests" element={<MyAgent></MyAgent>} /> */}
                     </Routes>
+                    <BottomNavigation section={bottomMenu.agent} />
                 </Box>
             )}
         </Box>

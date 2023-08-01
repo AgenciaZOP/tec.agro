@@ -10,7 +10,7 @@ import AppsIcon from "@mui/icons-material/Apps"
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz"
 import LeaderboardIcon from "@mui/icons-material/Leaderboard"
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech"
-
+import PersonIcon from "@mui/icons-material/Person"
 import { useUser } from "./useUser"
 
 export const useNavigationList = () => {
@@ -123,7 +123,7 @@ export const useNavigationList = () => {
             {
                 id: 1,
                 title: "Painel",
-                location: "",
+                location: "/panel",
                 icon: <GridViewIcon sx={iconStyle} />,
             },
             {
