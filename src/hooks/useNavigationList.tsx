@@ -187,7 +187,7 @@ export const useNavigationList = () => {
             {
                 id: 3,
                 title: "Transações",
-                location: "/profile",
+                location: "/account",
                 icon: <SwapHorizIcon sx={iconStyle} />,
             },
         ],

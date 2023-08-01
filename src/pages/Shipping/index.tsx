@@ -26,7 +26,7 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
                     <Routes>
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />
-                        <Route path="account" element={<MyShipping shipping={user}></MyShipping>} />
+                        <Route path="account" element={<MyShipping shipping={user?.shipping}></MyShipping>} />
                     </Routes>
                 </Box>
             )}

@@ -1,9 +1,9 @@
 import React from "react"
 
 interface MyShippingProps {
-    shipping: Shipping
+    shipping: Shipping | undefined
 }
 
 export const MyShipping: React.FC<MyShippingProps> = ({ shipping }) => {
-    return <div className="MyShipping-Component"></div>
+    return <div className="MyShipping-Component">opa</div>
 }
