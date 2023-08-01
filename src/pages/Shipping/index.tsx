@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router"
 import { Header } from "../../components/Header"
 import { Form } from "./Signup/Form"
 import { Verification } from "./Signup/Verification"
+import { MyShipping } from "../../components/MyShipping"
 
 interface ShippingProps {
     user: User
@@ -25,6 +26,7 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
                     <Routes>
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />
+                        <Route path="account" element={<MyShipping shipping={user}></MyShipping>} />
                     </Routes>
                 </Box>
             )}
