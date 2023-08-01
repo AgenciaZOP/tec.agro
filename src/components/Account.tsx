@@ -71,6 +71,7 @@ export const Account: React.FC<AccountProps> = ({ object, editingMode }) => {
                     >
                         {isEditing ? "Salvar" : "Editar"}
                     </p>
+                    
 
                     {isEditing && <EditIcon sx={{ width: "3vw" }} />}
                 </Box>

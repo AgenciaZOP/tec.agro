@@ -4,34 +4,42 @@ import colors from "../../../style/colors"
 import { SearchInput } from "../../../components/SearchInput"
 import { ModalCategory } from "./ModalCategory"
 import AddIcon from "@mui/icons-material/Add"
+import { Navigate, Route, useNavigate } from "react-router-dom"
 
 interface PanelProps {
     business: Business
+    product: Product
 }
 
-export const Panel: React.FC<PanelProps> = ({ business }) => {
+export const Panel: React.FC<PanelProps> = ({ business, product }) => {
+    const navigate = useNavigate()
+
     return (
         <Box
             sx={{
                 width: "100%",
                 gap: "3vw",
                 flexDirection: "column",
-                overflow: "auto",
                 padding: "0 5vw",
-                paddingBottom: "5vw",
+                paddingBottom: "5vh",
             }}
         >
             <SearchInput placeholder="Buscar Produto, Serviço ou Categoria" onChange={() => {}} />
+
             <Button
                 variant="contained"
                 type="submit"
                 sx={{ width: "100%", borderRadius: "5vw", fontSize: "3vw" }}
-                onClick={() => {}}
+                onClick={() => {
+                    navigate("/business/newCategory")
+                }}
             >
                 Adicionar Categoria
             </Button>
-            <ModalCategory title="#1" />
-            <ModalCategory title="#2" />
+            <Box sx={{height:"100%", overflow:"auto", flexDirection:"column", gap:"2vw", paddingBottom:"14vh"}}>
+                <ModalCategory title="#1" product={product} />
+                <ModalCategory title="#2" product={product} />
+            </Box>
             <Button
                 variant="contained"
                 type="submit"

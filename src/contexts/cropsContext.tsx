@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import React from "react"
 import { useIo } from "../hooks/useIo"
 
@@ -8,6 +8,9 @@ interface CropsContextValue {
 
     loading: boolean
     setLoading: (value: boolean) => void
+
+    categories: CropCategory[]
+    setCategories: (value: CropCategory[]) => void
 }
 
 interface CropsProviderProps {
@@ -22,16 +25,36 @@ export const CropsProvider: React.FC<CropsProviderProps> = ({ children }) => {
     const io = useIo()
 
     const [crops, setCrops] = useState<Crop[]>([])
+    const [categories, setCategories] = useState<CropCategory[]>([])
+
     const [loading, setLoading] = useState(true)
 
-    io.on("crop:list", (data: Crop[]) => {
-        setCrops(data)
-    })
+    useEffect(() => {
+        io.on("crop:new", (crop: Crop) => {
+            console.log({ crop })
+            setCrops([...crops, crop])
+        })
 
-    io.on("crop:new", (crop: Crop) => {
-        console.log({ crop })
-        setCrops([...crops, crop])
-    })
+        return () => {
+            io.off("crop:new")
+        }
+    }, [crops])
 
-    return <CropsContext.Provider value={{ crops, setCrops, loading, setLoading }}>{children}</CropsContext.Provider>
+    useEffect(() => {
+        io.on("crop:list", (data: Crop[]) => {
+            setCrops(data)
+        })
+
+        io.on("crop:category:list", (data: CropCategory[]) => {
+            console.log(data)
+            setCategories(data)
+        })
+
+        return () => {
+            io.off("crop:list")
+            io.off("crop:category:list")
+        }
+    }, [])
+
+    return <CropsContext.Provider value={{ crops, setCrops, loading, setLoading, categories, setCategories }}>{children}</CropsContext.Provider>
 }
