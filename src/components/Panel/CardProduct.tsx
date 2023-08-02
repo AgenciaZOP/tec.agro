@@ -11,9 +11,11 @@ interface CardProductProps {
     product: Product
     image?: string
     local: boolean
+    action: string
+    subtitle: string
 }
 
-export const CardProduct: React.FC<CardProductProps> = ({ product, image, local }) => {
+export const CardProduct: React.FC<CardProductProps> = ({ product, image, local, subtitle, action }) => {
     return (
         <Box
             sx={{
@@ -29,7 +31,7 @@ export const CardProduct: React.FC<CardProductProps> = ({ product, image, local 
                 <img style={{ width: "12vw" }} src={image}></img>
                 <Box sx={{ padding: "2vw", gap: "1vw", flexDirection: "column" }}>
                     <p style={{ fontSize: "3.8vw" }}>{product.name}</p>
-                    <p style={{ fontSize: "2.5vw", fontWeight: "600" }}>{product.type}</p>
+                    <p style={{ fontSize: "2.5vw", fontWeight: "600" }}>{subtitle}</p>
                 </Box>
             </Box>
             {local ? (
@@ -44,7 +46,7 @@ export const CardProduct: React.FC<CardProductProps> = ({ product, image, local 
                     }}
                     onClick={() => {}}
                 >
-                    Editar
+                    {action}
                 </p>
             ) : (
                 <IconButton onClick={() => {}}>

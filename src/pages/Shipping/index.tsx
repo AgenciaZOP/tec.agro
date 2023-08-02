@@ -6,6 +6,9 @@ import { Header } from "../../components/Header"
 import { Form } from "./Signup/Form"
 import { Verification } from "./Signup/Verification"
 import { MyShipping } from "../../components/MyShipping"
+import { BottomNavigation } from "../../components/BottomNavigation"
+import { useNavigationList } from "../../hooks/useNavigationList"
+import { Panel } from "./Panel"
 
 
 interface ShippingProps {
@@ -27,6 +30,7 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
         rating: 0,
         ratings: 0
     }
+    const bottomMenu = useNavigationList()
     return (
         <Box sx={{ paddingTop: "5vh" }}>
             <Header />
@@ -37,12 +41,14 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
                     <Verification />
                 )
             ) : (
-                <Box sx={{ padding: "12vh 0vw 10vh 0vw" , width: "100vw" }}>
+                <Box sx={{ padding: "7vh 0vw 10vh 0vw", width: "100vw" }}>
                     <Routes>
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />
-                        <Route path="account" element={<MyShipping shipping={user?.shipping || shipping} />} />
+                        <Route path="account" element={<MyShipping shipping={shipping}></MyShipping>} />
+                        <Route path="/panel" element={<Panel></Panel>} />
                     </Routes>
+                    <BottomNavigation section={bottomMenu.shipping} />
                 </Box>
             )}
         </Box>

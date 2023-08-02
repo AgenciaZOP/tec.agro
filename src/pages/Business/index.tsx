@@ -14,9 +14,9 @@ import { InfoDetails } from "../../components/InfoDetails"
 import { MyBusiness } from "../../components/MyBusiness"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
-import { NewCategory } from "./Panel/NewCategory"
+import { NewCategory } from "../../components/Panel/NewCategory"
 import { Category } from "../Search/Category"
-import { NewService } from "./Panel/NewService"
+import { NewService } from "../../components/Panel/NewService"
 //import { Carousel } from "react-responsive-carousel"
 
 interface BusinessProps {

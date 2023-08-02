@@ -1,13 +1,13 @@
 import React, { useEffect } from "react"
 import { Box, Paper, TextField, Button } from "@mui/material"
 import { CardProduct } from "./CardProduct"
-import { useHeader } from "../../../hooks/useHeader"
+import { useHeader } from "../../hooks/useHeader"
 import AddIcon from "@mui/icons-material/Add"
 import { Formik, Form } from "formik"
 import { CardCategory } from "./CardCategory"
-import { ListTitle } from "../../../components/ListTitle"
+import { ListTitle } from "../ListTitle"
 import { useNavigate } from "react-router-dom"
-import { useUser } from "../../../hooks/useUser"
+import { useUser } from "../../hooks/useUser"
 
 interface NewCategoryProps {
     product: Product

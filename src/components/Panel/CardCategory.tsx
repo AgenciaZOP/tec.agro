@@ -3,7 +3,7 @@ import { Box, Avatar, IconButton } from "@mui/material"
 import DoneIcon from "@mui/icons-material/Done"
 import CloseIcon from "@mui/icons-material/Close"
 import Tooltip from "@mui/material/Tooltip"
-import { useUser } from "../../../hooks/useUser"
+import { useUser } from "../../hooks/useUser"
 
 interface CardCategoryProps {
     category: Category
@@ -41,9 +41,9 @@ export const CardCategory: React.FC<CardCategoryProps> = ({ category, activeCate
                             "https://www.deere.com.br/assets/images/region-3/products/tractors/medium/r3g002376_NK-trator-6m.png"
                         }
                     ></Avatar>
-                    <Box sx= {{flexDirection:"column", gap:"1vw"}}>
-                        <p style={{ fontSize: "3.8vw", fontWeight:"600" }}>{category.name}</p>
-                        {user.user?.adm && (<p style={{ fontSize: "2.5vw" }}>{user.user?.name}</p>)}
+                    <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                        <p style={{ fontSize: "3.8vw", fontWeight: "600" }}>{category.name}</p>
+                        {user.user?.adm && <p style={{ fontSize: "2.5vw" }}>{user.user?.name}</p>}
                     </Box>
                 </Box>
                 {!user.user?.adm ? (
