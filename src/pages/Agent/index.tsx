@@ -33,7 +33,7 @@ export const Agent: React.FC<AgentProps> = ({ user }) => {
                         <Route path="form" element={<Form user={user}></Form>} />
                         <Route path="panel" element={<Panel user={user}></Panel>} />
                         <Route path="requests" element={<Requests></Requests>} />
-                        <Route path="analysis" element={<Analysis></Analysis>} />
+                        <Route path="analysis" element={<Analysis user={user}></Analysis>} />
                     </Routes>
                     <BottomNavigation section={bottomMenu.agent} />
                 </Box>
