@@ -175,7 +175,7 @@ export const useNavigationList = () => {
             {
                 id: 1,
                 title: "Painel",
-                location: "",
+                location: "/panel",
                 icon: <GridViewIcon sx={iconStyle} />,
             },
             {
@@ -186,9 +186,9 @@ export const useNavigationList = () => {
             },
             {
                 id: 3,
-                title: "Transações",
+                title: "Perfil",
                 location: "/account",
-                icon: <SwapHorizIcon sx={iconStyle} />,
+                icon: <LocalShippingIcon sx={iconStyle} />,
             },
         ],
     }

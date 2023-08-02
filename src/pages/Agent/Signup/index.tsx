@@ -34,9 +34,6 @@ export const Signup: React.FC<SignupProps> = ({ user }) => {
             <Button variant="contained" onClick={() => navigate("/agent/form")}>
                 Começar cadastro
             </Button>
-            <Button variant="contained" onClick={() => navigate("/agent/panel")}>
-                Painel
-            </Button>
         </Paper>
     )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Paper, Button, TextField } from "@mui/material"
-import { CardProduct } from "../Business/Panel/CardProduct"
+import { CardProduct } from "../../components/Panel/CardProduct"
 import AddIcon from "@mui/icons-material/Add"
 import { Formik, Form } from "formik"
 import { SearchInput } from "../../components/SearchInput"

@@ -6,7 +6,7 @@ import { useBusinesses } from "../../hooks/useBusinesses"
 import { ReviewCard } from "./ReviewCard"
 import { useNavigate } from "react-router-dom"
 import { ListTitle } from "../../components/ListTitle"
-import { CardCategory } from "../Business/Panel/CardCategory"
+import { CardCategory } from "../../components/Panel/CardCategory"
 
 interface ReviewsProps {}
 
