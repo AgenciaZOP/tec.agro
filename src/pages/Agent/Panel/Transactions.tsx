@@ -18,13 +18,14 @@ export const Transactions: React.FC<TransactionsProps> = ({ status }) => {
                 borderRadius: "2vw",
                 flexDirection: "column",
                 padding: "2vw",
+                gap: "1vw",
             }}
         >
             <HeaderInfo />
             {status != "schedule" ? (
                 <Button
                     type="submit"
-                    color="error"
+                    color={status == "pending" ? "error" : "primary"}
                     variant="contained"
                     sx={{ height: "5vw", fontSize: "2vw" }}
                     onClick={() => {}}
@@ -35,7 +36,12 @@ export const Transactions: React.FC<TransactionsProps> = ({ status }) => {
                     <ArrowRightAltIcon color="secondary" />
                 </Button>
             ) : (
-                <p style={{ textDecoration: "underlined" }}>Ver Participantes</p>
+                <p
+                    style={{ textDecoration: "underline", fontSize: "2.5vw", justifyContent: "center", alignSelf: "center" }}
+                    onClick={() => {}}
+                >
+                    Ver Participantes
+                </p>
             )}
         </Paper>
     )

@@ -16,7 +16,7 @@ export const HeaderInfo: React.FC<HeaderInfoProps> = ({}) => {
                 alignItems: "flex-end",
                 justifyContent: "space-between",
                 width: "100%",
-                padding: "2vw",
+                padding: "1vw",
             }}
         >
             <Box sx={{ flexDirection: "column" }}>

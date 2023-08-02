@@ -43,7 +43,8 @@ export const Form: React.FC<FormProps> = ({ user }) => {
         phone: "",
 
         image: "",
-
+        rating: 5,
+        ratings: 5,
         active: false,
     }
 
