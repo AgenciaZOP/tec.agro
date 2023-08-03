@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Box, Avatar, Paper } from "@mui/material"
 import { useNavigate } from "react-router-dom"
-import profile from "../../../assets/person2.jpg"
+import profile from "../../assets/person2.jpg"
 
 interface CardReceivedProps {
     newMessage: boolean

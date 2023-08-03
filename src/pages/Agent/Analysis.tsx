@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box, Button, Paper } from "@mui/material"
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
 import { ListTitle } from "../../components/ListTitle"
@@ -6,6 +6,7 @@ import { Comment } from "../../components/Comment"
 import { Transactions } from "../../components/Transactions"
 import { InfoProfile } from "../../components/InfoProfile"
 import { useNavigate } from "react-router-dom"
+import { useHeader } from "../../hooks/useHeader"
 
 interface AnalysisProps {
     user: User
@@ -13,6 +14,7 @@ interface AnalysisProps {
 
 export const Analysis: React.FC<AnalysisProps> = ({ user }) => {
     const navigate = useNavigate()
+
     return (
         <Box
             sx={{
@@ -31,7 +33,7 @@ export const Analysis: React.FC<AnalysisProps> = ({ user }) => {
                 variant="contained"
                 sx={{ fontSize: "3.5vw", gap: "2vw" }}
                 onClick={() => {
-                    navigate("/agent/chats")
+                    navigate("/agent/register")
                 }}
             >
                 {" "}

@@ -3,7 +3,7 @@ import { Box } from "@mui/material"
 import { SearchInput } from "../../components/SearchInput"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { BottomNavigation } from "../../components/BottomNavigation"
-import { Schedule } from "../Agent/Panel/Schedule"
+import { Schedule } from "../../components/PanelProducerAgent/Schedule"
 
 interface ListSheduleCropsProps {}
 

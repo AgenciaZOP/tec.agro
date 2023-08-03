@@ -14,9 +14,9 @@ import { InfoDetails } from "../../components/InfoDetails"
 import { MyBusiness } from "../../components/MyBusiness"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
-import { NewCategory } from "../../components/Panel/NewCategory"
+import { NewCategory } from "../../components/PanelBusinessShipping/NewCategory"
 import { Category } from "../Search/Category"
-import { NewService } from "../../components/Panel/NewService"
+import { NewService } from "../../components/PanelBusinessShipping/NewService"
 //import { Carousel } from "react-responsive-carousel"
 
 interface BusinessProps {
@@ -44,9 +44,9 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                     <>
                         <Routes>
                             <Route index element={<Panel business={user.business} product={product} />} />
-                            <Route path="/newCategory" element={<NewCategory product={product} />} />
+                            <Route path="/newCategory" element={<NewCategory user={user} product={product} />} />
                             <Route path="/account" element={<MyBusiness business={user.business} />} />
-                            <Route path="/new" element={<NewService/>} />
+                            <Route path="/new" element={<NewService />} />
                         </Routes>
 
                         <BottomNavigation section={bottomMenu.business} />

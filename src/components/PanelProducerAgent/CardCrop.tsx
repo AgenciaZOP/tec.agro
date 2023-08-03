@@ -3,10 +3,11 @@ import { Box, Paper } from "@mui/material"
 import { HeaderInfo } from "./HeaderInfo"
 import { CardAgent } from "./CardAgent"
 interface CardCropProps {
-    agent: Agent
+    user: Agent | Producer
+    type: SubaccountType
 }
 
-export const CardCrop: React.FC<CardCropProps> = ({ agent }) => {
+export const CardCrop: React.FC<CardCropProps> = ({ user, type }) => {
     return (
         <Paper
             elevation={3}
@@ -21,7 +22,7 @@ export const CardCrop: React.FC<CardCropProps> = ({ agent }) => {
             }}
         >
             <HeaderInfo />
-            <CardAgent agent={agent} />
+            <CardAgent user={user} type={type} />
             <p style={{ alignSelf: "center", fontSize: "2.5vw", textDecoration: "underline" }}>Editar</p>
         </Paper>
     )

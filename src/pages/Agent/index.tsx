@@ -10,7 +10,8 @@ import { BottomNavigation } from "../../components/BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Requests } from "./Requests"
 import { Analysis } from "./Analysis"
-import { Chats } from "./Chats"
+import { Chats } from "../../components/Chats"
+import { RegisterCrop } from "../../components/RegisterCrop"
 
 interface AgentProps {
     user: User
@@ -36,6 +37,7 @@ export const Agent: React.FC<AgentProps> = ({ user }) => {
                         <Route path="requests" element={<Requests></Requests>} />
                         <Route path="analysis" element={<Analysis user={user}></Analysis>} />
                         <Route path="chats" element={<Chats></Chats>} />
+                        <Route path="register" element={<RegisterCrop></RegisterCrop>} />
                     </Routes>
                     <BottomNavigation section={bottomMenu.agent} />
                 </Box>

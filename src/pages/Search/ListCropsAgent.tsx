@@ -1,9 +1,9 @@
 import React from "react"
-import { Box, Paper } from "@mui/material"
+import { Box } from "@mui/material"
 import { SearchInput } from "../../components/SearchInput"
 import { BottomNavigation } from "../../components/BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
-import { CardCrop } from "../Agent/Panel/CardCrop"
+import { CardCrop } from "../../components/PanelProducerAgent/CardCrop"
 
 interface ListCropsAgentProps {
     user: User

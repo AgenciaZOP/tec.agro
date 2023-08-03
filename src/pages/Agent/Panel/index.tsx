@@ -1,10 +1,10 @@
 import React from "react"
-import { Box, Paper, Avatar } from "@mui/material"
+import { Box, Paper } from "@mui/material"
 import { SearchInput } from "../../../components/SearchInput"
-import { Schedule } from "./Schedule"
+import { Schedule } from "../../../components/PanelProducerAgent/Schedule"
 import { ListTitle } from "../../../components/ListTitle"
-import { CardCrop } from "./CardCrop"
-import { CardAgent } from "./CardAgent"
+import { CardCrop } from "../../../components/PanelProducerAgent/CardCrop"
+import { CardAgent } from "../../../components/PanelProducerAgent/CardAgent"
 interface PanelProps {
     user: User
 }
@@ -49,7 +49,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                             gap: "1vw",
                         }}
                     >
-                        <CardAgent agent={agent} />
+                        <CardAgent user={agent} type="agent" />
                     </Paper>
                 </Box>
                 <SearchInput placeholder="Buscar por safra" onChange={() => {}} />
@@ -68,7 +68,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                 <Schedule status="contact" />
                 <Box sx={{ flexDirection: "column" }}>
                     <ListTitle title="Suas Safras" location="cropsag"></ListTitle>
-                    <CardCrop agent={agent} />
+                    <CardCrop user={agent} type="agent" />
                 </Box>
                 <Box sx={{ flexDirection: "column" }}>
                     <ListTitle title="Agendadas" location="scheduleag"></ListTitle>

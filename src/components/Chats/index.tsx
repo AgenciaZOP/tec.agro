@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "@mui/material"
-import { SearchInput } from "../../../components/SearchInput"
-import { CardNotification } from "../Requests/CardNotification"
+import { SearchInput } from "../SearchInput"
+import { CardNotification } from "../../pages/Agent/Requests/CardNotification"
 import { CardReceived } from "./CardReceived"
 interface ChatsProps {}
 

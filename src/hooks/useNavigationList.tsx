@@ -97,7 +97,7 @@ export const useNavigationList = () => {
             {
                 id: 1,
                 title: "Painel",
-                location: "",
+                location: "/panel",
                 icon: <GridViewIcon sx={iconStyle} />,
             },
             {

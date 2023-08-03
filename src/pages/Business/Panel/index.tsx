@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Button } from "@mui/material"
 import colors from "../../../style/colors"
 import { SearchInput } from "../../../components/SearchInput"
-import { ModalCategory } from "../../../components/Panel/ModalCategory"
+import { ModalCategory } from "../../../components/PanelBusinessShipping/ModalCategory"
 import AddIcon from "@mui/icons-material/Add"
 import { Navigate, Route, useNavigate } from "react-router-dom"
 

@@ -26,7 +26,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
         // paddingBottom: "0",
         border: "1px solid gray",
         borderRadius: "2vw",
-        gap: "2vw",
+        gap: "3vw",
     }
 
     const inputStyle = {
