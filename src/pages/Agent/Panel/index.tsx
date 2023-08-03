@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, Paper, Avatar } from "@mui/material"
 import { SearchInput } from "../../../components/SearchInput"
-import { Transactions } from "./Transactions"
+import { Schedule } from "./Schedule"
 import { ListTitle } from "../../../components/ListTitle"
 import { CardCrop } from "./CardCrop"
 import { CardAgent } from "./CardAgent"
@@ -64,15 +64,15 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                     gap: "2vw",
                 }}
             >
-                <Transactions status="pending" />
-                <Transactions status="contact" />
+                <Schedule status="pending" />
+                <Schedule status="contact" />
                 <Box sx={{ flexDirection: "column" }}>
-                    <ListTitle title="Suas Safras" location=""></ListTitle>
+                    <ListTitle title="Suas Safras" location="cropsag"></ListTitle>
                     <CardCrop agent={agent} />
                 </Box>
                 <Box sx={{ flexDirection: "column" }}>
-                    <ListTitle title="Agendadas" location=""></ListTitle>
-                    <Transactions status="schedule" />
+                    <ListTitle title="Agendadas" location="scheduleag"></ListTitle>
+                    <Schedule status="schedule" />
                 </Box>
             </Box>
         </Box>

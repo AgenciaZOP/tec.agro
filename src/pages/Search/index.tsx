@@ -5,6 +5,8 @@ import { Header } from "../../components/Header"
 import { Crops } from "./Crops"
 import { Category } from "./Category"
 import { ListCategories } from "./ListCategories"
+import { ListCropsAgent } from "./ListCropsAgent"
+import { ListSheduleCrops } from "./ListSheduleCrops"
 
 interface SearchProps {
     user: User
@@ -29,8 +31,10 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                 />
                 <Route
                     path="approved"
-                    element={<ListCategories title="Categorias Aprovadas" type={true} category={category} user={user}/>}
+                    element={<ListCategories title="Categorias Aprovadas" type={true} category={category} user={user} />}
                 />
+                <Route path="cropsag" element={<ListCropsAgent user={user}/>} />
+                <Route path="scheduleag" element={<ListSheduleCrops />} />
             </Routes>
         </Box>
     )

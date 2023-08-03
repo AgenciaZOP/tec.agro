@@ -3,11 +3,11 @@ import { Box, Paper, Button } from "@mui/material"
 import { HeaderInfo } from "./HeaderInfo"
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
 
-interface TransactionsProps {
+interface ScheduleProps {
     status: string
 }
 
-export const Transactions: React.FC<TransactionsProps> = ({ status }) => {
+export const Schedule: React.FC<ScheduleProps> = ({ status }) => {
     return (
         <Paper
             elevation={3}
