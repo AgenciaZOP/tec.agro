@@ -47,9 +47,9 @@ export const ListCropsAgent: React.FC<ListCropsAgentProps> = ({ user }) => {
                     gap: "3vw",
                 }}
             >
-                <CardCrop agent={agent} />
-                <CardCrop agent={agent} />
-                <CardCrop agent={agent} />
+                <CardCrop user={agent} type="agent"/>
+                <CardCrop user={agent} type="agent"/>
+                <CardCrop user={agent} type="agent"/>
             </Box>
 
             <BottomNavigation section={bottomMenu.agent} />

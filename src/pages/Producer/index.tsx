@@ -29,7 +29,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                     <Verification />
                 )
             ) : (
-                <Box sx={{ padding: "7vw 0vw 0", width: "100vw" }}>
+                <Box sx={{ padding: "10vw 0vw 18vw 0 ", width: "100vw" }}>
                     <Routes>
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />

@@ -23,7 +23,7 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                 elevation={1}
                 sx={{
                     width: "100%",
-                    height: "63%",
+                    height: "70%",
                     overflow: "auto",
                     flexDirection: "column",
                     padding: "3vw",
@@ -43,7 +43,7 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                 >
                     <Box sx={{ alignItems: "center", flexDirection: "column", width: "100%", gap: "1vw", padding: "0 3vw" }}>
                         <Box sx={{ alignItems: "center", flexDirection: "column", width: "100%", gap: "1vw" }}>
-                            <img src={info} alt="" style={{ width: "15vw" }} />
+                            <img src={info} alt="" style={{ width: "12vw" }} />
                             <Box sx={{ flexDirection: "column", alignItems: "center" }}>
                                 <p style={{ fontSize: "3.3vw" }}>Procurar por um</p>
                                 <p style={{ fontSize: "5vw" }}>Corretor</p>
@@ -71,7 +71,7 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                 elevation={1}
                 sx={{
                     width: "100%",
-                    height: "27%",
+                    height: "30%",
                     overflow: "auto",
                     flexDirection: "column",
                     padding: "3vw",
@@ -89,9 +89,20 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                         flexDirection: "column",
                     }}
                 >
-                    <Box sx={{ alignItems: "center", flexDirection: "column", width: "100%", gap: "1vw", padding: "0 3vw" }}>
-                        <Box sx={{ alignItems: "center", flexDirection: "column", width: "100%", gap: "1vw" }}>
-                            <img src={info2} alt="" style={{ width: "15vw" }} />
+                    <Box
+                        sx={{
+                            alignItems: "center",
+                            flexDirection: "column",
+                            width: "100%",
+                            height: "100%",
+                            gap: "1vw",
+                            padding: "0 3vw",
+                        }}
+                    >
+                        <Box
+                            sx={{ alignItems: "center", flexDirection: "column", width: "100%", height: "100%", gap: "1vw" }}
+                        >
+                            <img src={info2} alt="" style={{ width: "12vw" }} />
                             <Box sx={{ flexDirection: "column", alignItems: "center" }}>
                                 <p style={{ fontSize: "3.3vw" }}>registrar sua safra</p>
                                 <p

@@ -33,8 +33,10 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                     path="approved"
                     element={<ListCategories title="Categorias Aprovadas" type={true} category={category} user={user} />}
                 />
-                <Route path="cropsag" element={<ListCropsAgent user={user}/>} />
+                <Route path="cropsag" element={<ListCropsAgent user={user} />} />
                 <Route path="scheduleag" element={<ListSheduleCrops />} />
+                <Route path="cropspr" element={<ListCropsAgent user={user} />} />
+                <Route path="schedulepr" element={<ListSheduleCrops />} />
             </Routes>
         </Box>
     )
