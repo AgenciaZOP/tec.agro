@@ -1,12 +1,12 @@
 import React from "react"
 import { Box, Paper, Button, TextField } from "@mui/material"
-import { CardProduct } from "../../components/PanelBusinessShipping/CardProduct"
 import AddIcon from "@mui/icons-material/Add"
 import { Formik, Form } from "formik"
-import { SearchInput } from "../../components/SearchInput"
-import { BottomNavigation } from "../../components/BottomNavigation"
-import { useNavigationList } from "../../hooks/useNavigationList"
+import { SearchInput } from "../../../components/SearchInput"
+import { BottomNavigation } from "../../../components/BottomNavigation"
+import { useNavigationList } from "../../../hooks/useNavigationList"
 import DeleteIcon from "@mui/icons-material/Delete"
+import { CardProduct } from "../../../components/PanelBusinessShipping/CardProduct"
 
 interface CategoryProps {
     category: Category
@@ -30,12 +30,10 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
                 flexDirection: "column",
                 gap: "3vw",
                 paddingBottom: "8vh",
-                
             }}
         >
             <SearchInput placeholder={"produtos"} onChange={() => {}} />
-            <Box sx={{ flexDirection: "column", gap: "3vw", height: "100%",paddingBottom: "3vh",
-                overflow: "auto",}}>
+            <Box sx={{ flexDirection: "column", gap: "3vw", height: "100%", paddingBottom: "3vh", overflow: "auto" }}>
                 <Paper
                     elevation={2}
                     sx={{
@@ -83,46 +81,64 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <CardProduct
                         local={false}
                         product={product}
+                        subtitle=""
+                        action=""
                         image="https://static3.tcdn.com.br/img/img_prod/248016/fertilizante_organico_classe_a_biokashi_1198_1_361a04649ba7df17cd31213b1ce01c2d.jpg"
                     />
                     <Button

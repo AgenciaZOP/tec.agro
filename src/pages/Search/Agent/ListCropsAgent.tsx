@@ -1,9 +1,9 @@
 import React from "react"
 import { Box } from "@mui/material"
-import { SearchInput } from "../../components/SearchInput"
-import { BottomNavigation } from "../../components/BottomNavigation"
-import { useNavigationList } from "../../hooks/useNavigationList"
-import { CardCrop } from "../../components/PanelProducerAgent/CardCrop"
+import { SearchInput } from "../../../components/SearchInput"
+import { BottomNavigation } from "../../../components/BottomNavigation"
+import { useNavigationList } from "../../../hooks/useNavigationList"
+import { CardCrop } from "../../../components/PanelProducerAgent/CardCrop"
 
 interface ListCropsAgentProps {
     user: User
@@ -47,9 +47,9 @@ export const ListCropsAgent: React.FC<ListCropsAgentProps> = ({ user }) => {
                     gap: "3vw",
                 }}
             >
-                <CardCrop user={agent} type="agent"/>
-                <CardCrop user={agent} type="agent"/>
-                <CardCrop user={agent} type="agent"/>
+                <CardCrop user={agent} type="agent" />
+                <CardCrop user={agent} type="agent" />
+                <CardCrop user={agent} type="agent" />
             </Box>
 
             <BottomNavigation section={bottomMenu.agent} />

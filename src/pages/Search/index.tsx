@@ -3,10 +3,12 @@ import { Box } from "@mui/material"
 import { Route, Routes } from "react-router-dom"
 import { Header } from "../../components/Header"
 import { Crops } from "./Crops"
-import { Category } from "./Category"
-import { ListCategories } from "./ListCategories"
-import { ListCropsAgent } from "./ListCropsAgent"
-import { ListSheduleCrops } from "./ListSheduleCrops"
+import { Category } from "./Business/Category"
+import { ListCategories } from "./Business/ListCategories"
+import { ListCropsAgent } from "./Agent/ListCropsAgent"
+import { ListSheduleCrops } from "./Agent/ListSheduleCrops"
+import { ListZones } from "./Producer/ListZones"
+import { ListAgents } from "./Producer/ListAgents"
 
 interface SearchProps {
     user: User
@@ -37,6 +39,8 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                 <Route path="scheduleag" element={<ListSheduleCrops />} />
                 <Route path="cropspr" element={<ListCropsAgent user={user} />} />
                 <Route path="schedulepr" element={<ListSheduleCrops />} />
+                <Route path="zonespr" element={<ListZones user={user} />} />
+                <Route path="agentspr" element={<ListAgents user={user} />} />
             </Routes>
         </Box>
     )

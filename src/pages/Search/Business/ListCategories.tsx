@@ -1,9 +1,9 @@
 import React from "react"
 import { Box, Paper } from "@mui/material"
-import { SearchInput } from "../../components/SearchInput"
-import { CardCategory } from "../../components/PanelBusinessShipping/CardCategory"
-import { BottomNavigation } from "../../components/BottomNavigation"
-import { useNavigationList } from "../../hooks/useNavigationList"
+import { SearchInput } from "../../../components/SearchInput"
+import { CardCategory } from "../../../components/PanelBusinessShipping/CardCategory"
+import { BottomNavigation } from "../../../components/BottomNavigation"
+import { useNavigationList } from "../../../hooks/useNavigationList"
 interface ListCategoriesProps {
     title: string
     type: boolean

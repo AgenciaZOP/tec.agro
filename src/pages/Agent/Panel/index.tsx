@@ -5,6 +5,7 @@ import { Schedule } from "../../../components/PanelProducerAgent/Schedule"
 import { ListTitle } from "../../../components/ListTitle"
 import { CardCrop } from "../../../components/PanelProducerAgent/CardCrop"
 import { CardAgent } from "../../../components/PanelProducerAgent/CardAgent"
+import { ResourceCard } from "../../../components/PanelProducerAgent/ResourceCard"
 interface PanelProps {
     user: User
 }
@@ -37,20 +38,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
             <Box sx={{ flexDirection: "column", width: "100%", height: "30%", gap: "3vw" }}>
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <p style={{ fontSize: "3.5vw" }}>Como os produtores veem</p>
-                    <Paper
-                        elevation={3}
-                        sx={{
-                            backgroundColor: "white",
-                            width: "100%",
-                            height: "max-content",
-                            borderRadius: "2vw",
-                            flexDirection: "column",
-                            padding: "1vw",
-                            gap: "1vw",
-                        }}
-                    >
-                        <CardAgent user={agent} type="agent" />
-                    </Paper>
+                    <ResourceCard agent={agent} location="agent" />
                 </Box>
                 <SearchInput placeholder="Buscar por safra" onChange={() => {}} />
             </Box>

@@ -15,7 +15,7 @@ import { MyBusiness } from "../../components/MyBusiness"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
 import { NewCategory } from "../../components/PanelBusinessShipping/NewCategory"
-import { Category } from "../Search/Category"
+import { Category } from "../Search/Business/Category"
 import { NewService } from "../../components/PanelBusinessShipping/NewService"
 //import { Carousel } from "react-responsive-carousel"
 

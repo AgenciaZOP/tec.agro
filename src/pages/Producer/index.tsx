@@ -11,6 +11,7 @@ import { Panel } from "./Panel"
 import { Chats } from "../../components/Chats"
 import { IntroCrop } from "./Panel/IntroCrop"
 import { RegisterCrop } from "../../components/RegisterCrop"
+import { Analysis } from "../../components/PanelProducerAgent/Analysis"
 
 interface ProducerProps {
     user: User
@@ -37,6 +38,10 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                         <Route path="chats" element={<Chats></Chats>} />
                         <Route path="intro" element={<IntroCrop />} />
                         <Route path="register" element={<RegisterCrop />} />
+                        <Route
+                            path="analysis"
+                            element={<Analysis user={user} button="Enviar Solicitação" location="producer/"></Analysis>}
+                        />
                     </Routes>
                     <BottomNavigation section={bottomMenu.producer} />
                 </Box>

@@ -9,7 +9,7 @@ import { Panel } from "./Panel"
 import { BottomNavigation } from "../../components/BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Requests } from "./Requests"
-import { Analysis } from "./Analysis"
+import { Analysis } from "../../components/PanelProducerAgent/Analysis"
 import { Chats } from "../../components/Chats"
 import { RegisterCrop } from "../../components/RegisterCrop"
 
@@ -35,7 +35,12 @@ export const Agent: React.FC<AgentProps> = ({ user }) => {
                         <Route path="form" element={<Form user={user}></Form>} />
                         <Route path="panel" element={<Panel user={user}></Panel>} />
                         <Route path="requests" element={<Requests></Requests>} />
-                        <Route path="analysis" element={<Analysis user={user}></Analysis>} />
+                        <Route
+                            path="analysis"
+                            element={
+                                <Analysis user={user} button="Aceitar Solicitação" location="agent/register"></Analysis>
+                            }
+                        />
                         <Route path="chats" element={<Chats></Chats>} />
                         <Route path="register" element={<RegisterCrop></RegisterCrop>} />
                     </Routes>

@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Paper } from "@mui/material"
+import { Box, Paper, Radio } from "@mui/material"
 import info from "../../../assets/info.png"
 import info2 from "../../../assets/info2.png"
 import { Details } from "./Details"
@@ -16,14 +16,14 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                padding: "7vw",
+                padding: "0 7vw",
             }}
         >
             <Paper
                 elevation={1}
                 sx={{
                     width: "100%",
-                    height: "70%",
+                    height: "65%",
                     overflow: "auto",
                     flexDirection: "column",
                     padding: "3vw",
@@ -46,7 +46,14 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                             <img src={info} alt="" style={{ width: "12vw" }} />
                             <Box sx={{ flexDirection: "column", alignItems: "center" }}>
                                 <p style={{ fontSize: "3.3vw" }}>Procurar por um</p>
-                                <p style={{ fontSize: "5vw" }}>Corretor</p>
+                                <p
+                                    style={{ fontSize: "5vw", textDecoration: "underline" }}
+                                    onClick={() => {
+                                        navigate("/search/zonespr")
+                                    }}
+                                >
+                                    Corretor
+                                </p>
                             </Box>
                         </Box>
                         <p style={{ fontSize: "3.3vw", fontWeight: "600" }}>Vantagens</p>
