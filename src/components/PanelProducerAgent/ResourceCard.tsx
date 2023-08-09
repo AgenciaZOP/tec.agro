@@ -25,7 +25,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ agent, location }) =
                 navigate(`/${location}`)
             }}
         >
-            <CardAgent user={agent} type="agent" />
+            <CardAgent user={agent} type="agent" name="Corretor" />
         </Paper>
     )
 }

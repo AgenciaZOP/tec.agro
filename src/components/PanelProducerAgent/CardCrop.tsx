@@ -1,13 +1,17 @@
-import React from "react"
+import React, { MouseEventHandler } from "react"
 import { Box, Paper } from "@mui/material"
 import { HeaderInfo } from "./HeaderInfo"
 import { CardAgent } from "./CardAgent"
 interface CardCropProps {
     user: Agent | Producer
     type: SubaccountType
+    name: string
+    handleClick: () => void
+    transactions: boolean
+    variant: boolean
 }
 
-export const CardCrop: React.FC<CardCropProps> = ({ user, type }) => {
+export const CardCrop: React.FC<CardCropProps> = ({ variant, user, type, name, handleClick, transactions }) => {
     return (
         <Paper
             elevation={3}
@@ -21,9 +25,17 @@ export const CardCrop: React.FC<CardCropProps> = ({ user, type }) => {
                 gap: "1vw",
             }}
         >
-            <HeaderInfo />
-            <CardAgent user={user} type={type} />
-            <p style={{ alignSelf: "center", fontSize: "2.5vw", textDecoration: "underline" }}>Editar</p>
+            {variant ? (
+                <>
+                    <HeaderInfo />
+                    <CardAgent user={user} type={type} name={name} />
+                    <p style={{ alignSelf: "center", fontSize: "2.5vw", textDecoration: "underline" }} onClick={handleClick}>
+                        {transactions ? "Ver detalhes" : "Editar"}
+                    </p>
+                </>
+            ) : (
+                <HeaderInfo />
+            )}
         </Paper>
     )
 }

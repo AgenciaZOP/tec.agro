@@ -56,7 +56,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                 <Schedule status="contact" />
                 <Box sx={{ flexDirection: "column" }}>
                     <ListTitle title="Suas Safras" location="cropsag"></ListTitle>
-                    <CardCrop user={agent} type="agent" />
+                    <CardCrop user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
                 </Box>
                 <Box sx={{ flexDirection: "column" }}>
                     <ListTitle title="Agendadas" location="scheduleag"></ListTitle>

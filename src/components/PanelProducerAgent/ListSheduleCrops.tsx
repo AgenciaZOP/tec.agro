@@ -1,13 +1,15 @@
 import React from "react"
 import { Box } from "@mui/material"
-import { SearchInput } from "../../../components/SearchInput"
-import { useNavigationList } from "../../../hooks/useNavigationList"
-import { BottomNavigation } from "../../../components/BottomNavigation"
-import { Schedule } from "../../../components/PanelProducerAgent/Schedule"
+import { SearchInput } from "../SearchInput"
+import { useNavigationList } from "../../hooks/useNavigationList"
+import { BottomNavigation } from "../BottomNavigation"
+import { Schedule } from "./Schedule"
 
-interface ListSheduleCropsProps {}
+interface ListSheduleCropsProps {
+    type: NavigationMenu
+}
 
-export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({}) => {
+export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
     const bottomMenu = useNavigationList()
 
     return (
@@ -38,7 +40,7 @@ export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({}) => {
                 <Schedule status="schedule" />
             </Box>
 
-            <BottomNavigation section={bottomMenu.agent} />
+            <BottomNavigation external section={type} />
         </Box>
     )
 }

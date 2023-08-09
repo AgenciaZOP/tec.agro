@@ -1,15 +1,16 @@
 import React from "react"
 import { Box } from "@mui/material"
-import { SearchInput } from "../../../components/SearchInput"
-import { BottomNavigation } from "../../../components/BottomNavigation"
-import { useNavigationList } from "../../../hooks/useNavigationList"
-import { CardCrop } from "../../../components/PanelProducerAgent/CardCrop"
+import { SearchInput } from "../SearchInput"
+import { BottomNavigation } from "../BottomNavigation"
+import { useNavigationList } from "../../hooks/useNavigationList"
+import { CardCrop } from "./CardCrop"
 
-interface ListCropsAgentProps {
+interface ListCropsProps {
     user: User
+    type: NavigationMenu
 }
 
-export const ListCropsAgent: React.FC<ListCropsAgentProps> = ({ user }) => {
+export const ListCrops: React.FC<ListCropsProps> = ({ user, type }) => {
     const bottomMenu = useNavigationList()
     const agent: Agent = {
         id: 0,
@@ -47,12 +48,12 @@ export const ListCropsAgent: React.FC<ListCropsAgentProps> = ({ user }) => {
                     gap: "3vw",
                 }}
             >
-                <CardCrop user={agent} type="agent" />
-                <CardCrop user={agent} type="agent" />
-                <CardCrop user={agent} type="agent" />
+                <CardCrop user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
+                <CardCrop user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
+                <CardCrop user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
             </Box>
 
-            <BottomNavigation section={bottomMenu.agent} />
+            <BottomNavigation external section={type} />
         </Box>
     )
 }

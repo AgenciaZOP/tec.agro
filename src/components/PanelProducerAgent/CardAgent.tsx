@@ -9,9 +9,10 @@ import { useDate } from "../../hooks/useDate"
 interface CardAgentProps {
     user: Agent | Producer
     type: SubaccountType
+    name: string
 }
 
-export const CardAgent: React.FC<CardAgentProps> = ({ user, type }) => {
+export const CardAgent: React.FC<CardAgentProps> = ({ user, type, name }) => {
     const { getDifference } = useDate()
     return (
         <Paper
@@ -30,7 +31,7 @@ export const CardAgent: React.FC<CardAgentProps> = ({ user, type }) => {
                 <Box sx={{ justifyContent: "space-between", width: "100%" }}>
                     <p style={{ fontSize: "3.4vw" }}>{user.name}</p>
                     <Box sx={{ gap: "1vw" }}>
-                        <Tag variant={type} name="Corretor" style={"2.3vw"} />
+                        <Tag variant={type} name={name} style={"2.3vw"} />
                     </Box>
                 </Box>
 

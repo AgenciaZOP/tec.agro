@@ -9,9 +9,10 @@ import AddIcon from "@mui/icons-material/Add"
 
 interface PanelProps {
     user: User
+    agent: Agent
 }
 
-export const Panel: React.FC<PanelProps> = ({ user }) => {
+export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
     const navigate = useNavigate()
     const producer: Producer = {
         id: 0,
@@ -37,26 +38,37 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                 gap: "3vw",
             }}
         >
-            <SearchInput placeholder="Buscar por safra" onChange={() => {}} />
+            <SearchInput placeholder="safras" onChange={() => {}} />
 
             <Box
                 sx={{
                     width: "100%",
-                    height: "80%",
+                    height: "89%",
                     paddingBottom: "1vh",
                     flexDirection: "column",
                     gap: "2vw",
+                    overflow: "auto",
                 }}
             >
-                <Schedule status="pending" />
-                <Schedule status="contact" />
-                <Box sx={{ flexDirection: "column" }}>
-                    <ListTitle title="Suas Safras" location="cropspr"></ListTitle>
-                    <CardCrop user={producer} type="producer" />
+                <Box sx={{ flexDirection: "column", gap: "2vw" }}>
+                    <ListTitle title="Safras Pagas" location="" />
+                    <Schedule status="pending" />
+                    <Schedule status="contact" />
                 </Box>
-                <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                    <ListTitle title="Agendadas" location="schedulepr"></ListTitle>
+                <Box sx={{ flexDirection: "column", gap: "3vw" }}>
+                    <ListTitle title="Suas Safras" location="cropspr"></ListTitle>
+                    <CardCrop
+                        variant={true}
+                        user={agent}
+                        type="agent"
+                        name="Corretor"
+                        transactions={false}
+                        handleClick={() => {}}
+                    />
                     <Schedule status="schedule" />
+                </Box>
+                <Box sx={{ flexDirection: "column", gap: "2vw" }}>
+                    <ListTitle title="Agendadas" location="schedulepr"></ListTitle>
                     <Schedule status="schedule" />
                 </Box>
             </Box>
