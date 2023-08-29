@@ -16,7 +16,7 @@ interface EditProfileProps {
 
 export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, formRef }) => {
     const { updateLoading } = useUser()
-    const estados = useEstadosBrasil()
+    //const estados = useEstadosBrasil()
 
     const [image, setImage] = useState<File>()
 
