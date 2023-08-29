@@ -35,7 +35,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external, se
                 marginTop: "auto",
                 background: "transparent",
                 padding: "4vw",
-                height: "12vh",
+                height: "10vh",
                 position: "fixed",
                 left: 0,
                 bottom: 0,
@@ -57,7 +57,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external, se
                             background: currentLocation?.id == item.id ? "white" : "",
                             borderRadius: "6vw",
                             gap: "1vw",
-                            padding: "0 2vw",
+                            padding: "0",
                             minWidth: "0!important",
                         }}
                     />
