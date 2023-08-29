@@ -41,7 +41,7 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                padding: "0 5vw",
+                padding: "0 4vw",
             }}
         >
             <Paper

@@ -29,7 +29,7 @@ export const Agent: React.FC<AgentProps> = ({ user }) => {
                     <Verification />
                 )
             ) : (
-                <Box sx={{ padding: "10vw 2vw 0", width: "100vw" }}>
+                <Box sx={{ padding: "10vw 4vw 0", width: "100vw" }}>
                     <Routes>
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />

@@ -19,7 +19,6 @@ export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                padding: "1vw",
             }}
         >
             <SearchInput placeholder="conversas" onChange={() => {}} />
@@ -29,7 +28,7 @@ export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
                     height: "91%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw",
+                    padding: "3vw 0",
                     gap: "3vw",
                 }}
             >

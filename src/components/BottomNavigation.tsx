@@ -34,9 +34,10 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external, se
             sx={{
                 marginTop: "auto",
                 background: "transparent",
-                padding: "3vw",
-                height: "10vh",
+                padding: "4vw",
+                height: "12vh",
                 position: "fixed",
+                left: 0,
                 bottom: 0,
                 justifyContent: "space-between",
                 width: "100%",
@@ -49,14 +50,14 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external, se
                 return (
                     <BottomNavigationAction
                         key={item.id}
-                        label={<p style={{ fontSize: "2.6vw" }}>{item.title}</p>}
+                        label={<p style={{ fontSize: "2.5vw" }}>{item.title}</p>}
                         icon={<Icon />}
                         value={item.id}
                         sx={{
                             background: currentLocation?.id == item.id ? "white" : "",
                             borderRadius: "6vw",
                             gap: "1vw",
-                            padding: "0 1vw",
+                            padding: "0 2vw",
                             minWidth: "0!important",
                         }}
                     />

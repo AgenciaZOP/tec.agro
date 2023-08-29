@@ -11,7 +11,7 @@ export const Verification: React.FC<VerificationProps> = ({}) => {
         header.setTitle("Meu Negócio")
     }, [])
     return (
-        <Box sx={{ padding: "10vw", width: "100vw" }}>
+        <Box sx={{ padding: "4vw", width: "100vw" }}>
             <Paper
                 sx={{
                     flexDirection: "column",

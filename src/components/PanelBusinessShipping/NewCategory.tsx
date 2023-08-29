@@ -25,7 +25,7 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
     const handleSubmit = (values: FormValues) => {}
 
     return (
-        <Box sx={{ width: "100%", padding: "0 5vw", height: "100%", overflow: "auto" }}>
+        <Box sx={{ width: "100%", padding: "0 4vw", height: "100%", overflow: "auto" }}>
             {" "}
             <Box sx={{ width: "100%", flexDirection: "column", gap: "3vw" }}>
                 <Paper

@@ -22,7 +22,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
     }
 
     return user ? (
-        <Box sx={{ alignItems: "center", padding: "5vw", gap: "3vw" }}>
+        <Box sx={{ alignItems: "center", padding: "4vw", gap: "3vw" }}>
             <Avatar
                 src={user.image}
                 sx={{ width: "16vw", height: "16vw" }}

@@ -37,7 +37,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
         header.setTitle("Meu Negócio")
     }, [])
     return (
-        <Box sx={{ width: "100%", padding: "12vh 0vw 10vh 0vw" }}>
+        <Box sx={{ width: "100%", padding: "10vh 0vw 10vh 0vw" }}>
             <Header />
             {user.business ? (
                 user.business.active ? (
@@ -55,7 +55,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                     <Verification />
                 )
             ) : (
-                <Box sx={{ padding: "10vw 10vw 0", width: "100%" }}>
+                <Box sx={{ padding: "10vw 4vw 0", width: "100%" }}>
                     <Routes>
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />

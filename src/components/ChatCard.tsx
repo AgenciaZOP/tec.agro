@@ -11,7 +11,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ chat, onClick }) => {
     const {user} = useUser()
     
     return (
-        <Paper onClick={onClick} elevation={0} sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "3vw", width: "90%", margin: "0 auto" }}>
+        <Paper onClick={onClick} elevation={0} sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "3vw", width: "92%", margin: "0 auto" }}>
             {/* {chat.id} */}
             <Avatar sx={{ width: "15vw", height: "15vw" }} />
             <Box sx={{ height: "100%", width: "66vw", gap: "1vw", justifyContent: "space-between", alignItems: "center" }}>

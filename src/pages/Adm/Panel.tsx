@@ -20,7 +20,7 @@ export const Panel: React.FC<PanelProps> = ({}) => {
     const [searching, setSearching] = useState("")
     const [list, setList] = useState(everything)
 
-    const wrapperStyle: SxProps = { flexDirection: "column", width: "100%", overflowY: "auto", padding: "10vh 5vw", gap: "5vw", overflowX: "hidden" }
+    const wrapperStyle: SxProps = { flexDirection: "column", width: "100%", overflowY: "auto", padding: "10vh 4vw", gap: "5vw", overflowX: "hidden" }
 
     const handleSearch = (value: string) => {
         setSearching(value)

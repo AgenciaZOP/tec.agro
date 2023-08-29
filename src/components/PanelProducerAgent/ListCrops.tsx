@@ -34,7 +34,6 @@ export const ListCrops: React.FC<ListCropsProps> = ({ user, type }) => {
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                padding: "1vw",
             }}
         >
             <SearchInput placeholder="conversas" onChange={() => {}} />
@@ -44,7 +43,7 @@ export const ListCrops: React.FC<ListCropsProps> = ({ user, type }) => {
                     height: "91%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw",
+                    padding: "3vw 0",
                     gap: "3vw",
                 }}
             >

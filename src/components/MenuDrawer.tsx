@@ -41,7 +41,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
             PaperProps={{ sx: { width: "80vw", overflowX: "hidden" } }}
             ModalProps={{ BackdropProps: { sx: backdropStyle } }}
         >
-            <Box sx={{ justifyContent: "space-between", width: "100%", padding: "5vw" }}>
+            <Box sx={{ justifyContent: "space-between", width: "100%", padding: "4vw" }}>
                 <IconButton color="primary" sx={iconButtonStyle} onClick={handleClose}>
                     <KeyboardBackspaceIcon sx={iconStyle} />
                 </IconButton>

@@ -26,7 +26,7 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
             PaperProps={{ sx: { width: "80vw" } }}
             ModalProps={{ BackdropProps: { sx: backdropStyle } }}
         >
-            <Box sx={{ padding: "8vw", display: "flex", flexDirection: "column", gap: "5vw" }}>
+            <Box sx={{ padding: "4vw", display: "flex", flexDirection: "column", gap: "5vw" }}>
                 <Box sx={{ alignItems: "flex-start", justifyContent: "space-between" }}>
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
                         <h3>Notificações</h3>
@@ -34,8 +34,8 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
                             Você tem <span style={{ fontWeight: "bold" }}>{quantity} notificações </span> hoje
                         </p>
                     </Box>
-                    <IconButton onClick={handleClose}>
-                        <CloseSharpIcon sx={{ padding: "0 0 0vw 0", width: "6vw" }} color="primary" />
+                    <IconButton onClick={handleClose} sx={{ padding: "0" }}>
+                        <CloseSharpIcon sx={{ padding: "0", width: "6vw" }} color="primary" />
                     </IconButton>
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "5vw" }}>

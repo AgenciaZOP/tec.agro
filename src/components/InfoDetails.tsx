@@ -32,7 +32,7 @@ export const InfoDetails: React.FC<InfoDetailsProps> = ({ object, editingMode })
                 flexDirection: "column",
                 alignItems: "center",
                 borderRadius: "2vw",
-                padding: "5vw",
+                padding: "4vw",
                 minHeight: "43%",
             }}
         >

@@ -40,7 +40,7 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
     }, [])
 
     return (
-        <Box sx={{ flexDirection: "column", padding: "10vh 5vw", gap: "5vw", width: "100%", height: "80vh" }}>
+        <Box sx={{ flexDirection: "column", padding: "10vh 4vw", gap: "5vw", width: "100%", height: "80vh" }}>
             <SearchInput placeholder="análises" onChange={handleSearch} />
 
             {/* <ListTitle title="Categorias em análise" location="categories" /> */}

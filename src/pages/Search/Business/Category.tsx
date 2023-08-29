@@ -25,7 +25,7 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
         <Box
             sx={{
                 width: "100%",
-                padding: "0 5vw",
+                padding: "0 4vw",
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",

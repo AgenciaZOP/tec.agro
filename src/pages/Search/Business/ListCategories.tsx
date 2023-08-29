@@ -18,7 +18,7 @@ export const ListCategories: React.FC<ListCategoriesProps> = ({ title, type, cat
         <Box
             sx={{
                 width: "100%",
-                padding: "0 5vw",
+                padding: "0 4vw",
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",

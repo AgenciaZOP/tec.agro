@@ -25,7 +25,7 @@ export const Shipping: React.FC<ShippingProps> = ({}) => {
         <Box
             sx={{
                 flexDirection: "column",
-                padding: "0 5vw",
+                padding: "0 4vw",
                 gap: "5vw",
                 width: "100vw",
                 height: "100%",

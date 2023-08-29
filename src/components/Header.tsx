@@ -24,7 +24,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
                 justifyContent: "space-between",
                 width: "100%",
                 alignItems: "center",
-                padding: "5vw",
+                padding: "4vw",
                 fontSize: "5vw",
                 fontWeight: "bold",
                 background: "transparent",

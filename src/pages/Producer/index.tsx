@@ -50,7 +50,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
     }
 
     return (
-        <Box sx={{ paddingTop: "5vh" }}>
+        <Box sx={{ width: "100%", padding: "7vh 0vw 10vh 0vw" }}>
             <Header />
             {user.shipping ? (
                 user.shipping.active ? (
@@ -59,7 +59,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                     <Verification />
                 )
             ) : (
-                <Box sx={{ padding: "10vw 0vw 18vw 0 ", width: "100vw" }}>
+                <Box sx={{ padding: "10vw 4vw 0", width: "100vw" }}>
                     <Routes>
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />
