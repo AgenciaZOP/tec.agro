@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import { Avatar } from "@files-ui/react"
 import MaskedInput from "../components/MaskedInput"
 import { useUser } from "../hooks/useUser"
-import { useEstadosBrasil } from "burgos-estadosbrasil"
+//import { useEstadosBrasil } from "burgos-estadosbrasil"
 
 interface EditProfileProps {
     user: User | null
