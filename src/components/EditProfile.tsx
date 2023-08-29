@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import { Avatar } from "@files-ui/react"
 import MaskedInput from "../components/MaskedInput"
 import { useUser } from "../hooks/useUser"
+import { useEstadosBrasil } from "burgos-estadosbrasil"
 
 interface EditProfileProps {
     user: User | null
@@ -15,6 +16,7 @@ interface EditProfileProps {
 
 export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, formRef }) => {
     const { updateLoading } = useUser()
+    const estados = useEstadosBrasil()
 
     const [image, setImage] = useState<File>()
 
