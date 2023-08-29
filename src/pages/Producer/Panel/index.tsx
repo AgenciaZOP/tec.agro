@@ -34,7 +34,7 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
                 flexDirection: "column",
                 width: "100%",
                 height: "100%",
-                padding: "0 6vw",
+                padding: "0",
                 gap: "3vw",
             }}
         >
@@ -43,7 +43,7 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
             <Box
                 sx={{
                     width: "100%",
-                    height: "89%",
+                    height: "91%",
                     paddingBottom: "1vh",
                     flexDirection: "column",
                     gap: "2vw",
@@ -76,14 +76,12 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
                 variant="contained"
                 type="submit"
                 sx={{
-                    width: "20%",
-                    height: "11%",
                     borderRadius: "3vw",
                     fontSize: "3vw",
                     flexDirection: "column",
                     position: "fixed",
-                    bottom: "11vh",
-                    right: "5vw",
+                    bottom: "9vh",
+                    right: "4vw",
                 }}
                 onClick={() => {
                     navigate("/producer/intro")
