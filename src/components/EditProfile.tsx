@@ -115,6 +115,8 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                     sx={{ ...inputStyle, width: "48%" }}
                                     label="RG"
                                     name="rg"
+                                    type="number"
+                                    InputProps={{ inputProps: { inputMode: "numeric", pattern: "[0-9]*", step: "1" } }}
                                     variant="standard"
                                     value={values.rg}
                                 />
@@ -177,6 +179,15 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                     name="uf"
                                     variant="standard"
                                     value={values.uf}
+                                    SelectProps={
+                                        {
+                                            // value: selectedRoles,
+                                            // onChange: (_, child) => handleRoleSelect(child),
+                                            // multiple: true,
+                                            // // @ts-ignore
+                                            // renderValue: (selected: Role[]) => selected.map((role) => role.name).join(", "),
+                                        }
+                                    }
                                 />
                             </Box>
 
