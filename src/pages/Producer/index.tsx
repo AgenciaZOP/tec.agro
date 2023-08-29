@@ -52,8 +52,8 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
     return (
         <Box sx={{ width: "100%", padding: "7vh 0vw 10vh 0vw" }}>
             <Header />
-            {user.shipping ? (
-                user.shipping.active ? (
+            {user.producer ? (
+                user.producer.active ? (
                     <></>
                 ) : (
                     <Verification />
@@ -68,10 +68,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                         <Route path="intro" element={<IntroCrop />} />
                         <Route path="register" element={<RegisterCrop />} />
                         <Route path="transactions" element={<Transactions agent={agent} />} />
-                        <Route
-                            path="analysis"
-                            element={<Analysis user={user} button="Enviar Solicitação" location="producer/"></Analysis>}
-                        />
+                        <Route path="analysis" element={<Analysis user={user} button="Enviar Solicitação" location="producer/"></Analysis>} />
                     </Routes>
                     <BottomNavigation section={bottomMenu.producer} />
                 </Box>

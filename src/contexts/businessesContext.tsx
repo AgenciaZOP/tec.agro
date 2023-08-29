@@ -8,6 +8,9 @@ interface BusinessesContextValue {
 
     loading: boolean
     setLoading: (value: boolean) => void
+
+    categories: BusinessCategory[]
+    setCategories: (value: BusinessCategory[]) => void
 }
 
 interface BusinessesProviderProps {
@@ -22,21 +25,36 @@ export const BusinessesProvider: React.FC<BusinessesProviderProps> = ({ children
     const io = useIo()
 
     const [businesses, setBusinesses] = useState<Business[]>([])
+    const [categories, setCategories] = useState<BusinessCategory[]>([])
     const [loading, setLoading] = useState(true)
 
-    io.on("business:list", (data: Business[]) => {
-        setBusinesses(data)
-        setLoading(false)
-    })
-
-    io.on("business:new", (business: Business) => {
-        console.log({ business })
-        setBusinesses([...businesses, business])
-    })
-
     useEffect(() => {
-        console.log({ businesses })
+        io.on("business:new", (business: Business) => {
+            console.log({ business })
+            setBusinesses([...businesses, business])
+        })
+
+        return () => {
+            io.off("business:new")
+        }
     }, [businesses])
 
-    return <BusinessesContext.Provider value={{ businesses, setBusinesses, loading, setLoading }}>{children}</BusinessesContext.Provider>
+    useEffect(() => {
+        io.on("business:list", (data: Business[]) => {
+            setBusinesses(data)
+            setLoading(false)
+        })
+
+        io.on("business:category:list", (data: BusinessCategory[]) => setCategories(data))
+
+        return () => {
+            io.off("business:new")
+        }
+    }, [])
+
+    return (
+        <BusinessesContext.Provider value={{ businesses, setBusinesses, loading, setLoading, categories, setCategories }}>
+            {children}
+        </BusinessesContext.Provider>
+    )
 }
