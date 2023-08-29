@@ -11,9 +11,9 @@ export const NearYouList: React.FC<NearYouListProps> = ({}) => {
     const crops = cropList.sort((a, b) => a.price - b.price).slice(0, 5)
 
     return (
-        <Box sx={{ flexDirection: "column", gap: "5vw" }}>
+        <Box sx={{ flexDirection: "column", gap: "2vw" }}>
             <ListTitle title="Safras" location="crops" />
-            <Box sx={{ width: "100vw", overflowX: "auto", paddingRight: "10vw", gap: "3vw" }}>
+            <Box sx={{ width: "100vw", overflowX: "auto", paddingRight: "10vw", gap: "4vw" }}>
                 {crops.map((crop) => (
                     <CropCard key={crop.id} crop={crop} variant="square" />
                 ))}
