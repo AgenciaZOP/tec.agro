@@ -27,7 +27,7 @@ export const Signup: React.FC<SignupProps> = ({ user }) => {
                 marginBottom: "10vw",
             }}
         >
-            <p style={{ fontSize: "6vw" }}>Você ainda não é cadastrado como Produtor</p>
+            <p style={{ fontSize: "6vw" }}>Você ainda não é cadastrado como produtor</p>
             <p style={{ fontSize: "4vw" }}>
                 Complete seu cadastro e envie para análise para desbloquear outras funcionalidades
             </p>
