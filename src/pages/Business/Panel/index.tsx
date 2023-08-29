@@ -44,13 +44,12 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                 variant="contained"
                 type="submit"
                 sx={{
-                    width: "25%",
                     borderRadius: "3vw",
-                    fontSize: "2vw",
+                    fontSize: "2.5vw",
                     flexDirection: "column",
                     position: "fixed",
-                    bottom: "11vh",
-                    right: "5vw",
+                    bottom: "9vh",
+                    right: "4vw",
                 }}
                 onClick={() => {
                     navigate("/business/new")
