@@ -56,13 +56,13 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
         console.log(values)
     }
     return (
-        <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw", padding: "0 8vw", paddingBottom: "1vh" }}>
+        <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw", padding: "0 4vw", paddingBottom: "1vh" }}>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                 {({ values, handleChange }) => (
                     <Form>
                         <Box
                             sx={{
-                                height: "90%",
+                                height: "91%",
                                 overflow: "auto",
                                 flexDirection: "column",
                                 gap: "3vw",
