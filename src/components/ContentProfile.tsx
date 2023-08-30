@@ -82,19 +82,22 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                     padding: "2vw",
                     paddingBottom: "5vw",
                     gap: "2vw",
+                    position: "relative",
                 }}
             >
                 <Box
                     sx={{
                         alignItems: "center",
-                        width: "max-content",
+                        width: "16vw",
+                        height: "6vw",
                         justifyContent: "center",
-                        padding: "1vw 3vw",
+                        // padding: "0 1vw",
                         borderRadius: "5vw",
                         backgroundColor: isEditing ? "#8FFFA1" : "white",
                         gap: "0.5vw",
                         alignSelf: "self-end",
-                        position: isEditing ? "fixed" : "",
+                        // position: isEditing ? "fixed" : "",
+                        position: "absolute",
                         zIndex: 2,
                     }}
                     onClick={handleEditing}
@@ -109,7 +112,11 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                     >
                         {isEditing ? "Salvar" : "Editar"}
                     </p>
-                    {updateLoading ? <CircularProgress sx={{ margin: "0.5vw" }} size="4vw" color="primary" /> : <EditIcon sx={{ width: "3vw" }} />}
+                    {updateLoading ? (
+                        <CircularProgress sx={{ marginLeft: "0.5vw" }} size="3vw" color="primary" />
+                    ) : (
+                        <EditIcon sx={{ marginLeft: "0.5vw", width: "3vw" }} />
+                    )}
                 </Box>
                 {!isEditing ? (
                     <Box sx={{ flexDirection: "column", alignItems: "center", gap: "1vw" }}>
