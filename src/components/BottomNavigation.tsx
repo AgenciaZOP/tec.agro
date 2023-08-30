@@ -55,7 +55,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ external, se
                         value={item.id}
                         sx={{
                             background: currentLocation?.id == item.id ? "white" : "",
-                            borderRadius: "6vw",
+                            borderRadius: "2vw",
                             gap: "1vw",
                             padding: "0",
                             minWidth: "0!important",
