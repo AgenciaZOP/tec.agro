@@ -60,7 +60,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
         number: user?.number || "",
         city: user?.city || "",
         district: user?.district || "",
-        uf: user?.uf || "",
+        uf: estados.find((estado) => estado.value == user?.uf)?.id || 0,
     }
 
     return (
@@ -125,9 +125,8 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                     name="rg"
                                     type="text"
                                     InputProps={{
-                                        inputMode: "numeric",
                                         inputComponent: MaskedInput,
-                                        inputProps: { mask: "0000000000000" },
+                                        inputProps: { mask: "0000000000000", inputMode: "numeric" },
                                     }}
                                     variant="standard"
                                     value={values.rg}
@@ -165,7 +164,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                     value={values.phone}
                                     InputProps={{
                                         inputComponent: MaskedInput,
-                                        inputProps: { mask: "(00) 0 0000-0000" },
+                                        inputProps: { mask: "(00) 0 0000-0000", inputMode: "numeric" },
                                     }}
                                 />
                             </Box>
@@ -181,7 +180,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                     value={values.cep}
                                     InputProps={{
                                         inputComponent: MaskedInput,
-                                        inputProps: { mask: "00.000-000" },
+                                        inputProps: { mask: "00.000-000", inputMode: "numeric" },
                                     }}
                                 />
                                 <TextField
@@ -204,16 +203,23 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                             alignSelf: "stretch",
                                         },
                                     }}
-                                    // SelectProps={{
-                                    //     inputProps: {
-                                    //         sx: {
-                                    //             "MuiInputBase-input-MuiInput-input::before": {
-                                    //                 paddingRight: "0",
-                                    //             },
-                                    //         },
-                                    //     },
-                                    // }}
+                                    SelectProps={{
+                                        MenuProps: { MenuListProps: { sx: { maxHeight: "80vw", overflowY: "auto" } } },
+                                        // inputProps: {
+                                        //     sx: {
+                                        //         "MuiInputBase-input-MuiInput-input::before": {
+                                        //             paddingRight: "0",
+                                        //         },
+                                        //     },
+                                        // },
+                                    }}
                                 >
+                                    <MenuItem
+                                        value={0}
+                                        sx={{
+                                            display: "none",
+                                        }}
+                                    ></MenuItem>
                                     {estados.map((estado) => (
                                         <MenuItem
                                             key={estado.value}
@@ -228,14 +234,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                 </TextField>
                             </Box>
 
-                            <TextField
-                                onChange={handleChange}
-                                sx={inputStyle}
-                                label="Cidade"
-                                name="city"
-                                variant="standard"
-                                value={values.city}
-                            />
+                            <TextField onChange={handleChange} sx={inputStyle} label="Cidade" name="city" variant="standard" value={values.city} />
                             <TextField
                                 onChange={handleChange}
                                 sx={inputStyle}
