@@ -60,7 +60,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
         number: user?.number || "",
         city: user?.city || "",
         district: user?.district || "",
-        uf: user?.uf || "",
+        uf: estados.find((estado) => estado.value == user?.uf)?.id || 0,
     }
 
     return (
@@ -214,6 +214,12 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                         // },
                                     }}
                                 >
+                                    <MenuItem
+                                        value={0}
+                                        sx={{
+                                            display: "none",
+                                        }}
+                                    ></MenuItem>
                                     {estados.map((estado) => (
                                         <MenuItem
                                             key={estado.value}
