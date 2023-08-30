@@ -1,4 +1,4 @@
-import { Box, IconButton, Button, CircularProgress } from "@mui/material"
+import { Box, IconButton, Button, CircularProgress, MenuItem } from "@mui/material"
 import { TextField } from "./TextField"
 import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
 import { Form, Formik, FormikProps } from "formik"
@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import { Avatar } from "@files-ui/react"
 import MaskedInput from "../components/MaskedInput"
 import { useUser } from "../hooks/useUser"
-//import { useEstadosBrasil } from "burgos-estadosbrasil"
+import { useEstadosBrasil } from "../hooks/useEstadosBrasil"
 
 interface EditProfileProps {
     user: User | null
@@ -16,7 +16,7 @@ interface EditProfileProps {
 
 export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, formRef }) => {
     const { updateLoading } = useUser()
-    //const estados = useEstadosBrasil()
+    const estados = useEstadosBrasil()
 
     const [image, setImage] = useState<File>()
 
@@ -38,6 +38,12 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
         },
         "& .MuiInputLabel-root": {
             fontSize: "3.0vw",
+        },
+    }
+    const webkitbg = {
+        "& .MuiInputBase-input.MuiOutlinedInput-input:-webkit-autofill": {
+            "-webkit-box-shadow": ` 0 0 0 100vw "white" inset`,
+            borderRadius: "initial",
         },
     }
 
@@ -117,8 +123,12 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                     sx={{ ...inputStyle, width: "48%" }}
                                     label="RG"
                                     name="rg"
-                                    type="number"
-                                    InputProps={{ inputProps: { inputMode: "numeric", pattern: "[0-9]*", step: "1" } }}
+                                    type="text"
+                                    InputProps={{
+                                        inputMode: "numeric",
+                                        inputComponent: MaskedInput,
+                                        inputProps: { mask: "0000000000000" },
+                                    }}
                                     variant="standard"
                                     value={values.rg}
                                 />
@@ -175,22 +185,47 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                     }}
                                 />
                                 <TextField
+                                    select
                                     onChange={handleChange}
-                                    sx={{ ...inputStyle, width: "48%" }}
                                     label="UF"
                                     name="uf"
+                                    sx={{
+                                        ...inputStyle,
+                                        ...webkitbg,
+                                        width: "48%",
+                                    }}
                                     variant="standard"
                                     value={values.uf}
-                                    SelectProps={
-                                        {
-                                            // value: selectedRoles,
-                                            // onChange: (_, child) => handleRoleSelect(child),
-                                            // multiple: true,
-                                            // // @ts-ignore
-                                            // renderValue: (selected: Role[]) => selected.map((role) => role.name).join(", "),
-                                        }
-                                    }
-                                />
+                                    InputProps={{
+                                        style: {
+                                            borderRadius: "10vw",
+                                            fontSize: "3.5vw",
+                                            flexGrow: "1",
+                                            alignSelf: "stretch",
+                                        },
+                                    }}
+                                    // SelectProps={{
+                                    //     inputProps: {
+                                    //         sx: {
+                                    //             "MuiInputBase-input-MuiInput-input::before": {
+                                    //                 paddingRight: "0",
+                                    //             },
+                                    //         },
+                                    //     },
+                                    // }}
+                                >
+                                    {estados.map((estado) => (
+                                        <MenuItem
+                                            key={estado.value}
+                                            value={estado.id}
+                                            sx={{
+                                                width: "100%",
+                                            }}
+                                        >
+                                            {estado.value}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
                             </Box>
 
                             <TextField
