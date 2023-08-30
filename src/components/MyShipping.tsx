@@ -17,7 +17,6 @@ export const MyShipping: React.FC<MyShippingProps> = ({ shipping }) => {
                 gap: "3vw",
                 flexDirection: "column",
                 overflow: "auto",
-                padding: "0 8vw",
                 paddingBottom: "5vw",
             }}
         >

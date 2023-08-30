@@ -16,7 +16,6 @@ export const Transactions: React.FC<TransactionsProps> = ({ agent }) => {
         <Box
             sx={{
                 width: "100%",
-                padding: "0 6vw",
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
