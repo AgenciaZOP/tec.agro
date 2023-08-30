@@ -70,7 +70,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                 flexDirection: "column",
                 alignItems: "center",
                 gap: "3vw",
-                paddingTop: "10.5vw",
             }}
         >
             <Formik initialValues={initialValues} onSubmit={(values) => handleSubmit(values, image)} innerRef={formRef}>
@@ -84,8 +83,8 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                             emptyLabel="Clique para enviar uma imagem"
                             // style={{ width: "100%", height: "30vw" }}
                             style={{
-                                width: "22vw",
-                                height: "22vw",
+                                width: "25vw",
+                                height: "25vw",
                                 borderRadius: "20vw",
                                 fontSize: "2.5vw",
                             }}

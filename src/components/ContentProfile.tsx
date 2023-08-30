@@ -79,7 +79,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                     borderRadius: "2vw",
                     flexDirection: "Column",
                     alignItems: "center",
-                    padding: "2vw",
+                    padding: "3vw",
                     gap: "2vw",
                     position: "relative",
                 }}
