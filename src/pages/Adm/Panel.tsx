@@ -32,7 +32,7 @@ export const Panel: React.FC<PanelProps> = ({}) => {
     }, [])
     return searching ? (
         <Box sx={wrapperStyle}>
-            <SearchInput placeholder="teste" onChange={handleSearch} />
+            <SearchInput placeholder="dados" onChange={handleSearch} />
             <Box sx={{ flexDirection: "column", gap: "3vw" }}>
                 {list.map((item) => (
                     <></>
@@ -41,8 +41,8 @@ export const Panel: React.FC<PanelProps> = ({}) => {
         </Box>
     ) : (
         <Box sx={wrapperStyle}>
-            <SearchInput placeholder="teste" onChange={handleSearch} />
-            <Box sx={{ gap: "3vw", width: "100vw", overflowX: "auto", paddingRight: "10vw" }}>
+            <SearchInput placeholder="dados" onChange={handleSearch} />
+            <Box sx={{ gap: "3vw", width: "100vw", overflowX: "auto", marginLeft: "-4vw", padding: "0 4vw" }}>
                 <ReviewBox variant="producer" />
                 <ReviewBox variant="agent" />
                 <ReviewBox variant="business" />

@@ -12,8 +12,6 @@ interface AdmProps {
     user: User
 }
 
-
-
 export const Adm: React.FC<AdmProps> = ({ user }) => {
     const bottomMenu = useNavigationList()
 
