@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { ReactEventHandler, useState } from "react"
 import {
     Box,
     Button,
@@ -63,9 +63,12 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
         price: "",
     }
 
-    const handleAccept = (value: string, mask: any) => {
-        const numberValue = Number(value.replace(/[^0-9]/g, "")) / 100
-        return mask.numberToMask(numberValue)
+    const handleQuantity = (
+        event: React.ChangeEvent<HTMLInputElement>,
+        onChange: React.ChangeEventHandler<HTMLInputElement>
+    ) => {
+        const inputValue = event.target.value.replace(/^0+(?=\d)/, "") // Remove zeros à esquerda
+        onChange(inputValue)
     }
 
     const handleSubmit = (values: FormValues) => {
@@ -179,7 +182,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                             value={values.quantity}
                                             onChange={handleChange}
                                             disabled={radioValue === "no"}
-                                            type="text"
+                                            type="number"
                                             InputProps={{
                                                 inputProps: { min: 0, inputMode: "numeric" },
                                                 endAdornment: (
@@ -218,7 +221,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                                 <InputAdornment
                                                     position="start"
                                                     sx={{
-                                                        "& .MuiTypography-root": { fontSize: "3.5vw" },
+                                                        "& .MuiTypography-root": { fontSize: "3.8vw" },
                                                     }}
                                                 >
                                                     R$
@@ -226,16 +229,13 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                             ),
                                             inputComponent: IMaskInput,
                                             inputProps: {
-                                                inputMode: "numeric",
-                                                mask: {
-                                                    mask: Number,
-                                                    scale: 2,
-                                                    radix: ",",
-                                                    thousandsSeparator: ".",
-                                                    unmask: true,
-                                                },
-                                                //onAccept: handleAccept,
-                                                overwrite: true,
+                                                inputMode: "decimal",
+                                                mask: Number,
+                                                scale: 2,
+                                                thousandsSeparator: ".",
+                                                radix: ",",
+
+                                                padFractionalZeros: true,
                                             },
                                         }}
                                     ></TextField>
