@@ -20,11 +20,11 @@ interface ContentProfileProps {
 
 export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMode }) => {
     const formRef = useRef<FormikProps<UpdateUserValues>>(null)
+    const estados = useEstadosBrasil()
 
     const { isEditing, setEditing, updateLoading } = useUser()
     const { unmask } = useDataHandler()
     const { update } = useUser()
-    const estados = useEstadosBrasil()
 
     const [title, settitle] = useState("Safra de Soja 2022/23 ")
     const [company, setCompany] = useState("Transportadora")
