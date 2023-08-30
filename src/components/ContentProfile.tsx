@@ -79,8 +79,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                     borderRadius: "2vw",
                     flexDirection: "Column",
                     alignItems: "center",
-                    padding: "2vw",
-                    paddingBottom: "5vw",
+                    padding: "3vw",
                     gap: "2vw",
                     position: "relative",
                 }}
@@ -88,10 +87,9 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                 <Box
                     sx={{
                         alignItems: "center",
-                        width: "16vw",
+                        width: "15vw",
                         height: "6vw",
                         justifyContent: "center",
-                        // padding: "0 1vw",
                         borderRadius: "5vw",
                         backgroundColor: isEditing ? "#8FFFA1" : "white",
                         gap: "0.5vw",
@@ -124,7 +122,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                         <p style={{ fontSize: "2.7vw", color: "gray" }}>@{user?.username}</p>
                         <p style={{ fontSize: "5.5vw" }}>{user?.name}</p>
                         <Box sx={{ alignItems: "center", gap: "1vw" }}>
-                            <FmdGoodOutlinedIcon sx={{ width: "4vw" }} />
+                            <FmdGoodOutlinedIcon sx={{ height: "4vw", width: "4vw" }} />
                             <p style={{ fontSize: "2.56vw" }}>
                                 {user?.city}, {user?.uf}
                             </p>
