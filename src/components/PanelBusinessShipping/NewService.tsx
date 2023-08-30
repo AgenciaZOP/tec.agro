@@ -13,6 +13,9 @@ import {
 } from "@mui/material"
 import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
 import { Formik, Form } from "formik"
+import InputAdornment from "@mui/material/InputAdornment"
+import { useCurrencyMask } from "burgos-masks"
+import { IMaskInput, IMask } from "react-imask"
 
 interface NewServiceProps {}
 interface FormValues {
@@ -24,6 +27,14 @@ interface FormValues {
 }
 
 export const NewService: React.FC<NewServiceProps> = ({}) => {
+    const [radioValue, setRadioValue] = useState("no")
+
+    const handleRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.name === "radio-buttons-group") {
+            setRadioValue(event.target.value)
+        }
+    }
+
     const styleBox = {
         flexDirection: "column",
         width: "100%",
@@ -50,6 +61,11 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
         description: "",
         quantity: 0,
         price: "",
+    }
+
+    const handleAccept = (value: string, mask: any) => {
+        const numberValue = Number(value.replace(/[^0-9]/g, "")) / 100
+        return mask.numberToMask(numberValue)
     }
 
     const handleSubmit = (values: FormValues) => {
@@ -145,25 +161,42 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                             <RadioGroup
                                                 row
                                                 aria-labelledby="demo-radio-buttons-group-label"
-                                                defaultValue="female"
                                                 name="radio-buttons-group"
                                                 sx={{
                                                     "& .MuiTypography-root": {
                                                         fontSize: "3.2vw",
                                                     },
                                                 }}
+                                                onChange={handleRadio}
                                             >
                                                 <FormControlLabel value="yes" control={<Radio size="small" />} label="Sim" />
                                                 <FormControlLabel value="no" control={<Radio size="small" />} label="Não" />
                                             </RadioGroup>
                                         </FormControl>
                                         <TextField
-                                            placeholder="Quantidade"
                                             sx={{ ...inputStyle, width: "50%" }}
                                             name="quantity"
                                             value={values.quantity}
                                             onChange={handleChange}
-                                        ></TextField>
+                                            disabled={radioValue === "no"}
+                                            type="text"
+                                            InputProps={{
+                                                inputProps: { min: 0, inputMode: "numeric" },
+                                                endAdornment: (
+                                                    <InputAdornment
+                                                        position="end"
+                                                        sx={{
+                                                            "& .MuiTypography-root": { fontSize: "3.0vw", paddingRight: 0 },
+                                                            "& .MuiInputBase-root-MuiOutlinedInput-root": {
+                                                                paddingRight: 0,
+                                                            },
+                                                        }}
+                                                    >
+                                                        unidades
+                                                    </InputAdornment>
+                                                ),
+                                            }}
+                                        />
                                     </Box>
                                 </Box>
                             </Paper>
@@ -175,11 +208,36 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                     </Box>
 
                                     <TextField
-                                        placeholder="Preço"
                                         sx={{ ...inputStyle, width: "100%" }}
                                         name="price"
                                         value={values.price}
                                         onChange={handleChange}
+                                        inputMode="numeric"
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment
+                                                    position="start"
+                                                    sx={{
+                                                        "& .MuiTypography-root": { fontSize: "3.5vw" },
+                                                    }}
+                                                >
+                                                    R$
+                                                </InputAdornment>
+                                            ),
+                                            inputComponent: IMaskInput,
+                                            inputProps: {
+                                                inputMode: "numeric",
+                                                mask: {
+                                                    mask: Number,
+                                                    scale: 2,
+                                                    radix: ",",
+                                                    thousandsSeparator: ".",
+                                                    unmask: true,
+                                                },
+                                                //onAccept: handleAccept,
+                                                overwrite: true,
+                                            },
+                                        }}
                                     ></TextField>
                                 </Box>
                             </Paper>
