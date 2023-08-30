@@ -48,5 +48,5 @@ interface UpdateUserValues {
     number: string
     city: string
     district: string
-    uf: number
+    uf: number | string
 }
