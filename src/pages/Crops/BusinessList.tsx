@@ -13,9 +13,11 @@ export const BusinessList: React.FC<BusinessListProps> = ({}) => {
     return (
         <Box sx={{ flexDirection: "column", gap: "2vw" }}>
             <ListTitle title="Lojas" location="business" />
-            {businesses.map((resource) => (
-                <ResourceCard key={resource.id} resource={resource} type={[resource.store && "store", resource.service && "service"]} />
-            ))}
+            {businesses
+                .filter((resource) => resource.active)
+                .map((resource) => (
+                    <ResourceCard key={resource.id} resource={resource} type={[resource.store && "store", resource.service && "service"]} />
+                ))}
         </Box>
     )
 }
