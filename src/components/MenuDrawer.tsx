@@ -40,6 +40,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
             onClose={handleClose}
             PaperProps={{ sx: { width: "80vw", overflowX: "hidden" } }}
             ModalProps={{ BackdropProps: { sx: backdropStyle } }}
+            keepMounted
         >
             <Box sx={{ justifyContent: "space-between", width: "100%", padding: "4vw" }}>
                 <IconButton color="primary" sx={iconButtonStyle} onClick={handleClose}>
