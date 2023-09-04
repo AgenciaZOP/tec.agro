@@ -9,7 +9,7 @@ import { MyShipping } from "../../components/MyShipping"
 import { BottomNavigation } from "../../components/BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
-
+import { NewCategory as NewZone } from "../../components/PanelBusinessShipping/NewCategory"
 
 interface ShippingProps {
     user: User
@@ -28,7 +28,13 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
         date: "",
         userId: 0,
         rating: 0,
-        ratings: 0
+        ratings: 0,
+    }
+
+    const car: Car = {
+        image: "",
+        name: "trator",
+        type: "",
     }
     const bottomMenu = useNavigationList()
     return (
@@ -47,7 +53,7 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
                         <Route path="form" element={<Form user={user}></Form>} />
                         <Route path="account" element={<MyShipping shipping={shipping}></MyShipping>} />
                         {/* <Route path="new" element={<NewCar shipping={shipping}></NewCar>} /> */}
-                        {/* <Route path="/newZone" element={<NewZone user={user} product={product} />} /> */}
+                        <Route path="/newZone" element={<NewZone user={user} product={car} />} />
                         <Route path="/panel" element={<Panel></Panel>} />
                     </Routes>
                     <BottomNavigation section={bottomMenu.shipping} />

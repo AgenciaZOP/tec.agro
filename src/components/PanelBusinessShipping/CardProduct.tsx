@@ -8,7 +8,7 @@ interface Product {
 }
 
 interface CardProductProps {
-    product: Product
+    product: Product | Car
     image?: string
     local: boolean
     action: string

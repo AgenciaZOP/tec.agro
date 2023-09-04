@@ -36,9 +36,9 @@ export const Panel: React.FC<PanelProps> = ({}) => {
                 Adicionar Região
             </Button>
             <Box sx={{ height: "100%", overflow: "auto", flexDirection: "column", gap: "3vw", paddingBottom: "3vh" }}>
-                <ModalCategory title="Região 1" product={car} location="zones" />
-                <ModalCategory title="Região 2" product={car} location="zones" />
-                <ModalCategory title="Região 3" product={car} location="zones" />
+                <ModalCategory title="Região 1" product={car} location="zone" />
+                <ModalCategory title="Região 2" product={car} location="zone" />
+                <ModalCategory title="Região 3" product={car} location="zone" />
             </Box>
             <Button
                 variant="contained"

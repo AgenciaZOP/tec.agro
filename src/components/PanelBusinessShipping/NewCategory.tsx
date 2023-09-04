@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom"
 import { useUser } from "../../hooks/useUser"
 
 interface NewCategoryProps {
-    product: Product
+    product: Product | Car
     user: User
 }
 interface FormValues {
@@ -25,7 +25,7 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
     const handleSubmit = (values: FormValues) => {}
 
     return (
-        <Box sx={{ width: "100%", padding: "0 4vw", height: "100%", overflow: "auto" }}>
+        <Box sx={{ width: "100%", padding: "0 3vw", height: "100%", overflow: "auto" }}>
             {" "}
             <Box sx={{ width: "100%", flexDirection: "column", gap: "3vw" }}>
                 <Paper
