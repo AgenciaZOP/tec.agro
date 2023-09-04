@@ -37,8 +37,8 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                 Adicionar Categoria
             </Button>
             <Box sx={{ height: "100%", overflow: "auto", flexDirection: "column", gap: "3vw", paddingBottom: "14vh" }}>
-                <ModalCategory title="#1" product={product} />
-                <ModalCategory title="#2" product={product} />
+                <ModalCategory title="Fertilizantes " product={product} location="category" />
+                <ModalCategory title="Inseticida" product={product} location="category" />
             </Box>
             <Button
                 variant="contained"

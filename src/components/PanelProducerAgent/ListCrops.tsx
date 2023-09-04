@@ -43,13 +43,13 @@ export const ListCrops: React.FC<ListCropsProps> = ({ user, type }) => {
                     height: "91%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw 0",
+                    padding: "3vw 4vw",
                     gap: "3vw",
                 }}
             >
-                <CardCrop user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
-                <CardCrop user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
-                <CardCrop user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
+                <CardCrop variant user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
+                <CardCrop variant user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
+                <CardCrop variant user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
             </Box>
 
             <BottomNavigation external section={type} />

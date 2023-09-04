@@ -6,9 +6,10 @@ import { ListTitle } from "../ListTitle"
 interface ModalCategoryProps {
     title: string
     product: Product
+    location: string
 }
 
-export const ModalCategory: React.FC<ModalCategoryProps> = ({ title, product }) => {
+export const ModalCategory: React.FC<ModalCategoryProps> = ({ title, product, location }) => {
     return (
         <Paper
             elevation={3}
@@ -16,13 +17,13 @@ export const ModalCategory: React.FC<ModalCategoryProps> = ({ title, product }) 
                 flexDirection: "column",
                 padding: "3vw 3vw",
 
-                height: "50%",
+                height: "max-content",
                 gap: "1vw",
                 borderRadius: "2vw",
                 overflow: "hidden",
             }}
         >
-            <ListTitle title={"Veículo  "} location="category"></ListTitle>
+            <ListTitle title={title} location={location} />
             <CardProduct
                 local={true}
                 product={product}

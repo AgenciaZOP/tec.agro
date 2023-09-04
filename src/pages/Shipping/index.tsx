@@ -46,6 +46,8 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />
                         <Route path="account" element={<MyShipping shipping={shipping}></MyShipping>} />
+                        {/* <Route path="new" element={<NewCar shipping={shipping}></NewCar>} /> */}
+                        {/* <Route path="/newZone" element={<NewZone user={user} product={product} />} /> */}
                         <Route path="/panel" element={<Panel></Panel>} />
                     </Routes>
                     <BottomNavigation section={bottomMenu.shipping} />
