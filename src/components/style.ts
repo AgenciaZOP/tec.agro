@@ -18,3 +18,10 @@ export const inputStyle = {
         fontSize: "3.0vw",
     },
 }
+
+export const iconStyle = {
+    width: "100%",
+    height: "auto",
+}
+
+export const iconButtonStyle = { border: "0.5vw solid black", borderRadius: "100%", width: "10%" }

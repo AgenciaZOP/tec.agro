@@ -28,7 +28,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
 
     return (
         <Box sx={{ flexDirection: "column", width: "100%", padding: "10vh 0" }}>
-            <Header />
+            {/* <Header back location="../business" /> */}
             <Routes>
                 <Route path="crops" element={<Crops />} />
                 <Route path="category" element={<Category category={category} />} />

@@ -38,7 +38,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
     }, [])
     return (
         <Box sx={{ width: "100%", padding: "10vh 0vw 10vh 0vw" }}>
-            <Header />
+            {/* <Header /> */}
             {user.business ? (
                 user.business.active ? (
                     <>
