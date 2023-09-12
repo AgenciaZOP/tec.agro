@@ -23,13 +23,16 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
     const { user, logout } = useUser()
 
     const iconStyle: SxProps = {
-        width: "3.5vw",
+        width: "4vw",
         height: "auto",
     }
 
     const iconButtonStyle: SxProps = {
-        border: "0.5vw solid black",
-        borderRadius: "100%"
+        border: "1px solid black",
+        borderRadius: "50%",
+        height: "9vw",
+        width: "9vw",
+        padding: "1.5vw",
     }
 
     const menuItemStyle: SxProps = {

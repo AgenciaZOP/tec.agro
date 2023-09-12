@@ -28,18 +28,18 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
         >
             <Box sx={{ padding: "4vw", display: "flex", flexDirection: "column", gap: "5vw" }}>
                 <Box sx={{ alignItems: "flex-start", justifyContent: "space-between" }}>
-                    <Box sx={{ display: "flex", flexDirection: "column" }}>
-                        <h3>Notificações</h3>
-                        <p style={{ fontSize: "3.2vw" }}>
+                    <Box sx={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
+                        <h3 style={{ fontWeight: "500" }}>Notificações</h3>
+                        <p style={{ fontSize: "3.5vw" }}>
                             Você tem <span style={{ fontWeight: "bold" }}>{quantity} notificações </span> hoje
                         </p>
                     </Box>
                     <IconButton onClick={handleClose} sx={{ padding: "0" }}>
-                        <CloseSharpIcon sx={{ padding: "0", width: "6vw" }} color="primary" />
+                        <CloseSharpIcon sx={{ padding: "1.5vw", height: "9vw", width: "9vw", border: "1px solid black", borderRadius: "50%" }} color="primary" />
                     </IconButton>
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "5vw" }}>
-                    <p style={{ fontSize: "3.7vw", fontWeight: "bolder" }}>Hoje</p>
+                    <p style={{ fontSize: "4vw", fontWeight: "bolder" }}>Hoje</p>
                     <MessageNotification
                         name={"teste"}
                         color="#FF4747"
@@ -47,7 +47,7 @@ export const Notifications: React.FC<NotificationsProps> = ({}) => {
                     />
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "5vw" }}>
-                    <p style={{ fontSize: "3.7vw", fontWeight: "bolder" }}>Esta Semana</p>
+                    <p style={{ fontSize: "4vw", fontWeight: "bolder" }}>Esta Semana</p>
                     <MessageNotification
                         name={"teste"}
                         avatarIcon={<Avatar src={profile2} sx={{ width: "13vw", height: "13vw", borderRadius: "50%" }} />}
