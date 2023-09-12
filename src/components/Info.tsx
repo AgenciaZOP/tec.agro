@@ -16,7 +16,7 @@ export const Info: React.FC<InfoProps> = ({ name, title, icon }) => {
                 <p style={{ fontWeight: "500", fontSize: "6vw" }}>{name}</p>
                 <Icon />
             </Box>
-            <p style={{ fontSize: "2.2vw" }}>{title}</p>
+            <p style={{ fontSize: "2.75vw" }}>{title}</p>
         </Box>
     )
 }
