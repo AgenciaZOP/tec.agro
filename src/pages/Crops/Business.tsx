@@ -3,7 +3,6 @@ import { Box } from "@mui/material"
 import { CategoriesList } from "./CategoriesList"
 import { Banners } from "./Banners"
 import { NearYouList } from "./NearYouList"
-import { CropsList } from "./CropsList"
 import { useHeader } from "../../hooks/useHeader"
 import { BusinessList } from "./BusinessList"
 
@@ -26,11 +25,10 @@ export const Business: React.FC<BusinessProps> = ({}) => {
             sx={{
                 flexDirection: "column",
                 padding: "0 4vw",
-                gap: "5vw",
+                gap: "4vw",
                 width: "100vw",
                 height: "100%",
                 overflowX: "hidden",
-                justifyContent: "space-between",
             }}
         >
             <CategoriesList />

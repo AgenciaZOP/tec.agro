@@ -29,7 +29,7 @@ export const Chats: React.FC<ChatsProps> = ({ channel }) => {
     return currentChat ? (
         <Chat chat={currentChat} />
     ) : (
-        <Box sx={{ flexDirection: "column", gap: "4vw" }}>
+        <Box sx={{ flexDirection: "column", gap: "2vw" }}>
             <SearchInput placeholder="conversas" onChange={handleChange} />
             {list.map((chat) => (
                 <ChatCard key={chat.id} chat={chat} onClick={() => setCurrentChat(chat)} />

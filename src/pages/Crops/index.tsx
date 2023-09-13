@@ -28,7 +28,6 @@ export const Crops: React.FC<CropsProps> = ({}) => {
                 width: "100vw",
                 height: "100%",
                 overflowX: "hidden",
-                justifyContent: "space-between",
             }}
         >
             <CategoriesList />

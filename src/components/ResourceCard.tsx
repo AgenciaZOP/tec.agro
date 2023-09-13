@@ -30,7 +30,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ variant = "default",
             sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "3vw" }}
         >
             <Avatar src={resource.image} sx={{ width: "15vw", height: "15vw" }} />
-            <Box sx={{ flexDirection: "column", width: "65vw", gap: "0vw" }}>
+            <Box sx={{ flexDirection: "column", width: "65vw", gap: "1  vw" }}>
                 <Box sx={{ justifyContent: "space-between", width: "100%" }}>
                     <p style={{ fontSize: "4vw" }}>{resource.name}</p>
                     <Box sx={{ gap: "1vw" }}>
