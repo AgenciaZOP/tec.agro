@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Box, Button, TextField } from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search"
+import { useFiltersDrawer } from "../hooks/useFiltersDrawer"
 
 interface SearchInputProps {
     placeholder: string
@@ -8,6 +9,7 @@ interface SearchInputProps {
 }
 
 export const SearchInput: React.FC<SearchInputProps> = ({ placeholder, onChange }) => {
+    const filtersDrawer = useFiltersDrawer()
     const [value, setValue] = useState("")
 
     const handleChange = (value: string) => {
@@ -23,7 +25,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({ placeholder, onChange 
             InputProps={{
                 startAdornment: <SearchIcon />,
                 endAdornment: (
-                    <Button variant="contained" color="secondary"
+                    <Button variant="contained" color="secondary" onClick={filtersDrawer.toggle}
                     sx={{
                         borderRadius: "10vw",
                         textTransform: "capitalize",
