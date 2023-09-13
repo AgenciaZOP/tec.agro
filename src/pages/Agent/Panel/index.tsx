@@ -40,7 +40,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                     <p style={{ fontSize: "3.5vw" }}>Como os produtores veem</p>
                     <ResourceCard agent={agent} location="agent" />
                 </Box>
-                <SearchInput placeholder="Buscar por safra" onChange={() => {}} />
+                <SearchInput placeholder="safra" onChange={() => {}} />
             </Box>
             <Box
                 sx={{
