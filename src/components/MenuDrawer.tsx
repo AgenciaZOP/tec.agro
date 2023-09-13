@@ -23,7 +23,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
     const { user, logout } = useUser()
 
     const iconStyle: SxProps = {
-        width: "4vw",
+        width: "5vw",
         height: "auto",
     }
 
@@ -88,7 +88,13 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
                     ))}
             </Box>
             <MenuItem
-                sx={ menuItemStyle }
+                sx={{
+                    fontSize: "5vw",
+                    height: "fit-content",
+                    alignItems: "center",
+                    padding: "0 4vw",
+                    marginTop: "auto"
+                }}
                 onClick={() => {
                     handleClose()
                     logout()
