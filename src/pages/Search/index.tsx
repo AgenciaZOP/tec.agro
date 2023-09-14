@@ -7,9 +7,11 @@ import { Category } from "./Business/Category"
 import { ListCategories } from "./Business/ListCategories"
 import { ListCrops } from "../../components/PanelProducerAgent/ListCrops"
 import { ListSheduleCrops } from "../../components/PanelProducerAgent/ListSheduleCrops"
-import { ListZones } from "./Producer/ListZones"
+import { ListZones as ListZonesPr } from "./Producer/ListZones"
 import { ListAgents } from "./Producer/ListAgents"
 import { useNavigationList } from "../../hooks/useNavigationList"
+import { ListZones } from "./Shipping/ListZones"
+import { Zone } from "./Shipping/Zone"
 
 interface SearchProps {
     user: User
@@ -21,11 +23,12 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
         id: 1,
         //crops: ,
     }
+
     const bottomMenu = useNavigationList()
 
     return (
         <Box sx={{ flexDirection: "column", width: "100%", padding: "10vh 0" }}>
-            <Header />
+            {/* <Header back location="../business" /> */}
             <Routes>
                 <Route path="crops" element={<Crops />} />
                 <Route path="category" element={<Category category={category} />} />
@@ -41,8 +44,10 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                 <Route path="scheduleag" element={<ListSheduleCrops type={bottomMenu.agent} />} />
                 <Route path="cropspr" element={<ListCrops user={user} type={bottomMenu.producer} />} />
                 <Route path="schedulepr" element={<ListSheduleCrops type={bottomMenu.producer} />} />
-                <Route path="zonespr" element={<ListZones user={user} />} />
+                <Route path="zonespr" element={<ListZonesPr user={user} />} />
                 <Route path="agentspr" element={<ListAgents user={user} />} />
+                <Route path="zonessh" element={<ListZones user={user} title="Veículos" />} />
+                <Route path="zone" element={<Zone />} />
             </Routes>
         </Box>
     )

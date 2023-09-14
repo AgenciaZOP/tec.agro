@@ -23,11 +23,24 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
     const { user, logout } = useUser()
 
     const iconStyle: SxProps = {
-        width: "3.5vw",
+        width: "5vw",
         height: "auto",
     }
 
-    const iconButtonStyle: SxProps = { border: "0.5vw solid black", borderRadius: "100%" }
+    const iconButtonStyle: SxProps = {
+        border: "1px solid black",
+        borderRadius: "50%",
+        height: "9vw",
+        width: "9vw",
+        padding: "1.5vw",
+    }
+
+    const menuItemStyle: SxProps = {
+        fontSize: "5vw",
+        height: "fit-content",
+        alignItems: "center",
+        padding: "0 4vw"
+    }
 
     const handleClose = () => {
         setOpen(false)
@@ -47,7 +60,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
                     <KeyboardBackspaceIcon sx={iconStyle} />
                 </IconButton>
 
-                <Box sx={{ gap: "1.8vw", alignItems: "center", fontSize: "3.3vw" }}>
+                <Box sx={{ gap: "2vw", alignItems: "center", fontSize: "3.5vw" }}>
                     Ajuda
                     <IconButton color="primary" sx={iconButtonStyle}>
                         <QuestionMarkIcon sx={iconStyle} />
@@ -58,7 +71,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
             <UserCard user={user!} />
             <UserStats user={user!} sx={{ border: `1px solid gray`, padding: "4vw" }} />
 
-            <Box sx={{ flexDirection: "column", paddingTop: "5vw" }}>
+            <Box sx={{ flexDirection: "column", paddingTop: "4vw" }}>
                 {menus
                     .filter((item) => !item.hidden)
                     .map((menu) => (
@@ -68,14 +81,20 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({}) => {
                                 handleClose()
                                 navigate(menu.location)
                             }}
-                            sx={{ fontSize: "5vw", alignItems: "center" }}
+                            sx={ menuItemStyle }
                         >
                             {menu.title}
                         </MenuItem>
                     ))}
             </Box>
             <MenuItem
-                sx={{ marginTop: "auto", fontSize: "5vw" }}
+                sx={{
+                    fontSize: "5vw",
+                    height: "fit-content",
+                    alignItems: "center",
+                    padding: "0 4vw",
+                    marginTop: "auto"
+                }}
                 onClick={() => {
                     handleClose()
                     logout()

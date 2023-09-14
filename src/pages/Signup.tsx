@@ -30,16 +30,16 @@ export const Signup: React.FC<SignupProps> = ({}) => {
     }
 
     return (
-        <Box sx={{ width: "100%", flexDirection: "column", justifyContent: "center", padding: "20vw", gap: "5vw" }}>
+        <Box sx={{ width: "100%", flexDirection: "column", justifyContent: "center", padding: "4vw", gap: "4vw" }}>
             <p>Preencha os campos abaixo para fazer o cadastro:</p>
             <Formik initialValues={{ username: "", email: "", document: "", password: "", name: "" }} onSubmit={handleSubmit}>
                 {({ values, handleChange }) => (
                     <Form>
-                        <TextField label="nome" name="name" value={values.name} onChange={handleChange} />
-                        <TextField label="nome de usuário" name="username" value={values.username} onChange={handleChange} />
-                        <TextField label="e-mail" name="email" value={values.email} onChange={handleChange} />
+                        <TextField label="Nome" name="name" value={values.name} onChange={handleChange} />
+                        <TextField label="Nome de usuário" name="username" value={values.username} onChange={handleChange} />
+                        <TextField label="E-mail" name="email" value={values.email} onChange={handleChange} />
                         <TextField
-                            label="documento"
+                            label="Documento"
                             name="document"
                             onChange={handleChange}
                             value={values.document}
@@ -50,14 +50,14 @@ export const Signup: React.FC<SignupProps> = ({}) => {
                                 },
                             }}
                         />
-                        <TextField label="senha" name="password" value={values.password} onChange={handleChange} type="password" autoComplete="off" />
-                        <Button variant="contained" type="submit">
+                        <TextField label="Senha" name="password" value={values.password} onChange={handleChange} type="password" autoComplete="off" />
+                        <Button variant="contained" type="submit" style={{ marginTop: "8vw" }}>
                             {signupLoading ? <CircularProgress size="1.5rem" color="secondary" /> : "Enviar"}
                         </Button>
                     </Form>
                 )}
             </Formik>
-            <Button variant="contained" onClick={() => navigate("/login")}>
+            <Button variant="outlined" onClick={() => navigate("/login")}>
                 Voltar
             </Button>
         </Box>

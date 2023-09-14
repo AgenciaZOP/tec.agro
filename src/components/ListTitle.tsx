@@ -15,7 +15,7 @@ export const ListTitle: React.FC<ListTitleProps> = ({ title, location }) => {
     }
 
     return (
-        <Paper elevation={0} sx={{ justifyContent: "space-between", background: "transparent", padding: "2vw 0 " }}>
+        <Paper elevation={0} sx={{ justifyContent: "space-between", background: "transparent", padding: "2vw 0 0" }}>
             <p>{title}</p>
             <p onClick={handleClick}>{"Ver todas >"}</p>
         </Paper>

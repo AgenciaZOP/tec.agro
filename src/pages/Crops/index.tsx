@@ -24,11 +24,10 @@ export const Crops: React.FC<CropsProps> = ({}) => {
             sx={{
                 flexDirection: "column",
                 padding: "0 4vw",
-                gap: "5vw",
+                gap: "4vw",
                 width: "100vw",
                 height: "100%",
                 overflowX: "hidden",
-                justifyContent: "space-between",
             }}
         >
             <CategoriesList />

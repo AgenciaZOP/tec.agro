@@ -12,6 +12,8 @@ import { ChatsProvider } from "../contexts/chatsContext"
 import { BusinessesProvider } from "../contexts/businessesContext"
 import { UsersProvider } from "../contexts/usersContext"
 import { ProducersProvider } from "../contexts/producerContext"
+import { FiltersDrawerProvider } from "../contexts/filtersDrawerContext"
+import { FiltersDrawer } from "./FiltersDrawer"
 
 interface ProvidersProps {
     children: React.ReactNode
@@ -26,20 +28,23 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
                         <UsersProvider>
                             <CropsProvider>
                                 <BusinessesProvider>
-                                    <ProducersProvider>
-                                        <ChatsProvider>
-                                            <HeaderProvider>
-                                                <MenuDrawerProvider>
-                                                    <NotificationsProvider>
+                                <ProducersProvider>
+                                    <ChatsProvider>
+                                        <HeaderProvider>
+                                            <MenuDrawerProvider>
+                                                <NotificationsProvider>
+                                                    <FiltersDrawerProvider>
                                                         <Snackbar />
                                                         <ConfirmDialog />
+                                                        <FiltersDrawer />
                                                         <MenuDrawer />
                                                         <Notifications />
                                                         {children}
-                                                    </NotificationsProvider>
-                                                </MenuDrawerProvider>
-                                            </HeaderProvider>
-                                        </ChatsProvider>
+                                                    </FiltersDrawerProvider>
+                                                </NotificationsProvider>
+                                            </MenuDrawerProvider>
+                                        </HeaderProvider>
+                                    </ChatsProvider>
                                     </ProducersProvider>
                                 </BusinessesProvider>
                             </CropsProvider>

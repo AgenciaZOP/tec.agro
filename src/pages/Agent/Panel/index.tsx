@@ -35,18 +35,18 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                 gap: "3vw",
             }}
         >
-            <Box sx={{ flexDirection: "column", width: "100%", height: "30%", gap: "3vw" }}>
+            <Box sx={{ flexDirection: "column", width: "100%", height: "30%", gap: "2vw" }}>
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <p style={{ fontSize: "3.5vw" }}>Como os produtores veem</p>
                     <ResourceCard agent={agent} location="agent" />
                 </Box>
-                <SearchInput placeholder="Buscar por safra" onChange={() => {}} />
+                <SearchInput placeholder="safra" onChange={() => {}} />
             </Box>
             <Box
                 sx={{
                     width: "100%",
                     height: "65%",
-                    overflow: "auto",
+                    overflowY: "auto",
                     paddingBottom: "1vh",
                     flexDirection: "column",
                     gap: "2vw",

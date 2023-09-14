@@ -4,13 +4,19 @@ import NotificationsIcon from "@mui/icons-material/Notifications"
 import { useHeader } from "../hooks/useHeader"
 import { useMenuDrawer } from "../hooks/useMenuDrawer"
 import { useNotifications } from "../hooks/useNotifications"
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace"
+import { useNavigate } from "react-router-dom"
 
-interface HeaderProps {}
+interface HeaderProps {
+    back?: boolean
+    location?: string
+}
 
-export const Header: React.FC<HeaderProps> = ({}) => {
+export const Header: React.FC<HeaderProps> = ({ back, location }) => {
     const header = useHeader()
     const notifications = useNotifications()
     const menuDrawer = useMenuDrawer()
+    const navigate = useNavigate()
 
     const iconStyle: SxProps = {
         width: "8vw",
@@ -33,8 +39,17 @@ export const Header: React.FC<HeaderProps> = ({}) => {
                 top: 0,
             }}
         >
-            <IconButton color="primary" onClick={menuDrawer.toggle}>
-                <MenuIcon sx={iconStyle} />
+            <IconButton color="primary">
+                {!back ? (
+                    <MenuIcon sx={iconStyle} onClick={menuDrawer.toggle} />
+                ) : (
+                    <KeyboardBackspaceIcon
+                        sx={iconStyle}
+                        onClick={() => {
+                            navigate(`${location}`)
+                        }}
+                    />
+                )}
             </IconButton>
             <p>{header.title}</p>
             <IconButton color="primary" onClick={notifications.toggle}>

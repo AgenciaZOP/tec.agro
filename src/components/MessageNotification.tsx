@@ -16,10 +16,10 @@ export const MessageNotification: React.FC<MessageNotificationProps> = ({ avatar
                 <Avatar />
             </Box>
             <Box sx={{ display: "flex", flexDirection: "column", width: "75%", whiteSpace: "pre-wrap" }}>
-                <p style={{ fontSize: "3.4vw" }}>
+                <p style={{ fontSize: "3.5vw" }}>
                     <span style={{ fontWeight: "bold" }}>{name}</span> lhe enviou uma mensagem
                 </p>
-                <p style={{ color: "gray", fontSize: "2.9vw" }}>5 h atrás</p>
+                <p style={{ color: "gray", fontSize: "3vw" }}>5 h atrás</p>
             </Box>
         </Box>
     )

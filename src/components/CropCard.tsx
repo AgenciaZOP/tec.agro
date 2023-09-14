@@ -20,7 +20,7 @@ export const CropCard: React.FC<CropCardProps> = ({ crop, variant = "default" })
                     <CurrencyText value={crop.price} style={{ fontSize: "4vw" }} />
                 </Box>
 
-                <Box sx={{ fontSize: "2.6vw", justifyContent: "space-between" }}>
+                <Box sx={{ fontSize: "2.75vw", justifyContent: "space-between" }}>
                     <p>Produtor: {crop.producer.rating}</p>
                     <p>Vendas: {crop.producer.sold}</p>
                     <p>Compras: {crop.producer.bought}</p>
@@ -31,8 +31,8 @@ export const CropCard: React.FC<CropCardProps> = ({ crop, variant = "default" })
     ) : (
         <Paper elevation={0} sx={{ flexDirection: "column", alignItems: "center", background: "transparent", gap: "1vw" }}>
             <Avatar src={crop.image} variant="rounded" sx={{ width: "20vw", height: "20vw", boxShadow: "0 0.5vw 1vw gray" }} />
-            <p style={{ fontSize: "3.2vw", fontWeight: "bold" }}>{crop.name}</p>
-            <CurrencyText value={crop.price} style={{ fontSize: "2.8vw" }} />
+            <p style={{ fontSize: "3.5vw", fontWeight: "bold" }}>{crop.name}</p>
+            <CurrencyText value={crop.price} style={{ fontSize: "3vw" }} />
         </Paper>
     )
 }

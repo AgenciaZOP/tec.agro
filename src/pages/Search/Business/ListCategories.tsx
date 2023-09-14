@@ -4,6 +4,7 @@ import { SearchInput } from "../../../components/SearchInput"
 import { CardCategory } from "../../../components/PanelBusinessShipping/CardCategory"
 import { BottomNavigation } from "../../../components/BottomNavigation"
 import { useNavigationList } from "../../../hooks/useNavigationList"
+import { Header } from "../../../components/Header"
 interface ListCategoriesProps {
     title: string
     type: boolean
@@ -15,44 +16,47 @@ export const ListCategories: React.FC<ListCategoriesProps> = ({ title, type, cat
     const bottomMenu = useNavigationList()
 
     return (
-        <Box
-            sx={{
-                width: "100%",
-                padding: "0 4vw",
-                height: "100%",
-                flexDirection: "column",
-                gap: "3vw",
-                paddingBottom: "5vw",
-            }}
-        >
-            <SearchInput placeholder="categorias" onChange={() => {}}></SearchInput>
-            <Paper
-                elevation={2}
+        <Box>
+            <Header back location="../../business/newCategory" />
+            <Box
                 sx={{
                     width: "100%",
-                    height: "70vh ",
-                    borderRadius: "2vw",
-                    padding: "3vw 5vw",
+                    padding: "0 4vw",
+                    height: "100%",
                     flexDirection: "column",
                     gap: "3vw",
-                    overflow: "auto",
+                    paddingBottom: "5vw",
                 }}
             >
-                <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                    <p style={{ fontSize: "4vw", fontWeight: "600", textAlign: "center" }}>{title}</p>
-                    <hr style={{ width: "100%" }} />
-                </Box>
-                <Box sx={{ flexDirection: "column", gap: "2vw" }}>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                </Box>
-            </Paper>
-            <BottomNavigation section={bottomMenu.business} />
+                <SearchInput placeholder="categorias" onChange={() => {}}></SearchInput>
+                <Paper
+                    elevation={2}
+                    sx={{
+                        width: "100%",
+                        height: "70vh ",
+                        borderRadius: "2vw",
+                        padding: "3vw 5vw",
+                        flexDirection: "column",
+                        gap: "3vw",
+                        overflow: "auto",
+                    }}
+                >
+                    <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                        <p style={{ fontSize: "4vw", fontWeight: "600", textAlign: "center" }}>{title}</p>
+                        <hr style={{ width: "100%" }} />
+                    </Box>
+                    <Box sx={{ flexDirection: "column", gap: "2vw" }}>
+                        <CardCategory activeCategory={type} category={category}></CardCategory>
+                        <CardCategory activeCategory={type} category={category}></CardCategory>
+                        <CardCategory activeCategory={type} category={category}></CardCategory>
+                        <CardCategory activeCategory={type} category={category}></CardCategory>
+                        <CardCategory activeCategory={type} category={category}></CardCategory>
+                        <CardCategory activeCategory={type} category={category}></CardCategory>
+                        <CardCategory activeCategory={type} category={category}></CardCategory>
+                    </Box>
+                </Paper>
+                <BottomNavigation section={bottomMenu.business} />
+            </Box>
         </Box>
     )
 }
