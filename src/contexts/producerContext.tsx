@@ -22,7 +22,7 @@ export const ProducersProvider: React.FC<ProducersProviderProps> = ({ children }
     const io = useIo()
 
     const [producers, setProducers] = useState<Producer[]>([])
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     io.on("producer:list", (data: Producer[]) => {
         setProducers(data)
