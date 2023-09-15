@@ -15,13 +15,13 @@ export const BusinessList: React.FC<BusinessListProps> = ({}) => {
             <ListTitle title="Lojas" location="business" />
             {businesses
                 .filter((resource) => resource.active)
-                .map((resource) => (
-                    <ResourceCard
-                        key={resource.id}
-                        resource={resource}
-                        type={[resource.store && "store", resource.service && "service"].map((item) => !!item)}
-                    />
-                ))}
+                .map((resource) => {
+                    const types: SubaccountType[] = []
+                    if (resource.store) types.push("store")
+                    if (resource.service) types.push("service")
+
+                    return <ResourceCard key={resource.id} resource={resource} type={types} />
+                })}
         </Box>
     )
 }
