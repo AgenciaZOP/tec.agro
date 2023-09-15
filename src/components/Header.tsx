@@ -39,17 +39,8 @@ export const Header: React.FC<HeaderProps> = ({ back, location }) => {
                 top: 0,
             }}
         >
-            <IconButton color="primary">
-                {!back ? (
-                    <MenuIcon sx={iconStyle} onClick={menuDrawer.toggle} />
-                ) : (
-                    <KeyboardBackspaceIcon
-                        sx={iconStyle}
-                        onClick={() => {
-                            navigate(`${location}`)
-                        }}
-                    />
-                )}
+            <IconButton color="primary" onClick={() => (!back ? menuDrawer.toggle() : navigate(`${location}`))}>
+                {!back ? <MenuIcon sx={iconStyle} /> : <KeyboardBackspaceIcon sx={iconStyle} />}
             </IconButton>
             <p>{header.title}</p>
             <IconButton color="primary" onClick={notifications.toggle}>
