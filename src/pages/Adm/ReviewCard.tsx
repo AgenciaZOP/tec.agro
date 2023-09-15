@@ -22,7 +22,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ subaccount, onClick }) =
         adm: "Administrador",
     }
 
-    console.log(subaccount.type) // tá chegando Lojas & Serviços, preciso mudar pra que chege uma das chaves do objeto acima
+    console.log(subaccount.type) // tá chegando Lojas & Serviços, preciso mudar pra que chege uma das chaves do objeto acima pra colocar as Tags
 
     return (
         <Box
