@@ -5,6 +5,7 @@ import CloseSharpIcon from "@mui/icons-material/CloseSharp"
 import { backdropStyle } from "../style/backdrop"
 import { StatesList } from "./StatesList"
 import { DistanceSlider } from "./DistanceSlider"
+import { CategoriesList } from "../pages/Crops/CategoriesList"
 
 interface FiltersDrawerProps {}
 
@@ -59,6 +60,7 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({}) => {
                     }}
                 >
                     <h4>Categorias</h4>
+                    <CategoriesList />
                     <hr />
                 </Box>
             </Box>

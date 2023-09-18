@@ -9,7 +9,7 @@ export const CategoriesList: React.FC<CategoriesListProps> = ({}) => {
     const { categories } = useCrops()
     
     return (
-        <Box sx={{ gap: "2vw", width: "100vw", overflowX: "auto", marginLeft: "-4vw", padding: "0 4vw" }}>
+        <Box sx={{ gap: "2vw", overflowX: "auto", margin: "0 -4vw", padding: "0 4vw" }}>
             {categories.map((category) => (
                 <Category key={category.id} category={category} />
             ))}
