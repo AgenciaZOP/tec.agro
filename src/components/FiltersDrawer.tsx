@@ -3,6 +3,7 @@ import { Box, Drawer, IconButton } from "@mui/material"
 import { useFiltersDrawer } from "../hooks/useFiltersDrawer"
 import CloseSharpIcon from "@mui/icons-material/CloseSharp"
 import { backdropStyle } from "../style/backdrop"
+import { StatesList } from "./StatesList"
 
 interface FiltersDrawerProps {}
 
@@ -30,14 +31,33 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({}) => {
                         <CloseSharpIcon sx={{ padding: "1.5vw", height: "9vw", width: "9vw", border: "1px solid black", borderRadius: "50%" }} color="primary" />
                     </IconButton>
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        flexDirection: "column",
+                        gap: "6vw",
+                    }}
+                    >
                     <h4>Localidade</h4>
+                    <StatesList />
+                    <hr />
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        flexDirection: "column",
+                        gap: "6vw",
+                    }}
+                >
                     <h4>Raio de Distância</h4>
+                    <hr />
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        flexDirection: "column",
+                        gap: "6vw",
+                    }}
+                >
                     <h4>Categorias</h4>
+                    <hr />
                 </Box>
             </Box>
         </Drawer>
