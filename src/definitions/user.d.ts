@@ -24,6 +24,7 @@ declare interface User {
     ratings: number
     date: string
 
+    gallery?: string
     crops: Crop[]
     meediatedCrops: MediatedCrop[]
     chats: Chat[]
@@ -49,4 +50,5 @@ interface UpdateUserValues {
     city: string
     district: string
     uf: number | string
+    gallery?: string
 }
