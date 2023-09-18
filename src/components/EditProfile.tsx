@@ -8,6 +8,7 @@ import { useUser } from "../hooks/useUser"
 import { useEstadosBrasil } from "../hooks/useEstadosBrasil"
 import { Avatar, ExtFile, FileInputButton } from "@files-ui/react"
 import colors from "../style/colors"
+import { UploadDocuments } from "./UploadDocuments"
 
 interface EditProfileProps {
     user: User | null
@@ -20,7 +21,6 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
     const estados = useEstadosBrasil()
 
     const [image, setImage] = useState<File>()
-    const [files, setFiles] = useState<ExtFile[]>([])
     const [gallery, setGallery] = useState<ExtFile[]>([])
 
     const styleBox = {
@@ -274,42 +274,8 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                         </Box>
                         <Box sx={styleBox}>
                             <p style={{ fontSize: "3vw" }}>Documentação Enviada</p>
-
-                            <Box sx={{ gap: "2.3vw", width: "100%", flexWrap: "wrap" }}>
-                                {gallery.map((file) => (
-                                    <Avatar
-                                        key={file.id}
-                                        src={file.file}
-                                        onClick={(event) => {
-                                            event.preventDefault()
-                                            setGallery(gallery.filter((item) => item.id != file.id))
-                                        }}
-                                        smartImgFit={"orientation"}
-                                        changeLabel="Clique para remover a imagem"
-                                        // style={{ width: "100%", height: "30vw" }}
-                                        style={{
-                                            width: "10.94vw",
-                                            height: "10.94vw",
-                                            borderRadius: "0.5vw",
-                                            //boxShadow: `3px -5px 0 ${muiColors.green[500]}`,
-                                        }}
-                                    />
-                                ))}
-                                <FileInputButton
-                                    onChange={(files) => setGallery(files)}
-                                    value={gallery}
-                                    behaviour="add"
-                                    label="+"
-                                    accept="image/*"
-                                    color={colors.primary}
-                                    style={{ width: "10vw", padding: "0vw", fontSize: "4vw" }}
-                                />
-                                {/* <IconButton sx={{ display: "flex", justifyContent: "end" }} onClick={() => {}}>
-                                    <ArrowCircleUpSharpIcon color="primary" />
-                                </IconButton> */}
-                            </Box>
+                            <UploadDocuments gallery={gallery} setGallery={setGallery} style={styleBox} />
                         </Box>
-
                         <Button variant="contained" type="submit" sx={{ display: "none" }}>
                             {updateLoading ? <CircularProgress size="1.5rem" color="secondary" /> : "Salvar"}
                         </Button>

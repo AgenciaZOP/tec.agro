@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 import React from "react"
 import { useIo } from "../hooks/useIo"
 
@@ -24,14 +24,25 @@ export const UsersProvider: React.FC<UsersProviderProps> = ({ children }) => {
     const [users, setUsers] = useState<User[]>([])
     const [loading, setLoading] = useState(true)
 
-    io.on("user:list", (data: User[]) => {
-        setUsers(data)
-    })
+    useEffect(() => {
+        io.on("users:update", (data: User) => {
+            setUsers((users) => [...users.filter((item) => item.id != data.id), data])
+        })
 
-    io.on("user:update", (data: User) => {
-        setUsers([...users.filter((item) => item.id != data.id), data])
-    })
+        return () => {
+            io.off("users:update")
+        }
+    }, [users])
 
+    useEffect(() => {
+        io.on("user:list", (data: User[]) => {
+            setUsers(data)
+        })
+
+        return () => {
+            io.off("user:list")
+        }
+    }, [])
 
     return <UsersContext.Provider value={{ users, setUsers, loading, setLoading }}>{children}</UsersContext.Provider>
 }
