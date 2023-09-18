@@ -20,7 +20,16 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
         name: "Máquinas",
     }
     // adicionar as outras subaccounts e ordenar por data?
-    const pending = [...businesses.filter((business) => !business.active).map((item) => ({ ...item, type: "Loja & Serviços" }))]
+    const pending = [
+        ...businesses
+            .filter((business) => !business.active)
+            .map((item) => {
+                const tags: SubaccountType[] = []
+                if (item.store) tags.push("store")
+                if (item.service) tags.push("service")
+                return { ...item, type: tags }
+            }),
+    ]
 
     const [list, setList] = useState(pending)
 
