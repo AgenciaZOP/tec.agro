@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Box } from "@mui/material"
 import { useUsers } from "../../hooks/useUsers"
 
@@ -9,8 +9,8 @@ interface ReviewBoxProps {
 export const ReviewBox: React.FC<ReviewBoxProps> = ({ variant }) => {
     const { users } = useUsers()
 
-    const total = users.filter((user) => user[variant]?.active).length
-    const pending = users.filter((user) => user[variant]?.active == false).length
+    const [total, setTotal] = useState(0)
+    const [pending, setPending] = useState(0)
 
     const colors = {
         producer: "#D2FFB6",
@@ -25,6 +25,11 @@ export const ReviewBox: React.FC<ReviewBoxProps> = ({ variant }) => {
         shipping: "Transportadores",
         business: "Lojas",
     }
+
+    useEffect(() => {
+        setTotal(users.filter((user) => user[variant]?.active).length)
+        setPending(users.filter((user) => user[variant]?.active == false).length)
+    }, [users])
 
     return (
         <Box
