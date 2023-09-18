@@ -38,6 +38,7 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({}) => {
                     sx={{
                         flexDirection: "column",
                         gap: "6vw",
+                        marginBottom: "auto"
                     }}
                     >
                     <h4>Localidade</h4>
@@ -48,8 +49,9 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({}) => {
                     sx={{
                         flexDirection: "column",
                         gap: "6vw",
+                        margin: "auto 0"
                     }}
-                >
+                    >
                     <h4>Raio de Distância</h4>
                     <DistanceSlider />
                     <hr />
@@ -58,6 +60,7 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({}) => {
                     sx={{
                         flexDirection: "column",
                         gap: "6vw",
+                        margin: "auto 0"
                     }}
                 >
                     <h4>Categorias</h4>
