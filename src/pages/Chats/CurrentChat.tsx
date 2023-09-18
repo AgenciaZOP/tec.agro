@@ -1,11 +1,11 @@
 import { Box } from "@mui/material"
-import { Message } from "./Message"
+import { Message } from "../../components/Message"
 
 interface ChatProps {
     chat: Chat
 }
 
-export const Chat: React.FC<ChatProps> = ({ chat }) => {
+export const CurrentChat: React.FC<ChatProps> = ({ chat }) => {
     return (
         <Box sx={{ flexDirection: "column" }}>
             {chat.messages.map((message) => (

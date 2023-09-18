@@ -11,13 +11,15 @@ import {
     TextField,
 } from "@mui/material"
 import { Formik, Form as Formu } from "formik"
-import { Avatar } from "@files-ui/react"
+import { Avatar, ExtFile } from "@files-ui/react"
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline"
 import { useProducers } from "../../../hooks/useProducers"
 import { useSnackbar } from "burgos-snackbar"
 import { inputStyle, paperStyle, styleBox } from "./../../styles"
 import MaskedInput from "../../../components/MaskedInput"
 import { useDocumentMask } from "../../../hooks/useDocumentMask"
+import { UploadDocuments } from "../../../components/UploadDocuments"
+
 interface FormProps {
     user: User
 }
@@ -28,6 +30,8 @@ export const Form: React.FC<FormProps> = ({ user }) => {
     const { snackbar } = useSnackbar()
     const documentMask = useDocumentMask()
     const [image, setImage] = useState<File>()
+    const [gallery, setGallery] = useState<ExtFile[]>([])
+    const [files, setFiles] = useState<ExtFile[]>([])
 
     const initialValues: Producer = {
         date: "",
@@ -43,6 +47,10 @@ export const Form: React.FC<FormProps> = ({ user }) => {
         image: "",
 
         active: false,
+        rating: 5,
+        ratings: 5,
+
+        galleryDocuments: "",
     }
 
     const handleSubmit = (values: Producer) => {
@@ -54,6 +62,15 @@ export const Form: React.FC<FormProps> = ({ user }) => {
         }
 
         producers.new({ ...values, file: image })
+        const formData = new FormData()
+
+        if (files.length > 0) formData.append("file", files[0].file!)
+
+        if (gallery.length > 0) {
+            gallery.map((file) => {
+                formData.append(`gallery-${gallery.indexOf(file)}`, file.file!)
+            })
+        }
     }
 
     return (
@@ -150,27 +167,8 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                                     <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Documentos</p>
                                     <hr />
                                 </Box>
-                                <Box sx={{ gap: "1vw", width: "100%" }}>
-                                    <img
-                                        src="https://contratocerto.com.br/wp-content/uploads/2020/07/Contrato-de-coaching-pdf.jpg"
-                                        style={{ width: "15vw" }}
-                                        alt="Documento"
-                                    />
-                                    <img
-                                        src="https://s2-g1.glbimg.com/_bCeHe8l8gGuZ6XfL0C_rYHhNB4=/0x0:1280x854/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/x/K/iF7eHyTky2IZDMsAvVHQ/whatsapp-image-2019-04-04-at-4.55.07-pm.jpeg"
-                                        style={{ width: "15vw", transform: "rotate(90deg)" }}
-                                        alt=""
-                                    />
-                                    <img
-                                        src="https://manuais.ifsp.edu.br/uploads/images/gallery/2022-07/scaled-1680-/image-1657389184596.png"
-                                        style={{ width: "15vw" }}
-                                        alt=""
-                                    />
 
-                                    <IconButton sx={{ display: "flex", justifyContent: "end" }} onClick={() => {}}>
-                                        <AddCircleOutlineIcon color="primary" />
-                                    </IconButton>
-                                </Box>
+                                <UploadDocuments gallery={gallery} setGallery={setGallery} style={styleBox} />
                             </Box>
                         </Paper>
 

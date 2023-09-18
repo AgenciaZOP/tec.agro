@@ -12,6 +12,7 @@ declare interface Subaccount {
     rating: number
     ratings: number
 
+    galleryDocuments?: string
     type?: SubaccountType[]
 }
 

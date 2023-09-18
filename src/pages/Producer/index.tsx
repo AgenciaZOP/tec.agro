@@ -8,7 +8,7 @@ import { Verification } from "./Signup/Verification"
 import { BottomNavigation } from "../../components/BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
-import { Chats } from "../../components/Chats"
+import { Chats } from "../../pages/Chats"
 import { IntroCrop } from "./Panel/IntroCrop"
 import { RegisterCrop } from "../../components/RegisterCrop"
 import { Analysis } from "../../components/PanelProducerAgent/Analysis"
@@ -64,7 +64,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                         <Route index element={<Signup user={user}></Signup>} />
                         <Route path="form" element={<Form user={user}></Form>} />
                         <Route path="panel" element={<Panel user={user} agent={agent}></Panel>} />
-                        <Route path="chats" element={<Chats></Chats>} />
+                        <Route path="chats" element={<Chats channel="buyer" />} />
                         <Route path="intro" element={<IntroCrop />} />
                         <Route path="register" element={<RegisterCrop />} />
                         <Route path="transactions" element={<Transactions agent={agent} />} />
