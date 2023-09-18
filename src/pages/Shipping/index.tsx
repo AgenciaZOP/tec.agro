@@ -10,12 +10,15 @@ import { BottomNavigation } from "../../components/BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
 import { NewCategory as NewZone } from "../../components/PanelBusinessShipping/NewCategory"
-
+import { useLocation } from "react-router-dom"
 interface ShippingProps {
     user: User
 }
 
 export const Shipping: React.FC<ShippingProps> = ({ user }) => {
+    const location = useLocation()
+    const { pathname } = location
+
     const shipping: Shipping = {
         active: false,
         name: "Transportadora Feed",
@@ -36,10 +39,20 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
         name: "trator",
         type: "",
     }
+
+    const renderHeader = () => {
+        console.log(pathname)
+        if (pathname === "/shipping/newZone") {
+            return <Header back location="/shipping/panel" />
+        } else {
+            return <Header />
+        }
+    }
+
     const bottomMenu = useNavigationList()
     return (
         <Box sx={{ width: "100%", padding: "7vh 0vw 10vh 0vw" }}>
-            <Header />
+            {renderHeader()}
             {user.shipping ? (
                 user.shipping.active ? (
                     <></>

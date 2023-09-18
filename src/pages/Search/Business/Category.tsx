@@ -26,7 +26,6 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
 
     return (
         <Box>
-            <Header back location="../../business" />
             <Box
                 sx={{
                     width: "100%",

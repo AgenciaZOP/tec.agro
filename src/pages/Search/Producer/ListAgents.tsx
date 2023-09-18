@@ -52,7 +52,7 @@ export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
                 <CardCrop user={agent} type="agent" name="Corretor" />
                 <CardCrop user={agent} type="agent" name="Corretor" />
             </Box>
-            <BottomNavigation section={bottomMenu.producer} />
+            <BottomNavigation external section={bottomMenu.producer} />
         </Box>
     )
 }
