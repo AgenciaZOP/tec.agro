@@ -40,25 +40,31 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     useEffect(() => {
         console.log({ user })
 
-        if (user) {
-            io.on("user:update", (data: User) => {
-                if (user.id == data.id) {
-                    setUser({ ...data, image: `${data.image}?time=${new Date().getTime()}` })
-                    navigate("/profile")
-                    setUpdateLoading(false)
-                    setEditing(false)
-                    snackbar({ severity: "success", text: "Dados alterados com sucesso!" })
-                }
-            })
+        io.on("user:update", (data: User) => {
+            console.log({ data, user })
+            if (user?.id == data.id) {
+                setUser(data)
+            }
+        })
 
-            io.on("connect", () => {
-                console.log("reconnected, syncing user")
-                io.emit("client:sync", user)
-            })
-        }
+        io.on("user:update:profile", (data: User) => {
+            if (user?.id == data.id) {
+                setUser({ ...data, image: `${data.image}?time=${new Date().getTime()}` })
+                navigate("/profile")
+                setUpdateLoading(false)
+                setEditing(false)
+                snackbar({ severity: "success", text: "Dados alterados com sucesso!" })
+            }
+        })
+
+        io.on("connect", () => {
+            console.log("reconnected, syncing user")
+            io.emit("client:sync", user)
+        })
 
         return () => {
             io.off("user:update")
+            io.off("user:update:profile")
         }
     }, [user])
 

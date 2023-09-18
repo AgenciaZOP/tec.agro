@@ -19,22 +19,28 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
     console.log(producers)
 
     // adicionar as outras subaccounts
-    const pending = [
-        ...businesses
-            .filter((business) => !business.active)
-            .map((item) => {
-                const tags: SubaccountType[] = []
-                if (item.store) tags.push("store")
-                if (item.service) tags.push("service")
-                return { ...item, type: tags }
-            }),
-    ].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    
 
-    const [list, setList] = useState(pending)
+    const [list, setList] = useState<Subaccount[]>([])
 
     const handleSearch = (value: string) => {
-        setList(pending.filter((item) => item.name.toLowerCase().includes(value.toLowerCase())))
+        setList(list.filter((item) => item.name.toLowerCase().includes(value.toLowerCase())))
     }
+
+    useEffect(() => {
+        const pending = [
+            ...businesses
+                .filter((business) => !business.active)
+                .map((item) => {
+                    const tags: SubaccountType[] = []
+                    if (item.store) tags.push("store")
+                    if (item.service) tags.push("service")
+                    return { ...item, type: tags }
+                }),
+        ].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+
+        setList(pending)
+    }, [businesses])
 
     useEffect(() => {
         header.setTitle("Análises")
