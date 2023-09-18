@@ -1,12 +1,13 @@
 import { Box, IconButton, Button, CircularProgress, MenuItem } from "@mui/material"
 import { TextField } from "./TextField"
 import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
-import { Form, Formik, FormikProps } from "formik"
+import { Form, Formik, FormikProps, useFormikContext } from "formik"
 import { useEffect, useState } from "react"
-import { Avatar } from "@files-ui/react"
 import MaskedInput from "../components/MaskedInput"
 import { useUser } from "../hooks/useUser"
 import { useEstadosBrasil } from "../hooks/useEstadosBrasil"
+import { Avatar, ExtFile, FileInputButton } from "@files-ui/react"
+import colors from "../style/colors"
 
 interface EditProfileProps {
     user: User | null
@@ -19,6 +20,8 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
     const estados = useEstadosBrasil()
 
     const [image, setImage] = useState<File>()
+    const [files, setFiles] = useState<ExtFile[]>([])
+    const [gallery, setGallery] = useState<ExtFile[]>([])
 
     const styleBox = {
         flexDirection: "column",
@@ -42,7 +45,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
     }
     const webkitbg = {
         "& .MuiInputBase-input.MuiOutlinedInput-input:-webkit-autofill": {
-            "-webkit-box-shadow": ` 0 0 0 100vw "white" inset`,
+            WebkitBoxShadow: ` 0 0 0 100vw "white" inset`,
             borderRadius: "initial",
         },
     }
@@ -61,6 +64,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
         city: user?.city || "",
         district: user?.district || "",
         uf: estados.find((estado) => estado.value == user?.uf)?.id || 0,
+        gallery: user?.gallery || "",
     }
 
     return (
@@ -73,7 +77,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
             }}
         >
             <Formik initialValues={initialValues} onSubmit={(values) => handleSubmit(values, image)} innerRef={formRef}>
-                {({ values, handleChange }) => (
+                {({ values, handleChange, setFieldValue }) => (
                     <Form>
                         <Avatar
                             src={image || user?.image}
@@ -233,7 +237,14 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                                 </TextField>
                             </Box>
 
-                            <TextField onChange={handleChange} sx={inputStyle} label="Cidade" name="city" variant="standard" value={values.city} />
+                            <TextField
+                                onChange={handleChange}
+                                sx={inputStyle}
+                                label="Cidade"
+                                name="city"
+                                variant="standard"
+                                value={values.city}
+                            />
                             <TextField
                                 onChange={handleChange}
                                 sx={inputStyle}
@@ -264,30 +275,38 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
                         <Box sx={styleBox}>
                             <p style={{ fontSize: "3vw" }}>Documentação Enviada</p>
 
-                            <Box sx={{ gap: "1vw", width: "100%" }}>
-                                <img
-                                    src="https://contratocerto.com.br/wp-content/uploads/2020/07/Contrato-de-coaching-pdf.jpg"
-                                    style={{ width: "12vw" }}
-                                    alt="Documento"
+                            <Box sx={{ gap: "2.3vw", width: "100%", flexWrap: "wrap" }}>
+                                {gallery.map((file) => (
+                                    <Avatar
+                                        key={file.id}
+                                        src={file.file}
+                                        onClick={(event) => {
+                                            event.preventDefault()
+                                            setGallery(gallery.filter((item) => item.id != file.id))
+                                        }}
+                                        smartImgFit={"orientation"}
+                                        changeLabel="Clique para remover a imagem"
+                                        // style={{ width: "100%", height: "30vw" }}
+                                        style={{
+                                            width: "10.94vw",
+                                            height: "10.94vw",
+                                            borderRadius: "0.5vw",
+                                            //boxShadow: `3px -5px 0 ${muiColors.green[500]}`,
+                                        }}
+                                    />
+                                ))}
+                                <FileInputButton
+                                    onChange={(files) => setGallery(files)}
+                                    value={gallery}
+                                    behaviour="add"
+                                    label="+"
+                                    accept="image/*"
+                                    color={colors.primary}
+                                    style={{ width: "10vw", padding: "0vw", fontSize: "4vw" }}
                                 />
-                                <img
-                                    src="https://s2-g1.glbimg.com/_bCeHe8l8gGuZ6XfL0C_rYHhNB4=/0x0:1280x854/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/x/K/iF7eHyTky2IZDMsAvVHQ/whatsapp-image-2019-04-04-at-4.55.07-pm.jpeg"
-                                    style={{ width: "12vw", transform: "rotate(90deg)" }}
-                                    alt=""
-                                />
-                                <img
-                                    src="https://manuais.ifsp.edu.br/uploads/images/gallery/2022-07/scaled-1680-/image-1657389184596.png"
-                                    style={{ width: "12vw" }}
-                                    alt=""
-                                />
-                                <img
-                                    src="https://contratocerto.com.br/wp-content/uploads/2020/07/Contrato-de-coaching-pdf.jpg"
-                                    style={{ width: "12vw" }}
-                                    alt="Documento"
-                                />
-                                <IconButton sx={{ display: "flex", justifyContent: "end" }} onClick={() => {}}>
+                                {/* <IconButton sx={{ display: "flex", justifyContent: "end" }} onClick={() => {}}>
                                     <ArrowCircleUpSharpIcon color="primary" />
-                                </IconButton>
+                                </IconButton> */}
                             </Box>
                         </Box>
 
