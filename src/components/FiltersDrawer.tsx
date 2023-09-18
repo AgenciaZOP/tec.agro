@@ -4,6 +4,7 @@ import { useFiltersDrawer } from "../hooks/useFiltersDrawer"
 import CloseSharpIcon from "@mui/icons-material/CloseSharp"
 import { backdropStyle } from "../style/backdrop"
 import { StatesList } from "./StatesList"
+import { DistanceSlider } from "./DistanceSlider"
 
 interface FiltersDrawerProps {}
 
@@ -22,7 +23,7 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({}) => {
             PaperProps={{ sx: { width: "80vw" } }}
             ModalProps={{ BackdropProps: { sx: backdropStyle } }}
         >
-            <Box sx={{ padding: "4vw", display: "flex", flexDirection: "column", height: "50%", justifyContent: "space-between", gap: "5vw" }}>
+            <Box sx={{ padding: "4vw", display: "flex", flexDirection: "column", height: "60%", justifyContent: "space-between", gap: "5vw" }}>
                 <Box sx={{ alignItems: "center", justifyContent: "space-between" }}>
                     <Box sx={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
                         <h3 style={{ fontWeight: "500" }}>Filtros</h3>
@@ -48,6 +49,7 @@ export const FiltersDrawer: React.FC<FiltersDrawerProps> = ({}) => {
                     }}
                 >
                     <h4>Raio de Distância</h4>
+                    <DistanceSlider />
                     <hr />
                 </Box>
                 <Box
