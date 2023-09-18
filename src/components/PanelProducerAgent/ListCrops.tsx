@@ -4,6 +4,7 @@ import { SearchInput } from "../SearchInput"
 import { BottomNavigation } from "../BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { CardCrop } from "./CardCrop"
+import { Header } from "../Header"
 
 interface ListCropsProps {
     user: User

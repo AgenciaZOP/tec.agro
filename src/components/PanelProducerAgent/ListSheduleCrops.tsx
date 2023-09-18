@@ -4,6 +4,7 @@ import { SearchInput } from "../SearchInput"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { BottomNavigation } from "../BottomNavigation"
 import { Schedule } from "./Schedule"
+import { Header } from "../Header"
 
 interface ListSheduleCropsProps {
     type: NavigationMenu
@@ -28,7 +29,7 @@ export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
                     height: "91%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw 0",
+                    padding: "3vw 4vw",
                     gap: "3vw",
                 }}
             >

@@ -27,8 +27,6 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
 
     return (
         <>
-            <Header back location="../../business" />
-
             <Box sx={{ width: "100%", padding: "0 3vw", height: "100%", overflow: "auto" }}>
                 <Box sx={{ width: "100%", flexDirection: "column", gap: "3vw" }}>
                     <Paper
@@ -46,7 +44,7 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
                             {({ values, handleChange }) => (
                                 <Form>
                                     <TextField
-                                        label="Nome da Categoria"
+                                        label="Nome da Região"
                                         variant="standard"
                                         sx={{
                                             "& .MuiInputBase-input": {

@@ -5,6 +5,7 @@ import { useNavigationList } from "../../../hooks/useNavigationList"
 import { SearchInput } from "../../../components/SearchInput"
 import { ListTitle } from "../../../components/ListTitle"
 import { ResourceCard } from "../../../components/PanelProducerAgent/ResourceCard"
+import { Header } from "../../../components/Header"
 
 interface ListZonesProps {
     user: User
@@ -40,12 +41,12 @@ export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
             >
                 <ListTitle title="Região #1" location="agentspr" />
                 <Box sx={{ flexDirection: "column", gap: "3vw" }}>
-                    <ResourceCard agent={agent} location="producer/analysis" />
+                    <ResourceCard agent={agent} location="producer/analysisag" />
                 </Box>
                 <ListTitle title="Região #2" location="" />
                 <Box sx={{ flexDirection: "column", gap: "3vw" }}></Box>
             </Box>
-            <BottomNavigation section={bottomMenu.producer} />
+            <BottomNavigation external section={bottomMenu.producer} />
         </Box>
     )
 }
