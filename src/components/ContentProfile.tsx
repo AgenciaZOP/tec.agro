@@ -12,6 +12,7 @@ import { useUser } from "../hooks/useUser"
 import { useDataHandler } from "../hooks/useDataHandler"
 import { FormikProps } from "formik"
 import { useEstadosBrasil } from "../hooks/useEstadosBrasil"
+import { ExtFile, FileInputButton } from "@files-ui/react"
 
 interface ContentProfileProps {
     user: User | null
@@ -31,6 +32,9 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
     const [price, setPrice] = useState("125.000,02")
     const [weight, setWeight] = useState(9.1)
     const [date, setDate] = useState("19/05/2023")
+
+    const [files, setFiles] = useState<ExtFile[]>([])
+    const [gallery, setGallery] = useState<ExtFile[]>([])
 
     const handleEditing = () => {
         if (isEditing) {
@@ -53,6 +57,15 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
         }
 
         update(data)
+        const formData = new FormData()
+
+        if (files.length > 0) formData.append("file", files[0].file!)
+
+        if (gallery.length > 0) {
+            gallery.map((file) => {
+                formData.append(`gallery-${gallery.indexOf(file)}`, file.file!)
+            })
+        }
     }
 
     useEffect(() => {
@@ -150,8 +163,22 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
             >
                 <ListTitle title="Transações Recentes" location="transactions" />
                 <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw" }}>
-                    <Transactions title={title} price={price} weight={weight} company={company} date={date} haveSeller={true} />
-                    <Transactions title={"Safra de café"} price={"45.287,23"} weight={5.8} company={company} date={"27/03/2023"} haveSeller={false} />
+                    <Transactions
+                        title={title}
+                        price={price}
+                        weight={weight}
+                        company={company}
+                        date={date}
+                        haveSeller={true}
+                    />
+                    <Transactions
+                        title={"Safra de café"}
+                        price={"45.287,23"}
+                        weight={5.8}
+                        company={company}
+                        date={"27/03/2023"}
+                        haveSeller={false}
+                    />
                 </Box>
             </Box>
             <Box
@@ -164,7 +191,9 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                 <Paper elevation={3} sx={{ borderRadius: "3vw", flexDirection: "column", height: "max-content" }}>
                     <Comment
                         user={"Hellen Katsi"}
-                        comment={"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."}
+                        comment={
+                            "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."
+                        }
                         qtdStars={5}
                         date={"5 de Fevereiro"}
                     />{" "}

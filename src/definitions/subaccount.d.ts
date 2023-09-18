@@ -12,7 +12,7 @@ declare interface Subaccount {
     rating: number
     ratings: number
 
-    type?: string
+    type?: SubaccountType[]
 }
 
 declare type SubaccountType = "agent" | "business" | "producer" | "shipping" | "store" | "service" | "adm"

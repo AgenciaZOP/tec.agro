@@ -22,8 +22,6 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ subaccount, onClick }) =
         adm: "Administrador",
     }
 
-    console.log(subaccount.type) // tá chegando Lojas & Serviços, preciso mudar pra que chege uma das chaves do objeto acima pra colocar as Tags
-
     return (
         <Box
             onClick={() => onClick()}
@@ -32,7 +30,11 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ subaccount, onClick }) =
             <Avatar src={subaccount.image} sx={{ width: "15vw", height: "15vw" }} />
             <Box sx={{ flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
                 <p style={{ fontSize: "4vw", fontWeight: "bold" }}>{subaccount.name}</p>
-                <Tag variant={subaccount.type as SubaccountType} name={tagTitle[subaccount.type as SubaccountType]} style="" />
+                <Box sx={{ gap: "2vw" }}>
+                    {subaccount.type?.map((tag) => (
+                        <Tag key={tag} variant={tag} name={tagTitle[tag]} style="" />
+                    ))}
+                </Box>
                 <p style={{ fontSize: "3vw" }}>{getHours(new Date(subaccount.date))} h atrás</p>
             </Box>
             <ReplyIcon sx={{ rotate: "180deg", transform: "scaleY(-1)", marginLeft: "auto" }} />
