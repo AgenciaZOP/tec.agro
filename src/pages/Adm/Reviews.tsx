@@ -7,6 +7,7 @@ import { ReviewCard } from "./ReviewCard"
 import { useNavigate } from "react-router-dom"
 import { ListTitle } from "../../components/ListTitle"
 import { CardCategory } from "../../components/PanelBusinessShipping/CardCategory"
+import { useProducers } from "../../hooks/useProducers"
 
 interface ReviewsProps {}
 
@@ -14,12 +15,10 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
     const header = useHeader()
     const navigate = useNavigate()
     const { businesses } = useBusinesses()
+    const { producers } = useProducers()
+    console.log(producers)
 
-    const category: Category = {
-        id: 0,
-        name: "Máquinas",
-    }
-    // adicionar as outras subaccounts e ordenar por data?
+    // adicionar as outras subaccounts
     const pending = [
         ...businesses
             .filter((business) => !business.active)
@@ -29,7 +28,7 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
                 if (item.service) tags.push("service")
                 return { ...item, type: tags }
             }),
-    ]
+    ].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
     const [list, setList] = useState(pending)
 
