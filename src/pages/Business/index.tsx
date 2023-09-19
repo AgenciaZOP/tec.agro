@@ -67,7 +67,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                         <Verification />
                     )
                 ) : (
-                    <Box sx={{ padding: "10vw 4vw 0", width: "100%" }}>
+                    <Box sx={{ padding: "10vw 0 0", width: "100%" }}>
                         <Routes>
                             <Route index element={<Signup user={user}></Signup>} />
                             <Route path="form" element={<Form user={user}></Form>} />
