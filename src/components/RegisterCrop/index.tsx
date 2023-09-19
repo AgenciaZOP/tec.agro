@@ -55,26 +55,25 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                padding: "0 0vw",
+                padding: "0",
             }}
         >
-            <Paper
-                elevation={0}
+            <Box
                 sx={{
-                    width: "100%",
+                    width: "92vw",
                     height: "100%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw",
                     gap: "2vw",
                     borderRadius: "2vw",
+                    margin: "0 4vw"
                 }}
             >
                 <p style={{ width: "100%", textAlign: "center" }}>Preencha os dados abaixo</p>
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     {({ values, handleChange }) => (
                         <Form>
-                            <Box
+                            <Paper
                                 sx={{
                                     width: "100%",
                                     border: "0.1vw solid gray",
@@ -125,8 +124,8 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                         />
                                     </Box>
                                 </Box>
-                            </Box>
-                            <Box
+                            </Paper>
+                            <Paper
                                 sx={{
                                     width: "100%",
                                     border: "0.1vw solid gray",
@@ -162,8 +161,8 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                         sx={inputStyle}
                                     />
                                 </Box>
-                            </Box>
-                            <Box
+                            </Paper>
+                            <Paper
                                 sx={{
                                     width: "100%",
                                     border: "0.1vw solid gray",
@@ -199,22 +198,20 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                         sx={inputStyle}
                                     />
                                 </Box>
-                            </Box>
+                            </Paper>
                             <Button
                                 variant="contained"
                                 color="primary"
                                 onClick={() => {}}
-                                size="small"
-                                style={{ alignItems: "center", gap: "2vw" }}
+                                style={{ alignItems: "center", gap: "2vw", margin: "2vw 0" }}
                             >
                                 Publicar
                                 <CheckCircleOutlineOutlinedIcon color="secondary" />
                             </Button>
                             <Button
                                 variant="contained"
-                                style={{ backgroundColor: "gray", alignItems: "center", gap: "2vw" }}
+                                style={{ backgroundColor: "gray", alignItems: "center", gap: "2vw", marginBottom: "4vw" }}
                                 onClick={() => {}}
-                                size="small"
                             >
                                 Agendar
                                 <DateRangeOutlinedIcon color="secondary" />
@@ -222,7 +219,7 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                         </Form>
                     )}
                 </Formik>
-            </Paper>
+            </Box>
         </Box>
     )
 }

@@ -28,13 +28,13 @@ export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
         active: false,
     }
     return (
-        <Box sx={{ height: "100%", padding: "0 2vw", flexDirection: "column" }}>
+        <Box sx={{ height: "100%", padding: "0", flexDirection: "column" }}>
             <SearchInput placeholder="corretor" onChange={() => {}} />
             <Box
                 sx={{
                     overflow: "auto",
                     height: "90%",
-                    padding: "3vw 2vw",
+                    padding: "3vw 4vw",
                     flexDirection: "column",
                     gap: "2vw",
                 }}

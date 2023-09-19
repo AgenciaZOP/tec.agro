@@ -31,7 +31,7 @@ export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                padding: "2vw",
+                padding: "0",
                 gap: "3vw",
             }}
         >
@@ -39,7 +39,7 @@ export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
             <Box
                 sx={{
                     height: "90%",
-                    padding: "0 2vw",
+                    padding: "3vw 4vw",
                     overflow: "auto",
                     flexDirection: "column",
                     gap: "3vw",
