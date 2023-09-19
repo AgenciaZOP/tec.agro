@@ -11,12 +11,12 @@ export const CardNotification: React.FC<CardNotificationProps> = ({}) => {
 
     return (
         <Box
-            sx={{ display: "flex", flexDirection: "row", gap: "4vw", width: "100%" }}
+            sx={{ display: "flex", flexDirection: "row", gap: "4vw", width: "100%", padding: "1.5vw 3vw" }}
             onClick={() => {
                 navigate("/agent/analysis")
             }}
         >
-            <Avatar src={profile} />
+            <Avatar src={profile} sx={{ width: "12vw", height: "12vw" }} />
 
             <Box sx={{ display: "flex", flexDirection: "column", width: "80%", whiteSpace: "pre-wrap" }}>
                 <p style={{ fontSize: "3.4vw" }}>

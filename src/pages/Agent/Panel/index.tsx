@@ -35,7 +35,14 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                 gap: "3vw",
             }}
         >
-            <Box sx={{ flexDirection: "column", width: "100%", height: "38vw", gap: "2vw" }}>
+            <Box
+                sx={{
+                    flexDirection: "column",
+                    padding: "0 4vw",
+                    width: "100%",
+                    height: "38vw",
+                    gap: "2vw"
+                }}>
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <p style={{ fontSize: "3.5vw" }}>Como os produtores veem</p>
                     <ResourceCard agent={agent} location="agent" />
@@ -47,7 +54,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                     width: "100%",
                     height: "65%",
                     overflowY: "auto",
-                    paddingBottom: "1vh",
+                    padding: "0 4vw",
                     flexDirection: "column",
                     gap: "2vw",
                 }}

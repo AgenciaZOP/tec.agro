@@ -22,7 +22,7 @@ export const Requests: React.FC<RequestsProps> = ({}) => {
                     height: "91%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw 0",
+                    padding: "0 4vw",
                     gap: "2vw",
                 }}
             >
