@@ -51,7 +51,7 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
 
     const bottomMenu = useNavigationList()
     return (
-        <Box sx={{ width: "100%", padding: "7vh 0vw 10vh 0vw" }}>
+        <Box sx={{ width: "100%", padding: "7vh 0 10vh" }}>
             {renderHeader()}
             {user.shipping ? (
                 user.shipping.active ? (

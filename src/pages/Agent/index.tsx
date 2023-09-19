@@ -20,7 +20,7 @@ interface AgentProps {
 export const Agent: React.FC<AgentProps> = ({ user }) => {
     const bottomMenu = useNavigationList()
     return (
-        <Box sx={{ width: "100%", padding: "7vh 0vw 10vh 0vw" }}>
+        <Box sx={{ width: "100%", padding: "7vh 0 10vh" }}>
             <Header />
             {user.agent ? (
                 user.agent.active ? (

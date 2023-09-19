@@ -40,7 +40,8 @@ export const Chats: React.FC<ChatsProps> = ({ channel }) => {
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                gap: "2vw"
+                gap: "2vw",
+                padding: "0 4vw"
             }}
         >
             <SearchInput placeholder="conversas" onChange={handleChange} />

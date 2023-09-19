@@ -17,16 +17,18 @@ export const Home: React.FC<HomeProps> = ({ user }) => {
     const bottomMenu = useNavigationList()
 
     return (
-        <Box sx={{ flexDirection: "column", width: "100%", padding: "10vh 0" }}>
+        <>
             <Header />
-            <Routes>
-                <Route index element={<Crops />} />
-                <Route path="business" element={<Business />} />
-                <Route path="shipping" element={<Shipping />} />
-                <Route path="chats/*" element={<Chats channel="buyer" />} />
-                <Route path="search" element={<Search user={user} />} />
-            </Routes>
-            <BottomNavigation section={bottomMenu.home} />
-        </Box>
+            <Box sx={{ width: "100%", padding: "8vh 0 10vh" }}>
+                <Routes>
+                    <Route index element={<Crops />} />
+                    <Route path="business" element={<Business />} />
+                    <Route path="shipping" element={<Shipping />} />
+                    <Route path="chats/*" element={<Chats channel="buyer" />} />
+                    <Route path="search" element={<Search user={user} />} />
+                </Routes>
+                <BottomNavigation section={bottomMenu.home} />
+            </Box>
+        </>
     )
 }
