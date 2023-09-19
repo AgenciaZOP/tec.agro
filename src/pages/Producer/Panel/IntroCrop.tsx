@@ -19,20 +19,21 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                gap: "3vw",
-                padding: "0vw",
+                gap: "4vw",
+                padding: "0",
             }}
         >
             <Paper
                 elevation={1}
                 sx={{
-                    width: "100%",
+                    width: "92vw",
                     height: "65%",
                     overflow: "auto",
                     flexDirection: "column",
                     padding: "3vw",
                     gap: "2vw",
                     borderRadius: "3vw",
+                    margin: "0 4vw"
                 }}
             >
                 <Box
@@ -90,13 +91,14 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
             <Paper
                 elevation={1}
                 sx={{
-                    width: "100%",
+                    width: "92vw",
                     height: "30%",
                     overflow: "auto",
                     flexDirection: "column",
                     padding: "3vw",
                     gap: "2vw",
                     borderRadius: "3vw",
+                    margin: "0 4vw"
                 }}
             >
                 <Box
