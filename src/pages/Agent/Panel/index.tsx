@@ -35,7 +35,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                 gap: "3vw",
             }}
         >
-            <Box sx={{ flexDirection: "column", width: "100%", height: "30%", gap: "2vw" }}>
+            <Box sx={{ flexDirection: "column", width: "100%", height: "38vw", gap: "2vw" }}>
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <p style={{ fontSize: "3.5vw" }}>Como os produtores veem</p>
                     <ResourceCard agent={agent} location="agent" />
@@ -54,7 +54,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
             >
                 <Schedule status="pending" />
                 <Schedule status="contact" />
-                <Box sx={{ flexDirection: "column" }}>
+                <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <ListTitle title="Suas Safras" location="cropsag"></ListTitle>
                     <CardCrop
                         user={agent}
@@ -65,7 +65,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                         handleClick={() => {}}
                     />
                 </Box>
-                <Box sx={{ flexDirection: "column" }}>
+                <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <ListTitle title="Agendadas" location="scheduleag"></ListTitle>
                     <Schedule status="schedule" />
                 </Box>

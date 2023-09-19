@@ -34,9 +34,9 @@ export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
                 sx={{
                     overflow: "auto",
                     height: "90%",
-                    padding: "3vw 5vw",
+                    padding: "3vw 2vw",
                     flexDirection: "column",
-                    gap: "1vw",
+                    gap: "2vw",
                 }}
             >
                 <ListTitle title="Região #1" location="agentspr" />

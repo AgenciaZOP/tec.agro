@@ -18,7 +18,7 @@ export const ModalCategory: React.FC<ModalCategoryProps> = ({ title, product, lo
                 padding: "3vw 3vw",
 
                 height: "max-content",
-                gap: "1vw",
+                gap: "2vw",
                 borderRadius: "2vw",
                 overflow: "hidden",
             }}
