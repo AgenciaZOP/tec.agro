@@ -69,7 +69,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
     return (
         <>
             {renderHeader()}
-            <Box sx={{ width: "100%", padding: "7vh 0vw 10vh 0vw" }}>
+            <Box sx={{ width: "100%", padding: "7vh 0 10vh" }}>
                 {user.producer ? (
                     user.producer.active ? (
                         <></>
