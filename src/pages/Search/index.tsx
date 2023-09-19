@@ -12,6 +12,7 @@ import { ListAgents } from "./Producer/ListAgents"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { ListZones } from "./Shipping/ListZones"
 import { Zone } from "./Shipping/Zone"
+import { ListTransactions } from "../Adm/ListTransactions"
 
 interface SearchProps {
     user: User
@@ -48,6 +49,8 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
             return <Header back location="/shipping/panel" />
         } else if (pathname === "/search/crops") {
             return <Header back location="/home" />
+        } else if (pathname === "/search/paid") {
+            return <Header back location="/adm/transactions" />
         } else {
             return <Header />
         }
@@ -68,6 +71,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                 <Route path="agentspr" element={<ListAgents user={user} />} />
                 <Route path="zonessh" element={<ListZones user={user} title="Veículos" />} />
                 <Route path="zone" element={<Zone />} />
+                {/* <Route path="paid" element={<ListTransactions user={user}/>} /> */}
             </Routes>
         </Box>
     )

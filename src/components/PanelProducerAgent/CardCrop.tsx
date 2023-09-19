@@ -6,9 +6,9 @@ interface CardCropProps {
     user: Agent | Producer
     type: SubaccountType
     name: string
-    handleClick: () => void
-    transactions: boolean
-    variant: boolean
+    handleClick?: () => void
+    transactions?: boolean
+    variant?: boolean
 }
 
 export const CardCrop: React.FC<CardCropProps> = ({ variant, user, type, name, handleClick, transactions }) => {

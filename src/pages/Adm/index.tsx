@@ -8,6 +8,7 @@ import { Reviews } from "./Reviews"
 import { ReviewProfile } from "./ReviewProfile"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { useLocation } from "react-router-dom"
+import { ListTransactions } from "./ListTransactions"
 
 interface AdmProps {
     user: User
@@ -46,6 +47,7 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
                     <Route index element={<Panel />} />
                     <Route path="reviews" element={<Reviews />} />
                     <Route path="review" element={<ReviewProfile />} />
+                    <Route path="transactions" element={<ListTransactions producer={user} />} />
                 </Routes>
             </Box>
             <BottomNavigation section={bottomMenu.admin} />

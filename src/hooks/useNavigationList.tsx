@@ -39,7 +39,7 @@ export const useNavigationList = () => {
             {
                 id: 3,
                 title: "Transações",
-                location: "/business",
+                location: "/transactions",
                 icon: <SwapHorizIcon sx={iconStyle} />,
             },
             {

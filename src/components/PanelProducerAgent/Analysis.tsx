@@ -18,6 +18,19 @@ interface AnalysisProps {
 export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, location }) => {
     const navigate = useNavigate()
 
+    const crop: Crop = {
+        description: "",
+        date: "25/02/2355",
+        gallery: "",
+        id: 20,
+        image: "",
+        name: "Safra de feijão",
+        price: 2541.54,
+        producer: user,
+        rating: 5,
+        sold: 3421.5,
+        weight: 1000,
+    }
     return (
         <Box
             sx={{
@@ -25,7 +38,7 @@ export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, lo
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                padding: "0 4vw",
+                padding: "0 0vw",
                 paddingBottom: "3vh",
                 overflow: "auto",
             }}
@@ -44,22 +57,8 @@ export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, lo
             <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                 <ListTitle title="Transações Recentes" location="" />
                 <Box sx={{ flexDirection: "column", gap: "3vw" }}>
-                    <Transactions
-                        title={"Safra de café"}
-                        price={"45.287,23"}
-                        weight={5.8}
-                        company={"Transportadora"}
-                        date={"27/03/2023"}
-                        haveSeller={false}
-                    />
-                    <Transactions
-                        title={"Safra de café"}
-                        price={"45.287,23"}
-                        weight={5.8}
-                        company={"Transportadora"}
-                        date={"27/03/2023"}
-                        haveSeller={false}
-                    />
+                    <Transactions crop={crop} company={"Transportadora"} date={"27/03/2023"} haveSeller={false} />
+                    <Transactions crop={crop} company={"Transportadora"} date={"27/03/2023"} haveSeller={false} />
                 </Box>
             </Box>
             <Box sx={{ flexDirection: "column", gap: "1vw" }}>

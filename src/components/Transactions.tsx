@@ -6,16 +6,14 @@ import profile2 from "../assets/person.jpg"
 import profile3 from "../assets/person2.jpg"
 
 interface TransactionsProps {
-    title: string
-    weight: number
+    crop: Crop
     company: string
-    price: string
     date: string
     haveSeller: boolean
     avatar?: React.ReactElement
 }
 
-export const Transactions: React.FC<TransactionsProps> = ({ title, weight, company, price, date, haveSeller, avatar }) => {
+export const Transactions: React.FC<TransactionsProps> = ({ crop, date, company, haveSeller, avatar }) => {
     return (
         <Paper
             elevation={3}
@@ -38,12 +36,13 @@ export const Transactions: React.FC<TransactionsProps> = ({ title, weight, compa
                 >
                     <Box sx={{ flexDirection: "column" }}>
                         <p style={{ fontSize: "2.7vw" }}>
-                            {title} | <span style={{ fontSize: "2.3vw" }}>{weight.toLocaleString("pt-BR")} toneladas</span>
+                            {crop.name} |{" "}
+                            <span style={{ fontSize: "2.3vw" }}>{crop.weight.toLocaleString("pt-BR")} toneladas</span>
                         </p>
                         <p style={{ fontSize: "2.1vw" }}>[{company}]</p>
                     </Box>
                     <Box sx={{ flexDirection: "column", justifyContent: "flex-end" }}>
-                        <p style={{ fontSize: "2.7vw" }}>R$ {price}</p>
+                        <p style={{ fontSize: "2.7vw" }}>R$ {crop.price}</p>
                         <p style={{ fontSize: "2.3vw", textAlign: "right" }}>{date}</p>
                     </Box>
                 </Box>
