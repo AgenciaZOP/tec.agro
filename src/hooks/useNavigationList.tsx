@@ -33,7 +33,7 @@ export const useNavigationList = () => {
             {
                 id: 2,
                 title: "Chamados",
-                location: "/business",
+                location: "/chats",
                 icon: <ChatIcon sx={iconStyle} />,
             },
             {

@@ -9,6 +9,8 @@ import { ReviewProfile } from "./ReviewProfile"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { useLocation } from "react-router-dom"
 import { ListTransactions } from "./ListTransactions"
+import { DescriptionCrop } from "../../components/DescriptionCrop"
+import { Chats } from "../Chats"
 
 interface AdmProps {
     user: User
@@ -23,6 +25,8 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
         console.log(pathname)
         if (pathname === "/adm/review") {
             return <Header back location="/adm/reviews" />
+        } else if (pathname === "/adm/transactions/description") {
+            return <Header back location="/adm/transactions" />
         } else {
             return <Header />
         }
@@ -47,7 +51,9 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
                     <Route index element={<Panel />} />
                     <Route path="reviews" element={<Reviews />} />
                     <Route path="review" element={<ReviewProfile />} />
+                    <Route path="chats" element={<Chats channel="buyer" />} />
                     <Route path="transactions" element={<ListTransactions producer={user} />} />
+                    <Route path="/transactions/description" element={<DescriptionCrop user={user} />} />
                 </Routes>
             </Box>
             <BottomNavigation section={bottomMenu.admin} />
