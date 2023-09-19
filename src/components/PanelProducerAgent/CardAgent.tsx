@@ -10,9 +10,10 @@ interface CardAgentProps {
     user: Agent | Producer
     type: SubaccountType
     name: string
+    handleClick?: () => void
 }
 
-export const CardAgent: React.FC<CardAgentProps> = ({ user, type, name }) => {
+export const CardAgent: React.FC<CardAgentProps> = ({ user, type, name, handleClick }) => {
     const { getDifference } = useDate()
     return (
         <Paper
@@ -21,10 +22,11 @@ export const CardAgent: React.FC<CardAgentProps> = ({ user, type, name }) => {
                 alignItems: "center",
                 justifyContent: "space-between",
                 background: "white",
-                padding: "1vw 4vw",
+                padding: "2vw 4vw",
                 borderRadius: "3vw",
                 gap: "0vw",
             }}
+            onClick={handleClick}
         >
             <Avatar src={profile} sx={{ width: "15vw", height: "15vw" }} />
             <Box sx={{ flexDirection: "column", width: "65vw", gap: "0vw" }}>

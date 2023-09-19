@@ -11,6 +11,8 @@ import { useLocation } from "react-router-dom"
 import { ListTransactions } from "./ListTransactions"
 import { DescriptionCrop } from "../../components/DescriptionCrop"
 import { Chats } from "../Chats"
+import { UserstoApprove } from "./UserstoApprove"
+import { Users } from "./Users"
 
 interface AdmProps {
     user: User
@@ -22,13 +24,30 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
     const { pathname } = location
 
     const renderHeader = () => {
-        console.log(pathname)
         if (pathname === "/adm/review") {
             return <Header back location="/adm/reviews" />
         } else if (pathname === "/adm/transactions/description") {
             return <Header back location="/adm/transactions" />
+        } else if (pathname === "/adm/users") {
+            return <Header back location="/adm/" />
+        } else if (pathname === "/adm/users/user") {
+            return <Header back location="/adm/users" />
         } else {
             return <Header />
+        }
+    }
+    const renderMenu = () => {
+        console.log(pathname)
+        if (pathname === "/adm/review") {
+            return <BottomNavigation section={bottomMenu.admin} external={true} />
+        } else if (pathname === "/adm/transactions/description") {
+            return <BottomNavigation section={bottomMenu.admin} external />
+        } else if (pathname === "/adm/users") {
+            return <BottomNavigation section={bottomMenu.admin} external />
+        } else if (pathname === "/adm/users/user") {
+            return <BottomNavigation section={bottomMenu.admin} external />
+        } else {
+            return <BottomNavigation section={bottomMenu.admin} />
         }
     }
     return (
@@ -51,12 +70,14 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
                     <Route index element={<Panel />} />
                     <Route path="reviews" element={<Reviews />} />
                     <Route path="review" element={<ReviewProfile />} />
+                    <Route path="users" element={<UserstoApprove user={user} />} />
+                    <Route path="users/user" element={<Users />} />
                     <Route path="chats" element={<Chats channel="buyer" />} />
                     <Route path="transactions" element={<ListTransactions producer={user} />} />
                     <Route path="/transactions/description" element={<DescriptionCrop user={user} />} />
                 </Routes>
             </Box>
-            <BottomNavigation section={bottomMenu.admin} />
+            {renderMenu()}
         </Box>
     )
 }
