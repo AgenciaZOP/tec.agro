@@ -20,15 +20,22 @@ export const Zone: React.FC<ZoneProps> = ({}) => {
         <Box
             sx={{
                 width: "100%",
-                padding: "0 4vw",
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
                 paddingBottom: "8vh",
             }}
-        >
+            >
             <SearchInput placeholder={"veículos"} onChange={() => {}} />
-            <Box sx={{ flexDirection: "column", gap: "3vw", height: "100%", paddingBottom: "3vh", overflow: "auto" }}>
+            <Box
+                sx={{
+                    flexDirection: "column",
+                    gap: "3vw",
+                    height: "100%",
+                    padding: "0 4vw 3vh",
+                    overflow: "auto"
+                }}
+            >
                 <Paper
                     elevation={2}
                     sx={{

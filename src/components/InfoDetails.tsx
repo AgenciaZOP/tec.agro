@@ -27,13 +27,14 @@ export const InfoDetails: React.FC<InfoDetailsProps> = ({ object, editingMode })
         <Paper
             elevation={2}
             sx={{
-                width: "100%",
+                width: "92vw",
                 height: "max-content",
                 flexDirection: "column",
                 alignItems: "center",
                 borderRadius: "2vw",
                 padding: "4vw",
                 minHeight: "43%",
+                margin: "0 4vw"
             }}
         >
             <Box

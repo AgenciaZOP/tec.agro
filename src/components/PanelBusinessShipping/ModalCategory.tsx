@@ -16,7 +16,7 @@ export const ModalCategory: React.FC<ModalCategoryProps> = ({ title, product, lo
             sx={{
                 flexDirection: "column",
                 padding: "3vw 3vw",
-
+                width: "92vw",
                 height: "max-content",
                 gap: "2vw",
                 borderRadius: "2vw",
