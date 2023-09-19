@@ -4,6 +4,7 @@ import { AvatarCard } from "./AvatarCard"
 import profile from "../assets/notification.jpeg"
 import profile2 from "../assets/person.jpg"
 import profile3 from "../assets/person2.jpg"
+import { useNavigate } from "react-router-dom"
 
 interface TransactionsProps {
     crop: Crop
@@ -11,9 +12,11 @@ interface TransactionsProps {
     date: string
     haveSeller: boolean
     avatar?: React.ReactElement
+    location?: string
 }
 
-export const Transactions: React.FC<TransactionsProps> = ({ crop, date, company, haveSeller, avatar }) => {
+export const Transactions: React.FC<TransactionsProps> = ({ crop, date, company, haveSeller, avatar, location }) => {
+    const navigate = useNavigate()
     return (
         <Paper
             elevation={3}
@@ -24,6 +27,7 @@ export const Transactions: React.FC<TransactionsProps> = ({ crop, date, company,
                 padding: "3vw",
                 borderRadius: "3vw",
             }}
+            onClick={() => navigate(`${location}`)}
         >
             <Box sx={{ gap: "2vw", flexDirection: "column", width: "92%", alignItems: "center" }}>
                 <Box

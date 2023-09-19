@@ -21,12 +21,12 @@ export const CardAgent: React.FC<CardAgentProps> = ({ user, type, name }) => {
                 alignItems: "center",
                 justifyContent: "space-between",
                 background: "white",
-                padding: "1vw 2vw",
-                borderRadius: "5vw",
-                gap: "3vw",
+                padding: "1vw 4vw",
+                borderRadius: "3vw",
+                gap: "0vw",
             }}
         >
-            <Avatar src={profile} sx={{ width: "13vw", height: "13vw" }} />
+            <Avatar src={profile} sx={{ width: "15vw", height: "15vw" }} />
             <Box sx={{ flexDirection: "column", width: "65vw", gap: "0vw" }}>
                 <Box sx={{ justifyContent: "space-between", width: "100%" }}>
                     <p style={{ fontSize: "3.4vw" }}>{user.name}</p>
