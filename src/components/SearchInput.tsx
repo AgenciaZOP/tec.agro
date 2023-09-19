@@ -40,7 +40,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({ placeholder, onChange 
                     backgroundColor: "#EAEAEA",
                     alignSelf: "center",
                     height: "12vw",
-                    width: "90vw",
+                    width: "92vw",
                     padding: "0 2vw"
                 },
             }}

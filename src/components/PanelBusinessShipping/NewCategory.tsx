@@ -27,7 +27,7 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
 
     return (
         <>
-            <Box sx={{ width: "100%", padding: "0 3vw", height: "100%", overflow: "auto" }}>
+            <Box sx={{ width: "100%", padding: "0 4vw", height: "100%", overflow: "auto" }}>
                 <Box sx={{ width: "100%", flexDirection: "column", gap: "3vw" }}>
                     <Paper
                         elevation={2}

@@ -20,11 +20,11 @@ export const Signup: React.FC<SignupProps> = ({ user }) => {
             sx={{
                 flexDirection: "column",
                 justifyContent: "space-evenly",
-                width: "100%",
+                width: "92vw",
                 padding: "10vw",
                 textAlign: "center",
                 borderRadius: "2vw",
-                marginBottom: "10vw",
+                margin: "0 4vw 10vw",
             }}
         >
             <p style={{ fontSize: "6vw" }}>Você ainda não é cadastrado como transportadora</p>
