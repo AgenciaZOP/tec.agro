@@ -5,12 +5,14 @@ import { ChatCard } from "../../components/ChatCard"
 import { CurrentChat } from "./CurrentChat"
 import { SearchInput } from "../../components/SearchInput"
 import { useUser } from "../../hooks/useUser"
+import { useHeader } from "../../hooks/useHeader"
 
 interface ChatsProps {
     channel: string
 }
 
 export const Chats: React.FC<ChatsProps> = ({ channel }) => {
+    const header = useHeader()
     const chats = useChats().getChannel(channel)
     const {user} = useUser()
     
@@ -25,6 +27,10 @@ export const Chats: React.FC<ChatsProps> = ({ channel }) => {
     useEffect(() => {
       console.log(chats)
     }, [chats])
+
+    useEffect(() => {
+        header.setTitle("Conversas")
+    }, [])
 
     return currentChat ? (
         <CurrentChat chat={currentChat} />
