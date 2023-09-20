@@ -9,13 +9,13 @@ import { useNavigate } from "react-router-dom"
 import { useHeader } from "../../hooks/useHeader"
 
 interface AnalysisProps {
-    subaccount?: Producer | Agent
+    //subaccount?: Producer | Agent
     user: User
     button: string
     location: string
 }
 
-export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, location }) => {
+export const Analysis: React.FC<AnalysisProps> = ({ user, button, location }) => {
     const header = useHeader()
 
     const navigate = useNavigate()
