@@ -38,9 +38,15 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
     const renderHeader = () => {
         console.log(pathname)
         if (pathname === "/business/new") {
-            return <Header back location="/business" />
+            return <> <Header back location="/business" />
+            <BottomNavigation section={bottomMenu.business} external /></>
         } else {
-            return <Header />
+            return (
+                <>
+                    <Header />
+                    <BottomNavigation section={bottomMenu.business} />{" "}
+                </>
+            )
         }
     }
 
@@ -60,8 +66,6 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                                 <Route path="/account" element={<MyBusiness business={user.business} />} />
                                 <Route path="/new" element={<NewService />} />
                             </Routes>
-
-                            <BottomNavigation section={bottomMenu.business} />
                         </>
                     ) : (
                         <Verification />

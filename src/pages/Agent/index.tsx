@@ -27,7 +27,14 @@ export const Agent: React.FC<AgentProps> = ({ user }) => {
             return (
                 <>
                     <Header back location="/agent/requests" />
-                    <BottomNavigation section={bottomMenu.agent} external />
+                    <BottomNavigation section={bottomMenu.agent} external/>
+                </>
+            )
+        }else if (pathname === "/agent/register") {
+            return (
+                <>
+                    <Header back location="/agent/analysis" />
+                    <BottomNavigation section={bottomMenu.agent} external/>
                 </>
             )
         } else {

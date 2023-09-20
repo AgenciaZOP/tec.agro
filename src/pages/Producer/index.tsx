@@ -71,8 +71,12 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                 </>
             )
         } else if (pathname === "/producer/analysisag") {
-            return <><Header back location="/producer/panel" />
-            <BottomNavigation section={bottomMenu.producer} external /></>
+            return (
+                <>
+                    <Header back location="/search/zonespr" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
 
         } else {
             return (

@@ -153,7 +153,7 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
                             sx={{
                                 width: "25%",
                                 borderRadius: "3vw",
-                                fontSize: "2vw",
+                                fontSize: "2.5vw",
                                 flexDirection: "column",
                                 position: "fixed",
                                 bottom: "11vh",
@@ -162,7 +162,7 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
                             onClick={() => {}}
                         >
                             <AddIcon color="secondary" />
-                            Adicionar produto ou serviço
+                            Produto ou Serviço
                         </Button>
                     </Paper>
                 </Box>

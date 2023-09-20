@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Box, IconButton, Paper, TextField, Button, SxProps } from "@mui/material"
 import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
 import { Form, Formik } from "formik"
@@ -8,6 +8,7 @@ import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined"
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined"
 import { Avatar, ExtFile } from "@files-ui/react"
 import { UploadDocuments } from "../UploadDocuments"
+import { useHeader } from "../../hooks/useHeader"
 
 interface RegisterCropProps {}
 
@@ -17,6 +18,7 @@ interface FormValues {
     birth: string
 }
 export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
+    const header = useHeader()
     const document = useDocumentMask()
     const [gallery, setGallery] = useState<ExtFile[]>([])
     const [files, setFiles] = useState<ExtFile[]>([])
@@ -48,6 +50,10 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
             })
         }
     }
+
+    useEffect(() => {
+        return header.setTitle("Safra de Julian")
+    }, [])
     return (
         <Box
             sx={{
