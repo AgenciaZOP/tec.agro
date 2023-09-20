@@ -56,13 +56,31 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
     const renderHeader = () => {
         console.log(pathname)
         if (pathname === "/producer/intro") {
-            return <Header back location="../../producer/panel" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/producer/panel" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
         } else if (pathname === "/producer/register") {
-            return <Header back location="/producer/intro" />
+            return (
+                <>
+                    <Header back location="/producer/intro" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
         } else if (pathname === "/producer/analysisag") {
-            return <Header back location="/producer/panel" />
+            return <><Header back location="/producer/panel" />
+            <BottomNavigation section={bottomMenu.producer} external /></>
+
         } else {
-            return <Header />
+            return (
+                <>
+                    <Header />
+                    <BottomNavigation section={bottomMenu.producer} />
+                </>
+            )
         }
     }
 
@@ -93,7 +111,6 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                                 element={<Analysis user={user} button="Enviar Solicitação" location="producer/"></Analysis>}
                             />
                         </Routes>
-                        <BottomNavigation section={bottomMenu.producer} />
                     </Box>
                 )}
             </Box>

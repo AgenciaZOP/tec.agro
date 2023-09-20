@@ -1,18 +1,11 @@
 import React from "react"
 import { Box } from "@mui/material"
 import { SearchInput } from "../SearchInput"
-import { useNavigationList } from "../../hooks/useNavigationList"
-import { BottomNavigation } from "../BottomNavigation"
 import { Schedule } from "./Schedule"
-import { Header } from "../Header"
 
-interface ListSheduleCropsProps {
-    type: NavigationMenu
-}
+interface ListSheduleCropsProps {}
 
-export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
-    const bottomMenu = useNavigationList()
-
+export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({}) => {
     return (
         <Box
             sx={{
@@ -39,8 +32,6 @@ export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
                 <Schedule status="schedule" />
                 <Schedule status="schedule" />
             </Box>
-
-            <BottomNavigation external section={type} />
         </Box>
     )
 }

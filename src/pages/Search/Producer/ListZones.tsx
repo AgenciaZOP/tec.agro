@@ -1,18 +1,14 @@
 import React from "react"
-import { BottomNavigation } from "../../../components/BottomNavigation"
 import { Box } from "@mui/material"
-import { useNavigationList } from "../../../hooks/useNavigationList"
 import { SearchInput } from "../../../components/SearchInput"
 import { ListTitle } from "../../../components/ListTitle"
 import { ResourceCard } from "../../../components/PanelProducerAgent/ResourceCard"
-import { Header } from "../../../components/Header"
 
 interface ListZonesProps {
     user: User
 }
 
 export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
-    const bottomMenu = useNavigationList()
     const agent: Agent = {
         id: 0,
         userId: user.id,
@@ -46,7 +42,6 @@ export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
                 <ListTitle title="Região #2" location="" />
                 <Box sx={{ flexDirection: "column", gap: "3vw" }}></Box>
             </Box>
-            <BottomNavigation external section={bottomMenu.producer} />
         </Box>
     )
 }
