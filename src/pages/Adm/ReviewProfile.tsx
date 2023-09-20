@@ -97,7 +97,7 @@ export const ReviewProfile: React.FC<ReviewProfileProps> = ({}) => {
                     gap: "5vw",
                     width: "100%",
                     position: "absolute",
-                    p: " 2vh",
+                    padding: "0 4vw",
                     top: 0,
                     left: 0,
                     right: 0,
