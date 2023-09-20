@@ -27,7 +27,8 @@ export const Transactions: React.FC<TransactionsProps> = ({ agent }) => {
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                gap: "3vw",
+                gap: "4vw",
+                padding: "20vw 0"
             }}
         >
             <SearchInput placeholder="safras pagas" onChange={() => {}} />
@@ -37,7 +38,7 @@ export const Transactions: React.FC<TransactionsProps> = ({ agent }) => {
                     overflow: "auto",
                     height: "90%",
                     flexDirection: "column",
-                    gap: "3vw",
+                    gap: "4vw",
                     padding: "0 4vw",
                 }}
             >
@@ -51,7 +52,7 @@ export const Transactions: React.FC<TransactionsProps> = ({ agent }) => {
                     <Box
                         sx={{
                             flexDirection: "column",
-                            gap: "3vw",
+                            gap: "4vw",
                         }}
                     >
                         <CardCrop
@@ -84,7 +85,7 @@ export const Transactions: React.FC<TransactionsProps> = ({ agent }) => {
                     <Box
                         sx={{
                             flexDirection: "column",
-                            gap: "3vw",
+                            gap: "4vw",
                         }}
                     >
                         <Schedule status="schedule" />
@@ -101,7 +102,7 @@ export const Transactions: React.FC<TransactionsProps> = ({ agent }) => {
                     <Box
                         sx={{
                             flexDirection: "column",
-                            gap: "3vw",
+                            gap: "4vw",
                         }}
                     >
                         <Schedule status="schedule" />

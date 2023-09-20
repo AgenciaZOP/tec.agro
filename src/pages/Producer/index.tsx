@@ -91,7 +91,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
     return (
         <>
             {renderHeaderMenu()}
-            <Box sx={{ width: "100%", padding: "7vh 0 10vh" }}>
+            <Box sx={{ width: "100%" }}>
                 {user.producer ? (
                     user.producer.active ? (
                         <></>
@@ -99,14 +99,13 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                         <Verification />
                     )
                 ) : (
-                    <Box sx={{ padding: "10vw 0 0", width: "100vw" }}>
+                    <Box sx={{ width: "100vw" }}>
                         <Routes>
                             {}
                             <Route index element={<Signup user={user}></Signup>} />
                             <Route path="form" element={<Form user={user}></Form>} />
                             <Route path="panel" element={<Panel user={user} agent={agent}></Panel>} />
                             <Route path="chats" element={<Chats channel="buyer" />} />
-
                             <Route path="intro" element={<IntroCrop />} />
                             <Route path="register" element={<RegisterCrop />} />
                             <Route path="transactions" element={<Transactions agent={agent} />} />

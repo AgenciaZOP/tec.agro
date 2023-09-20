@@ -42,8 +42,8 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
                 flexDirection: "column",
                 width: "100%",
                 height: "100%",
-                padding: "0",
-                gap: "3vw",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder="safras" onChange={() => {}} />

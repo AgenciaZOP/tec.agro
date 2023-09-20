@@ -76,18 +76,17 @@ export const Form: React.FC<FormProps> = ({ user }) => {
     return (
         <Box
             sx={{
-                width: "100%",
-                overflowY: "auto",
-                paddingBottom: "10vw",
+                padding: "20vw 0",
             }}
             >
             <Box
                 sx={{
-                    gap: "5vw",
+                    gap: "4vw",
                     height: "100%",
                     flexDirection: "column",
                     width: "92vw",
-                    margin: "0 4vw"
+                    margin: "0 4vw",
+                    overflowY: "auto"
                 }}
             >
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>

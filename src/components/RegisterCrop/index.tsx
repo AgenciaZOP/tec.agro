@@ -60,8 +60,8 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                gap: "3vw",
-                padding: "0",
+                gap: "4vw",
+                padding: "20vw 0",
             }}
         >
             <Box
@@ -70,7 +70,7 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                     height: "100%",
                     overflow: "auto",
                     flexDirection: "column",
-                    gap: "2vw",
+                    gap: "4vw",
                     borderRadius: "2vw",
                     margin: "0 4vw",
                 }}
@@ -84,13 +84,13 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                     width: "100%",
                                     border: "0.1vw solid gray",
                                     borderRadius: "3vw",
-                                    padding: "5vw",
+                                    padding: "4vw",
                                     flexDirection: "column",
                                     gap: "0vw",
                                 }}
                             >
                                 <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Informações Básicas</p>
-                                <Box sx={{ flexDirection: "column", gap: "3vw" }}>
+                                <Box sx={{ flexDirection: "column", gap: "4vw" }}>
                                     <Box sx={{ flexDirection: "column", gap: "4vw" }}>
                                         <TextField
                                             label="Responsável legal"
@@ -173,7 +173,7 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                     width: "100%",
                                     border: "0.1vw solid gray",
                                     borderRadius: "3vw",
-                                    padding: "5vw",
+                                    padding: "4vw",
                                     flexDirection: "column",
                                 }}
                             >

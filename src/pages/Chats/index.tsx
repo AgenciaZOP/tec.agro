@@ -58,6 +58,9 @@ export const Chats: React.FC<ChatsProps> = ({ channel }) => {
                 {list.map((chat) => (
                     <ChatCard key={chat.id} chat={chat} newMessage={true} onClick={() => setCurrentChat(chat)} />
                 ))}
+                {list.map((chat) => (
+                    <ChatCard key={chat.id} chat={chat} newMessage={true} onClick={() => setCurrentChat(chat)} />
+                ))}
             </Box>
         </Box>
     )
