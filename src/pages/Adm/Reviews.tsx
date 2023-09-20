@@ -4,7 +4,7 @@ import { SearchInput } from "../../components/SearchInput"
 import { useHeader } from "../../hooks/useHeader"
 import { useBusinesses } from "../../hooks/useBusinesses"
 import { ReviewCard } from "./ReviewCard"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { ListTitle } from "../../components/ListTitle"
 import { CardCategory } from "../../components/PanelBusinessShipping/CardCategory"
 import { useProducers } from "../../hooks/useProducers"
@@ -14,12 +14,13 @@ interface ReviewsProps {}
 export const Reviews: React.FC<ReviewsProps> = ({}) => {
     const header = useHeader()
     const navigate = useNavigate()
+    const filter = (useLocation().state?.filter as SubaccountType[] | undefined) || ["store", "agent", "business", "producer", "service", "shipping"]
+    console.log({ filter })
     const { businesses } = useBusinesses()
     const { producers } = useProducers()
     console.log(producers)
 
     // adicionar as outras subaccounts
-    
 
     const [list, setList] = useState<Subaccount[]>([])
 
@@ -39,7 +40,7 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
                 }),
         ].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
-        setList(pending)
+        setList(pending.filter((item) => item.type.filter((type) => filter.includes(type)).length == item.type.length))
     }, [businesses])
 
     useEffect(() => {
