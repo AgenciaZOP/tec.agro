@@ -1,11 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box } from "@mui/material"
 import { SearchInput } from "../SearchInput"
 import { Schedule } from "./Schedule"
+import { useHeader } from "../../hooks/useHeader"
 
 interface ListSheduleCropsProps {}
 
 export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({}) => {
+    const header = useHeader()
+
+    useEffect(() => {
+        return header.setTitle("Safras Agendadas")
+    }, [])
+
     return (
         <Box
             sx={{

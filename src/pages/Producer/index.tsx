@@ -53,7 +53,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
         ratings: 5,
         active: false,
     }
-    const renderHeader = () => {
+    const renderHeaderMenu = () => {
         console.log(pathname)
         if (pathname === "/producer/intro") {
             return (
@@ -86,7 +86,7 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
 
     return (
         <>
-            {renderHeader()}
+            {renderHeaderMenu()}
             <Box sx={{ width: "100%", padding: "7vh 0 10vh" }}>
                 {user.producer ? (
                     user.producer.active ? (
