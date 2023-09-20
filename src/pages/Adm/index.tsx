@@ -13,7 +13,7 @@ import { DescriptionCrop } from "../../components/DescriptionCrop"
 import { Chats } from "../Chats"
 import { UserstoApprove } from "./UserstoApprove"
 import { Users } from "./Users"
-import { Statistics } from "./statistics"
+import { Statistics } from "./Statistics"
 import { Analysis } from "../../components/PanelProducerAgent/Analysis"
 
 interface AdmProps {
