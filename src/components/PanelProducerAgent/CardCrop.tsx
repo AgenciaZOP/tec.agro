@@ -28,7 +28,7 @@ export const CardCrop: React.FC<CardCropProps> = ({ variant, user, type, name, h
             {variant ? (
                 <>
                     <HeaderInfo />
-                    <CardAgent user={user} type={type} name={name} />
+                    <CardAgent user={user} type={type} name={name} variant={false} />
                     <p style={{ alignSelf: "center", fontSize: "2.5vw", textDecoration: "underline" }} onClick={handleClick}>
                         {transactions ? "Ver detalhes" : "Editar"}
                     </p>

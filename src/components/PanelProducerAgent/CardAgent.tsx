@@ -11,18 +11,19 @@ interface CardAgentProps {
     type: SubaccountType
     name: string
     handleClick?: () => void
+    variant: boolean
 }
 
-export const CardAgent: React.FC<CardAgentProps> = ({ user, type, name, handleClick }) => {
+export const CardAgent: React.FC<CardAgentProps> = ({ user, type, name, handleClick, variant }) => {
     const { getDifference } = useDate()
     return (
         <Paper
-            elevation={3}
+            elevation={variant ? 3 : 0}
             sx={{
                 alignItems: "center",
                 justifyContent: "space-between",
                 background: "white",
-                padding: "2vw 4vw",
+                padding: "2vw 1vw",
                 borderRadius: "3vw",
                 gap: "0vw",
             }}

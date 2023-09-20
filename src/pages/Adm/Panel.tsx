@@ -50,15 +50,15 @@ export const Panel: React.FC<PanelProps> = ({}) => {
                     gap: "4vw",
                 }}
             >
-                <Box sx={{ gap: "4vw", overflowX: "auto", padding: "0 4vw" }} >
+                <Box sx={{ gap: "4vw", overflowX: "auto", padding: "0 4vw" }}>
                     <ReviewBox variant="producer" />
                     <ReviewBox variant="agent" />
                     <ReviewBox variant="business" />
                     <ReviewBox variant="shipping" />
                 </Box>
-                <Box sx={{ flexDirection: "column", gap: "4vw", padding: "0 4vw" }} >
-                    <ListTitle location="" title="Transações Recentes" />
-                    <ListTitle location="" title="Estatísticas" />
+                <Box sx={{ flexDirection: "column", gap: "4vw", padding: "0 4vw" }}>
+                    <ListTitle location="transrecents" title="Transações Recentes" />
+                    <ListTitle location="statistics" title="Estatísticas" />
                 </Box>
             </Box>
         </Box>

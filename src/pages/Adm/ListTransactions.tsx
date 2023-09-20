@@ -39,7 +39,7 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
                         paddingBottom: "5vw",
                     }}
                 >
-                    <ListTitle title="Transações Recentes" location="recent" />
+                    <ListTitle title="Transações Recentes" location="transrecents" />
                     <Transactions
                         title={title}
                         price={price}
@@ -58,7 +58,7 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
                         haveSeller={false}
                         location="/adm/transactions/description"
                     />
-                    <ListTitle title="Transações Pagas" location="paid" />
+                    <ListTitle title="Transações Pagas" location="transpaid" />
                     <Transactions
                         title={title}
                         price={price}
@@ -68,7 +68,7 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
                         haveSeller={false}
                         location="/adm/transactions/description"
                     />
-                    <ListTitle title="Transações Pendentes" location="pending" />
+                    <ListTitle title="Transações Pendentes" location="transpending" />
                     <Transactions
                         title={title}
                         price={price}
@@ -80,7 +80,6 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
                     />
                 </Box>
             </Box>
-        
         </>
     )
 }

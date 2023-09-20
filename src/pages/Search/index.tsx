@@ -15,6 +15,10 @@ import { Zone } from "./Shipping/Zone"
 import { ListTransactions } from "../Adm/ListTransactions"
 import { CropsPaid } from "./CropsPaid"
 import { BottomNavigation } from "../../components/BottomNavigation"
+import { TransactionsPending } from "./TransactionsPending"
+import { TransactionsPaid } from "./TransactionsPaid"
+import { TransactionsRecents } from "./TransactionsRecents"
+import { Statistics } from "./Statistics"
 
 interface SearchProps {
     user: User
@@ -107,12 +111,44 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                     <BottomNavigation section={bottomMenu.home} external />
                 </>
             )
-        } else if (pathname === "/search/paid") {
+        } else if (pathname === "/search/cropspaid") {
             return (
                 <>
                     {" "}
                     <Header back location="/producer/panel" />
                     <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
+        } else if (pathname === "/search/transrecents") {
+            return (
+                <>
+                    {" "}
+                    <Header back location="/adm/transactions" />
+                    <BottomNavigation section={bottomMenu.admin} external />
+                </>
+            )
+        } else if (pathname === "/search/transpaid") {
+            return (
+                <>
+                    {" "}
+                    <Header back location="/adm/transactions" />
+                    <BottomNavigation section={bottomMenu.admin} external />
+                </>
+            )
+        } else if (pathname === "/search/transpending") {
+            return (
+                <>
+                    {" "}
+                    <Header back location="/adm/transactions" />
+                    <BottomNavigation section={bottomMenu.admin} external />
+                </>
+            )
+        } else if (pathname === "/search/statistics") {
+            return (
+                <>
+                    {" "}
+                    <Header back location="/adm" />
+                    <BottomNavigation section={bottomMenu.admin} external />
                 </>
             )
         } else {
@@ -134,7 +170,11 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                 <Route path="agentspr" element={<ListAgents user={user} />} />
                 <Route path="zonessh" element={<ListZones user={user} title="Veículos" />} />
                 <Route path="zone" element={<Zone />} />
-                <Route path="paid" element={<CropsPaid />} />
+                <Route path="cropspaid" element={<CropsPaid />} />
+                <Route path="transrecents" element={<TransactionsRecents />} />
+                <Route path="transpaid" element={<TransactionsPaid />} />
+                <Route path="transpending" element={<TransactionsPending />} />
+                <Route path="statistics" element={<Statistics />} />
                 {/* <Route path="paid" element={<ListTransactions user={user}/>} /> */}
             </Routes>
         </Box>
