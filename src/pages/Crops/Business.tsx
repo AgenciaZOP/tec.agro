@@ -23,18 +23,24 @@ export const Business: React.FC<BusinessProps> = ({}) => {
     return (
         <Box
             sx={{
-                flexDirection: "column",
-                padding: "0 4vw",
-                gap: "4vw",
-                width: "100vw",
-                height: "100%",
-                overflowX: "hidden",
+                padding: "20vw 0"
             }}
         >
-            <CategoriesList />
-            <Banners images={images} />
-            <NearYouList />
-            <BusinessList />
+            <Box
+                sx={{
+                    flexDirection: "column",
+                    padding: "0 4vw",
+                    gap: "4vw",
+                    width: "100vw",
+                    height: "100%",
+                    overflowX: "hidden",
+                }}
+            >
+                <CategoriesList />
+                <Banners images={images} />
+                <NearYouList />
+                <BusinessList />
+            </Box>
         </Box>
     )
 }
