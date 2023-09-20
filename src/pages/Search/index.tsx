@@ -111,7 +111,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                     <BottomNavigation section={bottomMenu.home} external />
                 </>
             )
-        } else if (pathname === "/search/paid") {
+        } else if (pathname === "/search/cropspaid") {
             return (
                 <>
                     {" "}

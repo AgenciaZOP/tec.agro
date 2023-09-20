@@ -59,7 +59,7 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
                 }}
             >
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
-                    <ListTitle title="Safras Pagas" location="paid" />
+                    <ListTitle title="Safras Pagas" location="cropspaid" />
                     <Schedule status="pending" />
                     <Schedule status="contact" />
                 </Box>
