@@ -13,6 +13,8 @@ import { useNavigationList } from "../../hooks/useNavigationList"
 import { ListZones } from "./Shipping/ListZones"
 import { Zone } from "./Shipping/Zone"
 import { ListTransactions } from "../Adm/ListTransactions"
+import { CropsPaid } from "./CropsPaid"
+import { BottomNavigation } from "../../components/BottomNavigation"
 
 interface SearchProps {
     user: User
@@ -21,7 +23,7 @@ interface SearchProps {
 export const Search: React.FC<SearchProps> = ({ user }) => {
     const location = useLocation()
     const { pathname } = location
-
+    const bottomMenu = useNavigationList()
     const category: Category = {
         name: "Veículos",
         id: 1,
@@ -30,32 +32,93 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
     const renderHeader = () => {
         console.log(pathname)
         if (pathname === "/search/intro") {
-            return <Header back location="/producer/intro" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/producer/intro" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
         } else if (pathname === "/search/cropsag") {
-            return <Header back location="/agent/panel" />
+            return (
+                <>
+                    <Header back location="/agent/panel" />
+                    <BottomNavigation section={bottomMenu.agent} external />
+                </>
+            )
         } else if (pathname === "/search/cropspr") {
-            return <Header back location="/producer/panel" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/producer/panel" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
         } else if (pathname === "/search/scheduleag") {
-            return <Header back location="/agent/panel" />
+            return (
+                <>
+                    <Header back location="/agent/panel" />
+                    <BottomNavigation section={bottomMenu.agent} external />
+                </>
+            )
         } else if (pathname === "/search/schedulepr") {
-            return <Header back location="/producer/panel" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/producer/panel" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
         } else if (pathname === "/search/zonespr") {
-            return <Header back location="../../producer/intro" />
+            return (
+                <>
+                    <Header back location="../../producer/intro" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
         } else if (pathname === "/search/agentspr") {
-            return <Header back location="/search/zonespr" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/search/zonespr" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
         } else if (pathname === "/search/category") {
-            return <Header back location="/business" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/business" />
+                    <BottomNavigation section={bottomMenu.business} external />
+                </>
+            )
         } else if (pathname === "/search/zone") {
-            return <Header back location="/shipping/panel" />
+            return (
+                <>
+                    <Header back location="/shipping/panel" />
+                    <BottomNavigation section={bottomMenu.shipping} external />
+                </>
+            )
         } else if (pathname === "/search/crops") {
-            return <Header back location="/home" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/home" />
+                    <BottomNavigation section={bottomMenu.shipping} external />
+                </>
+            )
         } else if (pathname === "/search/paid") {
-            return <Header back location="/adm/transactions" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/producer/panel" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
         } else {
             return <Header />
         }
     }
-    const bottomMenu = useNavigationList()
 
     return (
         <Box sx={{ flexDirection: "column", width: "100%", padding: "10vh 0" }}>
@@ -63,14 +126,15 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
             <Routes>
                 <Route path="crops" element={<Crops />} />
                 <Route path="category" element={<Category category={category} />} />
-                <Route path="cropsag" element={<ListCrops user={user} type={bottomMenu.agent} />} />
-                <Route path="cropspr" element={<ListCrops user={user} type={bottomMenu.producer} />} />
-                <Route path="scheduleag" element={<ListSheduleCrops type={bottomMenu.agent} />} />
-                <Route path="schedulepr" element={<ListSheduleCrops type={bottomMenu.producer} />} />
+                <Route path="cropsag" element={<ListCrops user={user} />} />
+                <Route path="cropspr" element={<ListCrops user={user} />} />
+                <Route path="scheduleag" element={<ListSheduleCrops />} />
+                <Route path="schedulepr" element={<ListSheduleCrops />} />
                 <Route path="zonespr" element={<ListZonesPr user={user} />} />
                 <Route path="agentspr" element={<ListAgents user={user} />} />
                 <Route path="zonessh" element={<ListZones user={user} title="Veículos" />} />
                 <Route path="zone" element={<Zone />} />
+                <Route path="paid" element={<CropsPaid />} />
                 {/* <Route path="paid" element={<ListTransactions user={user}/>} /> */}
             </Routes>
         </Box>

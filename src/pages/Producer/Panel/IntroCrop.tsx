@@ -4,14 +4,11 @@ import info from "../../../assets/info.png"
 import info2 from "../../../assets/info2.png"
 import { Details } from "./Details"
 import { useNavigate } from "react-router-dom"
-import { useNavigationList } from "../../../hooks/useNavigationList"
-import { BottomNavigation } from "../../../components/BottomNavigation"
 
 interface IntroCropProps {}
 
 export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
     const navigate = useNavigate()
-    const bottomMenu = useNavigationList()
 
     return (
         <Box
@@ -33,7 +30,7 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                     padding: "3vw",
                     gap: "2vw",
                     borderRadius: "3vw",
-                    margin: "0 4vw"
+                    margin: "0 4vw",
                 }}
             >
                 <Box
@@ -98,7 +95,7 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                     padding: "3vw",
                     gap: "2vw",
                     borderRadius: "3vw",
-                    margin: "0 4vw"
+                    margin: "0 4vw",
                 }}
             >
                 <Box
@@ -147,7 +144,6 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                     </Box>
                 </Box>
             </Paper>
-            <BottomNavigation external section={bottomMenu.producer} />
         </Box>
     )
 }

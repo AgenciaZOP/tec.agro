@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box, Button } from "@mui/material"
 import { SearchInput } from "../../../components/SearchInput"
 import { Schedule } from "../../../components/PanelProducerAgent/Schedule"
@@ -6,6 +6,7 @@ import { ListTitle } from "../../../components/ListTitle"
 import { CardCrop } from "../../../components/PanelProducerAgent/CardCrop"
 import { useNavigate } from "react-router-dom"
 import AddIcon from "@mui/icons-material/Add"
+import { useHeader } from "../../../hooks/useHeader"
 
 interface PanelProps {
     user: User
@@ -14,6 +15,7 @@ interface PanelProps {
 
 export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
     const navigate = useNavigate()
+    const header = useHeader()
     const producer: Producer = {
         id: 0,
         userId: user.id,
@@ -28,6 +30,12 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
         ratings: 5,
         active: false,
     }
+    useEffect(() => {
+        return () => {
+            header.setTitle("Minhas Safras")
+        }
+    }, [])
+
     return (
         <Box
             sx={{
@@ -51,7 +59,7 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
                 }}
             >
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
-                    <ListTitle title="Safras Pagas" location="" />
+                    <ListTitle title="Safras Pagas" location="paid" />
                     <Schedule status="pending" />
                     <Schedule status="contact" />
                 </Box>
