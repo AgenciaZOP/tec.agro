@@ -54,8 +54,8 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
         <Box
             sx={{
                 flexDirection: "column",
-                width: "100%",
                 height: "100%",
+                width: "100%",
                 overflowY: "auto",
             }}
         >

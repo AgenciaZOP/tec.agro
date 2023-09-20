@@ -33,52 +33,57 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
         header.setTitle("Transações")
     }, [])
     return (
-        <>
-            <Box sx={{ flexDirection: "column", padding: "10vh 4vw", gap: "3vw", width: "100%", height: "93vh" }}>
-                <SearchInput placeholder="chamado" onChange={handleSearch} />
-                <Box
-                    sx={{
-                        width: "100%",
-                        height: "100%",
-                        overflow: "auto",
-                        flexDirection: "column",
-                        gap: "2vw",
-                        paddingBottom: "5vw",
-                    }}
-                >
-                    <ListTitle title="Transações Recentes" location="recent" />
-                    <Transactions
-                        crop={crop}
-                        company="Agrofértil"
-                        date={"25/03/2023"}
-                        haveSeller
-                        location="/adm/transactions/description"
-                    />
-                    <Transactions
-                        crop={crop}
-                        company="Agrofértil"
-                        date={"25/03/2023"}
-                        haveSeller={false}
-                        location="/adm/transactions/description"
-                    />
-                    <ListTitle title="Transações Pagas" location="paid" />
-                    <Transactions
-                        crop={crop}
-                        company="Agrofértil"
-                        date={"25/03/2023"}
-                        haveSeller={false}
-                        location="/adm/transactions/description"
-                    />
-                    <ListTitle title="Transações Pendentes" location="pending" />
-                    <Transactions
-                        crop={crop}
-                        company="Safra"
-                        date="29/05/200"
-                        haveSeller
-                        location="/adm/transactions/description"
-                    />
-                </Box>
+        <Box sx={{ flexDirection: "column", padding: "20vw 0", gap: "4vw", width: "100%", height: "92vh" }}>
+            <SearchInput placeholder="chamado" onChange={handleSearch} />
+            <Box
+                sx={{
+                    width: "100%",
+                    height: "100%",
+                    overflow: "auto",
+                    flexDirection: "column",
+                    gap: "2vw",
+                    padding: "0 4vw",
+                }}
+            >
+                <ListTitle title="Transações Recentes" location="recent" />
+                <Transactions
+                    crop={crop}
+                    company="Agrofértil"
+                    date={"25/03/2023"}
+                    haveSeller
+                    location="/adm/transactions/description"
+                />
+                <Transactions
+                    crop={crop}
+                    company="Agrofértil"
+                    date={"25/03/2023"}
+                    haveSeller={false}
+                    location="/adm/transactions/description"
+                />
+                <ListTitle title="Transações Pagas" location="paid" />
+                <Transactions
+                    crop={crop}
+                    company="Agrofértil"
+                    date={"25/03/2023"}
+                    haveSeller={false}
+                    location="/adm/transactions/description"
+                />
+                <ListTitle title="Transações Pendentes" location="pending" />
+                <Transactions
+                    crop={crop}
+                    company="Safra"
+                    date="29/05/2023"
+                    haveSeller
+                    location="/adm/transactions/description"
+                />
+                <Transactions
+                    crop={crop}
+                    company="Safra"
+                    date="29/05/2023"
+                    haveSeller
+                    location="/adm/transactions/description"
+                />
             </Box>
-        </>
+        </Box>
     )
 }
