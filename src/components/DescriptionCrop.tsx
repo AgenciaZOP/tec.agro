@@ -51,19 +51,19 @@ export const DescriptionCrop: React.FC<DescriptionCropProps> = ({ user }) => {
     }, [])
 
     return (
-        <Box sx={{ flexDirection: "column", padding: "10vh 4vw 7vw", gap: "3vw", width: "100%", height: "93vh" }}>
+        <Box sx={{ flexDirection: "column", padding: "20vw 0 7vw", gap: "4vw", width: "100%", height: "93vh" }}>
             <Box
                 sx={{
                     width: "100%",
                     height: "100%",
                     overflow: "auto",
                     flexDirection: "column",
-                    gap: "3vw",
-                    paddingBottom: "5vw",
+                    gap: "4vw",
+                    padding: "0 4vw 4vw",
                 }}
             >
                 <ListTitle title="Participantes" location="" />
-                <Box sx={{ flexDirection: "column", gap: "3vw" }}>
+                <Box sx={{ flexDirection: "column", gap: "4vw" }}>
                     <CardAgent name="Produtor" type="producer" user={producer} />
                     <CardAgent name="Corretor" type="agent" user={agent} />
                     <CardAgent name="Comprador" type="adm" user={producer} />
@@ -77,12 +77,12 @@ export const DescriptionCrop: React.FC<DescriptionCropProps> = ({ user }) => {
                         height: "72%",
                         border: "1px solid black",
                         borderRadius: "1.5vw",
-                        padding: "6vw",
+                        padding: "4vw",
                         flexDirection: "column",
                         gap: "4vw",
                     }}
                 >
-                    <Box sx={{ width: "100%", flexDirection: "column", gap: "0.8vw" }}>
+                    <Box sx={{ width: "100%", flexDirection: "column", gap: "4vw" }}>
                         <p style={{ fontSize: "5.5vw" }}>Safra de Soja 2022/23</p>
                         <p style={{ fontSize: "3.2vw" }}>9,15 toneladas - Companhia</p>
                     </Box>

@@ -35,13 +35,14 @@ export const UserstoApprove: React.FC<UserstoApproveProps> = ({ user }) => {
     }, [])
 
     return (
-        <Box sx={{ height: "100%", padding: "0 4vw", flexDirection: "column", paddingTop: "23vw" }}>
+        <Box sx={{ height: "100%", width: "100%", padding: "20vw 0", flexDirection: "column" }}>
             <SearchInput placeholder="usuário" onChange={() => {}} />
             <Box
                 sx={{
                     overflow: "auto",
-                    height: "80%",
-                    padding: "3vw 0vw",
+                    height: "90%",
+                    padding: "0 4vw",
+                    margin: "4vw 0",
                     flexDirection: "column",
                     gap: "2vw",
                 }}
@@ -72,6 +73,46 @@ export const UserstoApprove: React.FC<UserstoApproveProps> = ({ user }) => {
                     }}
                 />
                 <ListTitle title="Região #2" location="" />
+                <CardAgent
+                    name="Corretor"
+                    type="agent"
+                    user={agent}
+                    handleClick={() => {
+                        navigate("/adm/users/user")
+                    }}
+                />
+                <CardAgent
+                    name="Corretor"
+                    type="agent"
+                    user={agent}
+                    handleClick={() => {
+                        navigate("/adm/users/user")
+                    }}
+                />
+                <CardAgent
+                    name="Corretor"
+                    type="agent"
+                    user={agent}
+                    handleClick={() => {
+                        navigate("/adm/users/user")
+                    }}
+                />
+                <CardAgent
+                    name="Corretor"
+                    type="agent"
+                    user={agent}
+                    handleClick={() => {
+                        navigate("/adm/users/user")
+                    }}
+                />
+                <CardAgent
+                    name="Corretor"
+                    type="agent"
+                    user={agent}
+                    handleClick={() => {
+                        navigate("/adm/users/user")
+                    }}
+                />
                 <CardAgent
                     name="Corretor"
                     type="agent"

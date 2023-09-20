@@ -87,14 +87,13 @@ export const ReviewProfile: React.FC<ReviewProfileProps> = ({}) => {
                 position: "relative",
                 overflowY: "auto",
                 width: "100%",
-                margin: "10vh 0",
-                height: "80vh",
+                margin: "20vw 0",
             }}
         >
             <Box
                 sx={{
                     flexDirection: "column",
-                    gap: "5vw",
+                    gap: "4vw",
                     width: "100%",
                     position: "absolute",
                     padding: "0 4vw",
@@ -104,7 +103,7 @@ export const ReviewProfile: React.FC<ReviewProfileProps> = ({}) => {
                     bottom: 0,
                 }}
             >
-                <Box sx={{ flexDirection: "column", gap: "2vw", width: "100%" }}>
+                <Box sx={{ flexDirection: "column", gap: "4vw", width: "100%" }}>
                     <p style={{ textAlign: "center", fontWeight: 400 }}>{profile.name}</p>
                     <p style={{ textAlign: "center", fontWeight: 700 }}>{profile.active}</p>
                     <p style={{ textAlign: "center", fontWeight: 700 }}>Foto do Perfil</p>
@@ -115,22 +114,21 @@ export const ReviewProfile: React.FC<ReviewProfileProps> = ({}) => {
                             justifyContent: "space-between",
                             alignContent: "center",
                             border: "1px solid grey",
-                            padding: "5% 5%",
-                            borderRadius: "3%",
+                            padding: "4vw",
+                            borderRadius: "2vw",
                             height: "50vw",
                         }}
                     >
                         <img src={profile.image} style={{ width: "40vw", height: "40vw" }} alt="imagem" />
-                        <Box sx={{ display: "flex", flexDirection: "column", gap: "1vh", margin: "3.8vh 0" }}>
+                        <Box sx={{ display: "flex", flexDirection: "column", gap: "4vw", margin: "auto 0" }}>
                             <Box sx={{ display: "flex", justifyContent: "center" }}>
                                 <Avatar src={profile.image} sx={{ width: "20vw", height: "20vw" }} />
                             </Box>
-
                             <p style={{ display: "flex" }}>Prévia do Perfil</p>
                         </Box>
                     </Box>
-                    <Box sx={{ display: "flex", flexDirection: "column", border: "1px solid grey", borderRadius: "3%", width: "100% ", gap: "5vw" }}>
-                        <p style={{ textAlign: "center", fontWeight: 700, marginTop: "2vh" }}>Informações Cadastradas</p>
+                    <Box sx={{ display: "flex", flexDirection: "column", border: "1px solid grey", borderRadius: "2vw", width: "100% ", gap: "4vw" }}>
+                        <p style={{ textAlign: "center", fontWeight: 700, marginTop: "4vw" }}>Informações Cadastradas</p>
                         <p style={{ textAlign: "center", fontWeight: 700 }}>{profile.name}</p>
 
                         <TextField

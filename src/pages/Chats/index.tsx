@@ -37,21 +37,22 @@ export const Chats: React.FC<ChatsProps> = ({ channel }) => {
     ) : (
         <Box
             sx={{
-                width: "100%",
                 height: "100%",
+                width: "100%",
                 flexDirection: "column",
-                gap: "2vw",
-                padding: "0 4vw"
+                gap: "4vw",
+                padding: "20vw 0"
             }}
-        >
+            >
             <SearchInput placeholder="conversas" onChange={handleChange} />
             <Box
                 sx={{
+                    padding: "0 4vw",
                     width: "100%",
-                    height: "91%",
+                    height: "90%",
                     overflow: "auto",
                     flexDirection: "column",
-                    gap: "2vw",
+                    gap: "4vw",
                 }}
             >
                 {list.map((chat) => (

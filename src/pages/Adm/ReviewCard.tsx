@@ -1,5 +1,5 @@
 import React from "react"
-import { Avatar, Box } from "@mui/material"
+import { Avatar, Box, Paper } from "@mui/material"
 import { useDate } from "../../hooks/useDate"
 import ReplyIcon from "@mui/icons-material/Reply"
 import { Tag } from "../../components/Tag"
@@ -23,7 +23,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ subaccount, onClick }) =
     }
 
     return (
-        <Box
+        <Paper elevation={0}
             onClick={() => onClick()}
             sx={{ alignItems: "center", background: "white", padding: "2vw 3vw", borderRadius: "5vw", gap: "3vw", width: "100%" }}
         >
@@ -38,6 +38,6 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ subaccount, onClick }) =
                 <p style={{ fontSize: "3vw" }}>{getHours(new Date(subaccount.date))} h atrás</p>
             </Box>
             <ReplyIcon sx={{ rotate: "180deg", transform: "scaleY(-1)", marginLeft: "auto" }} />
-        </Box>
+        </Paper>
     )
 }

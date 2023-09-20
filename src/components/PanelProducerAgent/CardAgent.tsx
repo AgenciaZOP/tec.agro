@@ -17,7 +17,7 @@ export const CardAgent: React.FC<CardAgentProps> = ({ user, type, name, handleCl
     const { getDifference } = useDate()
     return (
         <Paper
-            elevation={0}
+            elevation={3}
             sx={{
                 alignItems: "center",
                 justifyContent: "space-between",

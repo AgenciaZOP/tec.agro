@@ -80,6 +80,7 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
                     />
                 </Box>
             </Box>
+        
         </>
     )
 }
