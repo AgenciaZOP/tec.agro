@@ -26,8 +26,7 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
         header.setTitle("Transações")
     }, [])
     return (
-        <>
-            <Box sx={{ flexDirection: "column", padding: "10vh 4vw", gap: "3vw", width: "100%", height: "93vh" }}>
+            <Box sx={{ flexDirection: "column", padding: "20vw 0", gap: "4vw", width: "100%", height: "93vh" }}>
                 <SearchInput placeholder="chamado" onChange={handleSearch} />
                 <Box
                     sx={{
@@ -35,8 +34,8 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
                         height: "100%",
                         overflow: "auto",
                         flexDirection: "column",
-                        gap: "2vw",
-                        paddingBottom: "5vw",
+                        gap: "4vw",
+                        padding: "0 4vw",
                     }}
                 >
                     <ListTitle title="Transações Recentes" location="transrecents" />
@@ -78,8 +77,16 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
                         haveSeller
                         location="/adm/transactions/description"
                     />
+                    <Transactions
+                        title={title}
+                        price={price}
+                        weight={weight}
+                        company={company}
+                        date={date}
+                        haveSeller
+                        location="/adm/transactions/description"
+                    />
                 </Box>
             </Box>
-        </>
     )
 }
