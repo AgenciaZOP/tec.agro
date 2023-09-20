@@ -66,7 +66,7 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                     flexDirection: "column",
                     gap: "2vw",
                     borderRadius: "2vw",
-                    margin: "0 4vw"
+                    margin: "0 4vw",
                 }}
             >
                 <p style={{ width: "100%", textAlign: "center" }}>Preencha os dados abaixo</p>
@@ -78,12 +78,12 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                     width: "100%",
                                     border: "0.1vw solid gray",
                                     borderRadius: "3vw",
-                                    padding: "3vw",
+                                    padding: "5vw",
                                     flexDirection: "column",
                                     gap: "0vw",
                                 }}
                             >
-                                <p style={{ fontSize: "3.2vw", fontWeight: "600" }}>Informações Básicas</p>
+                                <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Informações Básicas</p>
                                 <Box sx={{ flexDirection: "column", gap: "3vw" }}>
                                     <Box sx={{ flexDirection: "column", gap: "4vw" }}>
                                         <TextField
@@ -130,8 +130,8 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                     width: "100%",
                                     border: "0.1vw solid gray",
                                     borderRadius: "3vw",
-                                    padding: "3vw",
                                     flexDirection: "column",
+                                    padding: "5vw",
                                 }}
                             >
                                 <p style={{ fontSize: "3.5vw" }}>Endereço</p>
@@ -167,7 +167,7 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                     width: "100%",
                                     border: "0.1vw solid gray",
                                     borderRadius: "3vw",
-                                    padding: "3vw",
+                                    padding: "5vw",
                                     flexDirection: "column",
                                 }}
                             >

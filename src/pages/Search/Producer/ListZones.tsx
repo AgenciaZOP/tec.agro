@@ -1,14 +1,20 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box } from "@mui/material"
 import { SearchInput } from "../../../components/SearchInput"
 import { ListTitle } from "../../../components/ListTitle"
 import { ResourceCard } from "../../../components/PanelProducerAgent/ResourceCard"
+import { useHeader } from "../../../hooks/useHeader"
 
 interface ListZonesProps {
     user: User
 }
 
 export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
+    const header = useHeader()
+
+    useEffect(() => {
+        return header.setTitle("Escolha um Corretor")
+    }, [])
     const agent: Agent = {
         id: 0,
         userId: user.id,

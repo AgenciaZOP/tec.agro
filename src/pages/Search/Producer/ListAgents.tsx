@@ -10,7 +10,6 @@ interface ListAgentsProps {
 }
 
 export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
-    const bottomMenu = useNavigationList()
     const agent: Agent = {
         id: 0,
         userId: user.id,
@@ -52,7 +51,6 @@ export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
                 <CardCrop user={agent} type="agent" name="Corretor" />
                 <CardCrop user={agent} type="agent" name="Corretor" />
             </Box>
-            <BottomNavigation external section={bottomMenu.producer} />
         </Box>
     )
 }

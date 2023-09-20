@@ -16,8 +16,6 @@ interface CategoryProps {
 }
 
 export const Category: React.FC<CategoryProps> = ({ category }) => {
-    const bottomMenu = useNavigationList()
-
     const product: Product = {
         name: "Fertilizante",
         type: "Produto",
@@ -168,7 +166,6 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
                         </Button>
                     </Paper>
                 </Box>
-                <BottomNavigation section={bottomMenu.business} />
             </Box>
         </Box>
     )

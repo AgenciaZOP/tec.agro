@@ -44,8 +44,8 @@ export const useNavigationList = () => {
             },
             {
                 id: 4,
-                title: "Estatatísticas",
-                location: "/shipping",
+                title: "Estatísticas",
+                location: "/statistics",
                 icon: <LeaderboardIcon sx={iconStyle} />,
             },
             {

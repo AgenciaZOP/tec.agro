@@ -16,6 +16,8 @@ interface ShippingProps {
 }
 
 export const Shipping: React.FC<ShippingProps> = ({ user }) => {
+    const bottomMenu = useNavigationList()
+
     const location = useLocation()
     const { pathname } = location
 
@@ -40,19 +42,29 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
         type: "",
     }
 
-    const renderHeader = () => {
+    const renderHeaderMenu = () => {
         console.log(pathname)
         if (pathname === "/shipping/newZone") {
-            return <Header back location="/shipping/panel" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/shipping/panel" />
+                    <BottomNavigation external section={bottomMenu.shipping} />
+                </>
+            )
         } else {
-            return <Header />
+            return (
+                <>
+                    <Header />
+                    <BottomNavigation section={bottomMenu.shipping} />
+                </>
+            )
         }
     }
 
-    const bottomMenu = useNavigationList()
     return (
         <Box sx={{ width: "100%", padding: "7vh 0 10vh" }}>
-            {renderHeader()}
+            {renderHeaderMenu()}
             {user.shipping ? (
                 user.shipping.active ? (
                     <></>
@@ -62,14 +74,13 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
             ) : (
                 <Box sx={{ padding: "10vw 0 0", width: "100vw" }}>
                     <Routes>
-                        <Route index element={<Signup user={user}></Signup>} />
-                        <Route path="form" element={<Form user={user}></Form>} />
-                        <Route path="account" element={<MyShipping shipping={shipping}></MyShipping>} />
+                        <Route index element={<Signup user={user} />} />
+                        <Route path="form" element={<Form user={user} />} />
+                        <Route path="account" element={<MyShipping shipping={shipping} />} />
                         {/* <Route path="new" element={<NewCar shipping={shipping}></NewCar>} /> */}
                         <Route path="/newZone" element={<NewZone user={user} product={car} />} />
-                        <Route path="/panel" element={<Panel></Panel>} />
+                        <Route path="/panel" element={<Panel />} />
                     </Routes>
-                    <BottomNavigation section={bottomMenu.shipping} />
                 </Box>
             )}
         </Box>

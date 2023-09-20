@@ -1,19 +1,26 @@
 import { Box, Button } from "@mui/material"
-import React from "react"
+import React, { useEffect } from "react"
 import { SearchInput } from "../../../components/SearchInput"
 import { ModalCategory } from "../../../components/PanelBusinessShipping/ModalCategory"
 import { useNavigate } from "react-router-dom"
 import AddIcon from "@mui/icons-material/Add"
+import { useHeader } from "../../../hooks/useHeader"
 
 interface PanelProps {}
 
 export const Panel: React.FC<PanelProps> = ({}) => {
     const navigate = useNavigate()
+    const header = useHeader()
+
     const car: Product = {
         name: "Carro",
         type: "",
         image: "",
     }
+
+    useEffect(() => {
+        return header.setTitle("Minha Transportadora")
+    }, [])
     return (
         <Box
             sx={{
@@ -41,7 +48,7 @@ export const Panel: React.FC<PanelProps> = ({}) => {
                     overflow: "auto",
                     flexDirection: "column",
                     gap: "3vw",
-                    padding: "0 4vw 3vh"
+                    padding: "0 4vw 3vh",
                 }}
             >
                 <ModalCategory title="Região 1" product={car} location="zone" />
@@ -64,7 +71,7 @@ export const Panel: React.FC<PanelProps> = ({}) => {
                 }}
             >
                 <AddIcon color="secondary" />
-                Novo caminhão
+                Caminhão
             </Button>
         </Box>
     )

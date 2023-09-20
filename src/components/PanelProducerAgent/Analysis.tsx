@@ -9,13 +9,15 @@ import { useNavigate } from "react-router-dom"
 import { useHeader } from "../../hooks/useHeader"
 
 interface AnalysisProps {
-    subaccount?: Producer | Agent
+    //subaccount?: Producer | Agent
     user: User
     button: string
     location: string
 }
 
-export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, location }) => {
+export const Analysis: React.FC<AnalysisProps> = ({ user, button, location }) => {
+    const header = useHeader()
+
     const navigate = useNavigate()
 
     const crop: Crop = {
@@ -31,6 +33,12 @@ export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, lo
         sold: 3421.5,
         weight: 1000,
     }
+
+    useEffect(() => {
+        return () => {
+            header.setTitle("Perfil")
+        }
+    }, [])
     return (
         <Box
             sx={{

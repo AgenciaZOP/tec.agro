@@ -29,7 +29,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
         id: 1,
         //crops: ,
     }
-    const renderHeader = () => {
+    const renderHeaderMenu = () => {
         console.log(pathname)
         if (pathname === "/search/intro") {
             return (
@@ -104,7 +104,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                 <>
                     {" "}
                     <Header back location="/home" />
-                    <BottomNavigation section={bottomMenu.shipping} external />
+                    <BottomNavigation section={bottomMenu.home} external />
                 </>
             )
         } else if (pathname === "/search/paid") {
@@ -122,7 +122,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
 
     return (
         <Box sx={{ flexDirection: "column", width: "100%", padding: "10vh 0" }}>
-            {renderHeader()}
+            {renderHeaderMenu()}
             <Routes>
                 <Route path="crops" element={<Crops />} />
                 <Route path="category" element={<Category category={category} />} />

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box, Paper } from "@mui/material"
 import { SearchInput } from "../../../components/SearchInput"
 import { Schedule } from "../../../components/PanelProducerAgent/Schedule"
@@ -6,11 +6,19 @@ import { ListTitle } from "../../../components/ListTitle"
 import { CardCrop } from "../../../components/PanelProducerAgent/CardCrop"
 import { CardAgent } from "../../../components/PanelProducerAgent/CardAgent"
 import { ResourceCard } from "../../../components/PanelProducerAgent/ResourceCard"
+import { useHeader } from "../../../hooks/useHeader"
 interface PanelProps {
     user: User
 }
 
 export const Panel: React.FC<PanelProps> = ({ user }) => {
+    const header = useHeader()
+
+    useEffect(() => {
+        return () => {
+            header.setTitle("Painel")
+        }
+    }, [])
     const agent: Agent = {
         id: 0,
         userId: user.id,
@@ -53,10 +61,11 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
             <Box
                 sx={{
                     width: "100%",
-                    height: "65%",
+                    height: "70%",
                     overflowY: "auto",
                     padding: "0vw 4vw",
                     paddingTop: "3vw",
+                    paddingBottom: "5vw",
                     flexDirection: "column",
                     gap: "2vw",
                 }}

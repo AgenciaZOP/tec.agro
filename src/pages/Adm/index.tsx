@@ -13,6 +13,8 @@ import { DescriptionCrop } from "../../components/DescriptionCrop"
 import { Chats } from "../Chats"
 import { UserstoApprove } from "./UserstoApprove"
 import { Users } from "./Users"
+import { Statistics } from "./Statistics"
+import { Analysis } from "../../components/PanelProducerAgent/Analysis"
 
 interface AdmProps {
     user: User
@@ -23,33 +25,47 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
     const location = useLocation()
     const { pathname } = location
 
-    const renderHeader = () => {
+    const renderHeaderMenu = () => {
         if (pathname === "/adm/review") {
-            return <Header back location="/adm/reviews" />
+            return (
+                <>
+                    <Header back location="/adm/reviews" />
+                    <BottomNavigation section={bottomMenu.admin} external />
+                </>
+            )
         } else if (pathname === "/adm/transactions/description") {
-            return <Header back location="/adm/transactions" />
+            return (
+                <>
+                    {" "}
+                    <Header back location="/adm/transactions" />
+                    <BottomNavigation section={bottomMenu.admin} external />
+                </>
+            )
         } else if (pathname === "/adm/users") {
-            return <Header back location="/adm/" />
+            return (
+                <>
+                    <Header back location="/adm/" />
+                    <BottomNavigation section={bottomMenu.admin} external />
+                </>
+            )
         } else if (pathname === "/adm/users/user") {
-            return <Header back location="/adm/users" />
+            return (
+                <>
+                    <Header back location="/adm/users" />
+                    <BottomNavigation section={bottomMenu.admin} external />
+                </>
+            )
         } else {
-            return <Header />
+            return (
+                <>
+                    {" "}
+                    <Header />
+                    <BottomNavigation section={bottomMenu.admin} />
+                </>
+            )
         }
     }
-    const renderMenu = () => {
-        console.log(pathname)
-        if (pathname === "/adm/review") {
-            return <BottomNavigation section={bottomMenu.admin} external={true} />
-        } else if (pathname === "/adm/transactions/description") {
-            return <BottomNavigation section={bottomMenu.admin} external />
-        } else if (pathname === "/adm/users") {
-            return <BottomNavigation section={bottomMenu.admin} external />
-        } else if (pathname === "/adm/users/user") {
-            return <BottomNavigation section={bottomMenu.admin} external />
-        } else {
-            return <BottomNavigation section={bottomMenu.admin} />
-        }
-    }
+
     return (
         <Box
             sx={{
@@ -59,7 +75,7 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
                 overflowY: "auto",
             }}
         >
-            {renderHeader()}
+            {renderHeaderMenu()}
             <Box
                 sx={{
                     height: "100%",
@@ -70,14 +86,14 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
                     <Route index element={<Panel />} />
                     <Route path="reviews" element={<Reviews />} />
                     <Route path="review" element={<ReviewProfile />} />
+                    <Route path="statistics" element={<Statistics />} />
                     <Route path="users" element={<UserstoApprove user={user} />} />
-                    <Route path="users/user" element={<Users />} />
+                    <Route path="users/user" element={<Analysis button="Iniciar conversa" location="" user={user} />} />
                     <Route path="chats" element={<Chats channel="buyer" />} />
+                    <Route path="transactions/description" element={<DescriptionCrop user={user} />} />
                     <Route path="transactions" element={<ListTransactions producer={user} />} />
-                    <Route path="/transactions/description" element={<DescriptionCrop user={user} />} />
                 </Routes>
             </Box>
-            {renderMenu()}
         </Box>
     )
 }
