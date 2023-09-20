@@ -19,7 +19,7 @@ export const Home: React.FC<HomeProps> = ({ user }) => {
     return (
         <>
             <Header />
-            <Box sx={{ width: "100%", padding: "8vh 0 10vh" }}>
+            <Box sx={{ width: "100%" }}>
                 <Routes>
                     <Route index element={<Crops />} />
                     <Route path="business" element={<Business />} />
