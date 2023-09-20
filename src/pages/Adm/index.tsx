@@ -12,7 +12,6 @@ import { ListTransactions } from "./ListTransactions"
 import { DescriptionCrop } from "../../components/DescriptionCrop"
 import { Chats } from "../Chats"
 import { UserstoApprove } from "./UserstoApprove"
-import { Users } from "./Users"
 import { Statistics } from "./Statistics"
 import { Analysis } from "../../components/PanelProducerAgent/Analysis"
 
@@ -60,7 +59,7 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
                 <>
                     {" "}
                     <Header />
-                    <BottomNavigation section={bottomMenu.admin} />
+                    <BottomNavigation section={bottomMenu.admin} key={bottomMenu.admin.id} />
                 </>
             )
         }
@@ -90,8 +89,8 @@ export const Adm: React.FC<AdmProps> = ({ user }) => {
                     <Route path="users" element={<UserstoApprove user={user} />} />
                     <Route path="users/user" element={<Analysis button="Iniciar conversa" location="" user={user} />} />
                     <Route path="chats" element={<Chats channel="buyer" />} />
-                    <Route path="transactions/description" element={<DescriptionCrop user={user} />} />
                     <Route path="transactions" element={<ListTransactions producer={user} />} />
+                    <Route path="/transactions/description" element={<DescriptionCrop user={user} />} />
                 </Routes>
             </Box>
         </Box>

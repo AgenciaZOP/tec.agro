@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { Box, Button, Paper } from "@mui/material"
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
 import { ListTitle } from "../ListTitle"
@@ -17,22 +17,13 @@ interface AnalysisProps {
 
 export const Analysis: React.FC<AnalysisProps> = ({ user, button, location }) => {
     const header = useHeader()
-
     const navigate = useNavigate()
 
-    const crop: Crop = {
-        description: "",
-        date: "25/02/2355",
-        gallery: "",
-        id: 20,
-        image: "",
-        name: "Safra de feijão",
-        price: 2541.54,
-        producer: user,
-        rating: 5,
-        sold: 3421.5,
-        weight: 1000,
-    }
+    const [title, settitle] = useState("Safra de Soja 2022/23 ")
+    const [company, setCompany] = useState("Transportadora")
+    const [price, setPrice] = useState("125.000,02")
+    const [weight, setWeight] = useState(9.1)
+    const [date, setDate] = useState("19/05/2023")
 
     useEffect(() => {
         return () => {
@@ -65,8 +56,22 @@ export const Analysis: React.FC<AnalysisProps> = ({ user, button, location }) =>
             <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                 <ListTitle title="Transações Recentes" location="" />
                 <Box sx={{ flexDirection: "column", gap: "3vw" }}>
-                    <Transactions crop={crop} company={"Transportadora"} date={"27/03/2023"} haveSeller={false} />
-                    <Transactions crop={crop} company={"Transportadora"} date={"27/03/2023"} haveSeller={false} />
+                    <Transactions
+                        title={title}
+                        price={price}
+                        weight={weight}
+                        company={"Transportadora"}
+                        date={date}
+                        haveSeller={false}
+                    />
+                    <Transactions
+                        title={title}
+                        price={price}
+                        weight={weight}
+                        company={company}
+                        date={date}
+                        haveSeller={false}
+                    />
                 </Box>
             </Box>
             <Box sx={{ flexDirection: "column", gap: "1vw" }}>

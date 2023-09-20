@@ -7,7 +7,9 @@ import profile3 from "../assets/person2.jpg"
 import { useNavigate } from "react-router-dom"
 
 interface TransactionsProps {
-    crop: Crop
+    title: string
+    price: string
+    weight: number
     company: string
     date: string
     haveSeller: boolean
@@ -15,7 +17,16 @@ interface TransactionsProps {
     location?: string
 }
 
-export const Transactions: React.FC<TransactionsProps> = ({ crop, date, company, haveSeller, avatar, location }) => {
+export const Transactions: React.FC<TransactionsProps> = ({
+    title,
+    price,
+    weight,
+    date,
+    company,
+    haveSeller,
+    avatar,
+    location,
+}) => {
     const navigate = useNavigate()
     return (
         <Paper
@@ -40,13 +51,12 @@ export const Transactions: React.FC<TransactionsProps> = ({ crop, date, company,
                 >
                     <Box sx={{ flexDirection: "column" }}>
                         <p style={{ fontSize: "2.7vw" }}>
-                            {crop.name} |{" "}
-                            <span style={{ fontSize: "2.3vw" }}>{crop.weight.toLocaleString("pt-BR")} toneladas</span>
+                            {title} | <span style={{ fontSize: "2.3vw" }}>{weight.toLocaleString("pt-BR")} toneladas</span>
                         </p>
                         <p style={{ fontSize: "2.1vw" }}>[{company}]</p>
                     </Box>
                     <Box sx={{ flexDirection: "column", justifyContent: "flex-end" }}>
-                        <p style={{ fontSize: "2.7vw" }}>R$ {crop.price}</p>
+                        <p style={{ fontSize: "2.7vw" }}>R$ {price}</p>
                         <p style={{ fontSize: "2.3vw", textAlign: "right" }}>{date}</p>
                     </Box>
                 </Box>

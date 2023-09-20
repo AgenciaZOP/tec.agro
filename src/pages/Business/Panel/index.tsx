@@ -37,6 +37,7 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                     variant="contained"
                     type="submit"
                     sx={{
+                        width: "25%",
                         borderRadius: "3vw",
                         fontSize: "2.5vw",
                         flexDirection: "column",
@@ -49,7 +50,7 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                     }}
                 >
                     <AddIcon color="secondary" />
-                    Novo produto ou serviço
+                    Produto ou Serviço
                 </Button>
             </Box>
         </Box>
