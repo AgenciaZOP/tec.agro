@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { Box, Button, Paper } from "@mui/material"
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
 import { ListTitle } from "../ListTitle"
@@ -9,15 +9,27 @@ import { useNavigate } from "react-router-dom"
 import { useHeader } from "../../hooks/useHeader"
 
 interface AnalysisProps {
-    subaccount?: Producer | Agent
+    //subaccount?: Producer | Agent
     user: User
     button: string
     location: string
 }
 
-export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, location }) => {
+export const Analysis: React.FC<AnalysisProps> = ({ user, button, location }) => {
+    const header = useHeader()
     const navigate = useNavigate()
 
+    const [title, settitle] = useState("Safra de Soja 2022/23 ")
+    const [company, setCompany] = useState("Transportadora")
+    const [price, setPrice] = useState("125.000,02")
+    const [weight, setWeight] = useState(9.1)
+    const [date, setDate] = useState("19/05/2023")
+
+    useEffect(() => {
+        return () => {
+            header.setTitle("Perfil")
+        }
+    }, [])
     return (
         <Box
             sx={{
@@ -25,7 +37,7 @@ export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, lo
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                padding: "0 4vw",
+                padding: "0 0vw",
                 paddingBottom: "3vh",
                 overflow: "auto",
             }}
@@ -45,19 +57,19 @@ export const Analysis: React.FC<AnalysisProps> = ({ subaccount, user, button, lo
                 <ListTitle title="Transações Recentes" location="" />
                 <Box sx={{ flexDirection: "column", gap: "3vw" }}>
                     <Transactions
-                        title={"Safra de café"}
-                        price={"45.287,23"}
-                        weight={5.8}
+                        title={title}
+                        price={price}
+                        weight={weight}
                         company={"Transportadora"}
-                        date={"27/03/2023"}
+                        date={date}
                         haveSeller={false}
                     />
                     <Transactions
-                        title={"Safra de café"}
-                        price={"45.287,23"}
-                        weight={5.8}
-                        company={"Transportadora"}
-                        date={"27/03/2023"}
+                        title={title}
+                        price={price}
+                        weight={weight}
+                        company={company}
+                        date={date}
                         haveSeller={false}
                     />
                 </Box>

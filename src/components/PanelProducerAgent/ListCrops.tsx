@@ -1,17 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box } from "@mui/material"
 import { SearchInput } from "../SearchInput"
 import { BottomNavigation } from "../BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { CardCrop } from "./CardCrop"
+import { Header } from "../Header"
+import { useHeader } from "../../hooks/useHeader"
 
 interface ListCropsProps {
     user: User
-    type: NavigationMenu
 }
 
-export const ListCrops: React.FC<ListCropsProps> = ({ user, type }) => {
-    const bottomMenu = useNavigationList()
+export const ListCrops: React.FC<ListCropsProps> = ({ user }) => {
+    const header = useHeader()
+
+    useEffect(() => {
+        return header.setTitle("Suas Safras")
+    }, [])
     const agent: Agent = {
         id: 0,
         userId: user.id,
@@ -36,7 +41,7 @@ export const ListCrops: React.FC<ListCropsProps> = ({ user, type }) => {
                 gap: "3vw",
             }}
         >
-            <SearchInput placeholder="conversas" onChange={() => {}} />
+            <SearchInput placeholder="safras" onChange={() => {}} />
             <Box
                 sx={{
                     width: "100%",
@@ -51,8 +56,6 @@ export const ListCrops: React.FC<ListCropsProps> = ({ user, type }) => {
                 <CardCrop variant user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
                 <CardCrop variant user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
             </Box>
-
-            <BottomNavigation external section={type} />
         </Box>
     )
 }

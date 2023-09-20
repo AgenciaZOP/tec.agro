@@ -1,11 +1,20 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box } from "@mui/material"
 import { SearchInput } from "../../../components/SearchInput"
 import { CardNotification } from "./CardNotification"
+import { useHeader } from "../../../hooks/useHeader"
 
 interface RequestsProps {}
 
 export const Requests: React.FC<RequestsProps> = ({}) => {
+    const header = useHeader()
+
+    useEffect(() => {
+        return () => {
+            header.setTitle("Solicitações")
+        }
+    }, [])
+
     return (
         <Box
             sx={{
@@ -22,7 +31,7 @@ export const Requests: React.FC<RequestsProps> = ({}) => {
                     height: "91%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw 0",
+                    padding: "0 4vw",
                     gap: "2vw",
                 }}
             >

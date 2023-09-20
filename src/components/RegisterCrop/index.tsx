@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Box, IconButton, Paper, TextField, Button, SxProps } from "@mui/material"
 import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp"
 import { Form, Formik } from "formik"
@@ -6,6 +6,9 @@ import MaskedInput from "../MaskedInput"
 import { useDocumentMask } from "../../hooks/useDocumentMask"
 import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined"
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined"
+import { Avatar, ExtFile } from "@files-ui/react"
+import { UploadDocuments } from "../UploadDocuments"
+import { useHeader } from "../../hooks/useHeader"
 
 interface RegisterCropProps {}
 
@@ -15,7 +18,11 @@ interface FormValues {
     birth: string
 }
 export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
+    const header = useHeader()
     const document = useDocumentMask()
+    const [gallery, setGallery] = useState<ExtFile[]>([])
+    const [files, setFiles] = useState<ExtFile[]>([])
+
     const inputStyle = {
         "& .MuiInputBase-input": {
             padding: "0 1vw",
@@ -33,45 +40,57 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
     }
     const handleSubmit = (values: FormValues) => {
         console.log(values)
+        const formData = new FormData()
+
+        if (files.length > 0) formData.append("file", files[0].file!)
+
+        if (gallery.length > 0) {
+            gallery.map((file) => {
+                formData.append(`gallery-${gallery.indexOf(file)}`, file.file!)
+            })
+        }
     }
+
+    useEffect(() => {
+        return header.setTitle("Safra de Julian")
+    }, [])
     return (
         <Box
             sx={{
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                gap: "3vw",
-                padding: "0 4vw",
+                gap: "4vw",
+                padding: "20vw 0",
             }}
         >
-            <Paper
-                elevation={0}
+            <Box
                 sx={{
-                    width: "100%",
+                    width: "92vw",
                     height: "100%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw",
-                    gap: "2vw",
+                    gap: "4vw",
                     borderRadius: "2vw",
+                    margin: "0 4vw",
                 }}
             >
                 <p style={{ width: "100%", textAlign: "center" }}>Preencha os dados abaixo</p>
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     {({ values, handleChange }) => (
                         <Form>
-                            <Box
+                            <Paper
                                 sx={{
                                     width: "100%",
                                     border: "0.1vw solid gray",
                                     borderRadius: "3vw",
-                                    padding: "3vw",
+                                    padding: "4vw",
                                     flexDirection: "column",
                                     gap: "0vw",
                                 }}
                             >
-                                <p style={{ fontSize: "3.2vw", fontWeight: "600" }}>Informações Básicas</p>
-                                <Box sx={{ flexDirection: "column", gap: "3vw" }}>
+                                <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Informações Básicas</p>
+                                <Box sx={{ flexDirection: "column", gap: "4vw" }}>
                                     <Box sx={{ flexDirection: "column", gap: "4vw" }}>
                                         <TextField
                                             label="Responsável legal"
@@ -104,42 +123,21 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                     </Box>
                                     <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                                         <p style={{ fontSize: "3vw" }}>Documentação Enviada</p>
-
-                                        <Box sx={{ gap: "1vw", width: "100%" }}>
-                                            <img
-                                                src="https://contratocerto.com.br/wp-content/uploads/2020/07/Contrato-de-coaching-pdf.jpg"
-                                                style={{ width: "12vw" }}
-                                                alt="Documento"
-                                            />
-                                            <img
-                                                src="https://s2-g1.glbimg.com/_bCeHe8l8gGuZ6XfL0C_rYHhNB4=/0x0:1280x854/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/x/K/iF7eHyTky2IZDMsAvVHQ/whatsapp-image-2019-04-04-at-4.55.07-pm.jpeg"
-                                                style={{ width: "12vw", transform: "rotate(90deg)" }}
-                                                alt=""
-                                            />
-                                            <img
-                                                src="https://manuais.ifsp.edu.br/uploads/images/gallery/2022-07/scaled-1680-/image-1657389184596.png"
-                                                style={{ width: "12vw" }}
-                                                alt=""
-                                            />
-                                            <img
-                                                src="https://contratocerto.com.br/wp-content/uploads/2020/07/Contrato-de-coaching-pdf.jpg"
-                                                style={{ width: "12vw" }}
-                                                alt="Documento"
-                                            />
-                                            <IconButton sx={{ display: "flex", justifyContent: "end" }} onClick={() => {}}>
-                                                <ArrowCircleUpSharpIcon color="primary" />
-                                            </IconButton>
-                                        </Box>
+                                        <UploadDocuments
+                                            gallery={gallery}
+                                            setGallery={setGallery}
+                                            style={{ gap: "1vw", width: "100%" }}
+                                        />
                                     </Box>
                                 </Box>
-                            </Box>
-                            <Box
+                            </Paper>
+                            <Paper
                                 sx={{
                                     width: "100%",
                                     border: "0.1vw solid gray",
                                     borderRadius: "3vw",
-                                    padding: "3vw",
                                     flexDirection: "column",
+                                    padding: "5vw",
                                 }}
                             >
                                 <p style={{ fontSize: "3.5vw" }}>Endereço</p>
@@ -169,13 +167,13 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                         sx={inputStyle}
                                     />
                                 </Box>
-                            </Box>
-                            <Box
+                            </Paper>
+                            <Paper
                                 sx={{
                                     width: "100%",
                                     border: "0.1vw solid gray",
                                     borderRadius: "3vw",
-                                    padding: "3vw",
+                                    padding: "4vw",
                                     flexDirection: "column",
                                 }}
                             >
@@ -206,22 +204,20 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                                         sx={inputStyle}
                                     />
                                 </Box>
-                            </Box>
+                            </Paper>
                             <Button
                                 variant="contained"
                                 color="primary"
                                 onClick={() => {}}
-                                size="small"
-                                style={{ alignItems: "center", gap: "2vw" }}
+                                style={{ alignItems: "center", gap: "2vw", margin: "2vw 0" }}
                             >
                                 Publicar
                                 <CheckCircleOutlineOutlinedIcon color="secondary" />
                             </Button>
                             <Button
                                 variant="contained"
-                                style={{ backgroundColor: "gray", alignItems: "center", gap: "2vw" }}
+                                style={{ backgroundColor: "gray", alignItems: "center", gap: "2vw", marginBottom: "4vw" }}
                                 onClick={() => {}}
-                                size="small"
                             >
                                 Agendar
                                 <DateRangeOutlinedIcon color="secondary" />
@@ -229,7 +225,7 @@ export const RegisterCrop: React.FC<RegisterCropProps> = ({}) => {
                         </Form>
                     )}
                 </Formik>
-            </Paper>
+            </Box>
         </Box>
     )
 }

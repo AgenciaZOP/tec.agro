@@ -48,13 +48,13 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
     }, [])
 
     return (
-        <Box sx={{ flexDirection: "column", padding: "10vh 4vw", gap: "5vw", width: "100%", height: "80vh" }}>
+        <Box sx={{ flexDirection: "column", padding: "20vw 0", gap: "4vw", width: "100%", height: "92vh" }}>
             <SearchInput placeholder="análises" onChange={handleSearch} />
 
             {/* <ListTitle title="Categorias em análise" location="categories" /> */}
 
-            <Box sx={{ width: "100%", flexDirection: "column", height: "100%", paddingBottom: "6vh", overflow: "auto" }}>
-                <Box sx={{ flexDirection: "column", gap: "3vw", width: "100%" }}>
+            <Box sx={{ width: "100%", gap: "4vw", flexDirection: "column", padding: "0 4vw", height: "100%", overflow: "auto" }}>
+                <Box sx={{ flexDirection: "column", gap: "4vw", width: "100%" }}>
                     {list.map((business) => (
                         <ReviewCard
                             key={business.id}

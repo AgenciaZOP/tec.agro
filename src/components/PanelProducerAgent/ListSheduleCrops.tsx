@@ -1,16 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box } from "@mui/material"
 import { SearchInput } from "../SearchInput"
-import { useNavigationList } from "../../hooks/useNavigationList"
-import { BottomNavigation } from "../BottomNavigation"
 import { Schedule } from "./Schedule"
+import { useHeader } from "../../hooks/useHeader"
 
-interface ListSheduleCropsProps {
-    type: NavigationMenu
-}
+interface ListSheduleCropsProps {}
 
-export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
-    const bottomMenu = useNavigationList()
+export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({}) => {
+    const header = useHeader()
+
+    useEffect(() => {
+        return header.setTitle("Safras Agendadas")
+    }, [])
 
     return (
         <Box
@@ -28,7 +29,7 @@ export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
                     height: "91%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw 0",
+                    padding: "3vw 4vw",
                     gap: "3vw",
                 }}
             >
@@ -38,8 +39,6 @@ export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({ type }) => {
                 <Schedule status="schedule" />
                 <Schedule status="schedule" />
             </Box>
-
-            <BottomNavigation external section={type} />
         </Box>
     )
 }

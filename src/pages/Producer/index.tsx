@@ -13,6 +13,7 @@ import { IntroCrop } from "./Panel/IntroCrop"
 import { RegisterCrop } from "../../components/RegisterCrop"
 import { Analysis } from "../../components/PanelProducerAgent/Analysis"
 import { Transactions } from "./Transactions"
+import { useLocation } from "react-router-dom"
 
 interface ProducerProps {
     user: User
@@ -20,6 +21,10 @@ interface ProducerProps {
 
 export const Producer: React.FC<ProducerProps> = ({ user }) => {
     const bottomMenu = useNavigationList()
+
+    const location = useLocation()
+    const { pathname } = location
+
     const producer: Producer = {
         id: 0,
         userId: user.id,
@@ -48,31 +53,70 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
         ratings: 5,
         active: false,
     }
+    const renderHeaderMenu = () => {
+        console.log(pathname)
+        if (pathname === "/producer/intro") {
+            return (
+                <>
+                    {" "}
+                    <Header back location="/producer/panel" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
+        } else if (pathname === "/producer/register") {
+            return (
+                <>
+                    <Header back location="/producer/intro" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
+        } else if (pathname === "/producer/analysisag") {
+            return (
+                <>
+                    <Header back location="/search/zonespr" />
+                    <BottomNavigation section={bottomMenu.producer} external />
+                </>
+            )
+
+        } else {
+            return (
+                <>
+                    <Header />
+                    <BottomNavigation section={bottomMenu.producer} />
+                </>
+            )
+        }
+    }
 
     return (
-        <Box sx={{ width: "100%", padding: "7vh 0vw 10vh 0vw" }}>
-            <Header />
-            {user.producer ? (
-                user.producer.active ? (
-                    <></>
+        <>
+            {renderHeaderMenu()}
+            <Box sx={{ width: "100%" }}>
+                {user.producer ? (
+                    user.producer.active ? (
+                        <></>
+                    ) : (
+                        <Verification />
+                    )
                 ) : (
-                    <Verification />
-                )
-            ) : (
-                <Box sx={{ padding: "10vw 4vw 0", width: "100vw" }}>
-                    <Routes>
-                        <Route index element={<Signup user={user}></Signup>} />
-                        <Route path="form" element={<Form user={user}></Form>} />
-                        <Route path="panel" element={<Panel user={user} agent={agent}></Panel>} />
-                        <Route path="chats" element={<Chats channel="buyer" />} />
-                        <Route path="intro" element={<IntroCrop />} />
-                        <Route path="register" element={<RegisterCrop />} />
-                        <Route path="transactions" element={<Transactions agent={agent} />} />
-                        <Route path="analysis" element={<Analysis user={user} button="Enviar Solicitação" location="producer/"></Analysis>} />
-                    </Routes>
-                    <BottomNavigation section={bottomMenu.producer} />
-                </Box>
-            )}
-        </Box>
+                    <Box sx={{ width: "100vw" }}>
+                        <Routes>
+                            {}
+                            <Route index element={<Signup user={user}></Signup>} />
+                            <Route path="form" element={<Form user={user}></Form>} />
+                            <Route path="panel" element={<Panel user={user} agent={agent}></Panel>} />
+                            <Route path="chats" element={<Chats channel="buyer" />} />
+                            <Route path="intro" element={<IntroCrop />} />
+                            <Route path="register" element={<RegisterCrop />} />
+                            <Route path="transactions" element={<Transactions agent={agent} />} />
+                            <Route
+                                path="analysisag"
+                                element={<Analysis user={user} button="Enviar Solicitação" location="producer/"></Analysis>}
+                            />
+                        </Routes>
+                    </Box>
+                )}
+            </Box>
+        </>
     )
 }

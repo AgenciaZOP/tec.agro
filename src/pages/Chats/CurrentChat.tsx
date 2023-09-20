@@ -7,7 +7,15 @@ interface ChatProps {
 
 export const CurrentChat: React.FC<ChatProps> = ({ chat }) => {
     return (
-        <Box sx={{ flexDirection: "column" }}>
+        <Box
+            sx={{ 
+                height: "100%",
+                width: "100%",
+                flexDirection: "column",
+                gap: "4vw",
+                padding: "20vw 4vw"
+         }}
+        >
             {chat.messages.map((message) => (
                 <Message key={message.id} message={message} />
             ))}

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box, Paper } from "@mui/material"
 import { SearchInput } from "../../../components/SearchInput"
 import { Schedule } from "../../../components/PanelProducerAgent/Schedule"
@@ -6,11 +6,19 @@ import { ListTitle } from "../../../components/ListTitle"
 import { CardCrop } from "../../../components/PanelProducerAgent/CardCrop"
 import { CardAgent } from "../../../components/PanelProducerAgent/CardAgent"
 import { ResourceCard } from "../../../components/PanelProducerAgent/ResourceCard"
+import { useHeader } from "../../../hooks/useHeader"
 interface PanelProps {
     user: User
 }
 
 export const Panel: React.FC<PanelProps> = ({ user }) => {
+    const header = useHeader()
+
+    useEffect(() => {
+        return () => {
+            header.setTitle("Painel")
+        }
+    }, [])
     const agent: Agent = {
         id: 0,
         userId: user.id,
@@ -35,7 +43,15 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                 gap: "3vw",
             }}
         >
-            <Box sx={{ flexDirection: "column", width: "100%", height: "30%", gap: "2vw" }}>
+            <Box
+                sx={{
+                    flexDirection: "column",
+                    padding: "0 4vw",
+                    width: "100%",
+                    height: "38vw",
+                    gap: "2vw",
+                }}
+            >
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <p style={{ fontSize: "3.5vw" }}>Como os produtores veem</p>
                     <ResourceCard agent={agent} location="agent" />
@@ -45,20 +61,29 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
             <Box
                 sx={{
                     width: "100%",
-                    height: "65%",
+                    height: "70%",
                     overflowY: "auto",
-                    paddingBottom: "1vh",
+                    padding: "0vw 4vw",
+                    paddingTop: "3vw",
+                    paddingBottom: "5vw",
                     flexDirection: "column",
                     gap: "2vw",
                 }}
             >
                 <Schedule status="pending" />
                 <Schedule status="contact" />
-                <Box sx={{ flexDirection: "column" }}>
+                <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <ListTitle title="Suas Safras" location="cropsag"></ListTitle>
-                    <CardCrop user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />
+                    <CardCrop
+                        user={agent}
+                        type="agent"
+                        name="Corretor"
+                        variant={true}
+                        transactions={false}
+                        handleClick={() => {}}
+                    />
                 </Box>
-                <Box sx={{ flexDirection: "column" }}>
+                <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <ListTitle title="Agendadas" location="scheduleag"></ListTitle>
                     <Schedule status="schedule" />
                 </Box>

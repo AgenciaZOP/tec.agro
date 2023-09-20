@@ -6,17 +6,16 @@ import { Header } from "../../components/Header"
 import { Form } from "./Signup/Form"
 import { Verification } from "./Signup/Verification"
 import { useHeader } from "../../hooks/useHeader"
-import { Account } from "../../components/Account"
+
 import { BottomNavigation } from "../../components/BottomNavigation"
-import { Stats } from "../../components/Stats"
-import { Avatar } from "@files-ui/react"
-import { InfoDetails } from "../../components/InfoDetails"
+
 import { MyBusiness } from "../../components/MyBusiness"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
 import { NewCategory } from "../../components/PanelBusinessShipping/NewCategory"
 import { Category } from "../Search/Business/Category"
 import { NewService } from "../../components/PanelBusinessShipping/NewService"
+import { useLocation } from "react-router-dom"
 //import { Carousel } from "react-responsive-carousel"
 
 interface BusinessProps {
@@ -27,41 +26,59 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
     const bottomMenu = useNavigationList()
     const header = useHeader()
 
+    const location = useLocation()
+    const { pathname } = location
+
     const product: Product = {
         name: "Fertilizante",
         type: "Produto",
         image: "",
     }
 
+    const renderHeader = () => {
+        console.log(pathname)
+        if (pathname === "/business/new") {
+            return <> <Header back location="/business" />
+            <BottomNavigation section={bottomMenu.business} external /></>
+        } else {
+            return (
+                <>
+                    <Header />
+                    <BottomNavigation section={bottomMenu.business} />{" "}
+                </>
+            )
+        }
+    }
+
     useEffect(() => {
         header.setTitle("Meu Negócio")
     }, [])
     return (
-        <Box sx={{ width: "100%", padding: "10vh 0vw 10vh 0vw" }}>
-            {/* <Header /> */}
-            {user.business ? (
-                user.business.active ? (
-                    <>
-                        <Routes>
-                            <Route index element={<Panel business={user.business} product={product} />} />
-                            <Route path="/newCategory" element={<NewCategory user={user} product={product} />} />
-                            <Route path="/account" element={<MyBusiness business={user.business} />} />
-                            <Route path="/new" element={<NewService />} />
-                        </Routes>
-
-                        <BottomNavigation section={bottomMenu.business} />
-                    </>
+        <>
+            {renderHeader()}
+            <Box sx={{ width: "100%", padding: "10vh 0 10vh" }}>
+                {user.business ? (
+                    user.business.active ? (
+                        <>
+                            <Routes>
+                                <Route index element={<Panel business={user.business} product={product} />} />
+                                {/* <Route path="/newCategory" element={<NewCategory user={user} product={product} />} /> */}
+                                <Route path="/account" element={<MyBusiness business={user.business} />} />
+                                <Route path="/new" element={<NewService />} />
+                            </Routes>
+                        </>
+                    ) : (
+                        <Verification />
+                    )
                 ) : (
-                    <Verification />
-                )
-            ) : (
-                <Box sx={{ padding: "10vw 4vw 0", width: "100%" }}>
-                    <Routes>
-                        <Route index element={<Signup user={user}></Signup>} />
-                        <Route path="form" element={<Form user={user}></Form>} />
-                    </Routes>
-                </Box>
-            )}
-        </Box>
+                    <Box sx={{ padding: "10vw 0 0", width: "100%" }}>
+                        <Routes>
+                            <Route index element={<Signup user={user}></Signup>} />
+                            <Route path="form" element={<Form user={user}></Form>} />
+                        </Routes>
+                    </Box>
+                )}
+            </Box>
+        </>
     )
 }

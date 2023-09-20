@@ -16,8 +16,6 @@ interface CategoryProps {
 }
 
 export const Category: React.FC<CategoryProps> = ({ category }) => {
-    const bottomMenu = useNavigationList()
-
     const product: Product = {
         name: "Fertilizante",
         type: "Produto",
@@ -26,7 +24,6 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
 
     return (
         <Box>
-            <Header back location="../../business" />
             <Box
                 sx={{
                     width: "100%",
@@ -156,7 +153,7 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
                             sx={{
                                 width: "25%",
                                 borderRadius: "3vw",
-                                fontSize: "2vw",
+                                fontSize: "2.5vw",
                                 flexDirection: "column",
                                 position: "fixed",
                                 bottom: "11vh",
@@ -165,11 +162,10 @@ export const Category: React.FC<CategoryProps> = ({ category }) => {
                             onClick={() => {}}
                         >
                             <AddIcon color="secondary" />
-                            Adicionar produto ou serviço
+                            Produto ou Serviço
                         </Button>
                     </Paper>
                 </Box>
-                <BottomNavigation section={bottomMenu.business} />
             </Box>
         </Box>
     )

@@ -1,26 +1,30 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box, Paper, TextField, Button } from "@mui/material"
 import { SearchInput } from "../../../components/SearchInput"
 import { useNavigationList } from "../../../hooks/useNavigationList"
 import { BottomNavigation } from "../../../components/BottomNavigation"
 import AddIcon from "@mui/icons-material/Add"
 import { CardProduct as CardCar } from "../../../components/PanelBusinessShipping/CardProduct"
+import { useHeader } from "../../../hooks/useHeader"
 
 interface ZoneProps {}
 
 export const Zone: React.FC<ZoneProps> = ({}) => {
-    const bottomMenu = useNavigationList()
+    const header = useHeader()
 
     const car: Car = {
         image: "",
         name: "cdb",
         type: "",
     }
+
+    useEffect(() => {
+        return header.setTitle("Região #")
+    }, [])
     return (
         <Box
             sx={{
                 width: "100%",
-                padding: "0 4vw",
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
@@ -28,7 +32,15 @@ export const Zone: React.FC<ZoneProps> = ({}) => {
             }}
         >
             <SearchInput placeholder={"veículos"} onChange={() => {}} />
-            <Box sx={{ flexDirection: "column", gap: "3vw", height: "100%", paddingBottom: "3vh", overflow: "auto" }}>
+            <Box
+                sx={{
+                    flexDirection: "column",
+                    gap: "3vw",
+                    height: "100%",
+                    padding: "0 4vw 3vh",
+                    overflow: "auto",
+                }}
+            >
                 <Paper
                     elevation={2}
                     sx={{
@@ -100,7 +112,6 @@ export const Zone: React.FC<ZoneProps> = ({}) => {
                     </Button>
                 </Paper>
             </Box>
-            <BottomNavigation section={bottomMenu.shipping} />
         </Box>
     )
 }

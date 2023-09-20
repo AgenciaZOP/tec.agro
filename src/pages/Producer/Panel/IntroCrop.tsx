@@ -1,34 +1,47 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box, Paper, Radio } from "@mui/material"
 import info from "../../../assets/info.png"
 import info2 from "../../../assets/info2.png"
 import { Details } from "./Details"
 import { useNavigate } from "react-router-dom"
+import { useHeader } from "../../../hooks/useHeader"
 
 interface IntroCropProps {}
 
 export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
     const navigate = useNavigate()
+    const header = useHeader()
+
+    useEffect(() => {
+        return header.setTitle("Nova Safra")
+    }, [])
 
     return (
-        <>
+        <Box
+            sx={{
+                width: "100%",
+                height: "100%",
+                flexDirection: "column",
+                gap: "4vw",
+                padding: "20vw 0",
+            }}
+        >
             <Box
                 sx={{
-                    width: "100%",
-                    height: "100%",
+                    margin: "0 4vw",
                     flexDirection: "column",
-                    gap: "3vw",
-                    padding: "0 7vw",
+                    gap: "4vw",
+                    height: "100%",
+                    overflow: "auto"
                 }}
             >
                 <Paper
                     elevation={1}
                     sx={{
-                        width: "100%",
+                        width: "92vw",
                         height: "65%",
-                        overflow: "auto",
                         flexDirection: "column",
-                        padding: "3vw",
+                        padding: "4vw",
                         gap: "2vw",
                         borderRadius: "3vw",
                     }}
@@ -42,6 +55,9 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                             padding: "4vw",
                             flexDirection: "column",
                             justifyContent: "center",
+                        }}
+                        onClick={() => {
+                            navigate("/search/zonespr")
                         }}
                     >
                         <Box
@@ -57,14 +73,7 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                                 <img src={info} alt="" style={{ width: "12vw" }} />
                                 <Box sx={{ flexDirection: "column", alignItems: "center" }}>
                                     <p style={{ fontSize: "3.3vw" }}>Procurar por um</p>
-                                    <p
-                                        style={{ fontSize: "5vw", textDecoration: "underline" }}
-                                        onClick={() => {
-                                            navigate("/search/zonespr")
-                                        }}
-                                    >
-                                        Corretor
-                                    </p>
+                                    <p style={{ fontSize: "5vw", textDecoration: "underline" }}>Corretor</p>
                                 </Box>
                             </Box>
                             <p style={{ fontSize: "3.3vw", fontWeight: "600" }}>Vantagens</p>
@@ -88,11 +97,10 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                 <Paper
                     elevation={1}
                     sx={{
-                        width: "100%",
+                        width: "92vw",
                         height: "30%",
-                        overflow: "auto",
                         flexDirection: "column",
-                        padding: "3vw",
+                        padding: "4vw",
                         gap: "2vw",
                         borderRadius: "3vw",
                     }}
@@ -105,6 +113,9 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                             borderRadius: "2vw",
                             padding: "4vw",
                             flexDirection: "column",
+                        }}
+                        onClick={() => {
+                            navigate("/producer/register")
                         }}
                     >
                         <Box
@@ -130,20 +141,13 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
                                 <img src={info2} alt="" style={{ width: "12vw" }} />
                                 <Box sx={{ flexDirection: "column", alignItems: "center" }}>
                                     <p style={{ fontSize: "3.3vw" }}>registrar sua safra</p>
-                                    <p
-                                        style={{ fontSize: "5vw", textDecoration: "underline" }}
-                                        onClick={() => {
-                                            navigate("/producer/register")
-                                        }}
-                                    >
-                                        Cadastro Próprio
-                                    </p>
+                                    <p style={{ fontSize: "5vw", textDecoration: "underline" }}>Cadastro Próprio</p>
                                 </Box>
                             </Box>
                         </Box>
                     </Box>
                 </Paper>
             </Box>
-        </>
+        </Box>
     )
 }

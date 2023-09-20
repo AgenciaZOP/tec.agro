@@ -11,8 +11,6 @@ interface ListZonesProps {
 }
 
 export const ListZones: React.FC<ListZonesProps> = ({ title, user }) => {
-    const bottomMenu = useNavigationList()
-
     return (
         <Box
             sx={{
@@ -45,14 +43,9 @@ export const ListZones: React.FC<ListZonesProps> = ({ title, user }) => {
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     {/* <CardCategory activeCategory={type} category={category}></CardCategory>
                     <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory>
-                    <CardCategory activeCategory={type} category={category}></CardCategory> */}
+                  */}
                 </Box>
             </Paper>
-            <BottomNavigation section={bottomMenu.shipping} />
         </Box>
     )
 }

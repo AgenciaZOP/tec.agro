@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Box } from "@mui/material"
 import { useUsers } from "../../hooks/useUsers"
+import { useNavigate } from "react-router-dom"
 
 interface ReviewBoxProps {
     variant: "producer" | "agent" | "shipping" | "business"
@@ -8,6 +9,7 @@ interface ReviewBoxProps {
 
 export const ReviewBox: React.FC<ReviewBoxProps> = ({ variant }) => {
     const { users } = useUsers()
+    const navigate = useNavigate()
 
     const [total, setTotal] = useState(0)
     const [pending, setPending] = useState(0)
@@ -42,6 +44,7 @@ export const ReviewBox: React.FC<ReviewBoxProps> = ({ variant }) => {
                 padding: "3vw",
                 justifyContent: "space-between",
             }}
+            onClick={() => navigate("/adm/users")}
         >
             <Box sx={{ flexDirection: "column" }}>
                 <p style={{ fontSize: "6vw" }}>{total}</p>

@@ -33,19 +33,19 @@ export const useNavigationList = () => {
             {
                 id: 2,
                 title: "Chamados",
-                location: "/business",
+                location: "/chats",
                 icon: <ChatIcon sx={iconStyle} />,
             },
             {
                 id: 3,
                 title: "Transações",
-                location: "/business",
+                location: "/transactions",
                 icon: <SwapHorizIcon sx={iconStyle} />,
             },
             {
                 id: 4,
-                title: "Estatatísticas",
-                location: "/shipping",
+                title: "Estatísticas",
+                location: "/statistics",
                 icon: <LeaderboardIcon sx={iconStyle} />,
             },
             {

@@ -29,16 +29,6 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
             >
                 <SearchInput placeholder="produto, serviço ou categoria" onChange={() => {}} />
 
-                <Button
-                    variant="contained"
-                    type="submit"
-                    sx={{ width: "100%", borderRadius: "5vw", fontSize: "3vw" }}
-                    onClick={() => {
-                        navigate("/business/newCategory")
-                    }}
-                >
-                    Adicionar Categoria
-                </Button>
                 <Box sx={{ height: "100%", overflow: "auto", flexDirection: "column", gap: "3vw", paddingBottom: "14vh" }}>
                     <ModalCategory title="Fertilizantes " product={product} location="category" />
                     <ModalCategory title="Inseticida" product={product} location="category" />
@@ -47,6 +37,7 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                     variant="contained"
                     type="submit"
                     sx={{
+                        width: "25%",
                         borderRadius: "3vw",
                         fontSize: "2.5vw",
                         flexDirection: "column",
@@ -59,7 +50,7 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                     }}
                 >
                     <AddIcon color="secondary" />
-                    Novo produto ou serviço
+                    Produto ou Serviço
                 </Button>
             </Box>
         </Box>

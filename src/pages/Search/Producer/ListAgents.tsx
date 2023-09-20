@@ -10,7 +10,6 @@ interface ListAgentsProps {
 }
 
 export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
-    const bottomMenu = useNavigationList()
     const agent: Agent = {
         id: 0,
         userId: user.id,
@@ -31,7 +30,7 @@ export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                padding: "2vw",
+                padding: "0",
                 gap: "3vw",
             }}
         >
@@ -39,7 +38,7 @@ export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
             <Box
                 sx={{
                     height: "90%",
-                    padding: "0 4vw",
+                    padding: "3vw 4vw",
                     overflow: "auto",
                     flexDirection: "column",
                     gap: "3vw",
@@ -52,7 +51,6 @@ export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
                 <CardCrop user={agent} type="agent" name="Corretor" />
                 <CardCrop user={agent} type="agent" name="Corretor" />
             </Box>
-            <BottomNavigation section={bottomMenu.producer} />
         </Box>
     )
 }

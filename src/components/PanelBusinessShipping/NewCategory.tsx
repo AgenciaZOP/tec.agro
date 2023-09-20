@@ -8,7 +8,6 @@ import { CardCategory } from "./CardCategory"
 import { ListTitle } from "../ListTitle"
 import { useNavigate } from "react-router-dom"
 import { useUser } from "../../hooks/useUser"
-import { Header } from "../Header"
 
 interface NewCategoryProps {
     product: Product | Car
@@ -20,16 +19,18 @@ interface FormValues {
 export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
     const navigate = useNavigate()
     const user = useUser()
+    const header = useHeader()
 
     const category: Category = { name: "Veículos", id: 1 }
 
     const handleSubmit = (values: FormValues) => {}
 
+    useEffect(() => {
+        header.setTitle("Nova Região")
+    }, [])
     return (
         <>
-            <Header back location="../../business" />
-
-            <Box sx={{ width: "100%", padding: "0 3vw", height: "100%", overflow: "auto" }}>
+            <Box sx={{ width: "100%", padding: "0 4vw", height: "100%", overflow: "auto" }}>
                 <Box sx={{ width: "100%", flexDirection: "column", gap: "3vw" }}>
                     <Paper
                         elevation={2}
@@ -46,7 +47,7 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
                             {({ values, handleChange }) => (
                                 <Form>
                                     <TextField
-                                        label="Nome da Categoria"
+                                        label="Nome da Região"
                                         variant="standard"
                                         sx={{
                                             "& .MuiInputBase-input": {

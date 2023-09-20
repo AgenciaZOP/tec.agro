@@ -1,17 +1,20 @@
-import React from "react"
-import { BottomNavigation } from "../../../components/BottomNavigation"
+import React, { useEffect } from "react"
 import { Box } from "@mui/material"
-import { useNavigationList } from "../../../hooks/useNavigationList"
 import { SearchInput } from "../../../components/SearchInput"
 import { ListTitle } from "../../../components/ListTitle"
 import { ResourceCard } from "../../../components/PanelProducerAgent/ResourceCard"
+import { useHeader } from "../../../hooks/useHeader"
 
 interface ListZonesProps {
     user: User
 }
 
 export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
-    const bottomMenu = useNavigationList()
+    const header = useHeader()
+
+    useEffect(() => {
+        return header.setTitle("Escolha um Corretor")
+    }, [])
     const agent: Agent = {
         id: 0,
         userId: user.id,
@@ -27,25 +30,24 @@ export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
         active: false,
     }
     return (
-        <Box sx={{ height: "100%", padding: "0 2vw", flexDirection: "column" }}>
+        <Box sx={{ height: "100%", padding: "0", flexDirection: "column" }}>
             <SearchInput placeholder="corretor" onChange={() => {}} />
             <Box
                 sx={{
                     overflow: "auto",
                     height: "90%",
-                    padding: "3vw 5vw",
+                    padding: "3vw 4vw",
                     flexDirection: "column",
-                    gap: "1vw",
+                    gap: "2vw",
                 }}
             >
                 <ListTitle title="Região #1" location="agentspr" />
                 <Box sx={{ flexDirection: "column", gap: "3vw" }}>
-                    <ResourceCard agent={agent} location="producer/analysis" />
+                    <ResourceCard agent={agent} location="producer/analysisag" />
                 </Box>
                 <ListTitle title="Região #2" location="" />
                 <Box sx={{ flexDirection: "column", gap: "3vw" }}></Box>
             </Box>
-            <BottomNavigation section={bottomMenu.producer} />
         </Box>
     )
 }

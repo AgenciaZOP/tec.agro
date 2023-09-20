@@ -83,4 +83,8 @@ img {
 
 ::-webkit-scrollbar {
     display: none;
-  }
+}
+
+::-webkit-scrollbar-thumb {
+    display: none;
+}
