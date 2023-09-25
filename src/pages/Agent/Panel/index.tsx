@@ -16,7 +16,7 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
 
     useEffect(() => {
         return () => {
-            header.setTitle("Painel")
+            header.setTitle("Painel Corretor")
         }
     }, [])
     const agent: Agent = {

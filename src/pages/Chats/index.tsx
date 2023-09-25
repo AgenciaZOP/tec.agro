@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Box } from "@mui/material"
+import { Box, SxProps } from "@mui/material"
 import { useChats } from "../../hooks/useChats"
 import { ChatCard } from "../../components/ChatCard"
 import { CurrentChat } from "./CurrentChat"
@@ -9,23 +9,29 @@ import { useHeader } from "../../hooks/useHeader"
 
 interface ChatsProps {
     channel: string
+    style?: SxProps
 }
 
-export const Chats: React.FC<ChatsProps> = ({ channel }) => {
+export const Chats: React.FC<ChatsProps> = ({ channel, style }) => {
     const header = useHeader()
     const chats = useChats().getChannel(channel)
-    const {user} = useUser()
-    
+    const { user } = useUser()
+
     const [list, setList] = useState(chats)
     const [currentChat, setCurrentChat] = useState<Chat>()
 
     const handleChange = (value: string) => {
-        const result = chats.filter((chat) => chat.users.find(item => item.id != user?.id)!.name.toLowerCase().includes(value.toLowerCase()))
+        const result = chats.filter((chat) =>
+            chat.users
+                .find((item) => item.id != user?.id)!
+                .name.toLowerCase()
+                .includes(value.toLowerCase())
+        )
         setList(result)
     }
 
     useEffect(() => {
-      console.log(chats)
+        console.log(chats)
     }, [chats])
 
     useEffect(() => {
@@ -41,9 +47,10 @@ export const Chats: React.FC<ChatsProps> = ({ channel }) => {
                 width: "100%",
                 flexDirection: "column",
                 gap: "4vw",
-                padding: "20vw 0"
+                padding: "20vw 0",
+                ...style,
             }}
-            >
+        >
             <SearchInput placeholder="conversas" onChange={handleChange} />
             <Box
                 sx={{

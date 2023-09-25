@@ -50,7 +50,7 @@ export const Agent: React.FC<AgentProps> = ({ user }) => {
         <>
             {" "}
             {renderHeaderMenu()}
-            <Box sx={{ width: "100%", padding: "7vh 0 10vh" }}>
+            <Box sx={{ width: "100%", padding: "5vh 0 10vh" }}>
                 {user.agent ? (
                     user.agent.active ? (
                         <></>
@@ -68,7 +68,7 @@ export const Agent: React.FC<AgentProps> = ({ user }) => {
                                 path="analysis"
                                 element={<Analysis user={user} button="Aceitar Solicitação" location="agent/register" />}
                             />
-                            <Route path="chats" element={<Chats channel="buyer" />} />
+                            <Route path="chats" element={<Chats channel="buyer" style={{ padding: 0 }} />} />
                             <Route path="register" element={<RegisterCrop />} />
                         </Routes>
                     </Box>

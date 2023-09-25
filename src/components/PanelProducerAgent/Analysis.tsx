@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Box, Button, Paper } from "@mui/material"
+import { Box, Button, Paper, SxProps } from "@mui/material"
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
 import { ListTitle } from "../ListTitle"
 import { Comment } from "../Comment"
@@ -13,9 +13,10 @@ interface AnalysisProps {
     user: User
     button: string
     location: string
+    style?: SxProps
 }
 
-export const Analysis: React.FC<AnalysisProps> = ({ user, button, location }) => {
+export const Analysis: React.FC<AnalysisProps> = ({ user, button, location, style }) => {
     const header = useHeader()
     const navigate = useNavigate()
 
@@ -37,9 +38,10 @@ export const Analysis: React.FC<AnalysisProps> = ({ user, button, location }) =>
                 height: "100%",
                 flexDirection: "column",
                 gap: "3vw",
-                padding: "0 0vw",
+                padding: "0 4vw",
                 paddingBottom: "3vh",
                 overflow: "auto",
+                ...style,
             }}
         >
             <InfoProfile user={user} />
