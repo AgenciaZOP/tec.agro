@@ -90,7 +90,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
     }
     return (
         <>
-            <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw", padding: "0 4vw", paddingBottom: "1vh" }}>
+            <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw", paddingBottom: "1vh" }}>
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     {({ values, handleChange }) => (
                         <Form>
@@ -103,7 +103,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                     paddingBottom: "3vh",
                                 }}
                             >
-                                <Paper elevation={3} sx={{ padding: "3vw" }}>
+                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
                                     <TextField
                                         label="Nome do produto"
                                         name="name"
@@ -120,7 +120,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                         }}
                                     />
                                 </Paper>
-                                <Paper elevation={3} sx={{ padding: "3vw" }}>
+                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
                                     <Box sx={styleBox}>
                                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                                             <p style={{ fontSize: "3.5vw" }}>Galeria de Imagens</p>
@@ -129,7 +129,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                         <UploadDocuments gallery={gallery} setGallery={setGallery} style={styleBox} />
                                     </Box>
                                 </Paper>
-                                <Paper elevation={3} sx={{ padding: "3vw" }}>
+                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
                                     <Box sx={styleBox}>
                                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                                             <p style={{ fontSize: "3.5vw" }}>Descrição</p>
@@ -144,7 +144,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                         />
                                     </Box>
                                 </Paper>
-                                <Paper elevation={3} sx={{ padding: "3vw" }}>
+                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
                                     <Box sx={{ ...styleBox, width: "100%" }}>
                                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                                             <p style={{ fontSize: "3.5vw" }}>Estoque</p>
@@ -205,7 +205,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                         </Box>
                                     </Box>
                                 </Paper>
-                                <Paper elevation={3} sx={{ padding: "3vw" }}>
+                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
                                     <Box sx={{ ...styleBox, width: "100%" }}>
                                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                                             <p style={{ fontSize: "3.5vw" }}>Preço</p>
@@ -249,11 +249,12 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                 color="primary"
                                 variant="contained"
                                 sx={{
-                                    width: "100%",
+                                    width: "92vw",
                                     height: "10%",
                                     borderRadius: "3vw",
                                     fontSize: "3vw",
                                     flexDirection: "column",
+                                    margin: "0 4vw"
                                 }}
                             >
                                 Salvar
