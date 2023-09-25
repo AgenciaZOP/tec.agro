@@ -8,7 +8,7 @@ import { Verification } from "./Signup/Verification"
 import { BottomNavigation } from "../../components/BottomNavigation"
 import { useNavigationList } from "../../hooks/useNavigationList"
 import { Panel } from "./Panel"
-import { Chats } from "../../pages/Chats"
+import { Chats } from "../Chats"
 import { IntroCrop } from "./Panel/IntroCrop"
 import { RegisterCrop } from "../../components/RegisterCrop"
 import { Analysis } from "../../components/PanelProducerAgent/Analysis"
@@ -77,7 +77,6 @@ export const Producer: React.FC<ProducerProps> = ({ user }) => {
                     <BottomNavigation section={bottomMenu.producer} external />
                 </>
             )
-
         } else {
             return (
                 <>
