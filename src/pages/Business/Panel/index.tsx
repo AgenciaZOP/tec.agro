@@ -30,7 +30,6 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                     height: "97%",
                     gap: "3vw",
                     flexDirection: "column",
-                    padding: "0 4vw",
                     paddingBottom: "5vh",
                 }}
             >
