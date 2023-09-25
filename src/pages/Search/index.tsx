@@ -19,6 +19,7 @@ import { TransactionsPending } from "./TransactionsPending"
 import { TransactionsPaid } from "./TransactionsPaid"
 import { TransactionsRecents } from "./TransactionsRecents"
 import { Statistics } from "./Statistics"
+import { ListBusiness } from "./Business/ListBusiness"
 
 interface SearchProps {
     user: User
@@ -151,6 +152,14 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                     <BottomNavigation section={bottomMenu.admin} external />
                 </>
             )
+        } else if (pathname === "/search/business") {
+            return (
+                <>
+                    {" "}
+                    <Header back location="/home/business" />
+                    <BottomNavigation section={bottomMenu.home} external />
+                </>
+            )
         } else {
             return <Header />
         }
@@ -161,6 +170,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
             {renderHeaderMenu()}
             <Routes>
                 <Route path="crops" element={<Crops />} />
+                <Route path="business" element={<ListBusiness />} />
                 <Route path="category" element={<Category category={category} />} />
                 <Route path="cropsag" element={<ListCrops user={user} />} />
                 <Route path="cropspr" element={<ListCrops user={user} />} />

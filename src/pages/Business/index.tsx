@@ -16,6 +16,7 @@ import { NewCategory } from "../../components/PanelBusinessShipping/NewCategory"
 import { Category } from "../Search/Business/Category"
 import { NewService } from "../../components/PanelBusinessShipping/NewService"
 import { useLocation } from "react-router-dom"
+import { Chats } from "../Chats"
 //import { Carousel } from "react-responsive-carousel"
 
 interface BusinessProps {
@@ -38,8 +39,13 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
     const renderHeader = () => {
         console.log(pathname)
         if (pathname === "/business/new") {
-            return <> <Header back location="/business" />
-            <BottomNavigation section={bottomMenu.business} external /></>
+            return (
+                <>
+                    {" "}
+                    <Header back location="/business" />
+                    <BottomNavigation section={bottomMenu.business} external />
+                </>
+            )
         } else {
             return (
                 <>
@@ -65,6 +71,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                                 {/* <Route path="/newCategory" element={<NewCategory user={user} product={product} />} /> */}
                                 <Route path="/account" element={<MyBusiness business={user.business} />} />
                                 <Route path="/new" element={<NewService />} />
+                                <Route path="chats" element={<Chats channel="buyer" />} />
                             </Routes>
                         </>
                     ) : (

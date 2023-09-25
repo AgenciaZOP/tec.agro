@@ -12,7 +12,6 @@ export const BusinessList: React.FC<BusinessListProps> = ({}) => {
 
     return (
         <Box sx={{ flexDirection: "column", gap: "2vw" }}>
-            <ListTitle title="Lojas" location="business" />
             {businesses
                 .filter((resource) => resource.active)
                 .map((resource) => {
