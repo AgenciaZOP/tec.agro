@@ -17,7 +17,7 @@ export const ListBusiness: React.FC<ListBusinessProps> = ({}) => {
                 overflow: "hidden",
             }}
         >
-            <SearchInput placeholder={"safras"} onChange={() => {}} />
+            <SearchInput placeholder={"lojas ou serviçoes"} onChange={() => {}} />
             <Box sx={{ flexDirection: "column", gap: "2vw", height: "100%", overflowY: "auto", paddingBottom: "10vh" }}>
                 <BusinessList />
             </Box>
