@@ -62,7 +62,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
     return (
         <>
             {renderHeader()}
-            <Box sx={{ width: "100%", padding: "10vh 0 10vh" }}>
+            <Box sx={{ width: "100%" }}>
                 {user.business ? (
                     user.business.active ? (
                         <>
@@ -78,7 +78,7 @@ export const Business: React.FC<BusinessProps> = ({ user }) => {
                         <Verification />
                     )
                 ) : (
-                    <Box sx={{ padding: "10vw 0 0", width: "100%" }}>
+                    <Box sx={{ padding: "20vw 0", width: "100%" }}>
                         <Routes>
                             <Route index element={<Signup user={user}></Signup>} />
                             <Route path="form" element={<Form user={user}></Form>} />

@@ -27,10 +27,10 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
             <Box
                 sx={{
                     width: "100%",
-                    height: "97%",
+                    height: "91%",
                     gap: "3vw",
                     flexDirection: "column",
-                    paddingBottom: "5vh",
+                    padding: "20vw 0",
                 }}
             >
                 <SearchInput placeholder="produto, serviço ou categoria" onChange={() => {}} />

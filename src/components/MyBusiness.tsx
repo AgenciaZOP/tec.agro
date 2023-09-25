@@ -26,7 +26,7 @@ export const MyBusiness: React.FC<MyBusinessProps> = ({ business }) => {
                     gap: "3vw",
                     flexDirection: "column",
                     overflow: "auto",
-                    paddingBottom: "5vw",
+                    padding: "20vw 0"
                 }}
             >
                 <Account object={business} editingMode={!!location.state?.editing} />

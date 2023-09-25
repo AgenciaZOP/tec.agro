@@ -90,7 +90,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
     }
     return (
         <>
-            <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw", paddingBottom: "1vh" }}>
+            <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw", padding: "20vw 0" }}>
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     {({ values, handleChange }) => (
                         <Form>
