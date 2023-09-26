@@ -16,24 +16,30 @@ export const Signup: React.FC<SignupProps> = ({ user }) => {
     }, [])
 
     return (
-        <Paper
+        <Box
             sx={{
-                flexDirection: "column",
-                justifyContent: "space-evenly",
-                width: "92vw",
-                padding: "10vw",
-                textAlign: "center",
-                borderRadius: "2vw",
-                margin: "0 4vw 10vw",
+                padding: "20vw 0"
             }}
         >
-            <p style={{ fontSize: "6vw" }}>Você ainda não é cadastrado como corretor</p>
-            <p style={{ fontSize: "4vw" }}>
-                Complete seu cadastro e envie para análise para desbloquear outras funcionalidades
-            </p>
-            <Button variant="contained" onClick={() => navigate("/agent/form")}>
-                Começar cadastro
-            </Button>
-        </Paper>
+            <Paper
+                sx={{
+                    flexDirection: "column",
+                    justifyContent: "space-evenly",
+                    width: "92vw",
+                    padding: "10vw",
+                    textAlign: "center",
+                    borderRadius: "2vw",
+                    margin: "20vw 4vw"
+                }}
+            >
+                <p style={{ fontSize: "6vw" }}>Você ainda não é cadastrado como corretor</p>
+                <p style={{ fontSize: "4vw" }}>
+                    Complete seu cadastro e envie para análise para desbloquear outras funcionalidades
+                </p>
+                <Button variant="contained" onClick={() => navigate("/agent/form")}>
+                    Começar cadastro
+                </Button>
+            </Paper>
+        </Box>
     )
 }

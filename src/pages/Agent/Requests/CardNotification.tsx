@@ -11,7 +11,7 @@ export const CardNotification: React.FC<CardNotificationProps> = ({}) => {
 
     return (
         <Box
-            sx={{ display: "flex", flexDirection: "row", gap: "4vw", width: "100%", padding: "1.5vw 3vw" }}
+            sx={{ display: "flex", flexDirection: "row", gap: "4vw", width: "100%", padding: "1.5vw 0" }}
             onClick={() => {
                 navigate("/agent/analysis")
             }}
@@ -19,10 +19,10 @@ export const CardNotification: React.FC<CardNotificationProps> = ({}) => {
             <Avatar src={profile} sx={{ width: "12vw", height: "12vw" }} />
 
             <Box sx={{ display: "flex", flexDirection: "column", width: "80%", whiteSpace: "pre-wrap" }}>
-                <p style={{ fontSize: "3.4vw" }}>
+                <p style={{ fontSize: "3.5vw" }}>
                     <span style={{ fontWeight: "bold" }}>{name}</span> está solicitando o serviço de corretagem
                 </p>
-                <p style={{ color: "gray", fontSize: "2.9vw" }}>5 h atrás</p>
+                <p style={{ color: "gray", fontSize: "3vw" }}>5 h atrás</p>
             </Box>
         </Box>
     )

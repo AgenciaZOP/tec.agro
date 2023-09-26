@@ -39,8 +39,8 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                 flexDirection: "column",
                 width: "100%",
                 height: "100%",
-                padding: "0",
-                gap: "3vw",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <Box
@@ -48,12 +48,12 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                     flexDirection: "column",
                     padding: "0 4vw",
                     width: "100%",
-                    height: "38vw",
-                    gap: "2vw",
+                    height: "40vw",
+                    gap: "4vw",
                 }}
             >
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
-                    <p style={{ fontSize: "3.5vw" }}>Como os produtores veem</p>
+                    <p style={{ fontSize: "3.5vw" }}>Como os produtores veem:</p>
                     <ResourceCard agent={agent} location="agent" />
                 </Box>
                 <SearchInput placeholder="safra" onChange={() => {}} />
@@ -63,14 +63,16 @@ export const Panel: React.FC<PanelProps> = ({ user }) => {
                     width: "100%",
                     height: "70%",
                     overflowY: "auto",
-                    padding: "0vw 4vw",
-                    paddingTop: "3vw",
-                    paddingBottom: "5vw",
+                    margin: "2vw 0",
+                    padding: "4vw",
                     flexDirection: "column",
                     gap: "2vw",
                 }}
             >
                 <Schedule status="pending" />
+                <Schedule status="contact" />
+                <Schedule status="contact" />
+                <Schedule status="contact" />
                 <Schedule status="contact" />
                 <Box sx={{ flexDirection: "column", gap: "2vw" }}>
                     <ListTitle title="Suas Safras" location="cropsag"></ListTitle>

@@ -37,59 +37,67 @@ export const Analysis: React.FC<AnalysisProps> = ({ user, button, location, styl
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                gap: "3vw",
-                padding: "0 4vw",
-                paddingBottom: "3vh",
-                overflow: "auto",
-                ...style,
+                gap: "4vw",
+                padding: "20vw 0",
             }}
         >
-            <InfoProfile user={user} />
-            <Button
-                type="submit"
-                variant="contained"
-                sx={{ fontSize: "3.5vw", gap: "2vw" }}
-                onClick={() => {
-                    navigate(`/${location}`)
+            <Box
+                sx={{
+                    width: "100%",
+                    overflow: "auto",
+                    height: "100%",
+                    flexDirection: "column",
+                    gap: "4vw",
+                    padding: "4vw",
                 }}
             >
-                {button} <ArrowRightAltIcon color="secondary" />
-            </Button>
-            <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                <ListTitle title="Transações Recentes" location="" />
-                <Box sx={{ flexDirection: "column", gap: "3vw" }}>
-                    <Transactions
-                        title={title}
-                        price={price}
-                        weight={weight}
-                        company={"Transportadora"}
-                        date={date}
-                        haveSeller={false}
-                    />
-                    <Transactions
-                        title={title}
-                        price={price}
-                        weight={weight}
-                        company={company}
-                        date={date}
-                        haveSeller={false}
-                    />
+                <InfoProfile user={user} />
+                <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{ fontSize: "3.5vw", gap: "2vw" }}
+                    onClick={() => {
+                        navigate(`/${location}`)
+                    }}
+                >
+                    {button} <ArrowRightAltIcon color="secondary" />
+                </Button>
+                <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                    <ListTitle title="Transações Recentes" location="" />
+                    <Box sx={{ flexDirection: "column", gap: "3vw" }}>
+                        <Transactions
+                            title={title}
+                            price={price}
+                            weight={weight}
+                            company={"Transportadora"}
+                            date={date}
+                            haveSeller={false}
+                        />
+                        <Transactions
+                            title={title}
+                            price={price}
+                            weight={weight}
+                            company={company}
+                            date={date}
+                            haveSeller={false}
+                        />
+                    </Box>
                 </Box>
-            </Box>
-            <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                <ListTitle title="Comentários de Perfil" location="" />
-                <Box sx={{ flexDirection: "column", gap: "3vw" }}>
-                    <Paper elevation={3} sx={{ borderRadius: "3vw", flexDirection: "column", height: "max-content" }}>
-                        <Comment
-                            user={"Hellen Katsi"}
-                            comment={
-                                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."
-                            }
-                            qtdStars={5}
-                            date={"5 de Fevereiro"}
-                        />{" "}
-                        <Comment comment="jhgadhgfhgds" date="25/03/2024" qtdStars={12} user="dhgf" />
-                    </Paper>
+                <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                    <ListTitle title="Comentários de Perfil" location="" />
+                    <Box sx={{ flexDirection: "column", gap: "3vw" }}>
+                        <Paper elevation={3} sx={{ borderRadius: "3vw", flexDirection: "column", height: "max-content" }}>
+                            <Comment
+                                user={"Hellen Katsi"}
+                                comment={
+                                    "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical."
+                                }
+                                qtdStars={5}
+                                date={"5 de Fevereiro"}
+                            />{" "}
+                            <Comment comment="jhgadhgfhgds" date="25/03/2024" qtdStars={12} user="dhgf" />
+                        </Paper>
+                    </Box>
                 </Box>
             </Box>
         </Box>

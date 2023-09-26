@@ -76,120 +76,128 @@ export const Form: React.FC<FormProps> = ({ user }) => {
     return (
         <Box
             sx={{
+                padding: "20vw 0",
                 width: "100%",
-                overflowY: "auto",
-                paddingBottom: "10vw",
             }}
         >
             <Box
                 sx={{
-                    gap: "5vw",
+                    gap: "4vw",
                     height: "100%",
                     flexDirection: "column",
-                    width: "92vw",
-                    margin: "0 4vw"
+                    width: "100%",
+                    overflowY: "auto"
                 }}
             >
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     {({ values, handleChange }) => (
                         <Formu>
-                            <Paper sx={paperStyle}>
-                                <Box sx={styleBox}>
-                                    <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                                        <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Informações Básicas</p>
-                                        <hr />
+                            <Box
+                                sx={{
+                                    flexDirection: "column",
+                                    gap: "4vw",
+                                    width: "92vw",
+                                    margin: "4vw"
+                                }}
+                            >
+                                <Paper sx={paperStyle}>
+                                    <Box sx={styleBox}>
+                                        <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                                            <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Informações Básicas</p>
+                                            <hr />
+                                        </Box>
+                                        <TextField
+                                            variant="standard"
+                                            label="Nome"
+                                            name="name"
+                                            value={values.name}
+                                            onChange={handleChange}
+                                            sx={inputStyle}
+                                            required
+                                        />
+                                        <TextField
+                                            variant="standard"
+                                            label="CPF"
+                                            name="document"
+                                            value={values.document}
+                                            onChange={handleChange}
+                                            sx={inputStyle}
+                                            InputProps={{
+                                                inputComponent: MaskedInput,
+                                                inputProps: { mask: "000.000.000-00" },
+                                            }}
+                                            required
+                                        />
+                                        <TextField
+                                            variant="standard"
+                                            label="E-mail"
+                                            name="email"
+                                            value={values.email}
+                                            onChange={handleChange}
+                                            sx={inputStyle}
+                                            required
+                                        />
+                                        <TextField
+                                            variant="standard"
+                                            label="Data de Nascimento"
+                                            name="birth"
+                                            value={values.date}
+                                            onChange={handleChange}
+                                            sx={inputStyle}
+                                        />
+                                        <TextField
+                                            variant="standard"
+                                            label="Telefone"
+                                            name="phone"
+                                            value={values.phone}
+                                            onChange={handleChange}
+                                            sx={inputStyle}
+                                            InputProps={{
+                                                inputComponent: MaskedInput,
+                                                inputProps: { mask: "(00) 0 0000-0000" },
+                                            }}
+                                            required
+                                        />
                                     </Box>
-                                    <TextField
-                                        variant="standard"
-                                        label="Nome"
-                                        name="name"
-                                        value={values.name}
-                                        onChange={handleChange}
-                                        sx={inputStyle}
-                                        required
-                                    />
-                                    <TextField
-                                        variant="standard"
-                                        label="CPF"
-                                        name="document"
-                                        value={values.document}
-                                        onChange={handleChange}
-                                        sx={inputStyle}
-                                        InputProps={{
-                                            inputComponent: MaskedInput,
-                                            inputProps: { mask: "000.000.000-00" },
-                                        }}
-                                        required
-                                    />
-                                    <TextField
-                                        variant="standard"
-                                        label="E-mail"
-                                        name="email"
-                                        value={values.email}
-                                        onChange={handleChange}
-                                        sx={inputStyle}
-                                        required
-                                    />
-                                    <TextField
-                                        variant="standard"
-                                        label="Data de Nascimento"
-                                        name="birth"
-                                        value={values.date}
-                                        onChange={handleChange}
-                                        sx={inputStyle}
-                                    />
-                                    <TextField
-                                        variant="standard"
-                                        label="Telefone"
-                                        name="phone"
-                                        value={values.phone}
-                                        onChange={handleChange}
-                                        sx={inputStyle}
-                                        InputProps={{
-                                            inputComponent: MaskedInput,
-                                            inputProps: { mask: "(00) 0 0000-0000" },
-                                        }}
-                                        required
-                                    />
-                                </Box>
-                            </Paper>
-                            <Paper sx={paperStyle}>
-                                <Box sx={{ ...styleBox, gap: "4vw" }}>
-                                    <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                                        <p style={{ fontSize: "3.5vw", fontWeight: "600", textAlign: "center" }}>
-                                            Foto do perfil
-                                        </p>
-                                        <hr />
+                                </Paper>
+                                <Paper sx={paperStyle}>
+                                    <Box sx={{ ...styleBox, gap: "4vw" }}>
+                                        <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                                            <p style={{ fontSize: "3.5vw", fontWeight: "600", textAlign: "center" }}>
+                                                Foto do perfil
+                                            </p>
+                                            <hr />
+                                        </Box>
+                                        <Avatar
+                                            src={image}
+                                            onChange={(file) => setImage(file)}
+                                            smartImgFit={"orientation"}
+                                            changeLabel="Clique para trocar a imagem"
+                                            emptyLabel="Clique para enviar uma imagem"
+                                            // style={{ width: "100%", height: "30vw" }}
+                                            style={{
+                                                width: "25vw",
+                                                height: "25vw",
+                                                borderRadius: "20vw",
+                                                fontSize: "2.5vw",
+                                                alignSelf: "center",
+                                            }}
+                                        />
                                     </Box>
-                                    <Avatar
-                                        src={image}
-                                        onChange={(file) => setImage(file)}
-                                        smartImgFit={"orientation"}
-                                        changeLabel="Clique para trocar a imagem"
-                                        emptyLabel="Clique para enviar uma imagem"
-                                        // style={{ width: "100%", height: "30vw" }}
-                                        style={{
-                                            width: "25vw",
-                                            height: "25vw",
-                                            borderRadius: "20vw",
-                                            fontSize: "2.5vw",
-                                            alignSelf: "center",
-                                        }}
-                                    />
-                                </Box>
-                            </Paper>
-                            <Paper sx={paperStyle}>
-                                <Box sx={{ ...styleBox, gap: "4vw", justifyContent: "end" }}>
-                                    <Box sx={{ flexDirection: "column", gap: "1vw" }}>
-                                        <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Documentos</p>
-                                        <hr />
+                                </Paper>
+                                <Paper sx={paperStyle}>
+                                    <Box sx={{ ...styleBox, gap: "4vw", justifyContent: "end" }}>
+                                        <Box sx={{ flexDirection: "column", gap: "1vw" }}>
+                                            <p style={{ fontSize: "3.5vw", fontWeight: "600" }}>Documentos</p>
+                                            <hr />
+                                        </Box>
+                                        <UploadDocuments gallery={gallery} setGallery={setGallery} style={styleBox} />
                                     </Box>
-                                    <UploadDocuments gallery={gallery} setGallery={setGallery} style={styleBox} />
-                                </Box>
-                            </Paper>
-                            <Button variant="contained" type="submit">
-                                {agents.loading ? <CircularProgress color="secondary" size="1.5rem" /> : "Confirmar"}
-                            </Button>
+                                </Paper>
+                                <Button variant="contained" type="submit">
+                                    {agents.loading ? <CircularProgress color="secondary" size="1.5rem" /> : "Confirmar"}
+                                </Button>
+                            </Box>
                         </Formu>
                     )}
                 </Formik>

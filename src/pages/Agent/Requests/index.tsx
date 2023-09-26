@@ -21,7 +21,8 @@ export const Requests: React.FC<RequestsProps> = ({}) => {
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                gap: "3vw",
+                gap: "4vw",
+                padding: "20vw 0"
             }}
         >
             <SearchInput placeholder="conversas" onChange={() => {}} />
@@ -31,7 +32,7 @@ export const Requests: React.FC<RequestsProps> = ({}) => {
                     height: "91%",
                     overflow: "auto",
                     flexDirection: "column",
-                    padding: "0 4vw",
+                    padding: "0 4vw 4vw",
                     gap: "2vw",
                 }}
             >

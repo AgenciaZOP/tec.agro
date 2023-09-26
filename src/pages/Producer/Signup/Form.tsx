@@ -86,7 +86,6 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                     height: "100%",
                     flexDirection: "column",
                     width: "100%",
-                    // margin: "0 4vw",
                     overflowY: "auto"
                 }}
             >
