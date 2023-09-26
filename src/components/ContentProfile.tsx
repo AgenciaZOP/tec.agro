@@ -77,7 +77,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
             sx={{
                 width: "100%",
                 height: "100%",
-                paddingBottom: "5vw",
+                paddingBottom: "4vw",
                 overflowY: "auto",
                 gap: "3vw",
                 flexDirection: "column",
