@@ -26,16 +26,25 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
             <Header />
             <Box
                 sx={{
-                    width: "100%",
-                    height: "91%",
-                    gap: "3vw",
                     flexDirection: "column",
+                    height: "100%",
+                    width: "100%",
                     padding: "20vw 0",
+                    gap: "4vw",
                 }}
             >
                 <SearchInput placeholder="produto, serviço ou categoria" onChange={() => {}} />
 
-                <Box sx={{ height: "100%", overflow: "auto", flexDirection: "column", gap: "3vw", paddingBottom: "14vh" }}>
+                <Box
+                    sx={{
+                        width: "100%",
+                        height: "91%",
+                        padding: "4vw",
+                        flexDirection: "column",
+                        gap: "2vw",
+                        overflow: "auto",
+                    }}
+                >
                     <ModalCategory title="Fertilizantes " product={product} location="category" />
                     <ModalCategory title="Inseticida" product={product} location="category" />
                     <ModalCategory title="Inseticida" product={product} location="category" />

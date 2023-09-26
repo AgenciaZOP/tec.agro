@@ -45,9 +45,8 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
         width: "100%",
         padding: "4vw",
         paddingTop: "3vw",
-        // paddingBottom: "0",
         border: "1px solid gray",
-        borderRadius: "2vw",
+        borderRadius: "1vw",
         gap: "2vw",
     }
 
@@ -90,7 +89,15 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
     }
     return (
         <>
-            <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw", padding: "20vw 0" }}>
+            <Box
+                sx={{
+                    flexDirection: "column",
+                    height: "100%",
+                    width: "100%",
+                    padding: "20vw 0",
+                    gap: "4vw"
+                }}
+            >
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     {({ values, handleChange }) => (
                         <Form>
@@ -99,11 +106,11 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                     height: "91%",
                                     overflow: "auto",
                                     flexDirection: "column",
-                                    gap: "3vw",
-                                    paddingBottom: "3vh",
+                                    gap: "4vw",
+                                    padding: "4vw",
                                 }}
                             >
-                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
+                                <Paper elevation={3} >
                                     <TextField
                                         label="Nome do produto"
                                         name="name"
@@ -115,12 +122,12 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                                 fontSize: "3.5vw",
                                             },
                                             "& .MuiInputLabel-root": {
-                                                fontSize: "3.0vw",
+                                                fontSize: "3vw",
                                             },
                                         }}
                                     />
                                 </Paper>
-                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
+                                <Paper elevation={3} >
                                     <Box sx={styleBox}>
                                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                                             <p style={{ fontSize: "3.5vw" }}>Galeria de Imagens</p>
@@ -129,7 +136,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                         <UploadDocuments gallery={gallery} setGallery={setGallery} style={styleBox} />
                                     </Box>
                                 </Paper>
-                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
+                                <Paper elevation={3} >
                                     <Box sx={styleBox}>
                                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                                             <p style={{ fontSize: "3.5vw" }}>Descrição</p>
@@ -144,7 +151,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                         />
                                     </Box>
                                 </Paper>
-                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
+                                <Paper elevation={3} >
                                     <Box sx={{ ...styleBox, width: "100%" }}>
                                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                                             <p style={{ fontSize: "3.5vw" }}>Estoque</p>
@@ -205,7 +212,7 @@ export const NewService: React.FC<NewServiceProps> = ({}) => {
                                         </Box>
                                     </Box>
                                 </Paper>
-                                <Paper elevation={3} sx={{ padding: "3vw", margin: "0 4vw" }}>
+                                <Paper elevation={3} >
                                     <Box sx={{ ...styleBox, width: "100%" }}>
                                         <Box sx={{ flexDirection: "column", gap: "1vw" }}>
                                             <p style={{ fontSize: "3.5vw" }}>Preço</p>

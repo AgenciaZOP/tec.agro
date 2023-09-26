@@ -34,13 +34,11 @@ export const Account: React.FC<AccountProps> = ({ object, editingMode }) => {
         <Paper
             elevation={2}
             sx={{
-                width: "92vw",
                 height: "max-content",
                 flexDirection: "column",
                 alignItems: "center",
                 borderRadius: "1.8vw",
                 padding: "3vw 5vw",
-                margin: "0 4vw"
             }}
         >
             <Box

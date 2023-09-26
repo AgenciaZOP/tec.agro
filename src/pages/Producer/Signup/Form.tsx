@@ -79,7 +79,7 @@ export const Form: React.FC<FormProps> = ({ user }) => {
                 padding: "20vw 0",
                 width: "100%",
             }}
-            >
+        >
             <Box
                 sx={{
                     gap: "4vw",
