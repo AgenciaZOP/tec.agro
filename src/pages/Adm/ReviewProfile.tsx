@@ -95,12 +95,12 @@ export const ReviewProfile: React.FC<ReviewProfileProps> = ({}) => {
                     flexDirection: "column",
                     gap: "4vw",
                     width: "100%",
+                    padding: "0 4vw 4vw",
                     position: "absolute",
-                    padding: "0 4vw",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
+                    // top: 0,
+                    // left: 0,
+                    // right: 0,
+                    // bottom: 0,
                 }}
             >
                 <Box sx={{ flexDirection: "column", gap: "4vw", width: "100%" }}>

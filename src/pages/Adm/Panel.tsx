@@ -33,7 +33,7 @@ export const Panel: React.FC<PanelProps> = ({}) => {
     return searching ? (
         <Box sx={wrapperStyle}>
             <SearchInput placeholder="usuário, produto, safra" onChange={handleSearch} />
-            <Box sx={{ flexDirection: "column", gap: "4vw" }}>
+            <Box sx={{ flexDirection: "column", gap: "4vw", paddingBottom: "4vw" }}>
                 {list.map((item) => (
                     <></>
                 ))}
@@ -48,6 +48,7 @@ export const Panel: React.FC<PanelProps> = ({}) => {
                     height: "90%",
                     overflow: "auto",
                     gap: "4vw",
+                    paddingBottom: "4vw" 
                 }}
             >
                 <Box sx={{ gap: "4vw", overflowX: "auto", padding: "0 4vw" }}>

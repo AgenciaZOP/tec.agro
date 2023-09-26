@@ -35,7 +35,7 @@ export const ListTransactions: React.FC<ListTransactionsProps> = ({ producer }) 
                         overflow: "auto",
                         flexDirection: "column",
                         gap: "4vw",
-                        padding: "0 4vw",
+                        padding: "0 4vw 4vw",
                     }}
                 >
                     <ListTitle title="Transações Recentes" location="transrecents" />

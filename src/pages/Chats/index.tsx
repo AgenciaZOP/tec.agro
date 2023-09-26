@@ -54,7 +54,7 @@ export const Chats: React.FC<ChatsProps> = ({ channel, style }) => {
             <SearchInput placeholder="conversas" onChange={handleChange} />
             <Box
                 sx={{
-                    padding: "0 4vw",
+                    padding: "0 4vw 4vw",
                     width: "100%",
                     height: "90%",
                     overflow: "auto",

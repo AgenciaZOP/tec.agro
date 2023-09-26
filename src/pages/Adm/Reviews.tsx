@@ -53,7 +53,7 @@ export const Reviews: React.FC<ReviewsProps> = ({}) => {
 
             {/* <ListTitle title="Categorias em análise" location="categories" /> */}
 
-            <Box sx={{ width: "100%", gap: "4vw", flexDirection: "column", padding: "0 4vw", height: "100%", overflow: "auto" }}>
+            <Box sx={{ width: "100%", gap: "4vw", flexDirection: "column", padding: "0 4vw 4vw", height: "100%", overflow: "auto" }}>
                 <Box sx={{ flexDirection: "column", gap: "4vw", width: "100%" }}>
                     {list.map((business) => (
                         <ReviewCard
