@@ -30,17 +30,34 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
     }, [])
     return (
         <>
-            <Box sx={{ width: "100%", padding: "0 4vw", height: "100%", overflow: "auto" }}>
-                <Box sx={{ width: "100%", flexDirection: "column", gap: "3vw" }}>
+            <Box
+            sx={{
+                flexDirection: "column",
+                width: "100%",
+                height: "100%",
+                padding: "20vw 0",
+                gap: "4vw",
+            }}
+            >
+                <Box
+                    sx={{
+                        width: "100%",
+                        height: "100%",
+                        padding: "4vw",
+                        flexDirection: "column",
+                        gap: "4vw",
+                        overflow: "auto",
+                    }}
+                >
                     <Paper
                         elevation={2}
                         sx={{
                             width: "100%",
-                            height: "18% ",
+                            height: "auto",
                             borderRadius: "2vw",
-                            padding: "3vw 5vw",
+                            padding: "4vw",
                             flexDirection: "column",
-                            gap: "3vw",
+                            gap: "4vw",
                         }}
                     >
                         <Formik initialValues={{ name: "" }} onSubmit={handleSubmit}>
@@ -77,9 +94,9 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
                         elevation={2}
                         sx={{
                             borderRadius: "2vw",
-                            padding: "4vw 3vw",
+                            padding: "4vw",
                             flexDirection: "column",
-                            gap: "3vw",
+                            gap: "4vw",
                             height: "30vh",
                         }}
                     >
@@ -94,7 +111,7 @@ export const NewCategory: React.FC<NewCategoryProps> = ({ product }) => {
                         sx={{
                             height: "29vh",
                             borderRadius: "2vw",
-                            padding: "4vw 3vw",
+                            padding: "4vw",
                             flexDirection: "column",
                             gap: "2vw",
                         }}

@@ -24,33 +24,34 @@ export const Panel: React.FC<PanelProps> = ({}) => {
     return (
         <Box
             sx={{
-                width: "100%",
-                gap: "3vw",
                 flexDirection: "column",
-                alignItems: "center",
-                paddingBottom: "12vh",
+                width: "100%",
+                height: "100%",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder="região ou caminhão" onChange={() => {}} />
-            <Button
-                variant="contained"
-                type="submit"
-                sx={{ width: "92vw", borderRadius: "5vw", fontSize: "3vw" }}
-                onClick={() => {
-                    navigate("/shipping/newZone")
-                }}
-            >
-                Adicionar Região
-            </Button>
             <Box
                 sx={{
-                    height: "100%",
-                    overflow: "auto",
+                    width: "100%",
+                    height: "91%",
+                    padding: "0 4vw 4vw",
                     flexDirection: "column",
-                    gap: "3vw",
-                    padding: "0 4vw 3vh",
+                    gap: "4vw",
+                    overflow: "auto",
                 }}
             >
+                <Button
+                    variant="contained"
+                    type="submit"
+                    sx={{ width: "92vw", borderRadius: "5vw", fontSize: "3vw" }}
+                    onClick={() => {
+                        navigate("/shipping/newZone")
+                    }}
+                >
+                    Adicionar Região
+                </Button>
                 <ModalCategory title="Região 1" product={car} location="zone" />
                 <ModalCategory title="Região 2" product={car} location="zone" />
                 <ModalCategory title="Região 3" product={car} location="zone" />

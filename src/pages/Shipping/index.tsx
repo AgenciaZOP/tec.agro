@@ -63,7 +63,7 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
     }
 
     return (
-        <Box sx={{ width: "100%", padding: "7vh 0 10vh" }}>
+        <Box sx={{ width: "100%" }}>
             {renderHeaderMenu()}
             {user.shipping ? (
                 user.shipping.active ? (
@@ -72,7 +72,7 @@ export const Shipping: React.FC<ShippingProps> = ({ user }) => {
                     <Verification />
                 )
             ) : (
-                <Box sx={{ padding: "10vw 0 0", width: "100vw" }}>
+                <Box sx={{ width: "100vw" }}>
                     <Routes>
                         <Route index element={<Signup user={user} />} />
                         <Route path="form" element={<Form user={user} />} />

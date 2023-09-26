@@ -19,15 +19,26 @@ export const MyShipping: React.FC<MyShippingProps> = ({ shipping }) => {
     return (
         <Box
             sx={{
-                width: "100%",
-                gap: "3vw",
                 flexDirection: "column",
-                overflow: "auto",
-                paddingBottom: "5vw",
+                height: "100%",
+                width: "100%",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
-            <Account object={shipping} editingMode={!!location.state?.editing} />
-            <InfoDetails object={shipping} editingMode={!!location.state?.editing} />
+            <Box
+                sx={{
+                    width: "100%",
+                    height: "100%",
+                    padding: "4vw",
+                    flexDirection: "column",
+                    gap: "2vw",
+                    overflow: "auto",
+                }}
+            >
+                <Account object={shipping} editingMode={!!location.state?.editing} />
+                <InfoDetails object={shipping} editingMode={!!location.state?.editing} />
+            </Box>
         </Box>
     )
 }

@@ -47,7 +47,6 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
             }}
         >
             <SearchInput placeholder="safras" onChange={() => {}} />
-
             <Box
                 sx={{
                     width: "100%",
