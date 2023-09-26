@@ -39,7 +39,7 @@ export const Transactions: React.FC<TransactionsProps> = ({ agent }) => {
                     height: "90%",
                     flexDirection: "column",
                     gap: "4vw",
-                    padding: "0 4vw",
+                    padding: "0 4vw 4vw",
                 }}
             >
                 <Box

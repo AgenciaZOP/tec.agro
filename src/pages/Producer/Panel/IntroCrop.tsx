@@ -28,11 +28,11 @@ export const IntroCrop: React.FC<IntroCropProps> = ({}) => {
         >
             <Box
                 sx={{
-                    margin: "0 4vw",
+                    margin: "0 4vw 4vw",
                     flexDirection: "column",
                     gap: "4vw",
                     height: "100%",
-                    overflow: "auto"
+                    width: "92vw",
                 }}
             >
                 <Paper

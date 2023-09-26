@@ -52,7 +52,7 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
                 sx={{
                     width: "100%",
                     height: "91%",
-                    padding: "0 4vw",
+                    padding: "0 4vw 4vw",
                     flexDirection: "column",
                     gap: "2vw",
                     overflow: "auto",
