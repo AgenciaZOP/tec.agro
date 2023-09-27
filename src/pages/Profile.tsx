@@ -21,7 +21,7 @@ export const Profile: React.FC<ProfileProps> = ({ user }) => {
     }, [])
 
     return (
-        <Box sx={{ flexDirection: "column", width: "100%", height: "100%", padding: "12vh 0vw 10vh 0vw" }}>
+        <Box sx={{ flexDirection: "column", width: "100%", height: "100%", padding: "20vw 0" }}>
             <Header />
             <Routes>
                 <Route index element={<ContentProfile user={user} editingMode={!!location.state?.editing} />} />

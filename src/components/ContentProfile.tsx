@@ -79,7 +79,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                 height: "100%",
                 paddingBottom: "4vw",
                 overflowY: "auto",
-                gap: "3vw",
+                gap: "4vw",
                 flexDirection: "column",
                 alignItems: "center",
             }}
@@ -87,12 +87,12 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
             <Box
                 sx={{
                     backgroundColor: "white",
-                    width: "92%",
+                    width: "92vw",
                     height: "max-content",
                     borderRadius: "2vw",
                     flexDirection: "Column",
                     alignItems: "center",
-                    padding: "3vw",
+                    padding: "4vw",
                     gap: "2vw",
                     position: "relative",
                 }}
@@ -116,7 +116,7 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
                     <p
                         style={{
                             textAlign: "right",
-                            fontSize: "2.7vw",
+                            fontSize: "3vw",
                             textDecoration: "underline",
                             color: "black",
                         }}
@@ -157,12 +157,13 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
             </Box>
             <Box
                 sx={{
-                    width: "92%",
+                    width: "92vw",
                     flexDirection: "column",
+                    gap: "2vw"
                 }}
             >
                 <ListTitle title="Transações Recentes" location="transactions" />
-                <Box sx={{ width: "100%", flexDirection: "column", gap: "2vw" }}>
+                <Box sx={{ width: "100%", flexDirection: "column", gap: "4vw" }}>
                     <Transactions
                         title={title}
                         price={price}
@@ -183,8 +184,9 @@ export const ContentProfile: React.FC<ContentProfileProps> = ({ user, editingMod
             </Box>
             <Box
                 sx={{
-                    width: "92%",
+                    width: "92vw",
                     flexDirection: "column",
+                    gap: "2vw   "
                 }}
             >
                 <ListTitle title="Comentários de Perfil" location="comments" />

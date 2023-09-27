@@ -26,7 +26,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
     const styleBox = {
         flexDirection: "column",
         width: "100%",
-        padding: "5.5vw",
+        padding: "4vw",
         paddingTop: "3vw",
         // paddingBottom: "0",
         border: "1px solid gray",
@@ -70,7 +70,7 @@ export const EditProfile: React.FC<EditProfileProps> = ({ user, handleSubmit, fo
     return (
         <Box
             sx={{
-                width: "88%",
+                width: "84vw",
                 flexDirection: "column",
                 alignItems: "center",
                 gap: "3vw",
