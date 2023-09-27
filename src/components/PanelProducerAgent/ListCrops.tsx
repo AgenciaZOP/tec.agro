@@ -35,21 +35,22 @@ export const ListCrops: React.FC<ListCropsProps> = ({ user }) => {
     return (
         <Box
             sx={{
+                flexDirection: "column",
                 width: "100%",
                 height: "100%",
-                flexDirection: "column",
-                gap: "3vw",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder="safras" onChange={() => {}} />
             <Box
                 sx={{
-                    width: "100%",
-                    height: "91%",
-                    overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw 4vw",
-                    gap: "3vw",
+                    width: "100%",
+                    padding: "4vw",
+                    gap: "4vw",
+                    height: "91%",
+                    overflowY: "auto",
                 }}
             >
                 <CardCrop variant user={agent} type="agent" name="Corretor" transactions={false} handleClick={() => {}} />

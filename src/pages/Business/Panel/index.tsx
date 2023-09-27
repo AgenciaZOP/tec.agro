@@ -41,12 +41,11 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                         height: "91%",
                         padding: "4vw",
                         flexDirection: "column",
-                        gap: "2vw",
+                        gap: "4vw",
                         overflow: "auto",
                     }}
                 >
                     <ModalCategory title="Fertilizantes " product={product} location="category" />
-                    <ModalCategory title="Inseticida" product={product} location="category" />
                     <ModalCategory title="Inseticida" product={product} location="category" />
                 </Box>
                 <Button
@@ -58,7 +57,7 @@ export const Panel: React.FC<PanelProps> = ({ business, product }) => {
                         fontSize: "2.5vw",
                         flexDirection: "column",
                         position: "fixed",
-                        bottom: "9vh",
+                        bottom: "20vw",
                         right: "4vw",
                     }}
                     onClick={() => {

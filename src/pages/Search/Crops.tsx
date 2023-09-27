@@ -21,14 +21,20 @@ export const Crops: React.FC<CropsProps> = ({}) => {
             sx={{
                 flexDirection: "column",
                 width: "100%",
-                padding: "0 4vw",
-                gap: "5vw",
                 height: "100%",
-                overflow: "hidden",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder={"safras"} onChange={handleChange} />
-            <Box sx={{ flexDirection: "column", gap: "2vw", height: "100%", overflowY: "auto", paddingBottom: "10vh" }}>
+            <Box sx={{
+                flexDirection: "column",
+                width: "100%",
+                padding: "0 4vw 4vw",
+                gap: "4vw",
+                height: "91%",
+                overflowY: "auto",
+            }}>
                 {list.map((crop) => (
                     <CropCard key={crop.id} crop={crop} />
                 ))}

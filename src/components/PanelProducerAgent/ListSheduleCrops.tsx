@@ -16,21 +16,22 @@ export const ListSheduleCrops: React.FC<ListSheduleCropsProps> = ({}) => {
     return (
         <Box
             sx={{
+                flexDirection: "column",
                 width: "100%",
                 height: "100%",
-                flexDirection: "column",
-                gap: "3vw",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder="conversas" onChange={() => {}} />
             <Box
                 sx={{
-                    width: "100%",
-                    height: "91%",
-                    overflow: "auto",
                     flexDirection: "column",
-                    padding: "3vw 4vw",
-                    gap: "3vw",
+                    width: "100%",
+                    padding: "4vw",
+                    gap: "4vw",
+                    height: "91%",
+                    overflowY: "auto",
                 }}
             >
                 <Schedule status="schedule" />

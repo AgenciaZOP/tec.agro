@@ -14,12 +14,11 @@ export const ListZones: React.FC<ListZonesProps> = ({ title, user }) => {
     return (
         <Box
             sx={{
-                width: "100%",
-                padding: "0 4vw",
-                height: "100%",
                 flexDirection: "column",
-                gap: "3vw",
-                paddingBottom: "5vw",
+                width: "100%",
+                height: "100%",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder="veículos" onChange={() => {}} />
@@ -27,13 +26,12 @@ export const ListZones: React.FC<ListZonesProps> = ({ title, user }) => {
             <Paper
                 elevation={2}
                 sx={{
-                    width: "100%",
-                    height: "70vh ",
-                    borderRadius: "2vw",
-                    padding: "3vw 5vw",
                     flexDirection: "column",
-                    gap: "3vw",
-                    overflow: "auto",
+                    width: "100%",
+                    padding: "4vw",
+                    gap: "4vw",
+                    height: "91%",
+                    overflowY: "auto",
                 }}
             >
                 <Box sx={{ flexDirection: "column", gap: "1vw" }}>

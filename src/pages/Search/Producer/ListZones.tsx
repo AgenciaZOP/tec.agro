@@ -30,15 +30,22 @@ export const ListZones: React.FC<ListZonesProps> = ({ user }) => {
         active: false,
     }
     return (
-        <Box sx={{ height: "100%", padding: "0", flexDirection: "column" }}>
+        <Box sx={{
+                flexDirection: "column",
+                width: "100%",
+                height: "100%",
+                padding: "20vw 0",
+                gap: "4vw",
+            }}>
             <SearchInput placeholder="corretor" onChange={() => {}} />
             <Box
                 sx={{
-                    overflow: "auto",
-                    height: "90%",
-                    padding: "3vw 4vw",
                     flexDirection: "column",
-                    gap: "2vw",
+                    width: "100%",
+                    padding: "4vw",
+                    gap: "4vw",
+                    height: "91%",
+                    overflowY: "auto",
                 }}
             >
                 <ListTitle title="Região #1" location="agentspr" />

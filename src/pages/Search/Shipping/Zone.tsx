@@ -24,32 +24,32 @@ export const Zone: React.FC<ZoneProps> = ({}) => {
     return (
         <Box
             sx={{
+                flexDirection: "column",
                 width: "100%",
                 height: "100%",
-                flexDirection: "column",
-                gap: "3vw",
-                paddingBottom: "8vh",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder={"veículos"} onChange={() => {}} />
             <Box
                 sx={{
                     flexDirection: "column",
-                    gap: "3vw",
-                    height: "100%",
-                    padding: "0 4vw 3vh",
-                    overflow: "auto",
+                    width: "100%",
+                    padding: "4vw",
+                    gap: "4vw",
+                    height: "91%",
+                    overflowY: "auto",
                 }}
             >
                 <Paper
                     elevation={2}
                     sx={{
                         width: "100%",
-                        height: "15vh ",
                         borderRadius: "2vw",
-                        padding: "3vw 5vw",
+                        padding: "4vw",
                         flexDirection: "column",
-                        gap: "3vw",
+                        gap: "4vw",
                     }}
                 >
                     <TextField
@@ -77,10 +77,10 @@ export const Zone: React.FC<ZoneProps> = ({}) => {
                     sx={{
                         width: "100%",
                         borderRadius: "2vw",
-                        padding: "4vw 3vw",
+                        padding: "4vw",
                         flexDirection: "column",
                         gap: "2vw",
-                        paddingBottom: "5vw",
+                        paddingBottom: "4vw",
                         overflowY: "auto",
                     }}
                 >
@@ -102,8 +102,8 @@ export const Zone: React.FC<ZoneProps> = ({}) => {
                             fontSize: "2vw",
                             flexDirection: "column",
                             position: "fixed",
-                            bottom: "11vh",
-                            right: "5vw",
+                            bottom: "20vw",
+                            right: "4vw",
                         }}
                         onClick={() => {}}
                     >

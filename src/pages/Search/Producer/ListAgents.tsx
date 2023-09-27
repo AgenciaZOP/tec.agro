@@ -27,22 +27,22 @@ export const ListAgents: React.FC<ListAgentsProps> = ({ user }) => {
     return (
         <Box
             sx={{
+                flexDirection: "column",
                 width: "100%",
                 height: "100%",
-                flexDirection: "column",
-                padding: "0",
-                gap: "3vw",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder="safras pagas" onChange={() => {}} />
             <Box
                 sx={{
-                    height: "90%",
-                    padding: "3vw 4vw",
-                    overflow: "auto",
                     flexDirection: "column",
-                    gap: "3vw",
-                    paddingBottom: "4vw ",
+                    width: "100%",
+                    padding: "4vw",
+                    gap: "4vw",
+                    height: "91%",
+                    overflowY: "auto",
                 }}
             >
                 <CardCrop user={agent} type="agent" name="Corretor" />

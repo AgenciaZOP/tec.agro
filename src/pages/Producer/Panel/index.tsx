@@ -53,7 +53,7 @@ export const Panel: React.FC<PanelProps> = ({ user, agent }) => {
                     height: "91%",
                     padding: "0 4vw 4vw",
                     flexDirection: "column",
-                    gap: "2vw",
+                    gap: "4vw",
                     overflow: "auto",
                 }}
             >

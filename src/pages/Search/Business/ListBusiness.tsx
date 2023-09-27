@@ -11,14 +11,22 @@ export const ListBusiness: React.FC<ListBusinessProps> = ({}) => {
             sx={{
                 flexDirection: "column",
                 width: "100%",
-                padding: "0 4vw 4vw",
-                gap: "4vw",
                 height: "100%",
-                overflow: "hidden",
+                padding: "20vw 0",
+                gap: "4vw",
             }}
         >
             <SearchInput placeholder={"lojas ou serviços"} onChange={() => {}} />
-            <Box sx={{ flexDirection: "column", gap: "2vw", height: "100%", overflowY: "auto", paddingBottom: "20vw" }}>
+            <Box
+                sx={{
+                    flexDirection: "column",
+                    width: "100%",
+                    padding: "0 4vw 4vw",
+                    gap: "4vw",
+                    height: "91%",
+                    overflowY: "auto",
+                }}
+            >
                 <BusinessList />
             </Box>
         </Box>

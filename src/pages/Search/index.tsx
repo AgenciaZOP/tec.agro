@@ -10,7 +10,7 @@ import { ListSheduleCrops } from "../../components/PanelProducerAgent/ListShedul
 import { ListZones as ListZonesPr } from "./Producer/ListZones"
 import { ListAgents } from "./Producer/ListAgents"
 import { useNavigationList } from "../../hooks/useNavigationList"
-import { ListZones } from "./Shipping/ListZones"
+import { ListZones as ListZonesSh} from "./Shipping/ListZones"
 import { Zone } from "./Shipping/Zone"
 import { ListTransactions } from "../Adm/ListTransactions"
 import { CropsPaid } from "./CropsPaid"
@@ -166,7 +166,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
     }
 
     return (
-        <Box sx={{ flexDirection: "column", width: "100%", padding: "10vh 0" }}>
+        <Box sx={{ width: "100%" }}>
             {renderHeaderMenu()}
             <Routes>
                 <Route path="crops" element={<Crops />} />
@@ -178,7 +178,7 @@ export const Search: React.FC<SearchProps> = ({ user }) => {
                 <Route path="schedulepr" element={<ListSheduleCrops />} />
                 <Route path="zonespr" element={<ListZonesPr user={user} />} />
                 <Route path="agentspr" element={<ListAgents user={user} />} />
-                <Route path="zonessh" element={<ListZones user={user} title="Veículos" />} />
+                <Route path="zonessh" element={<ListZonesSh user={user} title="Veículos" />} />
                 <Route path="zone" element={<Zone />} />
                 <Route path="cropspaid" element={<CropsPaid />} />
                 <Route path="transrecents" element={<TransactionsRecents />} />
